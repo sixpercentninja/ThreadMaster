@@ -1,13 +1,48 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8118" systemVersion="15A172" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BV1-FR-VrT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BV1-FR-VrT">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8098"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--Root View Controller-->
+        <scene sceneID="pmc-vv-IUd">
+            <objects>
+                <viewController id="kKE-lh-rQP" customClass="RootViewController" customModule="ThreadMagic" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="BWj-X4-KEc"/>
+                        <viewControllerLayoutGuide type="bottom" id="vZO-FR-Irb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Fi0-fo-THx">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7F5-L7-P7Z">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="620"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="7F5-L7-P7Z" firstAttribute="top" secondItem="BWj-X4-KEc" secondAttribute="bottom" constant="-20" id="56r-Qs-lp3"/>
+                            <constraint firstItem="7F5-L7-P7Z" firstAttribute="leading" secondItem="Fi0-fo-THx" secondAttribute="leadingMargin" constant="-20" id="8XP-PT-FY2"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="7F5-L7-P7Z" secondAttribute="trailing" constant="-20" id="lcB-ka-Hjv"/>
+                            <constraint firstItem="vZO-FR-Irb" firstAttribute="top" secondItem="7F5-L7-P7Z" secondAttribute="bottom" constant="-20" id="vEW-1w-MRt"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="gameView" destination="7F5-L7-P7Z" id="hnb-yN-Xqu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1ga-KY-o7t" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-363" y="338"/>
+        </scene>
         <!--Game View Controller-->
         <scene sceneID="tXr-a1-R10">
             <objects>
-                <viewController id="BV1-FR-VrT" customClass="GameViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BV1-FR-VrT" customClass="GameViewController" customModule="ThreadMagic" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8aa-yV-Osq"/>
                         <viewControllerLayoutGuide type="bottom" id="qHh-Mt-9TT"/>
@@ -15,11 +50,12 @@
                     <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3se-qz-xqx" customClass="SKView">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="300" y="347"/>
         </scene>
     </scenes>
 </document>

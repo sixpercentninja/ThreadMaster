@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B8BAEE21C765CE9001C1834 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8BAEE11C765CE9001C1834 /* RootViewController.swift */; };
+		7B8BAEE61C765FFD001C1834 /* water.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 7B8BAEE51C765FFD001C1834 /* water.atlas */; };
+		7B8BAEEC1C766051001C1834 /* mc.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 7B8BAEEB1C766051001C1834 /* mc.atlas */; };
+		7B8BAEF11C7662EE001C1834 /* fabricMaster1.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 7B8BAEF01C7662EE001C1834 /* fabricMaster1.atlas */; };
 		97E510071C73E6940034B575 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E510061C73E6940034B575 /* AppDelegate.swift */; };
-		97E510091C73E6940034B575 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 97E510081C73E6940034B575 /* GameScene.sks */; };
 		97E5100B1C73E6940034B575 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E5100A1C73E6940034B575 /* GameScene.swift */; };
 		97E5100D1C73E6940034B575 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E5100C1C73E6940034B575 /* GameViewController.swift */; };
 		97E510101C73E6940034B575 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97E5100E1C73E6940034B575 /* Main.storyboard */; };
@@ -17,9 +20,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7B8BAEE11C765CE9001C1834 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		7B8BAEE51C765FFD001C1834 /* water.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = water.atlas; sourceTree = "<group>"; };
+		7B8BAEEB1C766051001C1834 /* mc.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = mc.atlas; sourceTree = "<group>"; };
+		7B8BAEF01C7662EE001C1834 /* fabricMaster1.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = fabricMaster1.atlas; sourceTree = "<group>"; };
 		97E510031C73E6940034B575 /* ThreadMagic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThreadMagic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97E510061C73E6940034B575 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		97E510081C73E6940034B575 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		97E5100A1C73E6940034B575 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		97E5100C1C73E6940034B575 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		97E5100F1C73E6940034B575 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -39,6 +45,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7B8BAEED1C7660C9001C1834 /* GameScene */ = {
+			isa = PBXGroup;
+			children = (
+				97E5100A1C73E6940034B575 /* GameScene.swift */,
+				97E5100C1C73E6940034B575 /* GameViewController.swift */,
+				7B8BAEF01C7662EE001C1834 /* fabricMaster1.atlas */,
+				7B8BAEEB1C766051001C1834 /* mc.atlas */,
+				7B8BAEE51C765FFD001C1834 /* water.atlas */,
+			);
+			name = GameScene;
+			sourceTree = "<group>";
+		};
 		97E50FFA1C73E6940034B575 = {
 			isa = PBXGroup;
 			children = (
@@ -59,9 +77,8 @@
 			isa = PBXGroup;
 			children = (
 				97E510061C73E6940034B575 /* AppDelegate.swift */,
-				97E510081C73E6940034B575 /* GameScene.sks */,
-				97E5100A1C73E6940034B575 /* GameScene.swift */,
-				97E5100C1C73E6940034B575 /* GameViewController.swift */,
+				7B8BAEE11C765CE9001C1834 /* RootViewController.swift */,
+				7B8BAEED1C7660C9001C1834 /* GameScene */,
 				97E5100E1C73E6940034B575 /* Main.storyboard */,
 				97E510111C73E6940034B575 /* Assets.xcassets */,
 				97E510131C73E6940034B575 /* LaunchScreen.storyboard */,
@@ -129,8 +146,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				97E510091C73E6940034B575 /* GameScene.sks in Resources */,
+				7B8BAEF11C7662EE001C1834 /* fabricMaster1.atlas in Resources */,
 				97E510151C73E6940034B575 /* LaunchScreen.storyboard in Resources */,
+				7B8BAEE61C765FFD001C1834 /* water.atlas in Resources */,
+				7B8BAEEC1C766051001C1834 /* mc.atlas in Resources */,
 				97E510121C73E6940034B575 /* Assets.xcassets in Resources */,
 				97E510101C73E6940034B575 /* Main.storyboard in Resources */,
 			);
@@ -145,6 +164,7 @@
 			files = (
 				97E5100B1C73E6940034B575 /* GameScene.swift in Sources */,
 				97E5100D1C73E6940034B575 /* GameViewController.swift in Sources */,
+				7B8BAEE21C765CE9001C1834 /* RootViewController.swift in Sources */,
 				97E510071C73E6940034B575 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -295,6 +315,7 @@
 				97E5101B1C73E6940034B575 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
