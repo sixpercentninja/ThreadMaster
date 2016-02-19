@@ -10,15 +10,11 @@
 import SpriteKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
-    let textureAtlas = SKTextureAtlas(named: "fabricMaster1")
-    var fabricMasterArray = Array<SKTexture>()
-    var fabricMaster = SKSpriteNode()
-    var shake = Array<CGPoint>()
     
-    let textureAt = SKTextureAtlas(named: "mc")
-    var mcArray = Array<SKTexture>()
-    var mc = SKSpriteNode()
-
+    var fabricMaster = Monster()
+    var fabricMasterLabel = SKLabelNode()
+    var mc = Player()
+    var mcLabel = SKLabelNode()
     
     var rawPoints:[Int] = []
     var recognizer: DBPathRecognizer?
@@ -41,7 +37,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addMonster()
         
         
-        yourline.strokeColor = SKColor.redColor()
+        yourline.strokeColor = SKColor.purpleColor()
+        yourline.lineWidth = 20.0
         self.addChild(yourline)
     }
     
@@ -91,8 +88,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let letter = gesture!.datas as? String
 
             if(letter == "C"){
-                
                 waterAnimation()
+                mc.attack(fabricMaster, skillName: "wetTowelSlap")
+                fabricMasterLabel.text = "\(fabricMaster.charName): \(fabricMaster.currentHp)/ \(fabricMaster.maxHP)"
+                mcLabel.text = "\(mc.charName): \(mc.currentHp)/ \(mc.maxHP)"
             }
             print(letter)
         } else {
@@ -111,69 +110,57 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         print("Size: \(bg.size)")
     }
     
-//    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-//        /* Called when touched */
-//        waterAnimation()
-//        
-//        for touch: AnyObject in touches {
-//            let location = touch.locationInNode(self)
-//            
-//            
-//        }
-//    }
-    
     func addPlayer() {
-        mcArray.append(textureAt.textureNamed("1"))
-        mcArray.append(textureAt.textureNamed("2"))
-        mcArray.append(textureAt.textureNamed("3"))
-        mcArray.append(textureAt.textureNamed("4"))
+        let textureAtlas = SKTextureAtlas(named: "mc")
         
-        mc = SKSpriteNode(texture: mcArray[0])
+        let mcArray = textureAtlas.textureNames.map({ textureAtlas.textureNamed($0) })
+        
+        mc = Player(imageNamed: textureAtlas.textureNames.first!, maxHP: 50, charName: "Steven", attribute: Attribute.Neutral)
+
         mc.position = CGPoint(x: 350, y: 320)
         mc.xScale = 1.2
         mc.yScale = 1.2
+        
         addChild(mc)
         
         let animateAction = SKAction.animateWithTextures(mcArray, timePerFrame: 0.30)
         let repeatAction = SKAction.repeatActionForever(animateAction)
         mc.runAction(repeatAction)
+        
+        mcLabel.text = "\(mc.charName): \(mc.currentHp)/ \(mc.maxHP)"
+        labelDefaultSettings(mcLabel)
+        mcLabel.position = CGPoint(x: size.width - (mcLabel.frame.width/2) - 10, y: 0 + (mcLabel.frame.height) + 10)
+        addChild(mcLabel)
     }
     
     func addMonster() {
-        fabricMasterArray.append(textureAtlas.textureNamed("1"))
-        fabricMasterArray.append(textureAtlas.textureNamed("2"))
-        fabricMaster = SKSpriteNode(texture:fabricMasterArray[0])
+        let textureAtlas = SKTextureAtlas(named: "fabricMaster1")
+        fabricMaster.textureAtlas = textureAtlas
+        
+        let fabricMasterArray = textureAtlas.textureNames.map({ textureAtlas.textureNamed($0) })
+        
+        fabricMaster = Monster(imageNamed: textureAtlas.textureNames.first!, maxHP: 100, charName: "Cuadsf", attribute: Attribute.Heat)
+        
         fabricMaster.position = CGPoint(x: 940, y: 520)
-        fabricMaster.xScale = 1.0
-        fabricMaster.yScale = 1.0
+        
         addChild(fabricMaster)
         
         let animateAction = SKAction.animateWithTextures(fabricMasterArray, timePerFrame: 0.30)
         let repeatAction = SKAction.repeatActionForever(animateAction)
+        
         fabricMaster.runAction(repeatAction)
         
-        fabricMaster.physicsBody = SKPhysicsBody(rectangleOfSize: fabricMaster.size)
-        fabricMaster.physicsBody?.dynamic = true
-        //        fabricMaster.physicsBody?.categoryBitMask
-        //        fabricMaster.physicsBody?
-        //        fabricMaster
-        
+        fabricMasterLabel.text = "\(fabricMaster.charName): \(fabricMaster.currentHp)/ \(fabricMaster.maxHP)"
+        labelDefaultSettings(fabricMasterLabel)
+        fabricMasterLabel.position = CGPoint(x: 0 + (fabricMasterLabel.frame.width/2) + 10, y: size.height - (fabricMasterLabel.frame.height) - 50)
+        addChild(fabricMasterLabel)
     }
     
     func waterAnimation() {
         let textAtlas = SKTextureAtlas(named: "water")
-        var waterArray = Array<SKTexture>()
         var waterSpell = SKSpriteNode()
         
-        waterArray.append(textAtlas.textureNamed("1"))
-        waterArray.append(textAtlas.textureNamed("2"))
-        waterArray.append(textAtlas.textureNamed("3"))
-        waterArray.append(textAtlas.textureNamed("4"))
-        waterArray.append(textAtlas.textureNamed("5"))
-        waterArray.append(textAtlas.textureNamed("6"))
-        waterArray.append(textAtlas.textureNamed("7"))
-        waterArray.append(textAtlas.textureNamed("8"))
-        waterArray.append(textAtlas.textureNamed("9"))
+        let waterArray = textAtlas.textureNames.sort().map({ textAtlas.textureNamed($0) })
         
         waterSpell = SKSpriteNode(texture: waterArray[0])
         waterSpell.zPosition = 0.6
@@ -185,20 +172,23 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         waterSpell.runAction(animate) { () -> Void in
             waterSpell.removeFromParent()
             let colorize = SKAction.colorizeWithColor(.blueColor(), colorBlendFactor: 1, duration: 0.5)
-            self.fabricMaster.runAction(colorize) { () -> Void in
-                self.fabricMaster.removeFromParent()
-                self.addMonster()
-                let rotateLeft = SKAction.rotateToAngle(0.3, duration: 0.1)
-                let rotateRight = SKAction.rotateToAngle(-0.3, duration: 0.1)
-                let rotateNormal = SKAction.rotateToAngle(0, duration: 0.1)
-                let actionSequence = SKAction.sequence([rotateLeft, rotateRight, rotateLeft, rotateRight, rotateLeft, rotateNormal])
-                self.fabricMaster.runAction(actionSequence)
-            }
+            let rotateLeft = SKAction.rotateToAngle(0.3, duration: 0.1)
+            let rotateRight = SKAction.rotateToAngle(-0.3, duration: 0.1)
+            let rotateNormal = SKAction.rotateToAngle(0, duration: 0.1)
+            let actionSequence = SKAction.sequence([colorize, rotateLeft, rotateRight, rotateLeft, rotateRight, rotateLeft, rotateNormal, colorize.reversedAction()])
+            self.fabricMaster.runAction(actionSequence)
+
         }
     }
     
+    func labelDefaultSettings(label: SKLabelNode){
+        label.fontColor = SKColor.redColor()
+        label.fontSize = 50.0
+        label.fontName = "AvenirNext-Bold"
+    }
+    
     override func update(currentTime: CFTimeInterval) {
-        /* Called before each frame is rendered */
+    
     }
     
     
