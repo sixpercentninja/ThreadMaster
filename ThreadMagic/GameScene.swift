@@ -9,24 +9,98 @@
 
 import SpriteKit
 
-let textureAtlas = SKTextureAtlas(named: "fabricMaster1")
-var fabricMasterArray = Array<SKTexture>()
-var fabricMaster = SKSpriteNode()
-var shake = Array<CGPoint>()
-let textureAt = SKTextureAtlas(named: "mc")
-var mcArray = Array<SKTexture>()
-var mc = SKSpriteNode()
-
 class GameScene: SKScene, SKPhysicsContactDelegate {
+    let textureAtlas = SKTextureAtlas(named: "fabricMaster1")
+    var fabricMasterArray = Array<SKTexture>()
+    var fabricMaster = SKSpriteNode()
+    var shake = Array<CGPoint>()
+    
+    let textureAt = SKTextureAtlas(named: "mc")
+    var mcArray = Array<SKTexture>()
+    var mc = SKSpriteNode()
+
+    
+    var rawPoints:[Int] = []
+    var recognizer: DBPathRecognizer?
+    
+    var yourline: SKShapeNode = SKShapeNode()
+    
+    
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
+        
+        let recognizer = DBPathRecognizer(sliceCount: 8, deltaMove: 16.0)
+        recognizer.addModel(PathModel(directions: [7, 1], datas:"A"))
+        recognizer.addModel(PathModel(directions: [4,3,2,1,0], datas:"C"))
+        self.recognizer = recognizer
+        
         physicsWorld.gravity = CGVector(dx: 0, dy: 0)
         
         addBG()
         addPlayer()
         addMonster()
         
+        
+        yourline.strokeColor = SKColor.redColor()
+        self.addChild(yourline)
     }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        rawPoints = []
+        let touch = touches.first
+        let location = touch!.locationInNode(self)
+        print(location)
+        rawPoints.append(Int(location.x))
+        rawPoints.append(Int(location.y))
+    }
+    
+    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        let touch = touches.first
+        let location = touch!.locationInNode(self)
+        rawPoints.append(Int(location.x))
+        rawPoints.append(Int(location.y))
+
+        let pathToDraw = CGPathCreateMutable()
+        let startLocationX = CGFloat(rawPoints[0])
+        let startLocationY = CGFloat(rawPoints[1])
+        
+        CGPathMoveToPoint(pathToDraw, nil, startLocationX, startLocationY);
+        
+        for i in 2..<rawPoints.count {
+            if i % 2 == 0 {
+                let locationX = CGFloat(rawPoints[i])
+                let locationY = CGFloat(rawPoints[i + 1])
+                CGPathAddLineToPoint(pathToDraw, nil, locationX, locationY);
+            }
+        }
+        
+        yourline.path = pathToDraw
+        
+    }
+    
+    
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        
+        
+        var path:Path = Path()
+        path.addPointFromRaw(rawPoints)
+        
+        let gesture:PathModel? = self.recognizer!.recognizePath(path)
+        
+        if gesture != nil {
+            let letter = gesture!.datas as? String
+
+            if(letter == "C"){
+                
+                waterAnimation()
+            }
+            print(letter)
+        } else {
+//            letter.text = "-"
+        }
+    }
+    
+    
     
     func addBG() {
         let bg = SKSpriteNode(imageNamed: "bg")
@@ -37,16 +111,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         print("Size: \(bg.size)")
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        /* Called when touched */
-        waterAnimation()
-        
-        for touch: AnyObject in touches {
-            let location = touch.locationInNode(self)
-            
-            
-        }
-    }
+//    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+//        /* Called when touched */
+//        waterAnimation()
+//        
+//        for touch: AnyObject in touches {
+//            let location = touch.locationInNode(self)
+//            
+//            
+//        }
+//    }
     
     func addPlayer() {
         mcArray.append(textureAt.textureNamed("1"))
@@ -111,14 +185,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         waterSpell.runAction(animate) { () -> Void in
             waterSpell.removeFromParent()
             let colorize = SKAction.colorizeWithColor(.blueColor(), colorBlendFactor: 1, duration: 0.5)
-            fabricMaster.runAction(colorize) { () -> Void in
-                fabricMaster.removeFromParent()
+            self.fabricMaster.runAction(colorize) { () -> Void in
+                self.fabricMaster.removeFromParent()
                 self.addMonster()
                 let rotateLeft = SKAction.rotateToAngle(0.3, duration: 0.1)
                 let rotateRight = SKAction.rotateToAngle(-0.3, duration: 0.1)
                 let rotateNormal = SKAction.rotateToAngle(0, duration: 0.1)
                 let actionSequence = SKAction.sequence([rotateLeft, rotateRight, rotateLeft, rotateRight, rotateLeft, rotateNormal])
-                fabricMaster.runAction(actionSequence)
+                self.fabricMaster.runAction(actionSequence)
             }
         }
     }
