@@ -32,9 +32,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         physicsWorld.gravity = CGVector(dx: 0, dy: 0)
         
-        addBG()
+        addBG("bg")
         addPlayer()
-        addMonster()
+        addMonster("fabricMaster1")
         
         
         yourline.strokeColor = SKColor.purpleColor()
@@ -97,17 +97,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         } else {
 //            letter.text = "-"
         }
+        
+        if fabricMaster.currentHp <= 0 {
+            defeated(fabricMaster)
+            //Win transistion here
+        }
     }
     
     
     
-    func addBG() {
-        let bg = SKSpriteNode(imageNamed: "bg")
+    func addBG(backgroundName: String) {
+        let bg = SKSpriteNode(imageNamed: backgroundName)
         bg.zPosition = -1
         bg.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         bg.position = CGPoint(x: size.width/2, y: size.height/2)
         addChild(bg)
-        print("Size: \(bg.size)")
     }
     
     func addPlayer() {
@@ -133,14 +137,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addChild(mcLabel)
     }
     
-    func addMonster() {
-        let textureAtlas = SKTextureAtlas(named: "fabricMaster1")
+    func addMonster(atlasName: String) {
+        let textureAtlas = SKTextureAtlas(named: atlasName)
         fabricMaster.textureAtlas = textureAtlas
         
         let fabricMasterArray = textureAtlas.textureNames.map({ textureAtlas.textureNamed($0) })
         
         fabricMaster = Monster(imageNamed: textureAtlas.textureNames.first!, maxHP: 100, charName: "Cuadsf", attribute: Attribute.Heat)
-        
         fabricMaster.position = CGPoint(x: 940, y: 520)
         
         addChild(fabricMaster)
@@ -177,10 +180,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let rotateNormal = SKAction.rotateToAngle(0, duration: 0.1)
             let actionSequence = SKAction.sequence([colorize, rotateLeft, rotateRight, rotateLeft, rotateRight, rotateLeft, rotateNormal, colorize.reversedAction()])
             self.fabricMaster.runAction(actionSequence)
-
         }
     }
     
+    func defeated(sprite: SKSpriteNode) {
+        let colorize = SKAction.colorizeWithColor(.blueColor(), colorBlendFactor: 1, duration: 0.4)
+        let colorNormal = SKAction.colorizeWithColor(.clearColor() , colorBlendFactor: 1, duration: 1.2)
+        let colorSequence = SKAction.sequence([colorize, colorNormal])
+        sprite.runAction(colorSequence) { () -> Void in
+            sprite.removeFromParent()
+        }
+        
+    }
+
+
     func labelDefaultSettings(label: SKLabelNode){
         label.fontColor = SKColor.redColor()
         label.fontSize = 50.0
