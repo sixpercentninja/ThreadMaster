@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		7B108ECE1C779A21003FC7EE /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B108ECD1C779A21003FC7EE /* GameOverScene.swift */; };
+		7B108EF31C799ED8003FC7EE /* health.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B108EF11C799ED8003FC7EE /* health.png */; };
+		7B108EF41C799ED8003FC7EE /* healthBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B108EF21C799ED8003FC7EE /* healthBar.png */; };
 		7B8BAEE21C765CE9001C1834 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8BAEE11C765CE9001C1834 /* RootViewController.swift */; };
 		7B8BAEE61C765FFD001C1834 /* water.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 7B8BAEE51C765FFD001C1834 /* water.atlas */; };
 		7B8BAEEC1C766051001C1834 /* mc.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 7B8BAEEB1C766051001C1834 /* mc.atlas */; };
@@ -29,6 +31,8 @@
 
 /* Begin PBXFileReference section */
 		7B108ECD1C779A21003FC7EE /* GameOverScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
+		7B108EF11C799ED8003FC7EE /* health.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = health.png; path = ../health.png; sourceTree = "<group>"; };
+		7B108EF21C799ED8003FC7EE /* healthBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = healthBar.png; path = ../healthBar.png; sourceTree = "<group>"; };
 		7B8BAEE11C765CE9001C1834 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		7B8BAEE51C765FFD001C1834 /* water.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = water.atlas; sourceTree = "<group>"; };
 		7B8BAEEB1C766051001C1834 /* mc.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = mc.atlas; sourceTree = "<group>"; };
@@ -68,6 +72,8 @@
 				97E5100A1C73E6940034B575 /* GameScene.swift */,
 				97E5100C1C73E6940034B575 /* GameViewController.swift */,
 				7B108ECD1C779A21003FC7EE /* GameOverScene.swift */,
+				7B108EF11C799ED8003FC7EE /* health.png */,
+				7B108EF21C799ED8003FC7EE /* healthBar.png */,
 				7B8BAEF01C7662EE001C1834 /* fabricMaster1.atlas */,
 				7B8BAEEB1C766051001C1834 /* mc.atlas */,
 				7B8BAEE51C765FFD001C1834 /* water.atlas */,
@@ -191,8 +197,10 @@
 				7B8BAEF11C7662EE001C1834 /* fabricMaster1.atlas in Resources */,
 				97E510151C73E6940034B575 /* LaunchScreen.storyboard in Resources */,
 				7B8BAEE61C765FFD001C1834 /* water.atlas in Resources */,
+				7B108EF41C799ED8003FC7EE /* healthBar.png in Resources */,
 				7B8BAEEC1C766051001C1834 /* mc.atlas in Resources */,
 				97E510121C73E6940034B575 /* Assets.xcassets in Resources */,
+				7B108EF31C799ED8003FC7EE /* health.png in Resources */,
 				97E510101C73E6940034B575 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

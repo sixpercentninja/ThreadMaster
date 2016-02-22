@@ -15,15 +15,23 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var fabricMasterLabel = SKLabelNode()
     var mc = Player()
     var mcLabel = SKLabelNode()
+    var mainCharacterHealthBar = SKSpriteNode()
+    var mainCharacterLifeBar = SKSpriteNode()
+    var mainCharacterLife = CGFloat()
+    var enemyHealthBar = SKSpriteNode()
+    var enemyLifeBar = SKSpriteNode()
+    var enemyLife = CGFloat()
     
     var rawPoints:[Int] = []
     var recognizer: DBPathRecognizer?
     
     var yourline: SKShapeNode = SKShapeNode()
+
     
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
+        
         
         let recognizer = DBPathRecognizer(sliceCount: 8, deltaMove: 16.0)
         recognizer.addModel(PathModel(directions: [7, 1], datas:"A"))
@@ -35,6 +43,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addBG("bg")
         addPlayer()
         addMonster("fabricMaster1")
+        
+
         
         
         yourline.strokeColor = SKColor.purpleColor()
@@ -92,12 +102,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 mc.attack(fabricMaster, skillName: "wetTowelSlap")
                 fabricMasterLabel.text = "\(fabricMaster.charName): \(fabricMaster.currentHp)/ \(fabricMaster.maxHP)"
                 mcLabel.text = "\(mc.charName): \(mc.currentHp)/ \(mc.maxHP)"
+                
+                //life
+                enemyLife = CGFloat(Float(fabricMaster.currentHp) / Float(fabricMaster.maxHP) * 2)
             }
             print(letter)
         } else {
 //            letter.text = "-"
         }
         
+
         if fabricMaster.currentHp <= 0 {
             defeated(fabricMaster)
             //Win transistion here
@@ -124,8 +138,25 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         mc.position = CGPoint(x: 350, y: 320)
         mc.xScale = 1.2
         mc.yScale = 1.2
+        mainCharacterLife = CGFloat((Float(mc.currentHp) / Float(mc.maxHP)) * 2)
+        mainCharacterHealthBar = SKSpriteNode(imageNamed: "healthBar")
+        mainCharacterHealthBar.position = CGPoint(x: 950, y: 130)
+        mainCharacterHealthBar.setScale(2.0)
+        mainCharacterHealthBar.zPosition = 0.6
+        mainCharacterLifeBar = SKSpriteNode(imageNamed: "health")
+        mainCharacterLifeBar.position = CGPoint(x: mainCharacterHealthBar.position.x - 172, y: mainCharacterHealthBar.position.y - 1)
+        mainCharacterLifeBar.xScale = mainCharacterLife
+        mainCharacterLifeBar.yScale = 2.0
+        mainCharacterLifeBar.zPosition = 0.5
+        mainCharacterLifeBar.anchorPoint = CGPointMake(0.0, 0.5)
         
+  
+//      Add to enemy attack action.
+//        mainCharacterLife = CGFloat(Float(fabricMaster.currentHp) / Float(fabricMaster.maxHP) * 2)
+            
         addChild(mc)
+        addChild(mainCharacterHealthBar)
+        addChild(mainCharacterLifeBar)
         
         let animateAction = SKAction.animateWithTextures(mcArray, timePerFrame: 0.30)
         let repeatAction = SKAction.repeatActionForever(animateAction)
@@ -146,7 +177,23 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         fabricMaster = Monster(imageNamed: textureAtlas.textureNames.first!, maxHP: 100, charName: "Cuadsf", attribute: Attribute.Heat)
         fabricMaster.position = CGPoint(x: 940, y: 520)
         
+
         addChild(fabricMaster)
+        //Life
+        enemyLife = CGFloat((fabricMaster.currentHp / fabricMaster.maxHP) * 2)
+        enemyHealthBar = SKSpriteNode(imageNamed: "healthBar")
+        enemyHealthBar.position = CGPoint(x: 350, y: 650)
+        enemyHealthBar.zPosition = 0.6
+        enemyHealthBar.setScale(2.0)
+        enemyLifeBar = SKSpriteNode(imageNamed: "health")
+        enemyLifeBar.position = CGPoint(x: enemyHealthBar.position.x - 172, y: enemyHealthBar.position.y - 1)
+        enemyLifeBar.anchorPoint = CGPointMake(0.0, 0.5)
+        enemyLifeBar.zPosition = 0.5
+        enemyLifeBar.xScale = enemyLife
+        enemyLifeBar.yScale = 2.0
+        addChild(enemyHealthBar)
+        addChild(enemyLifeBar)
+        
         
         let animateAction = SKAction.animateWithTextures(fabricMasterArray, timePerFrame: 0.30)
         let repeatAction = SKAction.repeatActionForever(animateAction)
@@ -200,8 +247,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         label.fontName = "AvenirNext-Bold"
     }
     
-    override func update(currentTime: CFTimeInterval) {
-    
+    override func update(currentTime: NSTimeInterval) {
+        //Important for updating
+        let duration = 1.0
+        let enemyLifeDrop = SKAction.scaleXTo(enemyLife, duration: duration)
+        enemyLifeBar.runAction(enemyLifeDrop) { () -> Void in
+            self.enemyLifeBar.xScale = self.enemyLife
+        }
+        let mainCharacterLifeDrop = SKAction.scaleXTo(mainCharacterLife, duration: duration)
+        mainCharacterLifeBar.runAction(mainCharacterLifeDrop) { () -> Void in
+            self.mainCharacterLifeBar.xScale = self.mainCharacterLife
+        }
     }
     
     
