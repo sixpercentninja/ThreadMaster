@@ -15,15 +15,23 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var fabricMasterLabel = SKLabelNode()
     var mc = Player()
     var mcLabel = SKLabelNode()
+    var mainCharacterHealthBar = SKSpriteNode()
+    var mainCharacterLifeBar = SKSpriteNode()
+    var mainCharacterLife = CGFloat()
+    var enemyHealthBar = SKSpriteNode()
+    var enemyLifeBar = SKSpriteNode()
+    var enemyLife = CGFloat()
     
     var rawPoints:[Int] = []
     var recognizer: DBPathRecognizer?
     
     var yourline: SKShapeNode = SKShapeNode()
+
     
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
+        
         
         let recognizer = DBPathRecognizer(sliceCount: 8, deltaMove: 16.0)
         recognizer.addModel(PathModel(directions: [7, 1], datas:"A"))
@@ -35,6 +43,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addBG("bg")
         addPlayer()
         addMonster("fabricMaster1")
+        
+
         
         
         yourline.strokeColor = SKColor.purpleColor()
@@ -88,7 +98,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let letter = gesture!.datas as? String
             self.userInteractionEnabled = false
             if(letter == "C"){
-                
                 guard let skill = mc.skills["wetTowelSlap"] else {
                     return
                 }
@@ -128,8 +137,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         mc.position = CGPoint(x: 350, y: 320)
         mc.xScale = 1.2
         mc.yScale = 1.2
+        mainCharacterLife = CGFloat((Float(mc.currentHp) / Float(mc.maxHP)) * 2)
+        mainCharacterHealthBar = SKSpriteNode(imageNamed: "healthBar")
+        mainCharacterHealthBar.position = CGPoint(x: 950, y: 130)
+        mainCharacterHealthBar.setScale(2.0)
+        mainCharacterHealthBar.zPosition = 0.6
+        mainCharacterLifeBar = SKSpriteNode(imageNamed: "health")
+        mainCharacterLifeBar.position = CGPoint(x: mainCharacterHealthBar.position.x - 172, y: mainCharacterHealthBar.position.y - 1)
+        mainCharacterLifeBar.xScale = mainCharacterLife
+        mainCharacterLifeBar.yScale = 2.0
+        mainCharacterLifeBar.zPosition = 0.5
+        mainCharacterLifeBar.anchorPoint = CGPointMake(0.0, 0.5)
+
         
         addChild(mc)
+        addChild(mainCharacterHealthBar)
+        addChild(mainCharacterLifeBar)
         
         let animateAction = SKAction.animateWithTextures(mcArray, timePerFrame: 0.30)
         let repeatAction = SKAction.repeatActionForever(animateAction)
@@ -153,7 +176,23 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         fabricMaster.position = CGPoint(x: 940, y: 520)
         
+
         addChild(fabricMaster)
+        //Life
+        enemyLife = CGFloat((fabricMaster.currentHp / fabricMaster.maxHP) * 2)
+        enemyHealthBar = SKSpriteNode(imageNamed: "healthBar")
+        enemyHealthBar.position = CGPoint(x: 350, y: 650)
+        enemyHealthBar.zPosition = 0.6
+        enemyHealthBar.setScale(2.0)
+        enemyLifeBar = SKSpriteNode(imageNamed: "health")
+        enemyLifeBar.position = CGPoint(x: enemyHealthBar.position.x - 172, y: enemyHealthBar.position.y - 1)
+        enemyLifeBar.anchorPoint = CGPointMake(0.0, 0.5)
+        enemyLifeBar.zPosition = 0.5
+        enemyLifeBar.xScale = enemyLife
+        enemyLifeBar.yScale = 2.0
+        addChild(enemyHealthBar)
+        addChild(enemyLifeBar)
+        
         
         let animateAction = SKAction.animateWithTextures(fabricMasterArray, timePerFrame: 0.30)
         let repeatAction = SKAction.repeatActionForever(animateAction)
@@ -189,6 +228,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func update(currentTime: CFTimeInterval) {
         fabricMasterLabel.text = fabricMaster.nameAndHP()
         mcLabel.text = mc.nameAndHP()
+        
+        mainCharacterLife = CGFloat(Float(fabricMaster.currentHp) / Float(fabricMaster.maxHP) * 2)
+        self.enemyLife = CGFloat(Float(self.fabricMaster.currentHp) / Float(self.fabricMaster.maxHP) * 2)
+        
+        let duration = 1.0
+        let enemyLifeDrop = SKAction.scaleXTo(enemyLife, duration: duration)
+        enemyLifeBar.runAction(enemyLifeDrop) { () -> Void in
+            self.enemyLifeBar.xScale = self.enemyLife
+        }
+        let mainCharacterLifeDrop = SKAction.scaleXTo(mainCharacterLife, duration: duration)
+        mainCharacterLifeBar.runAction(mainCharacterLifeDrop) { () -> Void in
+            self.mainCharacterLifeBar.xScale = self.mainCharacterLife
+        }
     }
     
     func enemyRetaliation(){
