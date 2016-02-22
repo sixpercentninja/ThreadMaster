@@ -7,16 +7,40 @@
 //
 
 import Foundation
+import SpriteKit
 
 class Skill {
-    class var damage: Int { return 0 }
-    class var attackAttribute: Attribute { return Attribute.Heat }
+    var damage: Int { return 0 }
+    var attackAttribute: Attribute { return Attribute.Heat }
     
-    class func calculate(enemyAttribute: Attribute) -> Int {
+    init() {
+    }
+    
+    var textureAtlas: SKTextureAtlas {
+        return SKTextureAtlas()
+    }
+    
+    var animationNode: SKSpriteNode {
+        return SKSpriteNode(texture: animationTextures[0])
+    }
+
+    var animationTextures: [SKTexture] {
+        return textureAtlas.textureNames.sort().map({ textureAtlas.textureNamed($0) })
+    }
+    
+    func animateAction(scene: SKScene, target: SKSpriteNode, completion: () -> Void ) -> Void {
+        
+    }
+    
+    func effectActionSequence() -> SKAction{
+        return SKAction()
+    }
+    
+    func calculate(enemyAttribute: Attribute) -> Int {
         return calculateDamageWithAttributes(damage, attackAttribute: attackAttribute, enemyAttribute: enemyAttribute)
     }
     
-    class func calculateDamageWithAttributes(damage: Int, attackAttribute: Attribute, enemyAttribute: Attribute) -> Int {
+    func calculateDamageWithAttributes(damage: Int, attackAttribute: Attribute, enemyAttribute: Attribute) -> Int {
         let superEffectiveMultipler = 1.1
         let notEffectiveMultiplier = 0.9
         

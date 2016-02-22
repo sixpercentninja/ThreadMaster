@@ -35,7 +35,7 @@ class Character: SKSpriteNode {
     var maxHP: Int = 0
     var currentHp: Int = 0
     var charName: String = ""
-    var skills: [String:(Skill).Type] = [:]
+    var skills: [String: Skill] = [:]
     var attribute: Attribute = Attribute.Neutral
     var playableRect: CGRect = CGRect(x: 0, y: 0, width: 0, height: 0)
     let label = SKLabelNode()
@@ -46,9 +46,9 @@ class Character: SKSpriteNode {
         super.init(texture: texture, color: color, size: size)
     }
     
-    convenience init(imageNamed: String, maxHP: Int, charName: String, attribute: Attribute){
+    init(imageNamed: String, maxHP: Int, charName: String, attribute: Attribute){
         let texture = SKTexture(imageNamed: imageNamed)
-        self.init(texture: texture, color: SKColor(red: 0, green: 0, blue: 0, alpha: 1) , size: texture.size())
+        super.init(texture: texture, color: SKColor(red: 0, green: 0, blue: 0, alpha: 1) , size: texture.size())
         playableRect = self.frame
         self.maxHP = maxHP
         self.currentHp = maxHP
@@ -92,4 +92,10 @@ class Character: SKSpriteNode {
         shape.lineWidth = 4.0
         addChild(shape)
     }
+    
+    func nameAndHP() -> String{
+        return "\(charName): \(currentHp)/\(maxHP)"
+    }
 }
+
+

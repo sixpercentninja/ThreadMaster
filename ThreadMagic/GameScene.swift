@@ -11,7 +11,7 @@ import SpriteKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
-    var fabricMaster = Monster()
+    var fabricMaster = FabricMaster()
     var fabricMasterLabel = SKLabelNode()
     var mc = Player()
     var mcLabel = SKLabelNode()
@@ -86,21 +86,25 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         if gesture != nil {
             let letter = gesture!.datas as? String
-
+            self.userInteractionEnabled = false
             if(letter == "C"){
-                waterAnimation()
-                mc.attack(fabricMaster, skillName: "wetTowelSlap")
-                fabricMasterLabel.text = "\(fabricMaster.charName): \(fabricMaster.currentHp)/ \(fabricMaster.maxHP)"
-                mcLabel.text = "\(mc.charName): \(mc.currentHp)/ \(mc.maxHP)"
+                
+                guard let skill = mc.skills["wetTowelSlap"] else {
+                    return
+                }
+                let animationNode = skill.animationNode
+                
+                self.addChild(animationNode)
+                skill.animateAction(self, target: fabricMaster, completion: { () -> Void in
+                    self.mc.attack(self.fabricMaster, skillName: "wetTowelSlap")
+                    self.evaluateGameOver()
+                    self.enemyRetaliation()
+                    self.evaluateGameOver()
+                    self.userInteractionEnabled = true
+                })
+            }else{
+                self.userInteractionEnabled = true
             }
-            print(letter)
-        } else {
-//            letter.text = "-"
-        }
-        
-        if fabricMaster.currentHp <= 0 {
-            defeated(fabricMaster)
-            //Win transistion here
         }
     }
     
@@ -131,11 +135,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let repeatAction = SKAction.repeatActionForever(animateAction)
         mc.runAction(repeatAction)
         
-        mcLabel.text = "\(mc.charName): \(mc.currentHp)/ \(mc.maxHP)"
+        mcLabel.text = mc.nameAndHP()
+        
         labelDefaultSettings(mcLabel)
         mcLabel.position = CGPoint(x: size.width - (mcLabel.frame.width/2) - 10, y: 0 + (mcLabel.frame.height) + 10)
         addChild(mcLabel)
     }
+    
     
     func addMonster(atlasName: String) {
         let textureAtlas = SKTextureAtlas(named: atlasName)
@@ -143,7 +149,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         let fabricMasterArray = textureAtlas.textureNames.map({ textureAtlas.textureNamed($0) })
         
-        fabricMaster = Monster(imageNamed: textureAtlas.textureNames.first!, maxHP: 100, charName: "Cuadsf", attribute: Attribute.Heat)
+        fabricMaster = FabricMaster(imageNamed: textureAtlas.textureNames.first!, maxHP: 100, charName: "Cuadsf", attribute: Attribute.Heat)
+        
         fabricMaster.position = CGPoint(x: 940, y: 520)
         
         addChild(fabricMaster)
@@ -153,35 +160,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         fabricMaster.runAction(repeatAction)
         
-        fabricMasterLabel.text = "\(fabricMaster.charName): \(fabricMaster.currentHp)/ \(fabricMaster.maxHP)"
+        fabricMasterLabel.text = fabricMaster.nameAndHP()
+        
         labelDefaultSettings(fabricMasterLabel)
+        
         fabricMasterLabel.position = CGPoint(x: 0 + (fabricMasterLabel.frame.width/2) + 10, y: size.height - (fabricMasterLabel.frame.height) - 50)
         addChild(fabricMasterLabel)
     }
     
-    func waterAnimation() {
-        let textAtlas = SKTextureAtlas(named: "water")
-        var waterSpell = SKSpriteNode()
-        
-        let waterArray = textAtlas.textureNames.sort().map({ textAtlas.textureNamed($0) })
-        
-        waterSpell = SKSpriteNode(texture: waterArray[0])
-        waterSpell.zPosition = 0.6
-        waterSpell.position = CGPoint(x: 870, y: 670)
-        waterSpell.setScale(1.2)
-        addChild(waterSpell)
-        
-        let animate = SKAction.animateWithTextures(waterArray, timePerFrame: 0.15)
-        waterSpell.runAction(animate) { () -> Void in
-            waterSpell.removeFromParent()
-            let colorize = SKAction.colorizeWithColor(.blueColor(), colorBlendFactor: 1, duration: 0.5)
-            let rotateLeft = SKAction.rotateToAngle(0.3, duration: 0.1)
-            let rotateRight = SKAction.rotateToAngle(-0.3, duration: 0.1)
-            let rotateNormal = SKAction.rotateToAngle(0, duration: 0.1)
-            let actionSequence = SKAction.sequence([colorize, rotateLeft, rotateRight, rotateLeft, rotateRight, rotateLeft, rotateNormal, colorize.reversedAction()])
-            self.fabricMaster.runAction(actionSequence)
-        }
-    }
     
     func defeated(sprite: SKSpriteNode) {
         let colorize = SKAction.colorizeWithColor(.blueColor(), colorBlendFactor: 1, duration: 0.4)
@@ -201,7 +187,31 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func update(currentTime: CFTimeInterval) {
+        fabricMasterLabel.text = fabricMaster.nameAndHP()
+        mcLabel.text = mc.nameAndHP()
+    }
     
+    func enemyRetaliation(){
+        if let skill = self.fabricMaster.skills["spiderWeb"] {
+            
+            skill.animateAction(self, target: mc, completion: { () -> Void in
+                self.fabricMaster.attack(self.mc, skillName: "spiderWeb")
+            })
+        }
+    }
+    
+    func evaluateGameOver(){
+        var scene: GameOverScene!
+        if mc.currentHp <= 0 {
+            scene = GameOverScene(size: size, won: false)
+        }else if(fabricMaster.currentHp <= 0){
+            scene = GameOverScene(size: size, won: true)
+        }else{
+            return
+        }
+        scene.scaleMode = scaleMode
+        let reveal = SKTransition.flipHorizontalWithDuration(0.5)
+        view?.presentScene(scene, transition: reveal)
     }
     
     
