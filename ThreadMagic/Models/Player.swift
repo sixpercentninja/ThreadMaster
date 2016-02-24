@@ -15,7 +15,9 @@ class Player: Character {
     
     override init(imageNamed: String, maxHP: Int, charName: String, attribute: Attribute){
         super.init(imageNamed: imageNamed, maxHP: maxHP, charName: charName, attribute: attribute)
-        self.skills["wetTowelSlap"] = WetTowelSlap()
+        self.skills["CWhip"] = CWhip()
+        self.skills["CBlaze"] = CBlaze()
+        self.skills["WildFire"] = WildFire()
     }
 
     required init?(coder aDecoder: NSCoder) {

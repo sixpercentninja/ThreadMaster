@@ -1,20 +1,22 @@
-//
-//  WetTowelSlap.swift
+//  CBlaze.swift
 //  ThreadMagic
 //
-//  Created by Wong You Jing on 18/02/2016.
+//  Created by Wong You Jing on 24/02/2016.
 //  Copyright © 2016 Andrew Chen. All rights reserved.
 //
 
 import Foundation
 import SpriteKit
 
-class WetTowelSlap: Skill {
-    override var damage: Int { return 20 }
+class CBlaze: Skill {
+    override var damage: Int { return 35 }
     override var attackAttribute: Attribute { return Attribute.Resistance }
+    override var skillName: String { return "CBlaze" }
     
     override init() {
         super.init()
+        self.gestures = [7, 1]
+        self.thread = .Cotton
     }
     
     override var textureAtlas: SKTextureAtlas {
