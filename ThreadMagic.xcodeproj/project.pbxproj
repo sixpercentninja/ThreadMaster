@@ -251,7 +251,7 @@
 				TargetAttributes = {
 					97E510021C73E6940034B575 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = TP9E7CXU62;
+						DevelopmentTeam = UUKJ3Z33B8;
 					};
 				};
 			};
@@ -445,7 +445,7 @@
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = ThreadMagic/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.nononsense.ThreadMagic;
+				PRODUCT_BUNDLE_IDENTIFIER = io.nononsense.ThreadMagic.co;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -460,7 +460,7 @@
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = ThreadMagic/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.nononsense.ThreadMagic;
+				PRODUCT_BUNDLE_IDENTIFIER = io.nononsense.ThreadMagic.co;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

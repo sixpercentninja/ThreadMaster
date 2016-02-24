@@ -32,10 +32,29 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
         
+        let recognizer = DBPathRecognizer(sliceCount: 8, deltaMove: 16.0, costMax: 10)
         
-        let recognizer = DBPathRecognizer(sliceCount: 8, deltaMove: 16.0)
-        recognizer.addModel(PathModel(directions: [7, 1], datas:"A"))
-        recognizer.addModel(PathModel(directions: [4,3,2,1,0], datas:"C"))
+        //Cotton
+        recognizer.addModel(PathModel(directions: [7], datas:"C"))
+        recognizer.addModel(PathModel(directions: [7,1], datas:"CBlaze"))
+        recognizer.addModel(PathModel(directions: [7,1,4], datas:"WildFire"))
+        
+        //Silk
+        recognizer.addModel(PathModel(directions: [0,1,2,3,4,5,6,7], datas:"STrick"))
+        recognizer.addModel(PathModel(directions: [4,3,2,1,0,7,6,5], datas:"SDaze"))
+        recognizer.addModel(PathModel(directions: [0,1,2,3,4,5,6,7,0,1,2,3,4,5,6,7], datas:"PieceDeResistance"))
+        
+        //Aramid
+        recognizer.addModel(PathModel(directions: [2], datas:"AWard"))
+        recognizer.addModel(PathModel(directions: [2,6], datas:"AGuard"))
+        recognizer.addModel(PathModel(directions: [2,6,2], datas:"AegisLastStand"))
+        
+        //Rayon
+        recognizer.addModel(PathModel(directions: [3], datas:"RStrike"))
+        recognizer.addModel(PathModel(directions: [3,5], datas:"RBash"))
+        recognizer.addModel(PathModel(directions: [1,6,3], datas:"KusanagiNoTsurugi"))
+        
+        
         self.recognizer = recognizer
         
         physicsWorld.gravity = CGVector(dx: 0, dy: 0)
@@ -52,38 +71,42 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             self.mc.runAction(repeatAction)
         }
         
+        let magic = SKTexture(imageNamed: "FireBeam")
         
-        yourline.strokeColor = SKColor.purpleColor()
-        yourline.lineWidth = 20.0
-        self.addChild(yourline)
+        yourline.lineWidth = 50.0
+        yourline.glowWidth = 3.0
+        yourline.strokeTexture = magic
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        
+        addChild(yourline)
+        
         rawPoints = []
         let touch = touches.first
         let location = touch!.locationInNode(self)
         print(location)
         rawPoints.append(Int(location.x))
-        rawPoints.append(Int(location.y))
+        rawPoints.append(Int(size.height - location.y))
     }
     
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
         let touch = touches.first
         let location = touch!.locationInNode(self)
         rawPoints.append(Int(location.x))
-        rawPoints.append(Int(location.y))
+        rawPoints.append(Int(size.height - location.y))
 
         let pathToDraw = CGPathCreateMutable()
         let startLocationX = CGFloat(rawPoints[0])
         let startLocationY = CGFloat(rawPoints[1])
         
-        CGPathMoveToPoint(pathToDraw, nil, startLocationX, startLocationY);
+        CGPathMoveToPoint(pathToDraw, nil, startLocationX, size.height - startLocationY);
         
         for i in 2..<rawPoints.count {
             if i % 2 == 0 {
                 let locationX = CGFloat(rawPoints[i])
                 let locationY = CGFloat(rawPoints[i + 1])
-                CGPathAddLineToPoint(pathToDraw, nil, locationX, locationY);
+                CGPathAddLineToPoint(pathToDraw, nil, locationX, size.height - locationY);
             }
         }
         
@@ -93,7 +116,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        
         
         var path:Path = Path()
         path.addPointFromRaw(rawPoints)
@@ -121,6 +143,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 self.userInteractionEnabled = true
             }
         }
+        
+        let seconds = 1.0
+        let delay = seconds * Double(NSEC_PER_SEC)
+        let dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+        
+        dispatch_after(dispatchTime, dispatch_get_main_queue(), {
+            self.yourline.removeFromParent()
+            
+        })
     }
     
     
