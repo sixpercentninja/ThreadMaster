@@ -18,7 +18,7 @@ class WetTowelSlap: Skill {
     }
     
     override var textureAtlas: SKTextureAtlas {
-        return SKTextureAtlas(named: "water")
+        return SKTextureAtlas(named: "waterBucket")
     }
     
     override func animateAction(scene: SKScene, target: SKSpriteNode, completion: () -> Void ) -> Void {
