@@ -1,5 +1,5 @@
 //
-//  CWhip.swift
+//  CottonWhip.swift
 //  ThreadMagic
 //
 //  Created by Wong You Jing on 18/02/2016.
@@ -9,10 +9,10 @@
 import Foundation
 import SpriteKit
 
-class CWhip: Skill {
+class CottonWhip: Skill {
     override var damage: Int { return 20 }
     override var attackAttribute: Attribute { return Attribute.Resistance }
-    override var skillName: String { return "CWhip" }
+    override var skillName: String { return "CottonWhip" }
     
     override init() {
         super.init()
@@ -20,7 +20,7 @@ class CWhip: Skill {
     }
     
     override var textureAtlas: SKTextureAtlas {
-        return SKTextureAtlas(named: "water")
+        return SKTextureAtlas(named: "waterBucket")
     }
     
     override func animateAction(scene: SKScene, target: SKSpriteNode, completion: () -> Void ) -> Void {

@@ -1,17 +1,18 @@
-//  CBlaze.swift
+//
+//  CottonBlaze.swift
 //  ThreadMagic
 //
-//  Created by Wong You Jing on 24/02/2016.
+//  Created by Steven Yang on 2/22/16.
 //  Copyright © 2016 Andrew Chen. All rights reserved.
 //
 
 import Foundation
 import SpriteKit
 
-class CBlaze: Skill {
-    override var damage: Int { return 35 }
-    override var attackAttribute: Attribute { return Attribute.Resistance }
-    override var skillName: String { return "CBlaze" }
+class CottonBlaze: Skill {
+    override var damage: Int { return 20 }
+    override var attackAttribute: Attribute { return Attribute.Heat }
+    override var skillName: String { return "CottonBlaze" }
     
     override init() {
         super.init()
@@ -20,7 +21,7 @@ class CBlaze: Skill {
     }
     
     override var textureAtlas: SKTextureAtlas {
-        return SKTextureAtlas(named: "water")
+        return SKTextureAtlas(named: "cottonBlaze.atlas")
     }
     
     override func animateAction(scene: SKScene, target: SKSpriteNode, completion: () -> Void ) -> Void {
@@ -28,10 +29,9 @@ class CBlaze: Skill {
         node.zPosition = 0.6
         
         node.position = target.position
-        node.setScale(1.2)
+        node.setScale(5.0)
         scene.addChild(node)
-        
-        node.runAction(SKAction.animateWithTextures(animationTextures, timePerFrame: 0.15)) { () -> Void in
+        node.runAction(SKAction.sequence([SKAction.playSoundFileNamed("cottonBlaze.wav", waitForCompletion: false),SKAction.animateWithTextures(animationTextures, timePerFrame: 0.08)])) { () -> Void in
             node.removeFromParent()
             target.runAction(self.effectActionSequence(), completion: { () -> Void in
                 completion()
@@ -40,11 +40,12 @@ class CBlaze: Skill {
     }
     
     override func effectActionSequence() -> SKAction {
-        let colorize = SKAction.colorizeWithColor(.blueColor(), colorBlendFactor: 1, duration: 0.5)
+        let colorize = SKAction.colorizeWithColor(.redColor(), colorBlendFactor: 1, duration: 0.5)
         let rotateLeft = SKAction.rotateToAngle(0.3, duration: 0.1)
         let rotateRight = SKAction.rotateToAngle(-0.3, duration: 0.1)
         let rotateNormal = SKAction.rotateToAngle(0, duration: 0.1)
         return SKAction.sequence([colorize, rotateLeft, rotateRight, rotateLeft, rotateRight, rotateLeft, rotateNormal, colorize.reversedAction()])
     }
     
+
 }

@@ -60,18 +60,28 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addBG("bg")
         addPlayer()
         addMonster("fabricMaster1")
+        let moveLeft = SKAction.moveTo(CGPoint(x: 270, y: 160), duration: 0.5)
+        mc.runAction(SKAction.sequence([SKAction.waitForDuration(1.0), moveLeft])) { () -> Void in
+            let movement = SKAction.moveTo(CGPoint(x: self.mc.position.x - 5, y: self.mc.position.y - 5), duration: 2)
+            let movement2 = SKAction.moveTo(CGPoint(x: self.mc.position.x + 5, y: self.mc.position.y + 5), duration: 2)
+            let sequencer = SKAction.sequence([movement, movement2])
+            let repeatAction = SKAction.repeatActionForever(sequencer)
+            self.mc.runAction(repeatAction)
+        }
         
         let magic = SKTexture(imageNamed: "FireBeam")
         
         yourline.lineWidth = 50.0
         yourline.glowWidth = 3.0
         yourline.strokeTexture = magic
+        yourline.zPosition = 2
+        addChild(yourline)
         
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         
-        addChild(yourline)
+        
         
         rawPoints = []
         let touch = touches.first
@@ -115,7 +125,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         if gesture != nil {
             let castedSpell = gesture!.datas as! String
-            
+            print(castedSpell)
             
             if let skill = mc.skills[castedSpell]{
                 let animationNode = skill.animationNode
@@ -135,7 +145,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
         
         dispatch_after(dispatchTime, dispatch_get_main_queue(), {
-            self.yourline.removeFromParent()
+            self.yourline.path = CGPathCreateMutable()
             self.userInteractionEnabled = true
         })
     }
@@ -144,6 +154,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func addBG(backgroundName: String) {
         let bg = SKSpriteNode(imageNamed: backgroundName)
+        bg.name = "bg"
         bg.zPosition = -1
         bg.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         bg.position = CGPoint(x: size.width/2, y: size.height/2)
@@ -151,15 +162,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func addPlayer() {
-        let textureAtlas = SKTextureAtlas(named: "mc")
+        let textureAtlas = SKTextureAtlas(named: "mainCharacter")
         
         let mcArray = textureAtlas.textureNames.map({ textureAtlas.textureNamed($0) })
         
         mc = Player(imageNamed: textureAtlas.textureNames.first!, maxHP: 50, charName: "Steven", attribute: Attribute.Neutral)
 
-        mc.position = CGPoint(x: 350, y: 320)
-        mc.xScale = 1.2
-        mc.yScale = 1.2
+        mc.position = CGPoint(x:-280, y: 160)
+        mc.xScale = 0.95
+        mc.yScale = 0.95
         mainCharacterLife = CGFloat((Float(mc.currentHp) / Float(mc.maxHP)) * 2)
         mainCharacterHealthBar = SKSpriteNode(imageNamed: "healthBar")
         mainCharacterHealthBar.position = CGPoint(x: 950, y: 130)
