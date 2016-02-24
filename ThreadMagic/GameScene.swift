@@ -32,32 +32,30 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
         
-        let recognizer = DBPathRecognizer(sliceCount: 8, deltaMove: 16.0, costMax: 10)
+        let recognizer = DBPathRecognizer(sliceCount: 8, deltaMove: 16.0, costMax: 5)
         
-        //Cotton
-        recognizer.addModel(PathModel(directions: [7], datas:"C"))
-        recognizer.addModel(PathModel(directions: [7,1], datas:"CBlaze"))
-        recognizer.addModel(PathModel(directions: [7,1,4], datas:"WildFire"))
-        
-        //Silk
-        recognizer.addModel(PathModel(directions: [0,1,2,3,4,5,6,7], datas:"STrick"))
-        recognizer.addModel(PathModel(directions: [4,3,2,1,0,7,6,5], datas:"SDaze"))
-        recognizer.addModel(PathModel(directions: [0,1,2,3,4,5,6,7,0,1,2,3,4,5,6,7], datas:"PieceDeResistance"))
-        
-        //Aramid
-        recognizer.addModel(PathModel(directions: [2], datas:"AWard"))
-        recognizer.addModel(PathModel(directions: [2,6], datas:"AGuard"))
-        recognizer.addModel(PathModel(directions: [2,6,2], datas:"AegisLastStand"))
-        
-        //Rayon
-        recognizer.addModel(PathModel(directions: [3], datas:"RStrike"))
-        recognizer.addModel(PathModel(directions: [3,5], datas:"RBash"))
-        recognizer.addModel(PathModel(directions: [1,6,3], datas:"KusanagiNoTsurugi"))
+//        //Cotton
+//        recognizer.addModel(PathModel(directions: [7], datas:"C"))
+//        recognizer.addModel(PathModel(directions: [7,1], datas:"CBlaze"))
+//        recognizer.addModel(PathModel(directions: [7,1,4], datas:"WildFire"))
+//        
+//        //Silk
+//        recognizer.addModel(PathModel(directions: [0,1,2,3,4,5,6,7], datas:"STrick"))
+//        recognizer.addModel(PathModel(directions: [4,3,2,1,0,7,6,5], datas:"SDaze"))
+//        recognizer.addModel(PathModel(directions: [0,1,2,3,4,5,6,7,0,1,2,3,4,5,6,7], datas:"PieceDeResistance"))
+//        
+//        //Aramid
+//        recognizer.addModel(PathModel(directions: [2], datas:"AWard"))
+//        recognizer.addModel(PathModel(directions: [2,6], datas:"AGuard"))
+//        recognizer.addModel(PathModel(directions: [2,6,2], datas:"AegisLastStand"))
+//        
+//        //Rayon
+//        recognizer.addModel(PathModel(directions: [3], datas:"RStrike"))
+//        recognizer.addModel(PathModel(directions: [3,5], datas:"RBash"))
+//        recognizer.addModel(PathModel(directions: [1,6,3], datas:"KusanagiNoTsurugi"))
         
         
         self.recognizer = recognizer
-        
-        physicsWorld.gravity = CGVector(dx: 0, dy: 0)
         
         addBG("bg")
         addPlayer()
@@ -76,11 +74,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         yourline.lineWidth = 50.0
         yourline.glowWidth = 3.0
         yourline.strokeTexture = magic
+        yourline.zPosition = 2
+        addChild(yourline)
+        
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         
-        addChild(yourline)
+        
         
         rawPoints = []
         let touch = touches.first
@@ -116,31 +117,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        
+        self.userInteractionEnabled = false
         var path:Path = Path()
         path.addPointFromRaw(rawPoints)
         
         let gesture:PathModel? = self.recognizer!.recognizePath(path)
         
         if gesture != nil {
-            let letter = gesture!.datas as? String
-            self.userInteractionEnabled = false
-            if(letter == "C"){
-                guard let skill = mc.skills["wetTowelSlap"] else {
-                    return
-                }
+            let castedSpell = gesture!.datas as! String
+            print(castedSpell)
+            
+            if let skill = mc.skills[castedSpell]{
                 let animationNode = skill.animationNode
                 
                 self.addChild(animationNode)
                 skill.animateAction(self, target: fabricMaster, completion: { () -> Void in
-                    self.mc.attack(self.fabricMaster, skillName: "wetTowelSlap")
+                    self.mc.attack(self.fabricMaster, skillName: skill.skillName)
                     self.evaluateGameOver()
                     self.enemyRetaliation()
                     self.evaluateGameOver()
-                    self.userInteractionEnabled = true
                 })
-            }else{
-                self.userInteractionEnabled = true
             }
         }
         
@@ -149,8 +145,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
         
         dispatch_after(dispatchTime, dispatch_get_main_queue(), {
-            self.yourline.removeFromParent()
-            
+            self.yourline.path = CGPathCreateMutable()
+            self.userInteractionEnabled = true
         })
     }
     
@@ -158,6 +154,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func addBG(backgroundName: String) {
         let bg = SKSpriteNode(imageNamed: backgroundName)
+        bg.name = "bg"
         bg.zPosition = -1
         bg.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         bg.position = CGPoint(x: size.width/2, y: size.height/2)
@@ -200,6 +197,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         labelDefaultSettings(mcLabel)
         mcLabel.position = CGPoint(x: size.width - (mcLabel.frame.width/2) - 10, y: 0 + (mcLabel.frame.height) + 10)
         addChild(mcLabel)
+        
+        // add player skills to recognizer
+        for (_, skill) in mc.skills{
+            recognizer!.addModel(PathModel(directions: skill.gestures, datas: skill.skillName))
+        }
+        
     }
     
     
@@ -266,7 +269,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         fabricMasterLabel.text = fabricMaster.nameAndHP()
         mcLabel.text = mc.nameAndHP()
         
-        mainCharacterLife = CGFloat(Float(fabricMaster.currentHp) / Float(fabricMaster.maxHP) * 2)
+        mainCharacterLife = CGFloat(Float(mc.currentHp) / Float(mc.maxHP) * 2)
         self.enemyLife = CGFloat(Float(self.fabricMaster.currentHp) / Float(self.fabricMaster.maxHP) * 2)
         
         let duration = 1.0

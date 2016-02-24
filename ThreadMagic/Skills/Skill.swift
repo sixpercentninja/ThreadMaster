@@ -9,9 +9,33 @@
 import Foundation
 import SpriteKit
 
+enum Thread: Int, CustomStringConvertible {
+    case Cotton = 0, Silk, Aramid, Rayon
+    
+    var threadName: String {
+        switch self {
+        case .Cotton:
+            return "Cotton"
+        case .Silk:
+            return "Silk"
+        case .Aramid:
+            return "Aramid"
+        case .Rayon:
+            return "Rayon"
+        }
+    }
+    
+    var description: String {
+        return self.threadName
+    }
+}
+
 class Skill {
     var damage: Int { return 0 }
     var attackAttribute: Attribute { return Attribute.Heat }
+    var skillName: String { return "Not Implemented" }
+    var gestures: [Int]!
+    var thread: Thread!
     
     init() {
     }

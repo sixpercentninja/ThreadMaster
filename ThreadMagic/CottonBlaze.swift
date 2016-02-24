@@ -12,9 +12,12 @@ import SpriteKit
 class CottonBlaze: Skill {
     override var damage: Int { return 20 }
     override var attackAttribute: Attribute { return Attribute.Heat }
+    override var skillName: String { return "CottonBlaze" }
     
     override init() {
         super.init()
+        self.gestures = [7, 1]
+        self.thread = .Cotton
     }
     
     override var textureAtlas: SKTextureAtlas {

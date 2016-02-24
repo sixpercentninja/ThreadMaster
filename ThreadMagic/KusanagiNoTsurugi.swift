@@ -12,9 +12,12 @@ import SpriteKit
 class KusanagiNoTsurugi: Skill {
     override var damage: Int { return 20 }
     override var attackAttribute: Attribute { return Attribute.Heat }
+    override var skillName: String { return "KusanagiNoTsurugi" }
+
     
     override init() {
         super.init()
+        self.gestures = [1, 6, 3]
     }
     
     override var textureAtlas: SKTextureAtlas {
@@ -27,8 +30,10 @@ class KusanagiNoTsurugi: Skill {
         
         node.position = CGPoint(x: target.position.x + 40, y: target.position.y)
         node.setScale(5.0)
-        scene.enumerateChildNodesWithName("bg") { (node, _) -> Void in
-            node.runAction(SKAction.colorizeWithColor(.blackColor(), colorBlendFactor: 1.0, duration: 3.0), completion: { () -> Void in
+        
+        scene.enumerateChildNodesWithName("bg") { (background, _) -> Void in
+            
+            background.runAction(SKAction.colorizeWithColor(.blackColor(), colorBlendFactor: 1.0, duration: 3.0), completion: { () -> Void in
                 scene.addChild(node)
                 
                 node.runAction(SKAction.sequence([SKAction.playSoundFileNamed("kusanagiNoTsurugi.wav", waitForCompletion: false),SKAction.animateWithTextures(self.animationTextures, timePerFrame: 0.08)])) { () -> Void in
@@ -36,6 +41,7 @@ class KusanagiNoTsurugi: Skill {
                     node.removeFromParent()
                     
                     target.runAction(self.effectActionSequence(), completion: { () -> Void in
+                        background.runAction(SKAction.colorizeWithColor(.whiteColor(), colorBlendFactor: 0.0, duration: 3.0))
                         completion()
                     })
                 }

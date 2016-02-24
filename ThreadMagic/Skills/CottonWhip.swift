@@ -1,5 +1,5 @@
 //
-//  WetTowelSlap.swift
+//  CottonWhip.swift
 //  ThreadMagic
 //
 //  Created by Wong You Jing on 18/02/2016.
@@ -9,12 +9,14 @@
 import Foundation
 import SpriteKit
 
-class WetTowelSlap: Skill {
+class CottonWhip: Skill {
     override var damage: Int { return 20 }
     override var attackAttribute: Attribute { return Attribute.Resistance }
+    override var skillName: String { return "CottonWhip" }
     
     override init() {
         super.init()
+        self.gestures = [7]
     }
     
     override var textureAtlas: SKTextureAtlas {
