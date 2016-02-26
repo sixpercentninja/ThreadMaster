@@ -9,11 +9,20 @@
 import SpriteKit
 
 class Player: Character {
+    var level: Int {
+        let multiplier = totalExperience/70
+        let level = logWithBase(1.7, value: Double(multiplier))
+        return Int(level)
+    }
+    var totalExperience: Int
+    
     override init(texture: SKTexture?, color: UIColor, size: CGSize) {
+        totalExperience = 0
         super.init(texture: texture, color: color, size: size)
     }
     
     override init(imageNamed: String, maxHP: Int, charName: String, attribute: Attribute){
+        totalExperience = 0
         super.init(imageNamed: imageNamed, maxHP: maxHP, charName: charName, attribute: attribute)
         self.skills["CottonFlare"] = CottonFlare()
         self.skills["CottonBlaze"] = CottonBlaze()

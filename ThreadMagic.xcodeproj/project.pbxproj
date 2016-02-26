@@ -51,6 +51,7 @@
 		813C390B1C80F0EC001F9DB8 /* AegisLastStand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813C390A1C80F0EC001F9DB8 /* AegisLastStand.swift */; };
 		813C390D1C80F199001F9DB8 /* RayonStrike.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813C390C1C80F199001F9DB8 /* RayonStrike.swift */; };
 		813C390F1C80F215001F9DB8 /* RayonBash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813C390E1C80F215001F9DB8 /* RayonBash.swift */; };
+		813C39111C80FCE3001F9DB8 /* LogBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813C39101C80FCE3001F9DB8 /* LogBase.swift */; };
 		81519AA81C7F923900D6E6E7 /* CGFloat+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81519A9C1C7F923900D6E6E7 /* CGFloat+Extensions.swift */; };
 		81519AA91C7F923900D6E6E7 /* CGPoint+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81519A9D1C7F923900D6E6E7 /* CGPoint+Extensions.swift */; };
 		81519AAA1C7F923900D6E6E7 /* CGVector+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81519A9E1C7F923900D6E6E7 /* CGVector+Extensions.swift */; };
@@ -128,6 +129,7 @@
 		813C390A1C80F0EC001F9DB8 /* AegisLastStand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AegisLastStand.swift; path = Skills/AegisLastStand.swift; sourceTree = "<group>"; };
 		813C390C1C80F199001F9DB8 /* RayonStrike.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RayonStrike.swift; path = Skills/RayonStrike.swift; sourceTree = "<group>"; };
 		813C390E1C80F215001F9DB8 /* RayonBash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RayonBash.swift; path = Skills/RayonBash.swift; sourceTree = "<group>"; };
+		813C39101C80FCE3001F9DB8 /* LogBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogBase.swift; sourceTree = "<group>"; };
 		81519A9C1C7F923900D6E6E7 /* CGFloat+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extensions.swift"; sourceTree = "<group>"; };
 		81519A9D1C7F923900D6E6E7 /* CGPoint+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGPoint+Extensions.swift"; sourceTree = "<group>"; };
 		81519A9E1C7F923900D6E6E7 /* CGVector+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGVector+Extensions.swift"; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 				81519AA51C7F923900D6E6E7 /* SKTEffects.swift */,
 				81519AA61C7F923900D6E6E7 /* SKTTimingFunctions.swift */,
 				81519AA71C7F923900D6E6E7 /* Vector3.swift */,
+				813C39101C80FCE3001F9DB8 /* LogBase.swift */,
 			);
 			path = SKTUtils;
 			sourceTree = "<group>";
@@ -449,6 +452,7 @@
 				81519AA81C7F923900D6E6E7 /* CGFloat+Extensions.swift in Sources */,
 				81519AA91C7F923900D6E6E7 /* CGPoint+Extensions.swift in Sources */,
 				813C39091C80F08C001F9DB8 /* AramidGuard.swift in Sources */,
+				813C39111C80FCE3001F9DB8 /* LogBase.swift in Sources */,
 				81519AAB1C7F923900D6E6E7 /* Int+Extensions.swift in Sources */,
 				813C39051C80EF02001F9DB8 /* PieceDeResistance.swift in Sources */,
 				81519AAD1C7F923900D6E6E7 /* SKAction+SpecialEffects.swift in Sources */,
