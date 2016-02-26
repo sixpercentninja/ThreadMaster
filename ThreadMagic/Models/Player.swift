@@ -10,7 +10,7 @@ import SpriteKit
 
 class Player: Character {
     var level: Int {
-        let multiplier = totalExperience/70
+        let multiplier = totalExperience/100
         let level = logWithBase(1.7, value: Double(multiplier))
         return Int(level)
     }

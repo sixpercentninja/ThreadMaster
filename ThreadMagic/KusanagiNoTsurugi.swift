@@ -52,7 +52,7 @@ class KusanagiNoTsurugi: Skill {
     }
     
     override func effectActionSequence() -> SKAction {
-        let colorize = SKAction.colorizeWithColor(.redColor(), colorBlendFactor: 1, duration: 0.5)
+        let colorize = SKAction.colorizeWithColor(.yellowColor(), colorBlendFactor: 1, duration: 0.5)
         let rotateLeft = SKAction.rotateToAngle(0.3, duration: 0.1)
         let rotateRight = SKAction.rotateToAngle(-0.3, duration: 0.1)
         let rotateNormal = SKAction.rotateToAngle(0, duration: 0.1)
