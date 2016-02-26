@@ -10,8 +10,8 @@ import Foundation
 import SpriteKit
 
 class WildFire: Skill {
-    override var damage: Int { return 50 }
-    override var attackAttribute: Attribute { return Attribute.Resistance }
+    override var damage: Int { return 88 }
+    override var attackAttribute: Attribute { return Attribute.Heat }
     override var skillName: String { return "WildFire" }
     
     override init() {
@@ -21,7 +21,7 @@ class WildFire: Skill {
     }
     
     override var textureAtlas: SKTextureAtlas {
-        return SKTextureAtlas(named: "wildfire")
+        return SKTextureAtlas(named: "wildFire")
     }
     
     override func animateAction(scene: SKScene, target: SKSpriteNode, completion: () -> Void ) -> Void {

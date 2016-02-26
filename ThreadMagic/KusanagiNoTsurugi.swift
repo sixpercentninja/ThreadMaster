@@ -10,8 +10,8 @@ import Foundation
 import SpriteKit
 
 class KusanagiNoTsurugi: Skill {
-    override var damage: Int { return 20 }
-    override var attackAttribute: Attribute { return Attribute.Heat }
+    override var damage: Int { return 210 }
+    override var attackAttribute: Attribute { return Attribute.Strength }
     override var skillName: String { return "KusanagiNoTsurugi" }
 
     

@@ -6,11 +6,10 @@
 //  Copyright © 2016 Andrew Chen. All rights reserved.
 //
 
-import Foundation
 import SpriteKit
 
 class CottonBlaze: Skill {
-    override var damage: Int { return 20 }
+    override var damage: Int { return 60 }
     override var attackAttribute: Attribute { return Attribute.Heat }
     override var skillName: String { return "CottonBlaze" }
     

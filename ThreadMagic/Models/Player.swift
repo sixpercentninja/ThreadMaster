@@ -15,9 +15,18 @@ class Player: Character {
     
     override init(imageNamed: String, maxHP: Int, charName: String, attribute: Attribute){
         super.init(imageNamed: imageNamed, maxHP: maxHP, charName: charName, attribute: attribute)
-        self.skills["CottonWhip"] = CottonWhip()
+        self.skills["CottonFlare"] = CottonFlare()
         self.skills["CottonBlaze"] = CottonBlaze()
         self.skills["WildFire"] = WildFire()
+        self.skills["SilkTrick"] = SilkTrick()
+        self.skills["SilkDaze"] = SilkDaze()
+        self.skills["WildFire"] = WildFire()
+        self.skills["PieceDeResistance"] = PieceDeResistance()
+        self.skills["AramidWard"] = AramidWard()
+        self.skills["AramidGuard"] = AramidGuard()
+        self.skills["AegisLastStand"] = AegisLastStand()
+        self.skills["RayonStrike"] = RayonStrike()
+        self.skills["RayonBash"] = RayonBash()
         self.skills["KusanagiNoTsurugi"] = KusanagiNoTsurugi()
     }
 
