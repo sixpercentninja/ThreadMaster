@@ -11,7 +11,4 @@ import SpriteKit
 class Monster: Character {
     
     
-    func shakeAction() {
-
-    }
 }
