@@ -10,10 +10,16 @@ import Foundation
 import SpriteKit
 
 class GameOverScene: SKScene {
+    var nextLevel: Int!
+    var mc: Player!
+    let won: Bool
     
     init(size: CGSize, won: Bool) {
+        self.won = won
         super.init(size: size)
-        
+    }
+    
+    override func didMoveToView(view: SKView) {
         backgroundColor = SKColor.whiteColor()
         
         let message = won ? "You won!" : "You didn't make it, soorry!"
@@ -28,10 +34,12 @@ class GameOverScene: SKScene {
         runAction(SKAction.sequence([
             SKAction.waitForDuration(3.0), SKAction.runBlock() {
                 let reveal = SKTransition.flipHorizontalWithDuration(0.5)
-                let scene = GameScene(size: size)
+                let scene = GameScene(size: self.size)
+                scene.level = self.nextLevel
+                scene.mc = self.mc
                 self.view?.presentScene(scene, transition: reveal)
             }
-            ]))
+        ]))
     }
     
     required init(coder aDecoder: NSCoder) {

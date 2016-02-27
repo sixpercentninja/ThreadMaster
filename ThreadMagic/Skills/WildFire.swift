@@ -10,8 +10,8 @@ import Foundation
 import SpriteKit
 
 class WildFire: Skill {
-    override var damage: Int { return 50 }
-    override var attackAttribute: Attribute { return Attribute.Resistance }
+    override var damage: Int { return 88 }
+    override var attackAttribute: Attribute { return Attribute.Heat }
     override var skillName: String { return "WildFire" }
     
     override init() {
@@ -21,10 +21,10 @@ class WildFire: Skill {
     }
     
     override var textureAtlas: SKTextureAtlas {
-        return SKTextureAtlas(named: "wildfire")
+        return SKTextureAtlas(named: "wildFire")
     }
     
-    override func animateAction(scene: SKScene, target: SKSpriteNode, completion: () -> Void ) -> Void {
+    override func animateAction(scene: SKScene, caster: Character, target: Character, completion: () -> Void ) -> Void {
         let node = animationNode
         node.zPosition = 0.6
         
@@ -35,6 +35,7 @@ class WildFire: Skill {
         node.runAction(SKAction.animateWithTextures(animationTextures, timePerFrame: 0.15)) { () -> Void in
             node.removeFromParent()
             target.runAction(self.effectActionSequence(), completion: { () -> Void in
+                caster.attack(target, skillName: self.skillName)
                 completion()
             })
         }

@@ -17,7 +17,7 @@ class SpiderWeb: Skill {
         return SKTextureAtlas(named: "spider_web")
     }
     
-    override func animateAction(scene: SKScene, target: SKSpriteNode, completion: () -> Void ) -> Void {
+    override func animateAction(scene: SKScene, caster: Character, target: Character, completion: () -> Void ) -> Void {
         let node = animationNode
         node.position = target.position
         scene.addChild(node)
@@ -25,6 +25,8 @@ class SpiderWeb: Skill {
 
         let scaleSmall = SKAction.scaleBy(0.1, duration: 1.5)
         target.runAction(SKAction.sequence([scaleSmall, scaleSmall.reversedAction()]), completion: { () -> Void in
+            node.removeFromParent()
+            caster.attack(target, skillName: self.skillName)
             completion()
         })
 

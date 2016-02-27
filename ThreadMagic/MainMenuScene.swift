@@ -10,7 +10,7 @@ import UIKit
 import SpriteKit
 
 class MainMenuScene: SKScene {
-    
+    var mc: Player!
     override func didMoveToView(view: SKView) {
         //self.backgroundColor = SKColor(red: 0.15, green:0.15, blue:0.3, alpha: 1.0)
         let button1 = SKSpriteNode(imageNamed: "StartNewGame")
@@ -45,6 +45,7 @@ class MainMenuScene: SKScene {
         // If next button is touched, start transition to second scene
         
         let scene = GameScene(size:CGSize(width: 1280, height: 800))
+        scene.mc = mc
         if (node.name == "StartNewGame") {
             let transition = SKTransition.crossFadeWithDuration(4)
             self.scene!.view?.presentScene(scene, transition: transition)
