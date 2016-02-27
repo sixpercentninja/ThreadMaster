@@ -9,6 +9,5 @@
 import SpriteKit
 
 class Monster: Character {
-    
-    
+    var expGiven: Int!
 }

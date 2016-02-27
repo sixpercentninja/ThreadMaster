@@ -6,11 +6,10 @@
 //  Copyright © 2016 Andrew Chen. All rights reserved.
 //
 
-import Foundation
 import SpriteKit
 
 class CottonBlaze: Skill {
-    override var damage: Int { return 20 }
+    override var damage: Int { return 60 }
     override var attackAttribute: Attribute { return Attribute.Heat }
     override var skillName: String { return "CottonBlase" }
     
@@ -24,7 +23,7 @@ class CottonBlaze: Skill {
         return SKTextureAtlas(named: "cottonBlaze.atlas")
     }
     
-    override func animateAction(scene: SKScene, target: SKSpriteNode, completion: () -> Void ) -> Void {
+    override func animateAction(scene: SKScene, caster: Character, target: Character, completion: () -> Void ) -> Void {
         let node = animationNode
         node.zPosition = 0.6
         
@@ -34,6 +33,7 @@ class CottonBlaze: Skill {
         node.runAction(SKAction.sequence([SKAction.playSoundFileNamed("cottonBlaze.wav", waitForCompletion: false),SKAction.animateWithTextures(animationTextures, timePerFrame: 0.08)])) { () -> Void in
             node.removeFromParent()
             target.runAction(self.effectActionSequence(), completion: { () -> Void in
+                caster.attack(target, skillName: self.skillName)
                 completion()
             })
         }

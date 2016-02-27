@@ -12,6 +12,7 @@ import SpriteKit
 class FabricMaster: Monster {
     override init(texture: SKTexture?, color: UIColor, size: CGSize) {
         super.init(texture: texture, color: color, size: size)
+        expGiven = 25
     }
     
     override init(imageNamed: String, maxHP: Int, charName: String, attribute: Attribute){
