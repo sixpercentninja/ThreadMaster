@@ -58,6 +58,8 @@
 		97E510101C73E6940034B575 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97E5100E1C73E6940034B575 /* Main.storyboard */; };
 		97E510121C73E6940034B575 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97E510111C73E6940034B575 /* Assets.xcassets */; };
 		97E510151C73E6940034B575 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97E510131C73E6940034B575 /* LaunchScreen.storyboard */; };
+		97E5102E1C80FDF80034B575 /* Desert Battle (Loop).mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 97E5102D1C80FDF80034B575 /* Desert Battle (Loop).mp3 */; };
+		97E510321C8149DD0034B575 /* MainMenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E510311C8149DD0034B575 /* MainMenuScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -115,6 +117,8 @@
 		97E510111C73E6940034B575 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		97E510141C73E6940034B575 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		97E510161C73E6940034B575 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		97E5102D1C80FDF80034B575 /* Desert Battle (Loop).mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Desert Battle (Loop).mp3"; sourceTree = "<group>"; };
+		97E510311C8149DD0034B575 /* MainMenuScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +162,7 @@
 		7B108F091C7BC37D003FC7EE /* Sound Effects */ = {
 			isa = PBXGroup;
 			children = (
+				97E5102D1C80FDF80034B575 /* Desert Battle (Loop).mp3 */,
 				7B108F0A1C7BC39C003FC7EE /* cottonBlaze.wav */,
 				7B108F0B1C7BC39C003FC7EE /* hitCritical.wav */,
 				7B108F0C1C7BC39C003FC7EE /* hitNormal.wav */,
@@ -226,6 +231,7 @@
 			isa = PBXGroup;
 			children = (
 				97E5100A1C73E6940034B575 /* GameScene.swift */,
+				97E510311C8149DD0034B575 /* MainMenuScene.swift */,
 				97E5100C1C73E6940034B575 /* GameViewController.swift */,
 				7B108ECD1C779A21003FC7EE /* GameOverScene.swift */,
 				7B378DB41C7E6C7900169D94 /* Monsters */,
@@ -327,7 +333,7 @@
 				TargetAttributes = {
 					97E510021C73E6940034B575 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = TP9E7CXU62;
+						DevelopmentTeam = UUKJ3Z33B8;
 					};
 				};
 			};
@@ -356,6 +362,7 @@
 			files = (
 				7B378D9D1C7E31B600169D94 /* mainCharacter.atlas in Resources */,
 				7B8BAEF11C7662EE001C1834 /* fabricMaster1.atlas in Resources */,
+				97E5102E1C80FDF80034B575 /* Desert Battle (Loop).mp3 in Resources */,
 				7B378DB21C7E6C5400169D94 /* dragonRightWing.png in Resources */,
 				81ABA1F41C7E375D009EA660 /* wildfire.atlas in Resources */,
 				7B108F211C7BC3E5003FC7EE /* slash.atlas in Resources */,
@@ -399,6 +406,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				81AD031C1C7AE25D00B6C5DC /* SpiderWeb.swift in Sources */,
+				97E510321C8149DD0034B575 /* MainMenuScene.swift in Sources */,
 				7B108F251C7BC450003FC7EE /* CottonBlaze.swift in Sources */,
 				81AD02E61C76B92B00B6C5DC /* Monster.swift in Sources */,
 				81AD02ED1C76B94B00B6C5DC /* CottonWhip.swift in Sources */,
@@ -532,7 +540,7 @@
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = ThreadMagic/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.nononsense.ThreadMagic;
+				PRODUCT_BUNDLE_IDENTIFIER = io.nononsense.ThreadMagic.co;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -547,7 +555,7 @@
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = ThreadMagic/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.nononsense.ThreadMagic;
+				PRODUCT_BUNDLE_IDENTIFIER = io.nononsense.ThreadMagic.co;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
