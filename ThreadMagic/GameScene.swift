@@ -8,6 +8,7 @@
 
 
 import SpriteKit
+import AVFoundation
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
@@ -30,13 +31,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var recognizer: DBPathRecognizer?
     
     var yourline: SKShapeNode = SKShapeNode()
+    var audioPlayer:AVAudioPlayer!
     
     var level = 0
 
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
         
-        let recognizer = DBPathRecognizer(sliceCount: 8, deltaMove: 16.0, costMax: 5)
+        let recognizer = DBPathRecognizer(sliceCount: 8, deltaMove: 16.0, costMax: 90)
         
         self.recognizer = recognizer
         
@@ -55,9 +57,38 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         yourline.zPosition = 2
         addChild(yourline)
         
+        
+        let audioFilePath = NSBundle.mainBundle().pathForResource("Desert Battle (Loop)", ofType: "mp3")
+        
+        let audioFileUrl = NSURL.fileURLWithPath(audioFilePath!)
+            
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOfURL: audioFileUrl, fileTypeHint: nil)
+            audioPlayer.play()
+            audioPlayer.numberOfLoops = -1
+        }
+        catch {
+            print("Audio file is not found!")
+        }
+    
+}
+    
+    
+    func fadeVolumeAndPause(){
+        if self.audioPlayer?.volume > 0.1 {
+            self.audioPlayer?.volume = self.audioPlayer!.volume - 0.1
+            
+            var dispatchTime: dispatch_time_t = dispatch_time(DISPATCH_TIME_NOW, Int64(0.1 * Double(NSEC_PER_SEC)))
+            dispatch_after(dispatchTime, dispatch_get_main_queue(), {
+                self.fadeVolumeAndPause()
+            })
+            
+        } else {
+            self.audioPlayer?.pause()
+            self.audioPlayer?.volume = 1.0
+        }
     }
     
-
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         rawPoints = []
@@ -151,7 +182,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func addEnemy() {
         let monsterClass = MonsterOrder.order[level]
         fabricMaster = monsterClass.init()
-        
+        fabricMaster = FabricMaster(imageNamed: "boss4.png", maxHP: 100, charName: "Alistair", attribute: Attribute.Heat)
         fabricMaster.position = CGPoint(x: size.width + 200, y: size.height - 300)
 
         addChild(fabricMaster)
@@ -297,6 +328,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             return
         }
         scene.scaleMode = scaleMode
+        fadeVolumeAndPause()
         let reveal = SKTransition.flipHorizontalWithDuration(0.5)
         view?.presentScene(scene, transition: reveal)
     }
