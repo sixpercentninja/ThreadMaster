@@ -62,6 +62,11 @@
 		813C390D1C80F199001F9DB8 /* RayonStrike.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813C390C1C80F199001F9DB8 /* RayonStrike.swift */; };
 		813C390F1C80F215001F9DB8 /* RayonBash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813C390E1C80F215001F9DB8 /* RayonBash.swift */; };
 		813C39111C80FCE3001F9DB8 /* LogBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813C39101C80FCE3001F9DB8 /* LogBase.swift */; };
+		813C39131C8158A2001F9DB8 /* MonsterOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813C39121C8158A2001F9DB8 /* MonsterOrder.swift */; };
+		813C39151C81594D001F9DB8 /* Alistair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813C39141C81594D001F9DB8 /* Alistair.swift */; };
+		814B93F11C8206EB00E72D72 /* Tier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814B93F01C8206EB00E72D72 /* Tier.swift */; };
+		814B93F31C820AFD00E72D72 /* BossOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814B93F21C820AFD00E72D72 /* BossOne.swift */; };
+		814B93F51C820BFC00E72D72 /* Dragon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814B93F41C820BFC00E72D72 /* Dragon.swift */; };
 		81519AA81C7F923900D6E6E7 /* CGFloat+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81519A9C1C7F923900D6E6E7 /* CGFloat+Extensions.swift */; };
 		81519AA91C7F923900D6E6E7 /* CGPoint+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81519A9D1C7F923900D6E6E7 /* CGPoint+Extensions.swift */; };
 		81519AAA1C7F923900D6E6E7 /* CGVector+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81519A9E1C7F923900D6E6E7 /* CGVector+Extensions.swift */; };
@@ -150,6 +155,11 @@
 		813C390C1C80F199001F9DB8 /* RayonStrike.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RayonStrike.swift; path = Skills/RayonStrike.swift; sourceTree = "<group>"; };
 		813C390E1C80F215001F9DB8 /* RayonBash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RayonBash.swift; path = Skills/RayonBash.swift; sourceTree = "<group>"; };
 		813C39101C80FCE3001F9DB8 /* LogBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogBase.swift; sourceTree = "<group>"; };
+		813C39121C8158A2001F9DB8 /* MonsterOrder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonsterOrder.swift; sourceTree = "<group>"; };
+		813C39141C81594D001F9DB8 /* Alistair.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Alistair.swift; path = Models/Alistair.swift; sourceTree = "<group>"; };
+		814B93F01C8206EB00E72D72 /* Tier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Tier.swift; path = Models/Tier.swift; sourceTree = "<group>"; };
+		814B93F21C820AFD00E72D72 /* BossOne.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BossOne.swift; path = Models/BossOne.swift; sourceTree = "<group>"; };
+		814B93F41C820BFC00E72D72 /* Dragon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dragon.swift; sourceTree = "<group>"; };
 		81519A9C1C7F923900D6E6E7 /* CGFloat+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extensions.swift"; sourceTree = "<group>"; };
 		81519A9D1C7F923900D6E6E7 /* CGPoint+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGPoint+Extensions.swift"; sourceTree = "<group>"; };
 		81519A9E1C7F923900D6E6E7 /* CGVector+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGVector+Extensions.swift"; sourceTree = "<group>"; };
@@ -343,6 +353,10 @@
 				81AD02E31C76B92B00B6C5DC /* Monster.swift */,
 				81AD02E41C76B92B00B6C5DC /* Player.swift */,
 				81AD03231C7AE6F200B6C5DC /* FabricMaster.swift */,
+				813C39141C81594D001F9DB8 /* Alistair.swift */,
+				814B93F01C8206EB00E72D72 /* Tier.swift */,
+				814B93F21C820AFD00E72D72 /* BossOne.swift */,
+				814B93F41C820BFC00E72D72 /* Dragon.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -396,6 +410,7 @@
 				7B8BAEE11C765CE9001C1834 /* RootViewController.swift */,
 				81AD02D81C76897700B6C5DC /* DBPathRecognizer.swift */,
 				81AD02DA1C768F3200B6C5DC /* RenderView.swift */,
+				813C39121C8158A2001F9DB8 /* MonsterOrder.swift */,
 				7B8BAEED1C7660C9001C1834 /* GameScene */,
 				97E5100E1C73E6940034B575 /* Main.storyboard */,
 				97E510111C73E6940034B575 /* Assets.xcassets */,
@@ -522,7 +537,9 @@
 			files = (
 				813C39031C80EEB5001F9DB8 /* SilkDaze.swift in Sources */,
 				81519AAE1C7F923900D6E6E7 /* SKColor+Extensions.swift in Sources */,
+				814B93F51C820BFC00E72D72 /* Dragon.swift in Sources */,
 				81AD031C1C7AE25D00B6C5DC /* SpiderWeb.swift in Sources */,
+				814B93F31C820AFD00E72D72 /* BossOne.swift in Sources */,
 				81519AB21C7F923900D6E6E7 /* SKTTimingFunctions.swift in Sources */,
 				7B108F251C7BC450003FC7EE /* CottonBlaze.swift in Sources */,
 				81519AAF1C7F923900D6E6E7 /* SKNode+Extensions.swift in Sources */,
@@ -547,12 +564,15 @@
 				97E5100B1C73E6940034B575 /* GameScene.swift in Sources */,
 				97E5100D1C73E6940034B575 /* GameViewController.swift in Sources */,
 				813C390F1C80F215001F9DB8 /* RayonBash.swift in Sources */,
+				814B93F11C8206EB00E72D72 /* Tier.swift in Sources */,
 				81AD02E51C76B92B00B6C5DC /* Character.swift in Sources */,
 				81AD02DB1C768F3200B6C5DC /* RenderView.swift in Sources */,
 				813C390D1C80F199001F9DB8 /* RayonStrike.swift in Sources */,
 				7B8BAEE21C765CE9001C1834 /* RootViewController.swift in Sources */,
 				81519AB11C7F923900D6E6E7 /* SKTEffects.swift in Sources */,
+				813C39151C81594D001F9DB8 /* Alistair.swift in Sources */,
 				97E510071C73E6940034B575 /* AppDelegate.swift in Sources */,
+				813C39131C8158A2001F9DB8 /* MonsterOrder.swift in Sources */,
 				81AD02EC1C76B94B00B6C5DC /* Skill.swift in Sources */,
 				81AD02E71C76B92B00B6C5DC /* Player.swift in Sources */,
 				7B108ECE1C779A21003FC7EE /* GameOverScene.swift in Sources */,

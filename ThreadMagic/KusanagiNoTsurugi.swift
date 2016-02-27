@@ -24,7 +24,7 @@ class KusanagiNoTsurugi: Skill {
         return SKTextureAtlas(named: "kusanagiNoTsurugi.atlas")
     }
     
-    override func animateAction(scene: SKScene, target: SKSpriteNode, completion: () -> Void ) -> Void {
+    override func animateAction(scene: SKScene, caster: Character, target: Character, completion: () -> Void ) -> Void {
         let node = animationNode
         node.zPosition = 0.6
         
@@ -42,6 +42,7 @@ class KusanagiNoTsurugi: Skill {
                     
                     target.runAction(self.effectActionSequence(), completion: { () -> Void in
                         background.runAction(SKAction.colorizeWithColor(.whiteColor(), colorBlendFactor: 0.0, duration: 3.0))
+                        caster.attack(target, skillName: self.skillName)
                         completion()
                     })
                 }

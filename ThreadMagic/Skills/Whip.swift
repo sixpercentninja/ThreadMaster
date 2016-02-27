@@ -23,7 +23,7 @@
 //        return SKTextureAtlas(named: "whip")
 //    }
 //    
-//    override func animateAction(scene: SKScene, target: SKSpriteNode, completion: () -> Void ) -> Void {
+//    override func animateAction(scene: SKScene, caster: Character, target: Character, completion: () -> Void ) -> Void {
 //        let node = animationNode
 //        node.zPosition = 0.6
 //        

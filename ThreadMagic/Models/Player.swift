@@ -9,12 +9,13 @@
 import SpriteKit
 
 class Player: Character {
-    var level: Int {
-        let multiplier = totalExperience/100
-        let level = logWithBase(1.7, value: Double(multiplier))
-        return Int(level)
+    var level: Int = 1
+    
+    var totalExperience: Int = 100 {
+        didSet {
+            calculateLevel()
+        }
     }
-    var totalExperience: Int
     
     override init(texture: SKTexture?, color: UIColor, size: CGSize) {
         totalExperience = 0
@@ -41,5 +42,22 @@ class Player: Character {
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func calculateLevel(){
+        let oldLevel = level
+        let multiplier = Double(totalExperience)/100.0
+        let newLevel = logWithBase(1.7, value: Double(multiplier))
+        self.level = Int(newLevel) + 1
+        // for every level increase
+        for _ in (0..<self.level - oldLevel){
+            // Increase HP by 20% - 25%
+            maxHP += Int(Double(randomNumberBetween(20, end: 26))/100.0 * Double(maxHP))
+        }
+        // if level increase is to the next tens
+        if (self.level % 10) - (oldLevel % 10) > 0{
+            // Increase HP by 6 %
+            maxHP += Int(0.06 * Double(maxHP))
+        }
     }
 }

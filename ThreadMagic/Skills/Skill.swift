@@ -28,6 +28,8 @@ enum Thread: Int, CustomStringConvertible {
     var description: String {
         return self.threadName
     }
+    
+    
 }
 
 class Skill {
@@ -36,6 +38,7 @@ class Skill {
     var skillName: String { return "Not Implemented" }
     var gestures: [Int]!
     var thread: Thread!
+    var upgradedSkill: Skill?
     
     init() {
     }
@@ -52,7 +55,7 @@ class Skill {
         return textureAtlas.textureNames.sort().map({ textureAtlas.textureNamed($0) })
     }
     
-    func animateAction(scene: SKScene, target: SKSpriteNode, completion: () -> Void ) -> Void {
+    func animateAction(scene: SKScene, caster: Character, target: Character, completion: () -> Void ) -> Void {
         
     }
     

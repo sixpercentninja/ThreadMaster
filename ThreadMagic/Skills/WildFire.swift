@@ -24,7 +24,7 @@ class WildFire: Skill {
         return SKTextureAtlas(named: "wildFire")
     }
     
-    override func animateAction(scene: SKScene, target: SKSpriteNode, completion: () -> Void ) -> Void {
+    override func animateAction(scene: SKScene, caster: Character, target: Character, completion: () -> Void ) -> Void {
         let node = animationNode
         node.zPosition = 0.6
         
@@ -35,6 +35,7 @@ class WildFire: Skill {
         node.runAction(SKAction.animateWithTextures(animationTextures, timePerFrame: 0.15)) { () -> Void in
             node.removeFromParent()
             target.runAction(self.effectActionSequence(), completion: { () -> Void in
+                caster.attack(target, skillName: self.skillName)
                 completion()
             })
         }
