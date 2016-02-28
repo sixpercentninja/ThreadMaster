@@ -99,6 +99,8 @@
 		97E510151C73E6940034B575 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97E510131C73E6940034B575 /* LaunchScreen.storyboard */; };
 		97E5102E1C80FDF80034B575 /* Desert Battle (Loop).mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 97E5102D1C80FDF80034B575 /* Desert Battle (Loop).mp3 */; };
 		97E510321C8149DD0034B575 /* MainMenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E510311C8149DD0034B575 /* MainMenuScene.swift */; };
+		97E510341C82698D0034B575 /* Good Memories.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 97E510331C82698D0034B575 /* Good Memories.mp3 */; };
+		97E510361C827CB90034B575 /* Victory Fanfare.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 97E510351C827CB90034B575 /* Victory Fanfare.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -197,6 +199,8 @@
 		97E510161C73E6940034B575 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		97E5102D1C80FDF80034B575 /* Desert Battle (Loop).mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Desert Battle (Loop).mp3"; sourceTree = "<group>"; };
 		97E510311C8149DD0034B575 /* MainMenuScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuScene.swift; sourceTree = "<group>"; };
+		97E510331C82698D0034B575 /* Good Memories.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Good Memories.mp3"; sourceTree = "<group>"; };
+		97E510351C827CB90034B575 /* Victory Fanfare.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Victory Fanfare.mp3"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -252,6 +256,8 @@
 		7B108F091C7BC37D003FC7EE /* Sound Effects */ = {
 			isa = PBXGroup;
 			children = (
+				97E510351C827CB90034B575 /* Victory Fanfare.mp3 */,
+				97E510331C82698D0034B575 /* Good Memories.mp3 */,
 				97E5102D1C80FDF80034B575 /* Desert Battle (Loop).mp3 */,
 				7B108F0A1C7BC39C003FC7EE /* cottonBlaze.wav */,
 				7B108F0B1C7BC39C003FC7EE /* hitCritical.wav */,
@@ -502,6 +508,7 @@
 				7B108F131C7BC39C003FC7EE /* cottonBlaze.wav in Resources */,
 				7B31A7421C8009700071EC35 /* boss1Leg.png in Resources */,
 				7B108F151C7BC39C003FC7EE /* hitNormal.wav in Resources */,
+				97E510361C827CB90034B575 /* Victory Fanfare.mp3 in Resources */,
 				813C38F91C80EDE4001F9DB8 /* kusanagiNoTsurugi.atlas in Resources */,
 				813C38FB1C80EDE4001F9DB8 /* rayonBash.atlas in Resources */,
 				7B31A7371C8005DE0071EC35 /* boss3Thread.png in Resources */,
@@ -526,6 +533,7 @@
 				7B108EF31C799ED8003FC7EE /* health.png in Resources */,
 				7B31A74A1C80E6680071EC35 /* bg1.png in Resources */,
 				7B108F231C7BC3F3003FC7EE /* slashCritical.atlas in Resources */,
+				97E510341C82698D0034B575 /* Good Memories.mp3 in Resources */,
 				7B378DB11C7E6C5400169D94 /* dragonLeftWing.png in Resources */,
 				7B31A7361C8005DE0071EC35 /* boss3.png in Resources */,
 				97E510101C73E6940034B575 /* Main.storyboard in Resources */,
