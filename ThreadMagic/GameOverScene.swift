@@ -8,15 +8,19 @@
 
 import Foundation
 import SpriteKit
+import AVFoundation
 
 class GameOverScene: SKScene {
     var nextLevel: Int!
     var mc: Player!
     let won: Bool
     
+    var audioPlayer:AVAudioPlayer!
+    
     init(size: CGSize, won: Bool) {
         self.won = won
         super.init(size: size)
+        
     }
     
     override func didMoveToView(view: SKView) {
@@ -40,6 +44,19 @@ class GameOverScene: SKScene {
                 self.view?.presentScene(scene, transition: reveal)
             }
         ]))
+    
+        let audioFilePath = NSBundle.mainBundle().pathForResource("Victory Fanfare", ofType: "mp3")
+        let audioFileUrl = NSURL.fileURLWithPath(audioFilePath!)
+        
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOfURL: audioFileUrl, fileTypeHint: nil)
+            audioPlayer.play()
+            audioPlayer.numberOfLoops = -1
+        }
+        catch {
+            print("No audio file found!")
+        }
+    
     }
     
     required init(coder aDecoder: NSCoder) {
