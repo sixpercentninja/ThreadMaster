@@ -90,6 +90,7 @@
 		81AD031C1C7AE25D00B6C5DC /* SpiderWeb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AD031B1C7AE25D00B6C5DC /* SpiderWeb.swift */; };
 		81AD03221C7AE5C000B6C5DC /* spider_web.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 81AD03211C7AE5C000B6C5DC /* spider_web.atlas */; };
 		81AD03241C7AE6F200B6C5DC /* FabricMaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AD03231C7AE6F200B6C5DC /* FabricMaster.swift */; };
+		81C188A01C83E2BD00F05BAB /* dataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 81C1889E1C83E2BD00F05BAB /* dataModel.xcdatamodeld */; };
 		81D939AD1C7E8DA900E3313A /* SilkTrick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D939AC1C7E8DA900E3313A /* SilkTrick.swift */; };
 		97E510071C73E6940034B575 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E510061C73E6940034B575 /* AppDelegate.swift */; };
 		97E5100B1C73E6940034B575 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E5100A1C73E6940034B575 /* GameScene.swift */; };
@@ -188,6 +189,7 @@
 		81AD031B1C7AE25D00B6C5DC /* SpiderWeb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SpiderWeb.swift; path = Skills/SpiderWeb.swift; sourceTree = "<group>"; };
 		81AD03211C7AE5C000B6C5DC /* spider_web.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = spider_web.atlas; sourceTree = "<group>"; };
 		81AD03231C7AE6F200B6C5DC /* FabricMaster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FabricMaster.swift; path = Models/FabricMaster.swift; sourceTree = "<group>"; };
+		81C1889F1C83E2BD00F05BAB /* dataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = dataModel.xcdatamodel; sourceTree = "<group>"; };
 		81D939AC1C7E8DA900E3313A /* SilkTrick.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SilkTrick.swift; path = Skills/SilkTrick.swift; sourceTree = "<group>"; };
 		97E510031C73E6940034B575 /* ThreadMagic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThreadMagic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97E510061C73E6940034B575 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -428,6 +430,7 @@
 				97E510111C73E6940034B575 /* Assets.xcassets */,
 				97E510131C73E6940034B575 /* LaunchScreen.storyboard */,
 				97E510161C73E6940034B575 /* Info.plist */,
+				81C1889E1C83E2BD00F05BAB /* dataModel.xcdatamodeld */,
 			);
 			path = ThreadMagic;
 			sourceTree = "<group>";
@@ -566,6 +569,7 @@
 				813C39071C80F02D001F9DB8 /* AramidWard.swift in Sources */,
 				81AD03241C7AE6F200B6C5DC /* FabricMaster.swift in Sources */,
 				81519AA81C7F923900D6E6E7 /* CGFloat+Extensions.swift in Sources */,
+				81C188A01C83E2BD00F05BAB /* dataModel.xcdatamodeld in Sources */,
 				81519AA91C7F923900D6E6E7 /* CGPoint+Extensions.swift in Sources */,
 				813C39091C80F08C001F9DB8 /* AramidGuard.swift in Sources */,
 				813C39111C80FCE3001F9DB8 /* LogBase.swift in Sources */,
@@ -755,6 +759,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		81C1889E1C83E2BD00F05BAB /* dataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				81C1889F1C83E2BD00F05BAB /* dataModel.xcdatamodel */,
+			);
+			currentVersion = 81C1889F1C83E2BD00F05BAB /* dataModel.xcdatamodel */;
+			path = dataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 97E50FFB1C73E6940034B575 /* Project object */;
 }

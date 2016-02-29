@@ -15,7 +15,7 @@ class GameOverScene: SKScene {
     var mc: Player!
     let won: Bool
     
-    var audioPlayer:AVAudioPlayer!
+    var audioPlayer:SKTAudio!
     
     init(size: CGSize, won: Bool) {
         self.won = won
@@ -24,6 +24,9 @@ class GameOverScene: SKScene {
     }
     
     override func didMoveToView(view: SKView) {
+//        audioPlayer = SKTAudio()
+//        audioPlayer.playBackgroundMusic("Victory Fanfare.mp3")
+        SKTAudio.sharedInstance().playBackgroundMusic("Victory Fanfare.mp3")
         backgroundColor = SKColor.whiteColor()
         
         let message = won ? "You won!" : "You didn't make it, soorry!"
@@ -45,17 +48,7 @@ class GameOverScene: SKScene {
             }
         ]))
     
-        let audioFilePath = NSBundle.mainBundle().pathForResource("Victory Fanfare", ofType: "mp3")
-        let audioFileUrl = NSURL.fileURLWithPath(audioFilePath!)
-        
-        do {
-            audioPlayer = try AVAudioPlayer(contentsOfURL: audioFileUrl, fileTypeHint: nil)
-            audioPlayer.play()
-            audioPlayer.numberOfLoops = -1
-        }
-        catch {
-            print("No audio file found!")
-        }
+      
     
     }
     

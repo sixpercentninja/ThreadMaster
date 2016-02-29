@@ -37,7 +37,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
-        
+        SKTAudio.sharedInstance().playBackgroundMusic("Desert Battle (Loop).mp3")
+      
         let recognizer = DBPathRecognizer(sliceCount: 8, deltaMove: 16.0, costMax: 90)
         
         self.recognizer = recognizer
@@ -56,38 +57,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         yourline.strokeTexture = magic
         yourline.zPosition = 2
         addChild(yourline)
-        
-        
-        let audioFilePath = NSBundle.mainBundle().pathForResource("Desert Battle (Loop)", ofType: "mp3")
-        
-        let audioFileUrl = NSURL.fileURLWithPath(audioFilePath!)
-            
-        do {
-            audioPlayer = try AVAudioPlayer(contentsOfURL: audioFileUrl, fileTypeHint: nil)
-            audioPlayer.play()
-            audioPlayer.numberOfLoops = -1
-        }
-        catch {
-            print("Audio file is not found!")
-        }
-    
-}
-    
-    
-    func fadeVolumeAndPause(){
-        if self.audioPlayer?.volume > 0.1 {
-            self.audioPlayer?.volume = self.audioPlayer!.volume - 0.1
-            
-            var dispatchTime: dispatch_time_t = dispatch_time(DISPATCH_TIME_NOW, Int64(0.1 * Double(NSEC_PER_SEC)))
-            dispatch_after(dispatchTime, dispatch_get_main_queue(), {
-                self.fadeVolumeAndPause()
-            })
-            
-        } else {
-            self.audioPlayer?.pause()
-            self.audioPlayer?.volume = 1.0
-        }
     }
+  
+
     
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -182,7 +154,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func addEnemy() {
         let monsterClass = MonsterOrder.order[level]
         fabricMaster = monsterClass.init()
-        fabricMaster = FabricMaster(imageNamed: "boss4.png", maxHP: 100, charName: "Alistair", attribute: Attribute.Heat)
+
         fabricMaster.position = CGPoint(x: size.width + 200, y: size.height - 300)
 
         addChild(fabricMaster)
@@ -317,18 +289,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if mc.currentHp <= 0 {
             scene = GameOverScene(size: size, won: false)
             scene.nextLevel = level
-            scene.mc = mc
-            mc.removeFromParent()
         }else if(fabricMaster.currentHp <= 0){
             scene = GameOverScene(size: size, won: true)
             scene.nextLevel = (level + 1) % MonsterOrder.order.count
-            scene.mc = mc
-            mc.removeFromParent()
+          
         }else{
             return
         }
         scene.scaleMode = scaleMode
-        fadeVolumeAndPause()
+        scene.mc = mc
+        mc.removeFromParent()
+        SKTAudio.sharedInstance().fadeVolumeAndPause()
         let reveal = SKTransition.flipHorizontalWithDuration(0.5)
         view?.presentScene(scene, transition: reveal)
     }

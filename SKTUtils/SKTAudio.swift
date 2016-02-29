@@ -29,12 +29,15 @@ import AVFoundation
 public class SKTAudio {
   public var backgroundMusicPlayer: AVAudioPlayer?
   public var soundEffectPlayer: AVAudioPlayer?
+  
+  var continueFading = false
 
   public class func sharedInstance() -> SKTAudio {
     return SKTAudioInstance
   }
 
   public func playBackgroundMusic(filename: String) {
+    continueFading = false
     let url = NSBundle.mainBundle().URLForResource(filename, withExtension: nil)
     if (url == nil) {
       print("Could not find file: \(filename)")
@@ -64,12 +67,44 @@ public class SKTAudio {
       }
     }
   }
+  
+  public func stopBackgroundMusic() {
+    if let player = backgroundMusicPlayer {
+      if player.playing {
+        print("stopping")
+        player.stop()
+      }
+    }
+  }
 
   public func resumeBackgroundMusic() {
     if let player = backgroundMusicPlayer {
       if !player.playing {
         player.play()
       }
+    }
+  }
+  
+  public func fadeVolumeAndPause(){
+    continueFading = true
+    continueToFade()
+    
+  }
+  
+  func continueToFade(){
+    guard continueFading else { return }
+    print("fading")
+    if backgroundMusicPlayer?.volume > 0.1 {
+      backgroundMusicPlayer?.volume = backgroundMusicPlayer!.volume - 0.1
+      
+      let dispatchTime: dispatch_time_t = dispatch_time(DISPATCH_TIME_NOW, Int64(0.1 * Double(NSEC_PER_SEC)))
+      dispatch_after(dispatchTime, dispatch_get_main_queue(), {
+        self.continueToFade()
+      })
+      
+    } else {
+      backgroundMusicPlayer?.pause()
+      backgroundMusicPlayer?.volume = 1.0
     }
   }
 
