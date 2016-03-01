@@ -91,6 +91,15 @@
 		81AD03221C7AE5C000B6C5DC /* spider_web.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 81AD03211C7AE5C000B6C5DC /* spider_web.atlas */; };
 		81AD03241C7AE6F200B6C5DC /* FabricMaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AD03231C7AE6F200B6C5DC /* FabricMaster.swift */; };
 		81C188A01C83E2BD00F05BAB /* dataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 81C1889E1C83E2BD00F05BAB /* dataModel.xcdatamodeld */; };
+		81C188A41C84C7DF00F05BAB /* Tiles.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 81C188A31C84C7DF00F05BAB /* Tiles.atlas */; };
+		81C188A81C84C93200F05BAB /* LevelHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C188A71C84C93200F05BAB /* LevelHelper.swift */; };
+		81C188AC1C84DE5200F05BAB /* WorldMapScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C188AB1C84DE5200F05BAB /* WorldMapScene.swift */; };
+		81C188B01C85289000F05BAB /* player.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 81C188AF1C85289000F05BAB /* player.atlas */; };
+		81C188B31C852B2E00F05BAB /* PlayerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C188B21C852B2E00F05BAB /* PlayerEntity.swift */; };
+		81C188B61C852B7100F05BAB /* SpriteComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C188B51C852B7100F05BAB /* SpriteComponent.swift */; };
+		81C188B81C852C9100F05BAB /* AnimationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C188B71C852C9100F05BAB /* AnimationComponent.swift */; };
+		81C188BA1C852CB000F05BAB /* GameSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C188B91C852CB000F05BAB /* GameSettings.swift */; };
+		81C188BC1C852FA900F05BAB /* PlayerMoveComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C188BB1C852FA900F05BAB /* PlayerMoveComponent.swift */; };
 		81D939AD1C7E8DA900E3313A /* SilkTrick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D939AC1C7E8DA900E3313A /* SilkTrick.swift */; };
 		973FD5D21C857D1A00B72B23 /* StoryScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 973FD5D11C857D1A00B72B23 /* StoryScene.swift */; };
 		973FD5D41C8590E800B72B23 /* Remember.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 973FD5D31C8590E800B72B23 /* Remember.mp3 */; };
@@ -192,6 +201,15 @@
 		81AD03211C7AE5C000B6C5DC /* spider_web.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = spider_web.atlas; sourceTree = "<group>"; };
 		81AD03231C7AE6F200B6C5DC /* FabricMaster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FabricMaster.swift; path = Models/FabricMaster.swift; sourceTree = "<group>"; };
 		81C1889F1C83E2BD00F05BAB /* dataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = dataModel.xcdatamodel; sourceTree = "<group>"; };
+		81C188A31C84C7DF00F05BAB /* Tiles.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Tiles.atlas; sourceTree = "<group>"; };
+		81C188A71C84C93200F05BAB /* LevelHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelHelper.swift; sourceTree = "<group>"; };
+		81C188AB1C84DE5200F05BAB /* WorldMapScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorldMapScene.swift; sourceTree = "<group>"; };
+		81C188AF1C85289000F05BAB /* player.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = player.atlas; sourceTree = "<group>"; };
+		81C188B21C852B2E00F05BAB /* PlayerEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerEntity.swift; sourceTree = "<group>"; };
+		81C188B51C852B7100F05BAB /* SpriteComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpriteComponent.swift; sourceTree = "<group>"; };
+		81C188B71C852C9100F05BAB /* AnimationComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationComponent.swift; sourceTree = "<group>"; };
+		81C188B91C852CB000F05BAB /* GameSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSettings.swift; sourceTree = "<group>"; };
+		81C188BB1C852FA900F05BAB /* PlayerMoveComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerMoveComponent.swift; sourceTree = "<group>"; };
 		81D939AC1C7E8DA900E3313A /* SilkTrick.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SilkTrick.swift; path = Skills/SilkTrick.swift; sourceTree = "<group>"; };
 		973FD5D11C857D1A00B72B23 /* StoryScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryScene.swift; sourceTree = "<group>"; };
 		973FD5D31C8590E800B72B23 /* Remember.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Remember.mp3; sourceTree = "<group>"; };
@@ -338,6 +356,7 @@
 				973FD5D11C857D1A00B72B23 /* StoryScene.swift */,
 				97E5100C1C73E6940034B575 /* GameViewController.swift */,
 				7B108ECD1C779A21003FC7EE /* GameOverScene.swift */,
+				81C188AB1C84DE5200F05BAB /* WorldMapScene.swift */,
 				7B378DB41C7E6C7900169D94 /* Monsters */,
 				7B108F051C7BC275003FC7EE /* AttackAnimations */,
 				7B108F091C7BC37D003FC7EE /* Sound Effects */,
@@ -403,6 +422,42 @@
 			name = Skills;
 			sourceTree = "<group>";
 		};
+		81C188A11C84C79D00F05BAB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				81C188AF1C85289000F05BAB /* player.atlas */,
+				81C188A31C84C7DF00F05BAB /* Tiles.atlas */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		81C188A61C84C90400F05BAB /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				81C188A71C84C93200F05BAB /* LevelHelper.swift */,
+				81C188B91C852CB000F05BAB /* GameSettings.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		81C188B11C852B1A00F05BAB /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				81C188B21C852B2E00F05BAB /* PlayerEntity.swift */,
+			);
+			name = Entities;
+			sourceTree = "<group>";
+		};
+		81C188B41C852B4300F05BAB /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				81C188B51C852B7100F05BAB /* SpriteComponent.swift */,
+				81C188B71C852C9100F05BAB /* AnimationComponent.swift */,
+				81C188BB1C852FA900F05BAB /* PlayerMoveComponent.swift */,
+			);
+			name = Components;
+			sourceTree = "<group>";
+		};
 		97E50FFA1C73E6940034B575 = {
 			isa = PBXGroup;
 			children = (
@@ -424,6 +479,10 @@
 		97E510051C73E6940034B575 /* ThreadMagic */ = {
 			isa = PBXGroup;
 			children = (
+				81C188B41C852B4300F05BAB /* Components */,
+				81C188B11C852B1A00F05BAB /* Entities */,
+				81C188A61C84C90400F05BAB /* Helpers */,
+				81C188A11C84C79D00F05BAB /* Resources */,
 				81AD02E91C76B93E00B6C5DC /* Skills */,
 				81AD02E11C76B91B00B6C5DC /* Models */,
 				97E510061C73E6940034B575 /* AppDelegate.swift */,
@@ -473,7 +532,7 @@
 				TargetAttributes = {
 					97E510021C73E6940034B575 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = UUKJ3Z33B8;
+						DevelopmentTeam = Y4S292F292;
 					};
 				};
 			};
@@ -513,6 +572,7 @@
 				7B108F191C7BC39C003FC7EE /* waterSound.wav in Resources */,
 				973FD5D41C8590E800B72B23 /* Remember.mp3 in Resources */,
 				7B31A73A1C8005EB0071EC35 /* boss4.png in Resources */,
+				81C188B01C85289000F05BAB /* player.atlas in Resources */,
 				97E510151C73E6940034B575 /* LaunchScreen.storyboard in Resources */,
 				813C38FF1C80EDE4001F9DB8 /* thrash.atlas in Resources */,
 				7B108F131C7BC39C003FC7EE /* cottonBlaze.wav in Resources */,
@@ -528,6 +588,7 @@
 				813C38FC1C80EDE4001F9DB8 /* rayonStrike.atlas in Resources */,
 				7B108EF41C799ED8003FC7EE /* healthBar.png in Resources */,
 				813C38F71C80EDE4001F9DB8 /* cottonBlaze.atlas in Resources */,
+				81C188A41C84C7DF00F05BAB /* Tiles.atlas in Resources */,
 				7B108F171C7BC39C003FC7EE /* mortarSound.wav in Resources */,
 				7B8BAEEC1C766051001C1834 /* mc.atlas in Resources */,
 				813C38FA1C80EDE4001F9DB8 /* pieceDeResistance.atlas in Resources */,
@@ -561,7 +622,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				813C39031C80EEB5001F9DB8 /* SilkDaze.swift in Sources */,
+				81C188BC1C852FA900F05BAB /* PlayerMoveComponent.swift in Sources */,
 				81519AAE1C7F923900D6E6E7 /* SKColor+Extensions.swift in Sources */,
+				81C188B31C852B2E00F05BAB /* PlayerEntity.swift in Sources */,
+				81C188AC1C84DE5200F05BAB /* WorldMapScene.swift in Sources */,
 				814B93F51C820BFC00E72D72 /* Dragon.swift in Sources */,
 				81AD031C1C7AE25D00B6C5DC /* SpiderWeb.swift in Sources */,
 				97E510321C8149DD0034B575 /* MainMenuScene.swift in Sources */,
@@ -585,6 +649,9 @@
 				813C39051C80EF02001F9DB8 /* PieceDeResistance.swift in Sources */,
 				81519AAD1C7F923900D6E6E7 /* SKAction+SpecialEffects.swift in Sources */,
 				81519AAC1C7F923900D6E6E7 /* SKAction+Extensions.swift in Sources */,
+				81C188B61C852B7100F05BAB /* SpriteComponent.swift in Sources */,
+				81C188A81C84C93200F05BAB /* LevelHelper.swift in Sources */,
+				81C188BA1C852CB000F05BAB /* GameSettings.swift in Sources */,
 				81519AB01C7F923900D6E6E7 /* SKTAudio.swift in Sources */,
 				7B108F271C7BC8C8003FC7EE /* KusanagiNoTsurugi.swift in Sources */,
 				81519AAA1C7F923900D6E6E7 /* CGVector+Extensions.swift in Sources */,
@@ -599,6 +666,7 @@
 				7B8BAEE21C765CE9001C1834 /* RootViewController.swift in Sources */,
 				81519AB11C7F923900D6E6E7 /* SKTEffects.swift in Sources */,
 				813C39151C81594D001F9DB8 /* Alistair.swift in Sources */,
+				81C188B81C852C9100F05BAB /* AnimationComponent.swift in Sources */,
 				97E510071C73E6940034B575 /* AppDelegate.swift in Sources */,
 				813C39131C8158A2001F9DB8 /* MonsterOrder.swift in Sources */,
 				81AD02EC1C76B94B00B6C5DC /* Skill.swift in Sources */,
@@ -724,7 +792,7 @@
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = ThreadMagic/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.nononsense.ThreadMagic.co;
+				PRODUCT_BUNDLE_IDENTIFIER = io.nononsense.ThreadMagic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -739,7 +807,7 @@
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = ThreadMagic/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.nononsense.ThreadMagic.co;
+				PRODUCT_BUNDLE_IDENTIFIER = io.nononsense.ThreadMagic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

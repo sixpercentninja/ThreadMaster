@@ -20,14 +20,7 @@ class GameViewController: UIViewController {
         skView.showsNodeCount = true
         
         skView.ignoresSiblingOrder = true
-        
-        scene.scaleMode = .Fill
-        
-        let textureAtlas = SKTextureAtlas(named: "mainCharacter")
-        
-        let mc = Player(imageNamed: textureAtlas.textureNames.first!, maxHP: 50, charName: "Steven", attribute: Attribute.Neutral)
 
-        scene.mc = mc
         skView.presentScene(scene)
     }
     
