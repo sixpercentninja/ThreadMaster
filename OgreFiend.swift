@@ -1,5 +1,5 @@
 //
-//  Sister.swift
+//  OgreFiend.swift
 //  ThreadMagic
 //
 //  Created by Steven Yang on 2/29/16.
@@ -9,9 +9,9 @@
 import Foundation
 import SpriteKit
 
-class Sister: Monster {
+class OgreFiend: Monster {
     
-    let displayImageName = "sister.png"
+    let displayImageName = "ogre.png"
     
     override init(texture: SKTexture?, color: UIColor, size: CGSize) {
         super.init(texture: texture, color: color, size: size)
@@ -33,7 +33,7 @@ class Sister: Monster {
     }
     
     init(){
-        super.init(imageNamed: displayImageName, maxHP: 50, charName: "Witch", attribute: Attribute.Heat)
+        super.init(imageNamed: displayImageName, maxHP: 50, charName: "Ogre Fiend", attribute: Attribute.Heat)
         settings()
         animateMonster()
         assignDefaultSkills()
@@ -54,8 +54,8 @@ class Sister: Monster {
     }
     
     func animateMonster() {
-        let moveDown = SKAction.moveByX(-2, y: 0, duration: 2.0)
-        let moveUp = SKAction.moveByX(2, y: 0, duration: 2.0)
+        let moveDown = SKAction.moveByX(-5, y: 0, duration: 2.0)
+        let moveUp = SKAction.moveByX(5, y: 0, duration: 2.0)
         
         let moving = SKAction.sequence([moveDown, moveUp])
         

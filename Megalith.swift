@@ -1,5 +1,5 @@
 //
-//  Knight.swift
+//  Megalith.swift
 //  ThreadMagic
 //
 //  Created by Steven Yang on 2/29/16.
@@ -9,9 +9,9 @@
 import Foundation
 import SpriteKit
 
-class Knight: Monster {
+class Megalith: Monster {
     
-    let displayImageName = "knight.png"
+    let displayImageName = "golem.png"
     
     override init(texture: SKTexture?, color: UIColor, size: CGSize) {
         super.init(texture: texture, color: color, size: size)
@@ -33,7 +33,7 @@ class Knight: Monster {
     }
     
     init(){
-        super.init(imageNamed: displayImageName, maxHP: 50, charName: "Knight", attribute: Attribute.Heat)
+        super.init(imageNamed: displayImageName, maxHP: 50, charName: "Megalith", attribute: Attribute.Heat)
         settings()
         animateMonster()
         assignDefaultSkills()
@@ -54,8 +54,8 @@ class Knight: Monster {
     }
     
     func animateMonster() {
-        let moveDown = SKAction.moveByX(-10, y: 0, duration: 4.0)
-        let moveUp = SKAction.moveByX(10, y: 0, duration: 4.0)
+        let moveDown = SKAction.moveByX(-5, y: 0, duration: 6.0)
+        let moveUp = SKAction.moveByX(5, y: 0, duration: 6.0)
         
         let moving = SKAction.sequence([moveDown, moveUp])
         

@@ -1,22 +1,21 @@
 //
-//  Tier.swift
+//  DemonTengu.swift
 //  ThreadMagic
 //
-//  Created by Wong You Jing on 27/02/2016.
+//  Created by Steven Yang on 2/29/16.
 //  Copyright © 2016 Andrew Chen. All rights reserved.
 //
 
 import Foundation
 import SpriteKit
 
-class Tier: Monster {
-    let displayImageName = "boss3.png"
+class DemomTengu: Monster {
     
-    let bossThread = SKSpriteNode(imageNamed: "boss3Thread.png")
+    let displayImageName = "tengu.png"
     
     override init(texture: SKTexture?, color: UIColor, size: CGSize) {
         super.init(texture: texture, color: color, size: size)
-        expGiven = 25
+        expGiven = 200
     }
     
     override init(imageNamed: String, maxHP: Int, charName: String, attribute: Attribute){
@@ -34,7 +33,7 @@ class Tier: Monster {
     }
     
     init(){
-        super.init(imageNamed: displayImageName, maxHP: 50, charName: "Tier", attribute: Attribute.Heat)
+        super.init(imageNamed: displayImageName, maxHP: 50, charName: "Demom Tengu", attribute: Attribute.Heat)
         settings()
         animateMonster()
         assignDefaultSkills()
@@ -49,23 +48,19 @@ class Tier: Monster {
     }
     
     func settings() {
-        setScale(0.6)
+        setScale(0.5)
         zPosition = 0.4
         
-        bossThread.position = CGPoint(x: 0, y: 0)
-        bossThread.setScale(1)
-        bossThread.zPosition = -1
-        addChild(bossThread)
     }
     
     func animateMonster() {
-        let moveDownThread = SKAction.moveByX(0, y: -10, duration: 2)
-        let moveUpThread = SKAction.moveByX(0, y: 10, duration: 2)
+        let moveDown = SKAction.moveByX(0, y: -20, duration: 2.0)
+        let moveUp = SKAction.moveByX(0, y: 20, duration: 2.0)
         
-        let animateAction = SKAction.sequence([moveUpThread, moveDownThread])
+        let moving = SKAction.sequence([moveDown, moveUp])
         
-        let repeatAction = SKAction.repeatActionForever(animateAction)
-        bossThread.runAction(repeatAction)
-
+        let repeatFlying = SKAction.repeatActionForever(moving)
+        
+        runAction(repeatFlying)
     }
 }

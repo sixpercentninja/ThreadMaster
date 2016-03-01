@@ -1,5 +1,5 @@
 //
-//  BossTwo.swift
+//  Edan.swift
 //  ThreadMagic
 //
 //  Created by Steven Yang on 2/27/16.
@@ -10,7 +10,7 @@
 import Foundation
 import SpriteKit
 
-class BossTwo: Monster {
+class Edan: Monster {
     let displayImageName = "boss2.png"
     
     let bossThread = SKSpriteNode(imageNamed: "boss2Thread.png")
@@ -38,7 +38,7 @@ class BossTwo: Monster {
     }
     
     init(){
-        super.init(imageNamed: displayImageName, maxHP: 50, charName: "Tyrion", attribute: Attribute.Heat)
+        super.init(imageNamed: displayImageName, maxHP: 50, charName: "Edan", attribute: Attribute.Heat)
         settings()
         animateMonster()
         assignDefaultSkills()

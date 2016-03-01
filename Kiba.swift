@@ -1,5 +1,5 @@
 //
-//  Wolf.swift
+//  Kiba.swift
 //  ThreadMagic
 //
 //  Created by Steven Yang on 2/29/16.
@@ -9,7 +9,7 @@
 import Foundation
 import SpriteKit
 
-class Wolf: Monster {
+class Kiba: Monster {
     
     let displayImageName = "wolf.png"
     
@@ -33,7 +33,7 @@ class Wolf: Monster {
     }
     
     init(){
-        super.init(imageNamed: displayImageName, maxHP: 50, charName: "Wolf", attribute: Attribute.Heat)
+        super.init(imageNamed: displayImageName, maxHP: 50, charName: "Kiba", attribute: Attribute.Heat)
         settings()
         animateMonster()
         assignDefaultSkills()

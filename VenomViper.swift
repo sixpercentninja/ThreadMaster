@@ -1,5 +1,5 @@
 //
-//  Golem.swift
+//  VenomViper.swift
 //  ThreadMagic
 //
 //  Created by Steven Yang on 2/29/16.
@@ -9,9 +9,9 @@
 import Foundation
 import SpriteKit
 
-class Golem: Monster {
+class VenomViper: Monster {
     
-    let displayImageName = "golem.png"
+    let displayImageName = "cobra.png"
     
     override init(texture: SKTexture?, color: UIColor, size: CGSize) {
         super.init(texture: texture, color: color, size: size)
@@ -33,7 +33,7 @@ class Golem: Monster {
     }
     
     init(){
-        super.init(imageNamed: displayImageName, maxHP: 50, charName: "Golem", attribute: Attribute.Heat)
+        super.init(imageNamed: displayImageName, maxHP: 50, charName: "Venom Viper", attribute: Attribute.Heat)
         settings()
         animateMonster()
         assignDefaultSkills()
@@ -54,13 +54,13 @@ class Golem: Monster {
     }
     
     func animateMonster() {
-        let moveDown = SKAction.moveByX(-5, y: 0, duration: 6.0)
-        let moveUp = SKAction.moveByX(5, y: 0, duration: 6.0)
+        let moveDown = SKAction.moveByX(-10, y: 0, duration: 2.0)
+        let moveUp = SKAction.moveByX(10, y: 0, duration: 2.0)
         
         let moving = SKAction.sequence([moveDown, moveUp])
         
         let repeatFlying = SKAction.repeatActionForever(moving)
-        
+
         runAction(repeatFlying)
     }
 }

@@ -1,21 +1,22 @@
 //
-//  Tengu.swift
+//  Gabino.swift
 //  ThreadMagic
 //
-//  Created by Steven Yang on 2/29/16.
+//  Created by Wong You Jing on 27/02/2016.
 //  Copyright © 2016 Andrew Chen. All rights reserved.
 //
 
 import Foundation
 import SpriteKit
 
-class Tengu: Monster {
+class Gabino: Monster {
     
-    let displayImageName = "tengu.png"
+    let bossThread = SKSpriteNode(imageNamed: "boss1Leg.png")
+    let displayImageName = "boss1.png"
     
     override init(texture: SKTexture?, color: UIColor, size: CGSize) {
         super.init(texture: texture, color: color, size: size)
-        expGiven = 200
+        expGiven = 25
     }
     
     override init(imageNamed: String, maxHP: Int, charName: String, attribute: Attribute){
@@ -33,7 +34,7 @@ class Tengu: Monster {
     }
     
     init(){
-        super.init(imageNamed: displayImageName, maxHP: 50, charName: "Tengu", attribute: Attribute.Heat)
+        super.init(imageNamed: displayImageName, maxHP: 50, charName: "Gabino", attribute: Attribute.Heat)
         settings()
         animateMonster()
         assignDefaultSkills()
@@ -48,19 +49,23 @@ class Tengu: Monster {
     }
     
     func settings() {
-        setScale(0.5)
+        setScale(0.6)
         zPosition = 0.4
         
+        bossThread.position = CGPoint(x: 0, y: 0)
+        bossThread.setScale(1)
+        bossThread.zPosition = 0.5
+        addChild(bossThread)
     }
     
     func animateMonster() {
-        let moveDown = SKAction.moveByX(0, y: -20, duration: 2.0)
-        let moveUp = SKAction.moveByX(0, y: 20, duration: 2.0)
+        let moveDownThread = SKAction.moveByX(-5, y: -10, duration: 2)
+        let moveUpThread = SKAction.moveByX(5, y: 10, duration: 2)
         
-        let moving = SKAction.sequence([moveDown, moveUp])
+        let animateAction = SKAction.sequence([moveUpThread, moveDownThread])
         
-        let repeatFlying = SKAction.repeatActionForever(moving)
+        let repeatAction = SKAction.repeatActionForever(animateAction)
+        runAction(repeatAction)
         
-        runAction(repeatFlying)
     }
 }

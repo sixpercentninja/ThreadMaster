@@ -1,5 +1,5 @@
 //
-//  Cobra.swift
+//  UndeadKnight.swift
 //  ThreadMagic
 //
 //  Created by Steven Yang on 2/29/16.
@@ -9,9 +9,9 @@
 import Foundation
 import SpriteKit
 
-class Cobra: Monster {
+class UndeadKnight: Monster {
     
-    let displayImageName = "cobra.png"
+    let displayImageName = "knight.png"
     
     override init(texture: SKTexture?, color: UIColor, size: CGSize) {
         super.init(texture: texture, color: color, size: size)
@@ -33,7 +33,7 @@ class Cobra: Monster {
     }
     
     init(){
-        super.init(imageNamed: displayImageName, maxHP: 50, charName: "Cobra", attribute: Attribute.Heat)
+        super.init(imageNamed: displayImageName, maxHP: 50, charName: "Undead Knight", attribute: Attribute.Heat)
         settings()
         animateMonster()
         assignDefaultSkills()
@@ -54,13 +54,13 @@ class Cobra: Monster {
     }
     
     func animateMonster() {
-        let moveDown = SKAction.moveByX(-10, y: 0, duration: 2.0)
-        let moveUp = SKAction.moveByX(10, y: 0, duration: 2.0)
+        let moveDown = SKAction.moveByX(-10, y: 0, duration: 4.0)
+        let moveUp = SKAction.moveByX(10, y: 0, duration: 4.0)
         
         let moving = SKAction.sequence([moveDown, moveUp])
         
         let repeatFlying = SKAction.repeatActionForever(moving)
-
+        
         runAction(repeatFlying)
     }
 }

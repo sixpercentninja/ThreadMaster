@@ -1,5 +1,5 @@
 //
-//  Dragon.swift
+//  FrostWyvern.swift
 //  ThreadMagic
 //
 //  Created by Wong You Jing on 27/02/2016.
@@ -9,7 +9,7 @@
 import Foundation
 import SpriteKit
 
-class Dragon: Monster {
+class FrostWyvern: Monster {
     
     let rightWing = SKSpriteNode(imageNamed: "dragonRightWing")
     let leftWing = SKSpriteNode(imageNamed: "dragonLeftWing")
@@ -35,7 +35,7 @@ class Dragon: Monster {
     }
     
     init(){
-        super.init(imageNamed: displayImageName, maxHP: 50, charName: "Dragon", attribute: Attribute.Heat)
+        super.init(imageNamed: displayImageName, maxHP: 50, charName: "Frost Wyvern", attribute: Attribute.Heat)
         settings()
         animateMonster()
         assignDefaultSkills()
