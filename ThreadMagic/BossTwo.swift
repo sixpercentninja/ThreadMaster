@@ -1,18 +1,22 @@
 //
-//  BossOne.swift
+//  BossTwo.swift
 //  ThreadMagic
 //
-//  Created by Wong You Jing on 27/02/2016.
+//  Created by Steven Yang on 2/27/16.
 //  Copyright © 2016 Andrew Chen. All rights reserved.
 //
+
 
 import Foundation
 import SpriteKit
 
-class BossOne: Monster {
+class BossTwo: Monster {
+    let displayImageName = "boss2.png"
     
-    let bossThread = SKSpriteNode(imageNamed: "boss1Leg.png")
-    let displayImageName = "boss1.png"
+    let bossThread = SKSpriteNode(imageNamed: "boss2Thread.png")
+    let bossThread2 = SKSpriteNode(imageNamed: "rightWhip.png")
+    let bossThread3 = SKSpriteNode(imageNamed: "leftWhip.png")
+
     
     override init(texture: SKTexture?, color: UIColor, size: CGSize) {
         super.init(texture: texture, color: color, size: size)
@@ -34,7 +38,7 @@ class BossOne: Monster {
     }
     
     init(){
-        super.init(imageNamed: displayImageName, maxHP: 50, charName: "BossOne", attribute: Attribute.Heat)
+        super.init(imageNamed: displayImageName, maxHP: 50, charName: "Tyrion", attribute: Attribute.Heat)
         settings()
         animateMonster()
         assignDefaultSkills()
@@ -49,23 +53,35 @@ class BossOne: Monster {
     }
     
     func settings() {
-        setScale(0.6)
+        setScale(0.4)
         zPosition = 0.4
         
         bossThread.position = CGPoint(x: 0, y: 0)
         bossThread.setScale(1)
-        bossThread.zPosition = 0.5
+        bossThread.zPosition = 0.6
+        bossThread2.position = CGPoint(x: bossThread.xScale - 195, y: bossThread.yScale - 280)
+        bossThread2.setScale(1)
+//        bossThread2.anchorPoint = CGPoint(x: 0.5, y: 1)
+        bossThread2.zPosition = 0.5
+        bossThread3.position = CGPoint(x: bossThread.xScale + 185, y: bossThread.yScale - 285)
+        bossThread3.setScale(1)
+        bossThread3.zPosition = 0.5
         addChild(bossThread)
+        addChild(bossThread2)
+        addChild(bossThread3)
+
     }
     
     func animateMonster() {
-        let moveDownThread = SKAction.moveByX(-5, y: -10, duration: 2)
-        let moveUpThread = SKAction.moveByX(5, y: 10, duration: 2)
         
-        let animateAction = SKAction.sequence([moveUpThread, moveDownThread])
+        let growingLight = SKAction.scaleXTo(1 + 0.4, y: 1.0 + 0.1, duration: 2)
+        let dimmerLight = SKAction.scaleXTo(1.2 - 0.4, y: 1.1 - 0.1, duration: 2)
+
+        let animateAction2 = SKAction.sequence([growingLight, dimmerLight])
         
-        let repeatAction = SKAction.repeatActionForever(animateAction)
-        runAction(repeatAction)
+        let repeatAction2 = SKAction.repeatActionForever(animateAction2)
+        bossThread2.runAction(repeatAction2)
+        bossThread3.runAction(repeatAction2)
         
     }
 }

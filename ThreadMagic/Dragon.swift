@@ -54,16 +54,16 @@ class Dragon: Monster {
         zPosition = 0.4
         
         rightWing.anchorPoint = CGPoint(x: 1, y: 0.5)
-        rightWing.position = CGPoint(x: -20, y: 40)
+        rightWing.position = CGPoint(x: -35, y: 40)
         rightWing.setScale(0.6)
         rightWing.zRotation = CGFloat(M_PI) / 3
         rightWing.zPosition = -1
         
         leftWing.anchorPoint = CGPoint(x: 0.1, y: 0.5)
-        leftWing.position = CGPoint(x: 70, y: 45)
+        leftWing.position = CGPoint(x: 85, y: 45)
         leftWing.setScale(0.7)
         leftWing.zRotation = CGFloat(M_PI) / -3
-        leftWing.zPosition = -1
+        leftWing.zPosition = 0.5
         
         addChild(rightWing)
         addChild(leftWing)

@@ -9,5 +9,5 @@
 import SpriteKit
 
 struct MonsterOrder{
-    static let order: [Monster.Type] = [Dragon.self, BossOne.self, Tier.self, Alistair.self]
+    static let order: [Monster.Type] = [Wolf.self, Tengu.self, Sister.self, Ogre.self, Knight.self, Golem.self, Demon.self, Cobra.self, Dragon.self, BossOne.self, BossTwo.self, Tier.self, Alistair.self]
 }
