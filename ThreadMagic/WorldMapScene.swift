@@ -36,7 +36,8 @@ class WorldMapScene: SKScene, tileMapDelegate, SKPhysicsContactDelegate, PlayerE
         return [animationSystem, playerMoveSystem]
     }()
     
-    override func didMoveToView(view: SKView) {
+    override init(size size: CGSize) {
+        super.init(size: size)
         //Delegates
         worldGen.delegate = self
         physicsWorld.contactDelegate = self
@@ -47,7 +48,7 @@ class WorldMapScene: SKScene, tileMapDelegate, SKPhysicsContactDelegate, PlayerE
         let myCamera = SKCameraNode()
         camera = myCamera
         addChild(myCamera)
-        updateCameraScale()
+        
         
         //Config World
         addChild(worldLayer)
@@ -56,7 +57,15 @@ class WorldMapScene: SKScene, tileMapDelegate, SKPhysicsContactDelegate, PlayerE
         worldLayer.addChild(enemyLayer)
         
         setupLevel()
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func didMoveToView(view: SKView) {
         
+        updateCameraScale()
     }
     
     override func update(currentTime: NSTimeInterval) {
@@ -175,12 +184,13 @@ class WorldMapScene: SKScene, tileMapDelegate, SKPhysicsContactDelegate, PlayerE
     
     func playerMoved() {
         if(CGFloat(arc4random())/CGFloat(UInt32.max) < encounterSettings.encounterValue){
-//            playerEntity.moveComponent.stopPlayer()
-//            paused = true
-//            let scene = GameScene(size: CGSize(width: 1280, height: 800))
-//            scene.level = 1
-//            let transition = SKTransition.crossFadeWithDuration(2)
-//            view?.presentScene(scene, transition: transition)
+            playerEntity.moveComponent.stopPlayer()
+            paused = true
+            let scene = GameScene(size: CGSize(width: 1280, height: 800))
+            scene.mapLevel = MapLevel.levelOne
+            scene.worldMapScene = self
+            let transition = SKTransition.crossFadeWithDuration(2)
+            view?.presentScene(scene, transition: transition)
         }
     }
 }

@@ -36,7 +36,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var yourline: SKShapeNode = SKShapeNode()
     
-    var level = 0
+    var mapLevel: MapLevel!
+    var worldMapScene: SKScene!
     
     var spellBookButton = SKSpriteNode()
     var cancelButton = SKSpriteNode()
@@ -77,7 +78,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         addBG("bg1")
         addPlayer()
-        addEnemy(level)
+        addEnemy()
         addSpellBook()
         enemyHealthBarHidden(true)
         mcHealthBarHidden(true)
@@ -392,8 +393,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
     }
     
-    func addEnemy(bossOrderNumber: Int) {
-        let monsterClass = MonsterOrder.order[bossOrderNumber]
+    func addEnemy() {
+        let monsterClass = mapLevel.randomMonster
         fabricMaster = monsterClass.init()
 
         fabricMaster.position = CGPoint(x: size.width + 200, y: size.height - 300)
@@ -930,16 +931,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         var scene: GameOverScene!
         if mc.currentHp <= 0 {
             scene = GameOverScene(size: size, won: false)
-            scene.nextLevel = level
         }else if(fabricMaster.currentHp <= 0){
             scene = GameOverScene(size: size, won: true)
-            scene.nextLevel = (level + 1) % MonsterOrder.order.count
-          
         }else{
             return
         }
         scene.scaleMode = scaleMode
         scene.mc = mc
+        scene.worldMapScene = worldMapScene
         mc.removeFromParent()
         SKTAudio.sharedInstance().fadeVolumeAndPause()
         let reveal = SKTransition.flipHorizontalWithDuration(0.5)

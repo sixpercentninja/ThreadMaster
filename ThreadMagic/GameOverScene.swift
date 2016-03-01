@@ -11,9 +11,9 @@ import SpriteKit
 import AVFoundation
 
 class GameOverScene: SKScene {
-    var nextLevel: Int!
     var mc: Player!
     let won: Bool
+    var worldMapScene: SKScene!
     
     var audioPlayer:SKTAudio!
     
@@ -24,8 +24,7 @@ class GameOverScene: SKScene {
     }
     
     override func didMoveToView(view: SKView) {
-//        audioPlayer = SKTAudio()
-//        audioPlayer.playBackgroundMusic("Victory Fanfare.mp3")
+
         SKTAudio.sharedInstance().playBackgroundMusic("Victory Fanfare.mp3")
         backgroundColor = SKColor.whiteColor()
         
@@ -41,9 +40,7 @@ class GameOverScene: SKScene {
         runAction(SKAction.sequence([
             SKAction.waitForDuration(3.0), SKAction.runBlock() {
                 let reveal = SKTransition.flipHorizontalWithDuration(0.5)
-                let scene = GameScene(size: self.size)
-                scene.level = self.nextLevel
-                scene.mc = self.mc
+                let scene = self.worldMapScene
                 self.view?.presentScene(scene, transition: reveal)
             }
         ]))

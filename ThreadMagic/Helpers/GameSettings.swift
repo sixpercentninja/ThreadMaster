@@ -45,8 +45,44 @@ enum ColliderType:UInt32 {
 }
 
 enum MapLevel: Int {
-    case LevelOne = 0
-    case LevelTwo = 1
-    case LevelThree = 3
-    case LevelFour = 4
+    case levelOne = 0
+    case levelTwo = 1
+    case levelThree = 2
+    case levelFour = 3
+    case levelFive = 4
+    
+    var monsters: [Monster.Type] {
+        switch self {
+        case .levelOne:
+            return [Kiba.self, VenomViper.self]
+        case .levelTwo:
+            return [Megalith.self, OgreFiend.self]
+        case .levelThree:
+            return [Megalith.self, OgreFiend.self]
+        case .levelFour:
+            return [WickedElder.self, Sorcerer.self]
+        case .levelFive:
+            return [WickedElder.self, Sorcerer.self]
+        }
+    }
+    
+    var boss: Monster.Type {
+        switch self {
+        case .levelOne:
+            return Gabino.self
+        case .levelTwo:
+            return Edan.self
+        case .levelThree:
+            return Oinari.self
+        case .levelFour:
+            return Charon.self
+        case .levelFive:
+            return Charon.self
+        }
+    }
+    
+    var randomMonster: Monster.Type {
+        let randomIndex = Int(arc4random_uniform(UInt32(monsters.count)))
+        return monsters[randomIndex]
+    }
 }
