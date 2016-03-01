@@ -9,10 +9,16 @@
 import SpriteKit
 import GameplayKit
 
+protocol PlayerEntityDelegate: class {
+    func playerMoved()
+}
+
 class PlayerEntity: GKEntity {
     var spriteComponent: SpriteComponent!
     var animationComponent: AnimationComponent!
     var moveComponent: PlayerMoveComponent!
+    
+    weak var delegate: PlayerEntityDelegate?
     
     override init() {
         super.init()

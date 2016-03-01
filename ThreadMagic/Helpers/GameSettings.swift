@@ -30,7 +30,11 @@ enum LastDirection {
 
 struct playerSettings {
     //Player
-    static let movementSpeed: CGFloat = 200.0
+    static let movementSpeed: CGFloat = 250.0
+}
+
+struct encounterSettings{
+    static let encounterValue: CGFloat = 0.01
 }
 
 enum ColliderType:UInt32 {
@@ -38,4 +42,11 @@ enum ColliderType:UInt32 {
     case None           = 0b1
     case Engage         = 0b10
     case Obstacle       = 0b100
+}
+
+enum MapLevel: Int {
+    case LevelOne = 0
+    case LevelTwo = 1
+    case LevelThree = 3
+    case LevelFour = 4
 }

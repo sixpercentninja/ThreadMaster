@@ -10,7 +10,7 @@ import SpriteKit
 import AVFoundation
 import GameplayKit
 
-class WorldMapScene: SKScene, tileMapDelegate, SKPhysicsContactDelegate {
+class WorldMapScene: SKScene, tileMapDelegate, SKPhysicsContactDelegate, PlayerEntityDelegate {
     var worldGen = tileMap()
     //Layers
     var worldLayer = SKNode()
@@ -26,6 +26,7 @@ class WorldMapScene: SKScene, tileMapDelegate, SKPhysicsContactDelegate {
     
     let playerEntity = PlayerEntity()
     
+    var mapLevel: MapLevel!
     
     lazy var componentSystems: [GKComponentSystem] = {
         let animationSystem = GKComponentSystem(componentClass:
@@ -40,6 +41,7 @@ class WorldMapScene: SKScene, tileMapDelegate, SKPhysicsContactDelegate {
         worldGen.delegate = self
         physicsWorld.contactDelegate = self
         physicsWorld.gravity = CGVector.zero
+        playerEntity.delegate = self
         
         //Setup Camera
         let myCamera = SKCameraNode()
@@ -168,6 +170,17 @@ class WorldMapScene: SKScene, tileMapDelegate, SKPhysicsContactDelegate {
         }
         for componentSystem in self.componentSystems {
             componentSystem.addComponentWithEntity(entity)
+        }
+    }
+    
+    func playerMoved() {
+        if(CGFloat(arc4random())/CGFloat(UInt32.max) < encounterSettings.encounterValue){
+//            playerEntity.moveComponent.stopPlayer()
+//            paused = true
+//            let scene = GameScene(size: CGSize(width: 1280, height: 800))
+//            scene.level = 1
+//            let transition = SKTransition.crossFadeWithDuration(2)
+//            view?.presentScene(scene, transition: transition)
         }
     }
 }

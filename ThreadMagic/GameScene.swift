@@ -17,7 +17,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var rightWing = SKSpriteNode()
     var bossThread = SKSpriteNode()
     var fabricMasterLabel = SKLabelNode()
-    var mc = Player()
+    var mc = Player.mainPlayer
     var mcLabel = SKLabelNode()
     var mcName = SKLabelNode()
     var mainCharacterHealthBar = SKSpriteNode()

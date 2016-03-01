@@ -12,6 +12,7 @@ class PlayerMoveComponent: GKComponent {
     //1
     var movement = CGPointZero
     var lastTouchLocation: CGPoint?
+    var lastMoveLocation: CGPoint?
     //2
     var lastDirection = LastDirection.Down
     //3
@@ -41,12 +42,23 @@ class PlayerMoveComponent: GKComponent {
                 spriteComponent.node.position = lastTouchLocation
                 movement = CGPointZero
             }else{
+                if let player = entity as? PlayerEntity {
+                    player.delegate?.playerMoved()
+                }
                 spriteComponent.node.position = CGPoint(
                     x: spriteComponent.node.position.x + amountToMove.x,
                     y: spriteComponent.node.position.y + amountToMove.y
                 )
             }
         }
+        
+        if let lastMoveLocation = lastMoveLocation {
+            let diff = lastMoveLocation - spriteComponent.node.position
+            if (diff.length() < 0.001){
+                stopPlayer()
+            }
+        }
+        lastMoveLocation = spriteComponent.node.position
         
         // angle
         switch movement.angle {
@@ -83,7 +95,7 @@ class PlayerMoveComponent: GKComponent {
         }
         
         if movement.x == 0 && movement.y == 0 {
-        switch lastDirection {
+            switch lastDirection {
             case .Up:
                 animationComponent.requestedAnimationState = .Idle_Up
                 break
@@ -98,5 +110,24 @@ class PlayerMoveComponent: GKComponent {
                 break
             }
         }
+    }
+    
+    func stopPlayer(){
+        movement = CGPointZero
+        switch lastDirection {
+        case .Up:
+            animationComponent.requestedAnimationState = .Idle_Up
+            break
+        case .Down:
+            animationComponent.requestedAnimationState = .Idle_Down
+            break
+        case .Right:
+            animationComponent.requestedAnimationState = .Idle_Right
+            break
+        case .Left:
+            animationComponent.requestedAnimationState = .Idle_Left
+            break
+        }
+        lastTouchLocation = spriteComponent.node.position
     }
 }
