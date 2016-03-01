@@ -29,6 +29,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var enemyLifeBar = SKSpriteNode()
     var enemyLife = CGFloat()
     
+    var getDamaged = SKLabelNode()
+    
     var rawPoints:[Int] = []
     var recognizer: DBPathRecognizer?
     
@@ -40,6 +42,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var cancelButton = SKSpriteNode()
     var forwardArrow = SKSpriteNode()
     var backArrow = SKSpriteNode()
+    var skillNameLabel = SKLabelNode()
+    var skillDamageLabel = SKLabelNode()
+    var skillAttributeLabel = SKLabelNode()
     let physicalLabel = SKLabelNode()
     var physicalSpellOne = SKLabelNode()
     var physicalSpellTwo = SKLabelNode()
@@ -60,7 +65,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var rayonSpellOne = SKLabelNode()
     var rayonSpellTwo = SKLabelNode()
     var rayonSpellThree = SKLabelNode()
-    let labelArray = [SKLabelNode()]
 
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
@@ -73,7 +77,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         addBG("bg1")
         addPlayer()
-        addEnemy(0)
+        addEnemy(level)
         addSpellBook()
         enemyHealthBarHidden(true)
         mcHealthBarHidden(true)
@@ -89,12 +93,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
         spellBookButton.name = "spellBookButton"
         spellBookButton.userInteractionEnabled = false
-        cancelButton.name = "cancelButton"
-        cancelButton.userInteractionEnabled = false
-        forwardArrow.name = "forwardArrow"
-        forwardArrow.userInteractionEnabled = false
-        backArrow.name = "backArrow"
-        backArrow.userInteractionEnabled = false
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -119,13 +117,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 let sequence = SKAction.sequence([moveToMiddle, waitDuration])
                 spellBookButton.runAction(growBigger)
                 spellBookButton.runAction(sequence) { () -> Void in
-//                    self.spellBookButton.texture = SKTexture(imageNamed: "SpellBook.png")
                     self.spellBookButton.removeFromParent()
                     self.addSpellBookOpen()
-                    self.cancelButton.name = "cancelButton"
-                    self.cancelButton.userInteractionEnabled = false
-                    self.forwardArrow.name = "forwardArrow"
+                    self.forwardArrow.name = "to pg 2"
                     self.forwardArrow.userInteractionEnabled = false
+                    self.addAllNodeNames()
                 }
             }
             else if name == "cancelButton" {
@@ -144,23 +140,156 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 }
 
             }
-            else if name == "forwardArrow" {
+            else if name == "to pg 2" {
                 removeAllObjects()
                 addSpellBookOpenPgTwo()
-                backArrow.name = "backArrow"
+                backArrow.name = "back to pg 1"
+                backArrow.userInteractionEnabled = false
+                cancelButton.name = "cancelButton"
+                cancelButton.userInteractionEnabled = false
+                forwardArrow.name = "to pg 3"
+                forwardArrow.userInteractionEnabled = false
+            }
+            else if name == "to pg 3" {
+                removeAllObjects()
+                addSpellBookOpenPgThree()
+                backArrow.name = "back to pg 2"
                 backArrow.userInteractionEnabled = false
                 cancelButton.name = "cancelButton"
                 cancelButton.userInteractionEnabled = false
             }
             
-            else if name == "backArrow" {
+            else if name == "back to pg 1" {
                 removeAllObjects()
                 addSpellBookOpen()
                 self.cancelButton.name = "cancelButton"
                 self.cancelButton.userInteractionEnabled = false
-                self.forwardArrow.name = "forwardArrow"
+                self.forwardArrow.name = "to pg 2"
                 self.forwardArrow.userInteractionEnabled = false
             }
+            else if name == "back to pg 2" {
+                removeAllObjects()
+                addSpellBookOpenPgTwo()
+                self.cancelButton.name = "cancelButton"
+                self.cancelButton.userInteractionEnabled = false
+                self.backArrow.name = "back to pg 1"
+                self.backArrow.userInteractionEnabled = false
+                self.forwardArrow.name = "to pg 3"
+                self.forwardArrow.userInteractionEnabled = false
+            }
+            
+            else if name == "whip" {
+                print("Hi!")
+            }
+             
+            else if name == "Aramid Ward" {
+                removeAllObjects()
+                addSpellBookDetail(AramidWard())
+                self.backArrow.name = "back to pg 1"
+                self.backArrow.userInteractionEnabled = false
+                self.cancelButton.name = "cancelButton"
+                self.cancelButton.userInteractionEnabled = false
+            }
+                
+            else if name == "Aramid Guard" {
+                removeAllObjects()
+                addSpellBookDetail(AramidGuard())
+                self.backArrow.name = "back to pg 1"
+                self.backArrow.userInteractionEnabled = false
+                self.cancelButton.name = "cancelButton"
+                self.cancelButton.userInteractionEnabled = false
+            }
+                
+            else if name == "Aegis' Last Stand" {
+                removeAllObjects()
+                addSpellBookDetail(AegisLastStand())
+                self.backArrow.name = "back to pg 1"
+                self.backArrow.userInteractionEnabled = false
+                self.cancelButton.name = "cancelButton"
+                self.cancelButton.userInteractionEnabled = false
+            }
+                
+            else if name == "Cotton Blaze" {
+                removeAllObjects()
+                addSpellBookDetail(CottonBlaze())
+                self.backArrow.name = "back to pg 2"
+                self.backArrow.userInteractionEnabled = false
+                self.cancelButton.name = "cancelButton"
+                self.cancelButton.userInteractionEnabled = false
+            }
+                
+            else if name == "Cotton Flare" {
+                removeAllObjects()
+                addSpellBookDetail(CottonFlare())
+                self.backArrow.name = "back to pg 2"
+                self.backArrow.userInteractionEnabled = false
+                self.cancelButton.name = "cancelButton"
+                self.cancelButton.userInteractionEnabled = false
+            }
+            
+            else if name == "Wildfire" {
+                removeAllObjects()
+                addSpellBookDetail(WildFire())
+                self.backArrow.name = "back to pg 2"
+                self.backArrow.userInteractionEnabled = false
+                self.cancelButton.name = "cancelButton"
+                self.cancelButton.userInteractionEnabled = false
+            }
+            
+            else if name == "Silk Trick" {
+                removeAllObjects()
+                addSpellBookDetail(SilkTrick())
+                self.backArrow.name = "back to pg 2"
+                self.backArrow.userInteractionEnabled = false
+                self.cancelButton.name = "cancelButton"
+                self.cancelButton.userInteractionEnabled = false
+            }
+                
+            else if name == "Silk Daze" {
+                removeAllObjects()
+                addSpellBookDetail(SilkDaze())
+                self.backArrow.name = "back to pg 2"
+                self.backArrow.userInteractionEnabled = false
+                self.cancelButton.name = "cancelButton"
+                self.cancelButton.userInteractionEnabled = false
+            }
+                
+            else if name == "Piece De Resistance" {
+                removeAllObjects()
+                addSpellBookDetail(PieceDeResistance())
+                self.backArrow.name = "back to pg 2"
+                self.backArrow.userInteractionEnabled = false
+                self.cancelButton.name = "cancelButton"
+                self.cancelButton.userInteractionEnabled = false
+            }
+                
+            else if name == "Rayon Strike" {
+                removeAllObjects()
+                addSpellBookDetail(RayonStrike())
+                self.cancelButton.name = "cancelButton"
+                self.cancelButton.userInteractionEnabled = false
+                self.backArrow.name = "to pg 3"
+                self.backArrow.userInteractionEnabled = false
+            }
+                
+            else if name == "Rayon Bash" {
+                removeAllObjects()
+                addSpellBookDetail(RayonBash())
+                self.cancelButton.name = "cancelButton"
+                self.cancelButton.userInteractionEnabled = false
+                self.backArrow.name = "to pg 3"
+                self.backArrow.userInteractionEnabled = false
+            }
+                
+            else if name == "Kusanagi No Tsurugi" {
+                removeAllObjects()
+                addSpellBookDetail(KusanagiNoTsurugi())
+                self.cancelButton.name = "cancelButton"
+                self.cancelButton.userInteractionEnabled = false
+                self.backArrow.name = "to pg 3"
+                self.backArrow.userInteractionEnabled = false
+            }
+
         }
         
     }
@@ -203,9 +332,27 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             if let skill = mc.skills[castedSpell]{
                 skill.animateAction(self, caster: mc, target: fabricMaster, completion: { () -> Void in
-                    self.evaluateGameOver()
-                    self.enemyRetaliation()
-                    self.evaluateGameOver()
+                    let bounceHigh = SKAction.moveTo(CGPoint(x: self.fabricMaster.position.x, y: self.fabricMaster.position.y + 30), duration: 0.3)
+                    let bounceDown = SKAction.moveTo(CGPoint(x: self.fabricMaster.position.x, y: self.fabricMaster.position.y - 30), duration: 0.6)
+                    let bounceHighLite = SKAction.moveTo(CGPoint(x: self.fabricMaster.position.x, y: self.fabricMaster.position.y - 10), duration: 0.2)
+                    let bounceDownLite = SKAction.moveTo(CGPoint(x: self.fabricMaster.position.x, y: self.fabricMaster.position.y - 40), duration: 0.3)
+                    let waitDuration = SKAction.waitForDuration(1.0)
+                    let sequence = SKAction.sequence([bounceHigh, bounceDown, bounceHighLite, bounceDownLite, waitDuration])
+
+                    self.getDamaged.text = "\(skill.damage)"
+                    self.getDamaged.zPosition = 1.1
+                    self.getDamaged.position = CGPoint(x: self.fabricMaster.position.x, y: self.fabricMaster.position.y)
+                    self.labelDefaultSettingsDamage(45.0, label: self.getDamaged)
+                    self.addChild(self.getDamaged)
+                    
+                    self.getDamaged.runAction(sequence) { () -> Void in
+                        self.getDamaged.removeFromParent()
+                        self.evaluateGameOver()
+                        self.enemyRetaliation()
+                        self.evaluateGameOver()
+                    }
+
+                    
                 })
             }
         }
@@ -338,84 +485,46 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         
         physicalLabel.text = "Physical Attacks:"
-        physicalLabel.position = CGPoint(x: spellBookButton.position.x - 225, y: spellBookButton.position.y + 200)
+        physicalLabel.position = CGPoint(x: spellBookButton.position.x - 225, y: spellBookButton.position.y + 230)
         physicalLabel.zPosition = spellBookButton.zPosition + 0.1
         labelDefaultSettingsSpellNames(SKColor.brownColor(),label: physicalLabel)
 
         physicalSpellOne.text = "Whip"
-        physicalSpellOne.position = CGPoint(x: spellBookButton.position.x - 225, y: spellBookButton.position.y + 150)
+        physicalSpellOne.position = CGPoint(x: spellBookButton.position.x - 225, y: spellBookButton.position.y + 90)
         physicalSpellOne.zPosition = spellBookButton.zPosition + 0.1
         labelDefaultSettingsSpellList(SKColor.brownColor(),label: physicalSpellOne)
 
         physicalSpellTwo.text = "Constrict"
-        physicalSpellTwo.position = CGPoint(x: spellBookButton.position.x - 225, y: spellBookButton.position.y + 100)
+        physicalSpellTwo.position = CGPoint(x: spellBookButton.position.x - 225, y: spellBookButton.position.y - 50)
         physicalSpellTwo.zPosition = spellBookButton.zPosition + 0.1
         labelDefaultSettingsSpellList(SKColor.brownColor(),label: physicalSpellTwo)
         
         physicalSpellThree.text = "Thrash"
-        physicalSpellThree.position = CGPoint(x: spellBookButton.position.x - 225, y: spellBookButton.position.y + 50)
+        physicalSpellThree.position = CGPoint(x: spellBookButton.position.x - 225, y: spellBookButton.position.y - 190)
         physicalSpellThree.zPosition = spellBookButton.zPosition + 0.1
         labelDefaultSettingsSpellList(SKColor.brownColor(),label: physicalSpellThree)
         
         aramidLabel.text = "Spell Type: Aramid"
-        aramidLabel.position = CGPoint(x: spellBookButton.position.x - 225, y: spellBookButton.position.y - 50)
+        aramidLabel.position = CGPoint(x: spellBookButton.position.x + 225, y: spellBookButton.position.y + 230)
         aramidLabel.zPosition = spellBookButton.zPosition + 0.1
         labelDefaultSettingsSpellNames(SKColor.yellowColor(),label: aramidLabel)
         
         aramidSpellOne.text = "Aramid Ward"
-        aramidSpellOne.position = CGPoint(x: spellBookButton.position.x - 225, y: spellBookButton.position.y - 100)
+        aramidSpellOne.position = CGPoint(x: spellBookButton.position.x + 225, y: spellBookButton.position.y + 90)
         aramidSpellOne.zPosition = spellBookButton.zPosition + 0.1
         labelDefaultSettingsSpellList(SKColor.yellowColor(),label: aramidSpellOne)
         
         aramidSpellTwo.text = "Aramid Guard"
-        aramidSpellTwo.position = CGPoint(x: spellBookButton.position.x - 225, y: spellBookButton.position.y - 150)
+        aramidSpellTwo.position = CGPoint(x: spellBookButton.position.x + 225, y: spellBookButton.position.y - 50)
         aramidSpellTwo.zPosition = spellBookButton.zPosition + 0.1
         labelDefaultSettingsSpellList(SKColor.yellowColor(),label: aramidSpellTwo)
         
         aramidSpellThree.text = "Aegis's Last Stand"
-        aramidSpellThree.position = CGPoint(x: spellBookButton.position.x - 225, y: spellBookButton.position.y - 200)
+        aramidSpellThree.position = CGPoint(x: spellBookButton.position.x + 225, y: spellBookButton.position.y - 190)
         aramidSpellThree.zPosition = spellBookButton.zPosition + 0.1
         labelDefaultSettingsSpellList(SKColor.yellowColor(),label: aramidSpellThree)
 
-        cottonLabel.text = "Spell Type: Cotton"
-        cottonLabel.position = CGPoint(x: spellBookButton.position.x + 225, y: spellBookButton.position.y + 200)
-        cottonLabel.zPosition = spellBookButton.zPosition + 0.1
-        labelDefaultSettingsSpellNames(SKColor.redColor(),label: cottonLabel)
         
-        cottonSpellOne.text = "Cotton Flare"
-        cottonSpellOne.position = CGPoint(x: spellBookButton.position.x + 225, y: spellBookButton.position.y + 150)
-        cottonSpellOne.zPosition = spellBookButton.zPosition + 0.1
-        labelDefaultSettingsSpellList(SKColor.redColor(),label: cottonSpellOne)
-        
-        cottonSpellTwo.text = "Cotton Blaze"
-        cottonSpellTwo.position = CGPoint(x: spellBookButton.position.x + 225, y: spellBookButton.position.y + 100)
-        cottonSpellTwo.zPosition = spellBookButton.zPosition + 0.1
-        labelDefaultSettingsSpellList(SKColor.redColor(),label: cottonSpellTwo)
-        
-        cottonSpellThree.text = "Wildfire"
-        cottonSpellThree.position = CGPoint(x: spellBookButton.position.x + 225, y: spellBookButton.position.y + 50)
-        cottonSpellThree.zPosition = spellBookButton.zPosition + 0.1
-        labelDefaultSettingsSpellList(SKColor.redColor(),label: cottonSpellThree)
-
-        silkLabel.text = "Spell Type: Silk"
-        silkLabel.position = CGPoint(x: spellBookButton.position.x + 225, y: spellBookButton.position.y - 50)
-        silkLabel.zPosition = spellBookButton.zPosition + 0.1
-        labelDefaultSettingsSpellNames(SKColor.purpleColor(),label: silkLabel)
-        
-        silkSpellOne.text = "Silk Trick"
-        silkSpellOne.position = CGPoint(x: spellBookButton.position.x + 225, y: spellBookButton.position.y - 100)
-        silkSpellOne.zPosition = spellBookButton.zPosition + 0.1
-        labelDefaultSettingsSpellList(SKColor.purpleColor(),label: silkSpellOne)
-        
-        silkSpellTwo.text = "Silk Daze"
-        silkSpellTwo.position = CGPoint(x: spellBookButton.position.x + 225, y: spellBookButton.position.y - 150)
-        silkSpellTwo.zPosition = spellBookButton.zPosition + 0.1
-        labelDefaultSettingsSpellList(SKColor.purpleColor(),label: silkSpellTwo)
-        
-        silkSpellThree.text = "Pièce de Résistance"
-        silkSpellThree.position = CGPoint(x: spellBookButton.position.x + 225, y: spellBookButton.position.y - 200)
-        silkSpellThree.zPosition = spellBookButton.zPosition + 0.1
-        labelDefaultSettingsSpellList(SKColor.purpleColor(),label: silkSpellThree)
         
         addChild(spellBookButton)
         addChild(cancelButton)
@@ -428,14 +537,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addChild(aramidSpellOne)
         addChild(aramidSpellTwo)
         addChild(aramidSpellThree)
-        addChild(cottonLabel)
-        addChild(cottonSpellOne)
-        addChild(cottonSpellTwo)
-        addChild(cottonSpellThree)
-        addChild(silkLabel)
-        addChild(silkSpellOne)
-        addChild(silkSpellTwo)
-        addChild(silkSpellThree)
+
     }
     
     func addSpellBookOpenPgTwo() {
@@ -451,24 +553,96 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         backArrow.position = CGPoint(x: spellBookButton.position.x - 470, y: spellBookButton.position.y)
         backArrow.zPosition = spellBookButton.zPosition + 0.2
         backArrow.setScale(0.4)
+        forwardArrow = SKSpriteNode(imageNamed: "arrow")
+        forwardArrow.position = CGPoint(x: spellBookButton.position.x + 470, y: spellBookButton.position.y)
+        forwardArrow.zPosition = spellBookButton.zPosition + 0.2
+        forwardArrow.setScale(0.4)
+        
+        cottonLabel.text = "Spell Type: Cotton"
+        cottonLabel.position = CGPoint(x: spellBookButton.position.x - 225, y: spellBookButton.position.y + 230)
+        cottonLabel.zPosition = spellBookButton.zPosition + 0.1
+        labelDefaultSettingsSpellNames(SKColor.redColor(),label: cottonLabel)
+        
+        cottonSpellOne.text = "Cotton Flare"
+        cottonSpellOne.position = CGPoint(x: spellBookButton.position.x - 225, y: spellBookButton.position.y + 90)
+        cottonSpellOne.zPosition = spellBookButton.zPosition + 0.1
+        labelDefaultSettingsSpellList(SKColor.redColor(),label: cottonSpellOne)
+        
+        cottonSpellTwo.text = "Cotton Blaze"
+        cottonSpellTwo.position = CGPoint(x: spellBookButton.position.x - 225, y: spellBookButton.position.y - 50)
+        cottonSpellTwo.zPosition = spellBookButton.zPosition + 0.1
+        labelDefaultSettingsSpellList(SKColor.redColor(),label: cottonSpellTwo)
+        
+        cottonSpellThree.text = "Wildfire"
+        cottonSpellThree.position = CGPoint(x: spellBookButton.position.x - 225, y: spellBookButton.position.y - 190)
+        cottonSpellThree.zPosition = spellBookButton.zPosition + 0.1
+        labelDefaultSettingsSpellList(SKColor.redColor(),label: cottonSpellThree)
+        
+        silkLabel.text = "Spell Type: Silk"
+        silkLabel.position = CGPoint(x: spellBookButton.position.x + 225, y: spellBookButton.position.y + 230)
+        silkLabel.zPosition = spellBookButton.zPosition + 0.1
+        labelDefaultSettingsSpellNames(SKColor.purpleColor(),label: silkLabel)
+        
+        silkSpellOne.text = "Silk Trick"
+        silkSpellOne.position = CGPoint(x: spellBookButton.position.x + 225, y: spellBookButton.position.y + 90)
+        silkSpellOne.zPosition = spellBookButton.zPosition + 0.1
+        labelDefaultSettingsSpellList(SKColor.purpleColor(),label: silkSpellOne)
+        
+        silkSpellTwo.text = "Silk Daze"
+        silkSpellTwo.position = CGPoint(x: spellBookButton.position.x + 225, y: spellBookButton.position.y - 50)
+        silkSpellTwo.zPosition = spellBookButton.zPosition + 0.1
+        labelDefaultSettingsSpellList(SKColor.purpleColor(),label: silkSpellTwo)
+        
+        silkSpellThree.text = "Pièce de Résistance"
+        silkSpellThree.position = CGPoint(x: spellBookButton.position.x + 225, y: spellBookButton.position.y - 190)
+        silkSpellThree.zPosition = spellBookButton.zPosition + 0.1
+        labelDefaultSettingsSpellList(SKColor.purpleColor(),label: silkSpellThree)
+        
+        addChild(spellBookButton)
+        addChild(cancelButton)
+        addChild(forwardArrow)
+        addChild(backArrow)
+        addChild(cottonLabel)
+        addChild(cottonSpellOne)
+        addChild(cottonSpellTwo)
+        addChild(cottonSpellThree)
+        addChild(silkLabel)
+        addChild(silkSpellOne)
+        addChild(silkSpellTwo)
+        addChild(silkSpellThree)
+    }
+    
+    func addSpellBookOpenPgThree() {
+        spellBookButton = SKSpriteNode(imageNamed: "SpellBook.png")
+        spellBookButton.position = CGPoint(x: size.width / 2, y: size.height / 2)
+        spellBookButton.zPosition = 1.5
+        spellBookButton.setScale(0.8)
+        cancelButton = SKSpriteNode(imageNamed: "cancelButton.png")
+        cancelButton.position = CGPoint(x: spellBookButton.position.x + 450, y: spellBookButton.position.y + 260)
+        cancelButton.zPosition = spellBookButton.zPosition + 0.2
+        cancelButton.setScale(0.3)
+        backArrow = SKSpriteNode(imageNamed: "arrowReverse.png")
+        backArrow.position = CGPoint(x: spellBookButton.position.x - 470, y: spellBookButton.position.y)
+        backArrow.zPosition = spellBookButton.zPosition + 0.2
+        backArrow.setScale(0.4)
         
         rayonLabel.text = "Spell Type: Rayon"
-        rayonLabel.position = CGPoint(x: spellBookButton.position.x - 225, y: spellBookButton.position.y + 200)
+        rayonLabel.position = CGPoint(x: spellBookButton.position.x - 225, y: spellBookButton.position.y + 230)
         rayonLabel.zPosition = spellBookButton.zPosition + 0.1
         labelDefaultSettingsSpellNames(SKColor.blueColor(),label: rayonLabel)
         
         rayonSpellOne.text = "Rayon Strike"
-        rayonSpellOne.position = CGPoint(x: spellBookButton.position.x - 225, y: spellBookButton.position.y + 150)
+        rayonSpellOne.position = CGPoint(x: spellBookButton.position.x - 225, y: spellBookButton.position.y + 90)
         rayonSpellOne.zPosition = spellBookButton.zPosition + 0.1
         labelDefaultSettingsSpellList(SKColor.blueColor(),label: rayonSpellOne)
         
         rayonSpellTwo.text = "Rayon Bash"
-        rayonSpellTwo.position = CGPoint(x: spellBookButton.position.x - 225, y: spellBookButton.position.y + 100)
+        rayonSpellTwo.position = CGPoint(x: spellBookButton.position.x - 225, y: spellBookButton.position.y - 50)
         rayonSpellTwo.zPosition = spellBookButton.zPosition + 0.1
         labelDefaultSettingsSpellList(SKColor.blueColor(),label: rayonSpellTwo)
         
         rayonSpellThree.text = "Kusanagi no Tsurugi"
-        rayonSpellThree.position = CGPoint(x: spellBookButton.position.x - 225, y: spellBookButton.position.y + 50)
+        rayonSpellThree.position = CGPoint(x: spellBookButton.position.x - 225, y: spellBookButton.position.y - 190)
         rayonSpellThree.zPosition = spellBookButton.zPosition + 0.1
         labelDefaultSettingsSpellList(SKColor.blueColor(),label: rayonSpellThree)
         
@@ -480,6 +654,70 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addChild(rayonSpellOne)
         addChild(rayonSpellTwo)
         addChild(rayonSpellThree)
+    }
+    
+    func addSpellBookDetail(spellClass: Skill) {
+        spellBookButton = SKSpriteNode(imageNamed: "SpellBook.png")
+        spellBookButton.position = CGPoint(x: size.width / 2, y: size.height / 2)
+        spellBookButton.zPosition = 1.5
+        spellBookButton.setScale(0.8)
+        cancelButton = SKSpriteNode(imageNamed: "cancelButton.png")
+        cancelButton.position = CGPoint(x: spellBookButton.position.x + 450, y: spellBookButton.position.y + 260)
+        cancelButton.zPosition = spellBookButton.zPosition + 0.2
+        cancelButton.setScale(0.3)
+        backArrow = SKSpriteNode(imageNamed: "arrowReverse.png")
+        backArrow.position = CGPoint(x: spellBookButton.position.x - 470, y: spellBookButton.position.y)
+        backArrow.zPosition = spellBookButton.zPosition + 0.2
+        backArrow.setScale(0.4)
+        
+        skillNameLabel.text = spellClass.skillName
+        skillNameLabel.position = CGPoint(x: spellBookButton.position.x - 225, y: spellBookButton.position.y + 200)
+        skillNameLabel.zPosition = spellBookButton.zPosition + 0.1
+        
+        skillDamageLabel.text = String("Base Damage: \(spellClass.damage)")
+        skillDamageLabel.position = CGPoint(x: spellBookButton.position.x - 225, y: spellBookButton.position.y)
+        skillDamageLabel.zPosition = spellBookButton.zPosition + 0.1
+        
+        skillAttributeLabel.text = String("Attribute: \(spellClass.attackAttribute)")
+        skillAttributeLabel.position = CGPoint(x: spellBookButton.position.x - 225, y: spellBookButton.position.y - 100)
+        skillAttributeLabel.zPosition = spellBookButton.zPosition + 0.1
+
+        
+        if spellClass.skillName == "Whip" || spellClass.skillName == "Constrict" || spellClass.skillName == "Thrash" {
+            labelDefaultSettingsResizer(50.0, color: SKColor.brownColor(), label: skillNameLabel)
+            labelDefaultSettingsResizer(40.0, color: SKColor.brownColor(), label: skillDamageLabel)
+            labelDefaultSettingsResizer(40.0, color: SKColor.brownColor(), label: skillAttributeLabel)
+
+        } else if spellClass.skillName == "Aramid Ward" || spellClass.skillName == "Aramid Guard" || spellClass.skillName == "Aegis' Last Stand" {
+            labelDefaultSettingsResizer(50.0, color: SKColor.yellowColor(), label: skillNameLabel)
+            labelDefaultSettingsResizer(40.0, color: SKColor.yellowColor(), label: skillDamageLabel)
+            labelDefaultSettingsResizer(40.0, color: SKColor.yellowColor(), label: skillAttributeLabel)
+            
+        } else if spellClass.skillName == "Cotton Flare" || spellClass.skillName == "Cotton Blaze" || spellClass.skillName == "Wildfire" {
+            labelDefaultSettingsResizer(50.0, color: SKColor.redColor(), label: skillNameLabel)
+            labelDefaultSettingsResizer(40.0, color: SKColor.redColor(), label: skillDamageLabel)
+            labelDefaultSettingsResizer(40.0, color: SKColor.redColor(), label: skillAttributeLabel)
+            
+        } else if spellClass.skillName == "Silk Trick" || spellClass.skillName == "Silk Daze" || spellClass.skillName == "Pièce de Résistance" {
+            labelDefaultSettingsResizer(50.0, color: SKColor.purpleColor(), label: skillNameLabel)
+            labelDefaultSettingsResizer(40.0, color: SKColor.purpleColor(), label: skillDamageLabel)
+            labelDefaultSettingsResizer(40.0, color: SKColor.purpleColor(), label: skillAttributeLabel)
+            
+        } else if spellClass.skillName == "Rayon Strike" || spellClass.skillName == "Rayon Bash" || spellClass.skillName == "Kusanagi No Tsurugi" {
+            labelDefaultSettingsResizer(50.0, color: SKColor.blueColor(), label: skillNameLabel)
+            labelDefaultSettingsResizer(40.0, color: SKColor.blueColor(), label: skillDamageLabel)
+            labelDefaultSettingsResizer(40.0, color: SKColor.blueColor(), label: skillAttributeLabel)
+            
+        }
+
+        
+        addChild(spellBookButton)
+        addChild(cancelButton)
+        addChild(backArrow)
+        addChild(skillNameLabel)
+        addChild(skillDamageLabel)
+        addChild(skillAttributeLabel)
+
     }
     
     func addPlayerHealthBarLabel() {
@@ -532,9 +770,47 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
     }
 
+    func addAllNodeNames() {
+        self.cancelButton.name = "cancelButton"
+        self.cancelButton.userInteractionEnabled = false
+        self.physicalSpellOne.name = "Whip"
+        self.physicalSpellOne.userInteractionEnabled = false
+        self.physicalSpellTwo.name = "Constrict"
+        self.physicalSpellTwo.userInteractionEnabled = false
+        self.physicalSpellThree.name = "Thrash"
+        self.physicalSpellThree.userInteractionEnabled = false
+        self.aramidSpellOne.name = "Aramid Ward"
+        self.aramidSpellOne.userInteractionEnabled = false
+        self.aramidSpellTwo.name = "Aramid Guard"
+        self.aramidSpellTwo.userInteractionEnabled = false
+        self.aramidSpellThree.name = "Aegis' Last Stand"
+        self.aramidSpellThree.userInteractionEnabled = false
+        self.cottonSpellOne.name = "Cotton Flare"
+        self.cottonSpellOne.userInteractionEnabled = false
+        self.cottonSpellTwo.name = "Cotton Blaze"
+        self.cottonSpellTwo.userInteractionEnabled = false
+        self.cottonSpellThree.name = "Wildfire"
+        self.cottonSpellThree.userInteractionEnabled = false
+        self.silkSpellOne.name = "Silk Trick"
+        self.silkSpellOne.userInteractionEnabled = false
+        self.silkSpellTwo.name = "Silk Daze"
+        self.silkSpellTwo.userInteractionEnabled = false
+        self.silkSpellThree.name = "Piece De Resistance"
+        self.silkSpellThree.userInteractionEnabled = false
+        self.rayonSpellOne.name = "Rayon Strike"
+        self.rayonSpellOne.userInteractionEnabled = false
+        self.rayonSpellTwo.name = "Rayon Bash"
+        self.rayonSpellTwo.userInteractionEnabled = false
+        self.rayonSpellThree.name = "Kusanagi No Tsurugi"
+        self.rayonSpellThree.userInteractionEnabled = false
+    }
+    
     func removeAllObjects() {
         forwardArrow.removeFromParent()
         backArrow.removeFromParent()
+        skillNameLabel.removeFromParent()
+        skillDamageLabel.removeFromParent()
+        skillAttributeLabel.removeFromParent()
         physicalLabel.removeFromParent()
         physicalSpellOne.removeFromParent()
         physicalSpellTwo.removeFromParent()
@@ -582,15 +858,28 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func labelDefaultSettingsSpellNames(color: SKColor,label: SKLabelNode){
         label.fontColor = color
-        label.fontSize = 35.0
-        label.fontName = "AvenirNext-Bold"
+        label.fontSize = 45.0
+        label.fontName = "Papyrus"
     }
     
     func labelDefaultSettingsSpellList(color: SKColor,label: SKLabelNode){
         label.fontColor = color
-        label.fontSize = 30.0
-        label.fontName = "AvenirNext-Bold"
+        label.fontSize = 40.0
+        label.fontName = "Papyrus"
     }
+    
+    func labelDefaultSettingsResizer(fontSize: CGFloat, color: SKColor,label: SKLabelNode){
+        label.fontColor = color
+        label.fontSize = fontSize
+        label.fontName = "Papyrus"
+    }
+    
+    func labelDefaultSettingsDamage(fontSize: CGFloat, label: SKLabelNode){
+        label.fontColor = SKColor.redColor()
+        label.fontSize = fontSize
+        label.fontName = "Optima-ExtraBlack"
+    }
+    
     
     override func update(currentTime: CFTimeInterval) {
         mcHpLabel.text = mc.hP()
@@ -611,10 +900,27 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func enemyRetaliation(){
         if let skill = self.fabricMaster.skills["spiderWeb"] {
-            let waitAttack = SKAction.waitForDuration(3.0)
+            let waitAttack = SKAction.waitForDuration(1.5)
             fabricMaster.runAction(waitAttack) { () -> Void in
             skill.animateAction(self, caster: self.fabricMaster, target: self.mc, completion: { () -> Void in
                 self.fabricMaster.attack(self.mc, skillName: "spiderWeb")
+                let bounceHigh = SKAction.moveTo(CGPoint(x: self.mc.position.x, y: self.mc.position.y + 30), duration: 0.3)
+                let bounceDown = SKAction.moveTo(CGPoint(x: self.mc.position.x, y: self.mc.position.y - 30), duration: 0.6)
+                let bounceHighLite = SKAction.moveTo(CGPoint(x: self.mc.position.x, y: self.mc.position.y - 10), duration: 0.2)
+                let bounceDownLite = SKAction.moveTo(CGPoint(x: self.mc.position.x, y: self.mc.position.y - 40), duration: 0.3)
+                let waitDuration = SKAction.waitForDuration(1.0)
+                let sequence = SKAction.sequence([bounceHigh, bounceDown, bounceHighLite, bounceDownLite, waitDuration])
+                
+                self.getDamaged.text = "\(skill.damage)"
+                self.getDamaged.zPosition = 1.1
+                self.getDamaged.position = CGPoint(x: self.mc.position.x, y: self.mc.position.y)
+                self.labelDefaultSettingsDamage(55.0, label: self.getDamaged)
+                self.addChild(self.getDamaged)
+                
+                self.getDamaged.runAction(sequence) { () -> Void in
+                    self.getDamaged.removeFromParent()
+                }
+
             })
          }
         }

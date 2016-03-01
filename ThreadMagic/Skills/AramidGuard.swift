@@ -11,7 +11,7 @@ import SpriteKit
 class AramidGuard: Skill {
     override var damage: Int { return 6 }
     override var attackAttribute: Attribute { return Attribute.Resistance }
-    override var skillName: String { return "AramidGuard" }
+    override var skillName: String { return "Aramid Guard" }
     
     override init() {
         super.init()

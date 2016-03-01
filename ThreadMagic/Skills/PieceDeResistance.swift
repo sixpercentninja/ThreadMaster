@@ -11,7 +11,7 @@ import SpriteKit
 class PieceDeResistance: Skill {
     override var damage: Int { return 140 }
     override var attackAttribute: Attribute { return Attribute.Pattern }
-    override var skillName: String { return "PieceDeResistance" }
+    override var skillName: String { return "Pièce de Résistance" }
     
     override init() {
         super.init()

@@ -68,8 +68,8 @@ class Skill {
     }
     
     func calculateDamageWithAttributes(damage: Int, attackAttribute: Attribute, enemyAttribute: Attribute) -> Int {
-        let superEffectiveMultipler = 1.1
-        let notEffectiveMultiplier = 0.9
+        let superEffectiveMultipler = 1.5
+        let notEffectiveMultiplier = 0.5
         
         switch attackAttribute {
         case .Strength:

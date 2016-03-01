@@ -1,5 +1,5 @@
 //
-//  Inari.swift
+//  Oinari.swift
 //  ThreadMagic
 //
 //  Created by Wong You Jing on 27/02/2016.
@@ -9,7 +9,7 @@
 import Foundation
 import SpriteKit
 
-class Inari: Monster {
+class Oinari: Monster {
     let displayImageName = "boss3.png"
     
     let bossThread = SKSpriteNode(imageNamed: "boss3Thread.png")
@@ -34,7 +34,7 @@ class Inari: Monster {
     }
     
     init(){
-        super.init(imageNamed: displayImageName, maxHP: 50, charName: "Inari", attribute: Attribute.Heat)
+        super.init(imageNamed: displayImageName, maxHP: 50, charName: "Oinari", attribute: Attribute.Heat)
         settings()
         animateMonster()
         assignDefaultSkills()

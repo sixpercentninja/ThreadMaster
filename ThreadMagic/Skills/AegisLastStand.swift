@@ -11,7 +11,7 @@ import SpriteKit
 class AegisLastStand: Skill {
     override var damage: Int { return 6 }
     override var attackAttribute: Attribute { return Attribute.Resistance }
-    override var skillName: String { return "AegisLastStand" }
+    override var skillName: String { return "Aegis' Last Stand" }
     
     override init() {
         super.init()

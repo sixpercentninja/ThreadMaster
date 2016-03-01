@@ -12,7 +12,7 @@ import SpriteKit
 class SilkTrick: Skill {
     override var damage: Int { return 55 }
     override var attackAttribute: Attribute { return Attribute.Pattern }
-    override var skillName: String { return "SilkTrick" }
+    override var skillName: String { return "Silk Trick" }
     
     override init() {
         super.init()

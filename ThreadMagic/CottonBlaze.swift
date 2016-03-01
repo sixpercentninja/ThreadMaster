@@ -11,7 +11,7 @@ import SpriteKit
 class CottonBlaze: Skill {
     override var damage: Int { return 60 }
     override var attackAttribute: Attribute { return Attribute.Heat }
-    override var skillName: String { return "CottonBlase" }
+    override var skillName: String { return "Cotton Blaze" }
     
     override init() {
         super.init()

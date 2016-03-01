@@ -29,7 +29,7 @@ class GameOverScene: SKScene {
         SKTAudio.sharedInstance().playBackgroundMusic("Victory Fanfare.mp3")
         backgroundColor = SKColor.whiteColor()
         
-        let message = won ? "You won!" : "You didn't make it, soorry!"
+        let message = won ? "\(mc.charName) won!" : "You didn't make it, soorry!"
         
         let label = SKLabelNode(fontNamed: "Chalkduster")
         label.text = message
