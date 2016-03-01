@@ -33,12 +33,13 @@ class StoryScene: SKScene {
         
         let button1 = SKSpriteNode(imageNamed: "Continue")
         button1.setScale(0.8)
-        button1.position = CGPoint(x: 900, y: 128)
+        button1.position = CGPoint(x: 400, y: -223)
         button1.name = "Continue"
-        button1.runAction(SKAction.fadeInWithDuration(3))
         button1.alpha = 0
+        button1.runAction(SKAction.fadeInWithDuration(3))
+        button1.zPosition = 1
         
-        self.addChild(button1)
+        bgImage.addChild(button1)
         
     }
     

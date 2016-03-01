@@ -21,7 +21,7 @@ class GameViewController: UIViewController {
         
         skView.ignoresSiblingOrder = true
         
-        scene.scaleMode = .AspectFill
+        scene.scaleMode = .Fill
         
         let textureAtlas = SKTextureAtlas(named: "mainCharacter")
         
