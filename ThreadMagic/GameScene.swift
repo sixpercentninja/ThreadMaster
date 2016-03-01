@@ -8,7 +8,6 @@
 
 
 import SpriteKit
-import AVFoundation
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
@@ -31,7 +30,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var recognizer: DBPathRecognizer?
     
     var yourline: SKShapeNode = SKShapeNode()
-    var audioPlayer:AVAudioPlayer!
     
     var level = 0
 
