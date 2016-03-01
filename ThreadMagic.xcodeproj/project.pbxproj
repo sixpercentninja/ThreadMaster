@@ -101,6 +101,8 @@
 		81C188BA1C852CB000F05BAB /* GameSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C188B91C852CB000F05BAB /* GameSettings.swift */; };
 		81C188BC1C852FA900F05BAB /* PlayerMoveComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C188BB1C852FA900F05BAB /* PlayerMoveComponent.swift */; };
 		81D939AD1C7E8DA900E3313A /* SilkTrick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D939AC1C7E8DA900E3313A /* SilkTrick.swift */; };
+		973FD5D21C857D1A00B72B23 /* StoryScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 973FD5D11C857D1A00B72B23 /* StoryScene.swift */; };
+		973FD5D41C8590E800B72B23 /* Remember.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 973FD5D31C8590E800B72B23 /* Remember.mp3 */; };
 		97E510071C73E6940034B575 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E510061C73E6940034B575 /* AppDelegate.swift */; };
 		97E5100B1C73E6940034B575 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E5100A1C73E6940034B575 /* GameScene.swift */; };
 		97E5100D1C73E6940034B575 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E5100C1C73E6940034B575 /* GameViewController.swift */; };
@@ -209,6 +211,8 @@
 		81C188B91C852CB000F05BAB /* GameSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSettings.swift; sourceTree = "<group>"; };
 		81C188BB1C852FA900F05BAB /* PlayerMoveComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerMoveComponent.swift; sourceTree = "<group>"; };
 		81D939AC1C7E8DA900E3313A /* SilkTrick.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SilkTrick.swift; path = Skills/SilkTrick.swift; sourceTree = "<group>"; };
+		973FD5D11C857D1A00B72B23 /* StoryScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryScene.swift; sourceTree = "<group>"; };
+		973FD5D31C8590E800B72B23 /* Remember.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Remember.mp3; sourceTree = "<group>"; };
 		97E510031C73E6940034B575 /* ThreadMagic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThreadMagic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97E510061C73E6940034B575 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		97E5100A1C73E6940034B575 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -276,6 +280,7 @@
 		7B108F091C7BC37D003FC7EE /* Sound Effects */ = {
 			isa = PBXGroup;
 			children = (
+				973FD5D31C8590E800B72B23 /* Remember.mp3 */,
 				97E510351C827CB90034B575 /* Victory Fanfare.mp3 */,
 				97E510331C82698D0034B575 /* Good Memories.mp3 */,
 				97E5102D1C80FDF80034B575 /* Desert Battle (Loop).mp3 */,
@@ -348,6 +353,7 @@
 			children = (
 				97E5100A1C73E6940034B575 /* GameScene.swift */,
 				97E510311C8149DD0034B575 /* MainMenuScene.swift */,
+				973FD5D11C857D1A00B72B23 /* StoryScene.swift */,
 				97E5100C1C73E6940034B575 /* GameViewController.swift */,
 				7B108ECD1C779A21003FC7EE /* GameOverScene.swift */,
 				81C188AB1C84DE5200F05BAB /* WorldMapScene.swift */,
@@ -564,6 +570,7 @@
 				813C38F31C80EDE4001F9DB8 /* aegisLastStand.atlas in Resources */,
 				813C38FD1C80EDE4001F9DB8 /* silkDaze.atlas in Resources */,
 				7B108F191C7BC39C003FC7EE /* waterSound.wav in Resources */,
+				973FD5D41C8590E800B72B23 /* Remember.mp3 in Resources */,
 				7B31A73A1C8005EB0071EC35 /* boss4.png in Resources */,
 				81C188B01C85289000F05BAB /* player.atlas in Resources */,
 				97E510151C73E6940034B575 /* LaunchScreen.storyboard in Resources */,
@@ -630,6 +637,7 @@
 				81AD02E61C76B92B00B6C5DC /* Monster.swift in Sources */,
 				81AD02ED1C76B94B00B6C5DC /* CottonFlare.swift in Sources */,
 				813C38E31C80ED1C001F9DB8 /* Whip.swift in Sources */,
+				973FD5D21C857D1A00B72B23 /* StoryScene.swift in Sources */,
 				813C39071C80F02D001F9DB8 /* AramidWard.swift in Sources */,
 				81AD03241C7AE6F200B6C5DC /* FabricMaster.swift in Sources */,
 				81519AA81C7F923900D6E6E7 /* CGFloat+Extensions.swift in Sources */,

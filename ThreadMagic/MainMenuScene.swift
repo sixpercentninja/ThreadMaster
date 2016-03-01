@@ -8,11 +8,9 @@
 
 import UIKit
 import SpriteKit
-import AVFoundation
 
 class MainMenuScene: SKScene {
     
-    var audioPlayer:AVAudioPlayer!
     
     override func didMoveToView(view: SKView) {
         //self.backgroundColor = SKColor(red: 0.15, green:0.15, blue:0.3, alpha: 1.0)
@@ -43,50 +41,21 @@ class MainMenuScene: SKScene {
         
         self.addChild(button3)
         
+        SKTAudio.sharedInstance().playBackgroundMusic("Good Memories.mp3")
         
-        let audioFilePath = NSBundle.mainBundle().pathForResource("Good Memories", ofType: "mp3")
-        let audioFileUrl = NSURL.fileURLWithPath(audioFilePath!)
-        
-        do {
-            audioPlayer = try AVAudioPlayer(contentsOfURL: audioFileUrl, fileTypeHint: nil)
-            audioPlayer.play()
-            audioPlayer.numberOfLoops = -1
-        }
-        catch {
-            print("No audio file found!")
-        }
-
-        
-        
-    }
-    
-    func fadeVolumeAndPause(){
-        if self.audioPlayer?.volume > 0.1 {
-            self.audioPlayer?.volume = self.audioPlayer!.volume - 0.1
-            
-            let dispatchTime: dispatch_time_t = dispatch_time(DISPATCH_TIME_NOW, Int64(0.1 * Double(NSEC_PER_SEC)))
-            dispatch_after(dispatchTime, dispatch_get_main_queue(), {
-                self.fadeVolumeAndPause()
-            })
-            
-        } else {
-            self.audioPlayer?.pause()
-            self.audioPlayer?.volume = 1.0
-        }
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
 
-        fadeVolumeAndPause()
+        SKTAudio.sharedInstance().fadeVolumeAndPause()
         let touch = touches.first
         let location = touch!.locationInNode(self)
         let node = self.nodeAtPoint(location)
         
-        // If next button is touched, start transition to second scene
-        
-        let scene = WorldMapScene(size:CGSize(width: 1280, height: 800))
+        let scene = StoryScene(size:CGSize(width: 1280, height: 800))
+
         if (node.name == "StartNewGame") {
-            let transition = SKTransition.crossFadeWithDuration(1)
+            let transition = SKTransition.crossFadeWithDuration(3)
             self.scene!.view?.presentScene(scene, transition: transition)
         }
     }
