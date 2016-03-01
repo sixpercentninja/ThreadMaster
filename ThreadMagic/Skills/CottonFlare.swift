@@ -12,7 +12,7 @@ import SpriteKit
 class CottonFlare: Skill {
     override var damage: Int { return 36 }
     override var attackAttribute: Attribute { return Attribute.Heat }
-    override var skillName: String { return "CottonFlare" }
+    override var skillName: String { return "Cotton Flare" }
     
     override init() {
         super.init()
@@ -20,18 +20,21 @@ class CottonFlare: Skill {
     }
     
     override var textureAtlas: SKTextureAtlas {
-        return SKTextureAtlas(named: "cottonFlare")
+        return SKTextureAtlas(named: "cottonFlare.atlas")
     }
     
     override func animateAction(scene: SKScene, caster: Character, target: Character, completion: () -> Void ) -> Void {
         let node = animationNode
+        let playSFX = SKAction.playSoundFileNamed("cottonBlaze", waitForCompletion: false)
+        let hitSFX = SKAction.playSoundFileNamed("hitNormal", waitForCompletion: false)
         node.zPosition = 1
         
         node.position = target.position
         node.setScale(2.2)
         scene.addChild(node)
-        
+        node.runAction(playSFX)
         node.runAction(SKAction.animateWithTextures(animationTextures, timePerFrame: 0.05)) { () -> Void in
+            node.runAction(hitSFX)
             node.removeFromParent()
             target.runAction(self.effectActionSequence(), completion: { () -> Void in
                 caster.attack(target, skillName: self.skillName)

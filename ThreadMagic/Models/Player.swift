@@ -25,19 +25,18 @@ class Player: Character {
     override init(imageNamed: String, maxHP: Int, charName: String, attribute: Attribute){
         totalExperience = 0
         super.init(imageNamed: imageNamed, maxHP: maxHP, charName: charName, attribute: attribute)
-        self.skills["CottonFlare"] = CottonFlare()
-        self.skills["CottonBlaze"] = CottonBlaze()
-        self.skills["WildFire"] = WildFire()
-        self.skills["SilkTrick"] = SilkTrick()
-        self.skills["SilkDaze"] = SilkDaze()
-        self.skills["WildFire"] = WildFire()
-        self.skills["PieceDeResistance"] = PieceDeResistance()
-        self.skills["AramidWard"] = AramidWard()
-        self.skills["AramidGuard"] = AramidGuard()
-        self.skills["AegisLastStand"] = AegisLastStand()
-        self.skills["RayonStrike"] = RayonStrike()
-        self.skills["RayonBash"] = RayonBash()
-        self.skills["KusanagiNoTsurugi"] = KusanagiNoTsurugi()
+        self.skills["Cotton Flare"] = CottonFlare()
+        self.skills["Cotton Blaze"] = CottonBlaze()
+        self.skills["Wildfire"] = WildFire()
+        self.skills["Silk Trick"] = SilkTrick()
+        self.skills["Silk Daze"] = SilkDaze()
+        self.skills["Pièce de Résistance"] = PieceDeResistance()
+        self.skills["Aramid Ward"] = AramidWard()
+        self.skills["Aramid Guard"] = AramidGuard()
+        self.skills["Aegis' Last Stand"] = AegisLastStand()
+        self.skills["Rayon Strike"] = RayonStrike()
+        self.skills["Rayon Bash"] = RayonBash()
+        self.skills["Kusanagi No Tsurugi"] = KusanagiNoTsurugi()
     }
 
     required init?(coder aDecoder: NSCoder) {

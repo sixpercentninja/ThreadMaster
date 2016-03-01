@@ -34,7 +34,7 @@ class BossOne: Monster {
     }
     
     init(){
-        super.init(imageNamed: displayImageName, maxHP: 50, charName: "BossOne", attribute: Attribute.Heat)
+        super.init(imageNamed: displayImageName, maxHP: 50, charName: "Gabino", attribute: Attribute.Heat)
         settings()
         animateMonster()
         assignDefaultSkills()

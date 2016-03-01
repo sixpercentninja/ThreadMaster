@@ -12,7 +12,7 @@ import SpriteKit
 class WildFire: Skill {
     override var damage: Int { return 88 }
     override var attackAttribute: Attribute { return Attribute.Heat }
-    override var skillName: String { return "WildFire" }
+    override var skillName: String { return "Wildfire" }
     
     override init() {
         super.init()

@@ -34,7 +34,7 @@ class Tier: Monster {
     }
     
     init(){
-        super.init(imageNamed: displayImageName, maxHP: 50, charName: "Tier", attribute: Attribute.Heat)
+        super.init(imageNamed: displayImageName, maxHP: 50, charName: "Oinari", attribute: Attribute.Heat)
         settings()
         animateMonster()
         assignDefaultSkills()

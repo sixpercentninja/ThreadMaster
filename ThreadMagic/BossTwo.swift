@@ -38,7 +38,7 @@ class BossTwo: Monster {
     }
     
     init(){
-        super.init(imageNamed: displayImageName, maxHP: 50, charName: "Tyrion", attribute: Attribute.Heat)
+        super.init(imageNamed: displayImageName, maxHP: 50, charName: "Edan", attribute: Attribute.Heat)
         settings()
         animateMonster()
         assignDefaultSkills()

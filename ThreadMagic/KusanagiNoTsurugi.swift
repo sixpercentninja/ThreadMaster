@@ -12,7 +12,7 @@ import SpriteKit
 class KusanagiNoTsurugi: Skill {
     override var damage: Int { return 210 }
     override var attackAttribute: Attribute { return Attribute.Strength }
-    override var skillName: String { return "KusanagiNoTsurugi" }
+    override var skillName: String { return "Kusanagi No Tsurugi" }
 
     
     override init() {

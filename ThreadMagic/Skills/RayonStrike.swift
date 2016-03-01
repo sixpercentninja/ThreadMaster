@@ -11,7 +11,7 @@ import SpriteKit
 class RayonStrike: Skill {
     override var damage: Int { return 100 }
     override var attackAttribute: Attribute { return Attribute.Strength }
-    override var skillName: String { return "RayonStrike" }
+    override var skillName: String { return "Rayon Strike" }
     
     override init() {
         super.init()

@@ -54,6 +54,7 @@
 		7B72CBCF1C84F728006563B9 /* Wolf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B72CBCE1C84F728006563B9 /* Wolf.swift */; };
 		7B72CBD21C85116F006563B9 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B72CBD01C85116F006563B9 /* arrow.png */; };
 		7B72CBD31C85116F006563B9 /* arrowReverse.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B72CBD11C85116F006563B9 /* arrowReverse.png */; };
+		7B72CBD71C85901F006563B9 /* SpellBookClosed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B72CBD61C85901F006563B9 /* SpellBookClosed.swift */; };
 		7B8BAEE21C765CE9001C1834 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8BAEE11C765CE9001C1834 /* RootViewController.swift */; };
 		7B8BAEEC1C766051001C1834 /* mc.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 7B8BAEEB1C766051001C1834 /* mc.atlas */; };
 		7B8BAEF11C7662EE001C1834 /* fabricMaster1.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 7B8BAEF01C7662EE001C1834 /* fabricMaster1.atlas */; };
@@ -174,6 +175,7 @@
 		7B72CBCE1C84F728006563B9 /* Wolf.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Wolf.swift; path = ../Wolf.swift; sourceTree = "<group>"; };
 		7B72CBD01C85116F006563B9 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
 		7B72CBD11C85116F006563B9 /* arrowReverse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrowReverse.png; sourceTree = "<group>"; };
+		7B72CBD61C85901F006563B9 /* SpellBookClosed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpellBookClosed.swift; sourceTree = "<group>"; };
 		7B8BAEE11C765CE9001C1834 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		7B8BAEEB1C766051001C1834 /* mc.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = mc.atlas; sourceTree = "<group>"; };
 		7B8BAEF01C7662EE001C1834 /* fabricMaster1.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = fabricMaster1.atlas; sourceTree = "<group>"; };
@@ -454,6 +456,7 @@
 				7B72CBCA1C84F71D006563B9 /* Sister.swift */,
 				7B72CBCC1C84F724006563B9 /* Tengu.swift */,
 				7B72CBCE1C84F728006563B9 /* Wolf.swift */,
+				7B72CBD61C85901F006563B9 /* SpellBookClosed.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -461,21 +464,21 @@
 		81AD02E91C76B93E00B6C5DC /* Skills */ = {
 			isa = PBXGroup;
 			children = (
-				81ABA1F11C7E2C02009EA660 /* WildFire.swift */,
 				81AD02EA1C76B94B00B6C5DC /* Skill.swift */,
-				7B108F241C7BC450003FC7EE /* CottonBlaze.swift */,
-				7B108F261C7BC8C8003FC7EE /* KusanagiNoTsurugi.swift */,
 				81AD031B1C7AE25D00B6C5DC /* SpiderWeb.swift */,
-				81AD02EB1C76B94B00B6C5DC /* CottonFlare.swift */,
-				81D939AC1C7E8DA900E3313A /* SilkTrick.swift */,
-				813C39021C80EEB5001F9DB8 /* SilkDaze.swift */,
-				813C39041C80EF02001F9DB8 /* PieceDeResistance.swift */,
 				813C38E21C80ED1C001F9DB8 /* Whip.swift */,
 				813C39061C80F02D001F9DB8 /* AramidWard.swift */,
 				813C39081C80F08C001F9DB8 /* AramidGuard.swift */,
 				813C390A1C80F0EC001F9DB8 /* AegisLastStand.swift */,
+				81AD02EB1C76B94B00B6C5DC /* CottonFlare.swift */,
+				7B108F241C7BC450003FC7EE /* CottonBlaze.swift */,
+				81ABA1F11C7E2C02009EA660 /* WildFire.swift */,
+				81D939AC1C7E8DA900E3313A /* SilkTrick.swift */,
+				813C39021C80EEB5001F9DB8 /* SilkDaze.swift */,
+				813C39041C80EF02001F9DB8 /* PieceDeResistance.swift */,
 				813C390C1C80F199001F9DB8 /* RayonStrike.swift */,
 				813C390E1C80F215001F9DB8 /* RayonBash.swift */,
+				7B108F261C7BC8C8003FC7EE /* KusanagiNoTsurugi.swift */,
 			);
 			name = Skills;
 			sourceTree = "<group>";
@@ -667,6 +670,7 @@
 				813C39071C80F02D001F9DB8 /* AramidWard.swift in Sources */,
 				81AD03241C7AE6F200B6C5DC /* FabricMaster.swift in Sources */,
 				81519AA81C7F923900D6E6E7 /* CGFloat+Extensions.swift in Sources */,
+				7B72CBD71C85901F006563B9 /* SpellBookClosed.swift in Sources */,
 				81519AA91C7F923900D6E6E7 /* CGPoint+Extensions.swift in Sources */,
 				813C39091C80F08C001F9DB8 /* AramidGuard.swift in Sources */,
 				813C39111C80FCE3001F9DB8 /* LogBase.swift in Sources */,

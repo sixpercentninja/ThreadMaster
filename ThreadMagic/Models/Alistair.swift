@@ -34,7 +34,7 @@ class Alistair: Monster {
     }
     
     init(){
-        super.init(imageNamed: displayImageName, maxHP: 50, charName: "Alistair", attribute: Attribute.Strength)
+        super.init(imageNamed: displayImageName, maxHP: 50, charName: "Charon", attribute: Attribute.Strength)
         settings()
         animateMonster()
         assignDefaultSkills()

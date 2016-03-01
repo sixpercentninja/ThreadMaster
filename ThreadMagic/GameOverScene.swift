@@ -22,7 +22,7 @@ class GameOverScene: SKScene {
     override func didMoveToView(view: SKView) {
         backgroundColor = SKColor.whiteColor()
         
-        let message = won ? "You won!" : "You didn't make it, soorry!"
+        let message = won ? "\(mc.charName) won!" : "You didn't make it, soorry!"
         
         let label = SKLabelNode(fontNamed: "Chalkduster")
         label.text = message
