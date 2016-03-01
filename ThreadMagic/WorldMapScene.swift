@@ -36,8 +36,9 @@ class WorldMapScene: SKScene, tileMapDelegate, SKPhysicsContactDelegate, PlayerE
         return [animationSystem, playerMoveSystem]
     }()
     
-    override init(size size: CGSize) {
+    init(size: CGSize, mapLevel: MapLevel) {
         super.init(size: size)
+        self.mapLevel = mapLevel
         //Delegates
         worldGen.delegate = self
         physicsWorld.contactDelegate = self
@@ -111,7 +112,8 @@ class WorldMapScene: SKScene, tileMapDelegate, SKPhysicsContactDelegate, PlayerE
     
     func setupLevel() {
         worldGen.generateLevel(0)
-        worldGen.generateMap()
+        
+        worldGen.generateMap(mapLevel)
         worldGen.presentLayerViaDelegate()
     }
     
@@ -183,14 +185,14 @@ class WorldMapScene: SKScene, tileMapDelegate, SKPhysicsContactDelegate, PlayerE
     }
     
     func playerMoved() {
-        if(CGFloat(arc4random())/CGFloat(UInt32.max) < encounterSettings.encounterValue){
-            playerEntity.moveComponent.stopPlayer()
-            paused = true
-            let scene = GameScene(size: CGSize(width: 1280, height: 800))
-            scene.mapLevel = MapLevel.levelOne
-            scene.worldMapScene = self
-            let transition = SKTransition.crossFadeWithDuration(2)
-            view?.presentScene(scene, transition: transition)
-        }
+//        if(CGFloat(arc4random())/CGFloat(UInt32.max) < encounterSettings.encounterValue){
+//            playerEntity.moveComponent.stopPlayer()
+//            paused = true
+//            let scene = GameScene(size: CGSize(width: 1280, height: 800))
+//            scene.mapLevel = MapLevel.levelOne
+//            scene.worldMapScene = self
+//            let transition = SKTransition.crossFadeWithDuration(2)
+//            view?.presentScene(scene, transition: transition)
+//        }
     }
 }

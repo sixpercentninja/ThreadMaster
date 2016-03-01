@@ -50,7 +50,7 @@ class StoryScene: SKScene {
         let location = touch!.locationInNode(self)
         let node = self.nodeAtPoint(location)
         
-        let scene = WorldMapScene(size:CGSize(width: 1280, height: 800))
+        let scene = WorldMapScene(size:CGSize(width: 1280, height: 800), mapLevel: MapLevel.levelOne)
         if (node.name == "Continue") {
             let transition = SKTransition.crossFadeWithDuration(2)
             self.scene!.view?.presentScene(scene, transition: transition)

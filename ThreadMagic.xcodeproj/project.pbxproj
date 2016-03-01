@@ -127,6 +127,7 @@
 		81C188B81C852C9100F05BAB /* AnimationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C188B71C852C9100F05BAB /* AnimationComponent.swift */; };
 		81C188BA1C852CB000F05BAB /* GameSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C188B91C852CB000F05BAB /* GameSettings.swift */; };
 		81C188BC1C852FA900F05BAB /* PlayerMoveComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C188BB1C852FA900F05BAB /* PlayerMoveComponent.swift */; };
+		81C753561C860E440009546B /* LevelTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C753551C860E440009546B /* LevelTemplate.swift */; };
 		81D939AD1C7E8DA900E3313A /* SilkTrick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D939AC1C7E8DA900E3313A /* SilkTrick.swift */; };
 		973FD5D21C857D1A00B72B23 /* StoryScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 973FD5D11C857D1A00B72B23 /* StoryScene.swift */; };
 		973FD5D41C8590E800B72B23 /* Remember.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 973FD5D31C8590E800B72B23 /* Remember.mp3 */; };
@@ -264,6 +265,7 @@
 		81C188B71C852C9100F05BAB /* AnimationComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationComponent.swift; sourceTree = "<group>"; };
 		81C188B91C852CB000F05BAB /* GameSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSettings.swift; sourceTree = "<group>"; };
 		81C188BB1C852FA900F05BAB /* PlayerMoveComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerMoveComponent.swift; sourceTree = "<group>"; };
+		81C753551C860E440009546B /* LevelTemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelTemplate.swift; sourceTree = "<group>"; };
 		81D939AC1C7E8DA900E3313A /* SilkTrick.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SilkTrick.swift; path = Skills/SilkTrick.swift; sourceTree = "<group>"; };
 		973FD5D11C857D1A00B72B23 /* StoryScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryScene.swift; sourceTree = "<group>"; };
 		973FD5D31C8590E800B72B23 /* Remember.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Remember.mp3; sourceTree = "<group>"; };
@@ -533,6 +535,7 @@
 			isa = PBXGroup;
 			children = (
 				81C188A71C84C93200F05BAB /* LevelHelper.swift */,
+				81C753551C860E440009546B /* LevelTemplate.swift */,
 				81C188B91C852CB000F05BAB /* GameSettings.swift */,
 			);
 			path = Helpers;
@@ -738,6 +741,7 @@
 			files = (
 				813C39031C80EEB5001F9DB8 /* SilkDaze.swift in Sources */,
 				81C188BC1C852FA900F05BAB /* PlayerMoveComponent.swift in Sources */,
+				81C753561C860E440009546B /* LevelTemplate.swift in Sources */,
 				7B8F06F51C82A079008E3509 /* Edan.swift in Sources */,
 				81519AAE1C7F923900D6E6E7 /* SKColor+Extensions.swift in Sources */,
 				81C188B31C852B2E00F05BAB /* PlayerEntity.swift in Sources */,
