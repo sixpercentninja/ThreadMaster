@@ -15,13 +15,14 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
         
         let scene = GameScene(size:CGSize(width: 1280, height: 800))
+
         let skView = self.view as! SKView
         skView.showsFPS = true
         skView.showsNodeCount = true
         
         skView.ignoresSiblingOrder = true
         
-        scene.scaleMode = .AspectFill
+        scene.scaleMode = .Fill
         
         let textureAtlas = SKTextureAtlas(named: "mainCharacter")
         

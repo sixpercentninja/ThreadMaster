@@ -25,13 +25,13 @@ class CottonFlare: Skill {
     
     override func animateAction(scene: SKScene, caster: Character, target: Character, completion: () -> Void ) -> Void {
         let node = animationNode
-        node.zPosition = 0.6
+        node.zPosition = 1
         
         node.position = target.position
-        node.setScale(4.2)
+        node.setScale(2.2)
         scene.addChild(node)
         
-        node.runAction(SKAction.animateWithTextures(animationTextures, timePerFrame: 0.10)) { () -> Void in
+        node.runAction(SKAction.animateWithTextures(animationTextures, timePerFrame: 0.05)) { () -> Void in
             node.removeFromParent()
             target.runAction(self.effectActionSequence(), completion: { () -> Void in
                 caster.attack(target, skillName: self.skillName)

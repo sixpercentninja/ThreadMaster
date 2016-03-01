@@ -94,10 +94,13 @@ class Character: SKSpriteNode {
     }
     
     func hP() -> String{
-        return "\(currentHp)/\(maxHP)"
+        return "HP: \(currentHp)/\(maxHP)"
     }
     func theName() -> String{
         return "\(charName)"
+    }
+    func lV() -> String{
+        return "Lv. ??"
     }
 }
 
