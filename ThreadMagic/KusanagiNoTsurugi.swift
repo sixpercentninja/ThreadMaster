@@ -15,7 +15,7 @@ class KusanagiNoTsurugi: Skill {
     override var skillName: String { return "Kusanagi No Tsurugi" }
 
     
-    override init() {
+    required init() {
         super.init()
         self.gestures = [1, 6, 3]
     }

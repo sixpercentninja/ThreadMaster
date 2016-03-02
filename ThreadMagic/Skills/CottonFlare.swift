@@ -15,7 +15,7 @@ class CottonFlare: Skill {
     override var skillName: String { return "Cotton Flare" }
     override var upgradeValue: Int { return 20 }
     
-    override init() {
+    required init() {
         super.init()
         self.gestures = [7]
         upgradedSkill = CottonBlaze.self

@@ -13,10 +13,10 @@ class Gabino: Monster {
     
     let bossThread = SKSpriteNode(imageNamed: "boss1Leg.png")
     let displayImageName = "boss1.png"
+    override var expGiven: Int { return 1000 }
     
     override init(texture: SKTexture?, color: UIColor, size: CGSize) {
         super.init(texture: texture, color: color, size: size)
-        expGiven = 25
     }
     
     override init(imageNamed: String, maxHP: Int, charName: String, attribute: Attribute){
@@ -53,6 +53,7 @@ class Gabino: Monster {
     func settings() {
         setScale(0.6)
         zPosition = 0.4
+        threadGiven = AramidWard.self
         
         bossThread.position = CGPoint(x: 0, y: 0)
         bossThread.setScale(1)

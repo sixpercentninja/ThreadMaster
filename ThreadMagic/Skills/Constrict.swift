@@ -10,14 +10,15 @@ import SpriteKit
 
 class Constrict: Skill {
     override var damage: Int { return 24 }
-    override var attackAttribute: Attribute { return Attribute.Heat }
+    override var attackAttribute: Attribute { return Attribute.Neutral }
     override var skillName: String { return "Constrict" }
-    override var upgradeValue: Int { return 35 }
+    override var upgradeValue: Int { return 5 }
     
-    override init() {
+    required init() {
         super.init()
         self.gestures = [1, 3]
         self.thread = .Physical
+        upgradedSkill = Thrash.self
     }
     
     override var textureAtlas: SKTextureAtlas {

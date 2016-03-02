@@ -27,20 +27,20 @@ class Player: Character {
         totalExperience = 0
         super.init(imageNamed: imageNamed, maxHP: maxHP, charName: charName, attribute: attribute)
         self.skills["Whip"] = Whip()
-        self.skills["Constrict"] = Constrict()
-        self.skills["Thrash"] = Thrash()
-        self.skills["Cotton Flare"] = CottonFlare()
-        self.skills["Cotton Blaze"] = CottonBlaze()
-        self.skills["Wildfire"] = WildFire()
-        self.skills["Silk Trick"] = SilkTrick()
-        self.skills["Silk Daze"] = SilkDaze()
-        self.skills["Pièce de Résistance"] = PieceDeResistance()
-        self.skills["Aramid Ward"] = AramidWard()
-        self.skills["Aramid Guard"] = AramidGuard()
-        self.skills["Aegis' Last Stand"] = AegisLastStand()
-        self.skills["Rayon Strike"] = RayonStrike()
-        self.skills["Rayon Bash"] = RayonBash()
-        self.skills["Kusanagi No Tsurugi"] = KusanagiNoTsurugi()
+//        self.skills["Constrict"] = Constrict()
+//        self.skills["Thrash"] = Thrash()
+//        self.skills["Cotton Flare"] = CottonFlare()
+//        self.skills["Cotton Blaze"] = CottonBlaze()
+//        self.skills["Wildfire"] = WildFire()
+//        self.skills["Silk Trick"] = SilkTrick()
+//        self.skills["Silk Daze"] = SilkDaze()
+//        self.skills["Pièce de Résistance"] = PieceDeResistance()
+//        self.skills["Aramid Ward"] = AramidWard()
+//        self.skills["Aramid Guard"] = AramidGuard()
+//        self.skills["Aegis' Last Stand"] = AegisLastStand()
+//        self.skills["Rayon Strike"] = RayonStrike()
+//        self.skills["Rayon Bash"] = RayonBash()
+//        self.skills["Kusanagi No Tsurugi"] = KusanagiNoTsurugi()
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -61,6 +61,31 @@ class Player: Character {
         if (self.level % 10) - (oldLevel % 10) > 0{
             // Increase HP by 6 %
             maxHP += Int(0.06 * Double(maxHP))
+        }
+    }
+    
+    func calculateReward(enemy: Monster){
+        // upgrade skills
+        for skill in skills.values {
+            // if skill use more than upgrade
+            if skill.useCount > skill.upgradeValue{
+                // if there is an upgrade skill
+                if let upgradeSkill = skill.upgradedSkill{
+                    // if skill not in current skills
+                    if skills[upgradeSkill.init().skillName] == nil{
+                        let newSkill = upgradeSkill.init()
+                        skills[newSkill.skillName] = newSkill
+                    }
+                }
+            }
+        }
+        // gainxp
+        totalExperience += enemy.expGiven
+        // getthreads
+        if let newThread = enemy.threadGiven {
+            
+            let newSkill = newThread.init()
+            skills[newSkill.skillName] = newSkill
         }
     }
 }

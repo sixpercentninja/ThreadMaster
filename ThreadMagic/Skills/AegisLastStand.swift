@@ -13,7 +13,7 @@ class AegisLastStand: Skill {
     override var attackAttribute: Attribute { return Attribute.Resistance }
     override var skillName: String { return "Aegis' Last Stand" }
     
-    override init() {
+    required init() {
         super.init()
         self.gestures = [2, 6, 2]
     }

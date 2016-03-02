@@ -13,6 +13,8 @@ import SpriteKit
 class Edan: Monster {
     let displayImageName = "boss2.png"
     
+    override var expGiven: Int { return 1000 }
+    
     let bossThread = SKSpriteNode(imageNamed: "boss2Thread.png")
     let bossThread2 = SKSpriteNode(imageNamed: "rightWhip.png")
     let bossThread3 = SKSpriteNode(imageNamed: "leftWhip.png")
@@ -20,7 +22,6 @@ class Edan: Monster {
     
     override init(texture: SKTexture?, color: UIColor, size: CGSize) {
         super.init(texture: texture, color: color, size: size)
-        expGiven = 25
     }
     
     override init(imageNamed: String, maxHP: Int, charName: String, attribute: Attribute){
@@ -57,6 +58,7 @@ class Edan: Monster {
     func settings() {
         setScale(0.4)
         zPosition = 0.4
+        threadGiven = CottonFlare.self
         
         bossThread.position = CGPoint(x: 0, y: 0)
         bossThread.setScale(1)

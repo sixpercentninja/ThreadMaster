@@ -14,7 +14,7 @@ class RayonStrike: Skill {
     override var skillName: String { return "Rayon Strike" }
     override var upgradeValue: Int { return 20 }
     
-    override init() {
+    required init() {
         super.init()
         self.gestures = [3]
         upgradedSkill = RayonBash.self

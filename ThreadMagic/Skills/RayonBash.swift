@@ -14,7 +14,7 @@ class RayonBash: Skill {
     override var skillName: String { return "Rayon Bash" }
     override var upgradeValue: Int { return 35 }
     
-    override init() {
+    required init() {
         super.init()
         self.gestures = [3, 5]
         upgradedSkill = KusanagiNoTsurugi.self

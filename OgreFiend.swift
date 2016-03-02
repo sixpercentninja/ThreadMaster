@@ -12,10 +12,10 @@ import SpriteKit
 class OgreFiend: Monster {
     
     let displayImageName = "ogre.png"
+    override var expGiven: Int { return 200 }
     
     override init(texture: SKTexture?, color: UIColor, size: CGSize) {
         super.init(texture: texture, color: color, size: size)
-        expGiven = 200
     }
     
     override init(imageNamed: String, maxHP: Int, charName: String, attribute: Attribute){
@@ -50,7 +50,6 @@ class OgreFiend: Monster {
     func settings() {
         setScale(0.5)
         zPosition = 0.4
-        
     }
     
     func animateMonster() {

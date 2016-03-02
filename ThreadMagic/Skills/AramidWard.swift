@@ -14,7 +14,7 @@ class AramidWard: Skill {
     override var skillName: String { return "Aramid Ward" }
     override var upgradeValue: Int { return 20 }
     
-    override init() {
+    required init() {
         super.init()
         self.gestures = [2]
         upgradedSkill = AramidGuard.self
@@ -38,7 +38,7 @@ class AramidWard: Skill {
         node.runAction(SKAction.animateWithTextures(animationTextures, timePerFrame: 0.10)) { () -> Void in
             node.removeFromParent()
             target.runAction(self.effectActionSequence(), completion: { () -> Void in
-                caster.attack(target, skillName: self.skillName)
+                caster.heal(caster, healedHp: Int(Double(caster.maxHP) * 0.25))
                 completion()
             })
         }

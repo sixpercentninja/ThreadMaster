@@ -14,7 +14,7 @@ class AramidGuard: Skill {
     override var skillName: String { return "Aramid Guard" }
     override var upgradeValue: Int { return 35 }
     
-    override init() {
+    required init() {
         super.init()
         self.gestures = [2, 6]
         upgradedSkill = AegisLastStand.self

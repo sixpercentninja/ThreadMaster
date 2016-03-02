@@ -10,10 +10,10 @@ import SpriteKit
 
 class Thrash: Skill {
     override var damage: Int { return 40 }
-    override var attackAttribute: Attribute { return Attribute.Heat }
+    override var attackAttribute: Attribute { return Attribute.Neutral }
     override var skillName: String { return "Thrash" }
     
-    override init() {
+    required init() {
         super.init()
         self.gestures = [1, 3, 1]
         self.thread = .Physical

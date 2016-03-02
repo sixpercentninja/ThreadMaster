@@ -44,7 +44,7 @@ class Skill {
     var upgradeValue: Int { return 20 }
     var upgradedSkill: Skill.Type?
     
-    init() {
+    required init() {
     }
     
     var textureAtlas: SKTextureAtlas {

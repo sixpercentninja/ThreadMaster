@@ -14,8 +14,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var enemy = Monster()
     var bossBattle: Bool = false
     var canAttack: Bool = true
-//    var leftWing = SKSpriteNode()
-//    var rightWing = SKSpriteNode()
     var bossThread = SKSpriteNode()
     var fabricMasterLabel = SKLabelNode()
 
@@ -86,6 +84,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         enemyHealthBarHidden(true)
         mcHealthBarHidden(true)
         animateSlideIn()
+        
+        print(mc.skills)
 
         let magic = SKTexture(imageNamed: "FireBeam")
         
@@ -103,7 +103,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         rawPoints = []
         let touch = touches.first
         let location = touch!.locationInNode(self)
-        print(location)
         rawPoints.append(Int(location.x))
         rawPoints.append(Int(size.height - location.y))
         
@@ -943,6 +942,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func evaluateGameOver(){
         if enemy.currentHp <= 0 && bossBattle {
+            mc.calculateReward(enemy)
+            
             let scene = NextLevelScene(size: size)
             scene.mapLevel = mapLevel
             mc.removeFromParent()
@@ -956,6 +957,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if mc.currentHp <= 0 {
             scene = GameOverScene(size: size, won: false)
         }else if(enemy.currentHp <= 0){
+            mc.calculateReward(enemy)
             scene = GameOverScene(size: size, won: true)
         }else{
             return

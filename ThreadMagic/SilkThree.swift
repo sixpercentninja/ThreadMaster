@@ -14,7 +14,7 @@ class SilkThree: Skill {
     override var skillName: String { return "Silk Three" }
     
     
-    override init() {
+    required init() {
         super.init()
     }
     
@@ -29,28 +29,16 @@ class SilkThree: Skill {
         let node = animationNode
         node.zPosition = 0.6
         
-        node.position = CGPoint(x: target.position.x + 40, y: target.position.y)
+        node.position = target.position
         node.setScale(5.0)
-        
-        scene.enumerateChildNodesWithName("bg") { (background, _) -> Void in
-            
-            background.runAction(SKAction.colorizeWithColor(.blackColor(), colorBlendFactor: 1.0, duration: 3.0), completion: { () -> Void in
-                scene.addChild(node)
-                
-                node.runAction(SKAction.sequence([SKAction.playSoundFileNamed("hitNormal.wav", waitForCompletion: false),SKAction.animateWithTextures(self.animationTextures, timePerFrame: 0.08)])) { () -> Void in
-                    
-                    node.removeFromParent()
-                    
-                    target.runAction(self.effectActionSequence(), completion: { () -> Void in
-                        background.runAction(SKAction.colorizeWithColor(.whiteColor(), colorBlendFactor: 0.0, duration: 3.0))
-                        caster.attack(target, skillName: self.skillName)
-                        completion()
-                    })
-                }
+        scene.addChild(node)
+        node.runAction(SKAction.sequence([SKAction.playSoundFileNamed("hitNormal.wav", waitForCompletion: false),SKAction.animateWithTextures(animationTextures, timePerFrame: 0.08)])) { () -> Void in
+            node.removeFromParent()
+            target.runAction(self.effectActionSequence(), completion: { () -> Void in
+                caster.attack(target, skillName: self.skillName)
+                completion()
             })
         }
-        
-        
     }
     
     override func effectActionSequence() -> SKAction {

@@ -11,12 +11,11 @@ import SpriteKit
 
 class Oinari: Monster {
     let displayImageName = "boss3.png"
-    
     let bossThread = SKSpriteNode(imageNamed: "boss3Thread.png")
+    override var expGiven: Int { return 1000 }
     
     override init(texture: SKTexture?, color: UIColor, size: CGSize) {
         super.init(texture: texture, color: color, size: size)
-        expGiven = 25
     }
     
     override init(imageNamed: String, maxHP: Int, charName: String, attribute: Attribute){
@@ -53,6 +52,7 @@ class Oinari: Monster {
     func settings() {
         setScale(0.6)
         zPosition = 0.4
+        threadGiven = SilkTrick.self
         
         bossThread.position = CGPoint(x: 0, y: 0)
         bossThread.setScale(1)

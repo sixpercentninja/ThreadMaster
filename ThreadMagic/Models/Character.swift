@@ -83,6 +83,10 @@ class Character: SKSpriteNode {
         }
     }
     
+    func heal(target: Character, healedHp: Int) {
+        target.currentHp += healedHp
+    }
+    
     func debugDrawPlayableArea() {
         let shape = SKShapeNode()
         let path = CGPathCreateMutable()

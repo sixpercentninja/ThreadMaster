@@ -14,10 +14,10 @@ class FrostWyvern: Monster {
     let rightWing = SKSpriteNode(imageNamed: "dragonRightWing")
     let leftWing = SKSpriteNode(imageNamed: "dragonLeftWing")
     let displayImageName = "dragonBody"
+    override var expGiven: Int { return 200 }
     
     override init(texture: SKTexture?, color: UIColor, size: CGSize) {
         super.init(texture: texture, color: color, size: size)
-        expGiven = 200
     }
     
     override init(imageNamed: String, maxHP: Int, charName: String, attribute: Attribute){

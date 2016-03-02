@@ -14,7 +14,7 @@ class WildFire: Skill {
     override var attackAttribute: Attribute { return Attribute.Heat }
     override var skillName: String { return "Wildfire" }
     
-    override init() {
+    required init() {
         super.init()
         self.gestures = [7, 1, 4]
         self.thread = .Cotton

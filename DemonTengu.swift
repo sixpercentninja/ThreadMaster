@@ -12,10 +12,10 @@ import SpriteKit
 class DemonTengu: Monster {
     
     let displayImageName = "tengu.png"
+    override var expGiven: Int { return 200 }
     
     override init(texture: SKTexture?, color: UIColor, size: CGSize) {
         super.init(texture: texture, color: color, size: size)
-        expGiven = 200
     }
     
     override init(imageNamed: String, maxHP: Int, charName: String, attribute: Attribute){

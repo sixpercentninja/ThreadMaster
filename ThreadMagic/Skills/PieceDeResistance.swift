@@ -13,7 +13,7 @@ class PieceDeResistance: Skill {
     override var attackAttribute: Attribute { return Attribute.Pattern }
     override var skillName: String { return "Pièce de Résistance" }
     
-    override init() {
+    required init() {
         super.init()
         self.gestures = [0,1,2,3,4,5,6,7,0,1,2,3,4,5,6,7]
     }

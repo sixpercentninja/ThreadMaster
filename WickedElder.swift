@@ -12,10 +12,10 @@ import SpriteKit
 class WickedElder: Monster {
     
     let displayImageName = "demon.png"
+    override var expGiven: Int { return 1000 }
     
     override init(texture: SKTexture?, color: UIColor, size: CGSize) {
         super.init(texture: texture, color: color, size: size)
-        expGiven = 200
     }
     
     override init(imageNamed: String, maxHP: Int, charName: String, attribute: Attribute){

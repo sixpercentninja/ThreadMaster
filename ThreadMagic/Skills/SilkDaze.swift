@@ -14,7 +14,7 @@ class SilkDaze: Skill {
     override var skillName: String { return "Silk Daze" }
     override var upgradeValue: Int { return 35 }
     
-    override init() {
+    required init() {
         super.init()
         self.gestures = [4,3,2,1,0,7,6,5]
         upgradedSkill = PieceDeResistance.self

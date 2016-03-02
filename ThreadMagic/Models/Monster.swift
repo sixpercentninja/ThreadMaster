@@ -9,5 +9,6 @@
 import SpriteKit
 
 class Monster: Character {
-    var expGiven: Int!
+    var expGiven: Int { return 0 }
+    var threadGiven: Skill.Type?
 }

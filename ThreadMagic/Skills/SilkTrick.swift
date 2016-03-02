@@ -15,7 +15,7 @@ class SilkTrick: Skill {
     override var skillName: String { return "Silk Trick" }
     override var upgradeValue: Int { return 20 }
     
-    override init() {
+    required init() {
         super.init()
         self.gestures = [0,1,2,3,4,5,6,7]
         upgradedSkill = SilkTrick.self
