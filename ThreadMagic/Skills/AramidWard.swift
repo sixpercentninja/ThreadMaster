@@ -12,6 +12,9 @@ class AramidWard: Skill {
     override var damage: Int { return 6 }
     override var attackAttribute: Attribute { return Attribute.Resistance }
     override var skillName: String { return "Aramid Ward" }
+    override var skillInformation: String { return "Heals your wounds" }
+    override var skillInformation2: String { return "" }
+    override var gestureInstruction: SKSpriteNode { return SKSpriteNode(imageNamed: "AramidWardGesture.png")}
     
     override init() {
         super.init()

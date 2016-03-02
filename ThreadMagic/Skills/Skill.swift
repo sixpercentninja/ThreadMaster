@@ -37,6 +37,9 @@ class Skill {
     var attackAttribute: Attribute { return Attribute.Heat }
     var skillName: String { return "Not Implemented" }
     var gestures: [Int]!
+    var gestureInstruction: SKSpriteNode { return SKSpriteNode(imageNamed: "Not Implemented")}
+    var skillInformation: String {return "Not Implemented" }
+    var skillInformation2: String {return "" }
     var thread: Thread!
     var upgradedSkill: Skill?
     

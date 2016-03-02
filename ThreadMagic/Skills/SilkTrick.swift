@@ -13,6 +13,8 @@ class SilkTrick: Skill {
     override var damage: Int { return 55 }
     override var attackAttribute: Attribute { return Attribute.Pattern }
     override var skillName: String { return "Silk Trick" }
+    override var skillInformation: String { return "Deals light pattern damage" }
+    override var gestureInstruction: SKSpriteNode { return SKSpriteNode(imageNamed: "SilkTrickGesture.png")}
     
     override init() {
         super.init()

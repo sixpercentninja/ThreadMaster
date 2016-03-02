@@ -12,6 +12,10 @@ class RayonBash: Skill {
     override var damage: Int { return 145 }
     override var attackAttribute: Attribute { return Attribute.Strength }
     override var skillName: String { return "Rayon Bash" }
+    override var skillInformation: String { return "Deals moderate strength" }
+    override var skillInformation2: String { return "damage" }
+
+    override var gestureInstruction: SKSpriteNode { return SKSpriteNode(imageNamed: "RayonBashGesture.png")}
     
     override init() {
         super.init()

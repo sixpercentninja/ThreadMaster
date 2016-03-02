@@ -12,6 +12,9 @@ class PieceDeResistance: Skill {
     override var damage: Int { return 140 }
     override var attackAttribute: Attribute { return Attribute.Pattern }
     override var skillName: String { return "Pièce de Résistance" }
+    override var skillInformation: String { return "Deals heavy pattern damage" }
+    
+    override var gestureInstruction: SKSpriteNode { return SKSpriteNode(imageNamed: "PieceDeResistanceGesture.png")}
     
     override init() {
         super.init()
