@@ -33,7 +33,7 @@ class VenomViper: Monster {
     }
     
     init(){
-        super.init(imageNamed: displayImageName, maxHP: 50, charName: "Venom Viper", attribute: Attribute.Heat)
+        super.init(imageNamed: displayImageName, maxHP: 50, charName: "Venom Viper", attribute: Attribute.Resistance)
         settings()
         animateMonster()
         assignDefaultSkills()
@@ -44,7 +44,7 @@ class VenomViper: Monster {
     }
     
     func assignDefaultSkills(){
-        self.skills["spiderWeb"] = SpiderWeb()
+        self.skills["Aramid Two"] = AramidTwo()
     }
     
     func settings() {

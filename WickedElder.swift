@@ -33,7 +33,7 @@ class WickedElder: Monster {
     }
     
     init(){
-        super.init(imageNamed: displayImageName, maxHP: 50, charName: "Wicked Elder", attribute: Attribute.Heat)
+        super.init(imageNamed: displayImageName, maxHP: 50, charName: "Wicked Elder", attribute: Attribute.Strength)
         settings()
         animateMonster()
         assignDefaultSkills()
@@ -44,7 +44,7 @@ class WickedElder: Monster {
     }
     
     func assignDefaultSkills(){
-        self.skills["spiderWeb"] = SpiderWeb()
+        self.skills["Rayon One"] = RayonOne()
     }
     
     func settings() {

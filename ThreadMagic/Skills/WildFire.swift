@@ -25,6 +25,9 @@ class WildFire: Skill {
     }
     
     override func animateAction(scene: SKScene, caster: Character, target: Character, completion: () -> Void ) -> Void {
+        super.animateAction(scene, caster: caster, target: target) { () -> Void
+            in
+        }
         let node = animationNode
         node.zPosition = 0.6
         

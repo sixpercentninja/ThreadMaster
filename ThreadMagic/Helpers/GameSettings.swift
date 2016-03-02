@@ -42,6 +42,7 @@ enum ColliderType:UInt32 {
     case None           = 0b1
     case Engage         = 0b10
     case Obstacle       = 0b100
+    case Boss           = 0b1000
 }
 
 enum MapLevel: Int {
@@ -56,13 +57,13 @@ enum MapLevel: Int {
         case .levelOne:
             return [Kiba.self, VenomViper.self]
         case .levelTwo:
-            return [Megalith.self, OgreFiend.self]
+            return [Megalith.self, OgreFiend.self, Kiba.self, VenomViper.self]
         case .levelThree:
-            return [Megalith.self, OgreFiend.self]
+            return [UndeadKnight.self, FrostWyvern.self]
         case .levelFour:
-            return [WickedElder.self, Sorcerer.self]
+            return [WickedElder.self, Sorcerer.self, UndeadKnight.self, FrostWyvern.self]
         case .levelFive:
-            return [WickedElder.self, Sorcerer.self]
+            return [WickedElder.self, Sorcerer.self, DemonTengu.self]
         }
     }
     
@@ -78,6 +79,21 @@ enum MapLevel: Int {
             return Charon.self
         case .levelFive:
             return Charon.self
+        }
+    }
+    
+    var bossImage: String {
+        switch self {
+        case .levelOne:
+            return "Gabino"
+        case .levelTwo:
+            return "Edan"
+        case .levelThree:
+            return "Oinari"
+        case .levelFour:
+            return "Charon"
+        case .levelFive:
+            return "Charon"
         }
     }
     

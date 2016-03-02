@@ -34,7 +34,7 @@ class Gabino: Monster {
     }
     
     init(){
-        super.init(imageNamed: displayImageName, maxHP: 50, charName: "Gabino", attribute: Attribute.Heat)
+        super.init(imageNamed: displayImageName, maxHP: 50, charName: "Gabino", attribute: Attribute.Resistance)
         settings()
         animateMonster()
         assignDefaultSkills()
@@ -45,7 +45,9 @@ class Gabino: Monster {
     }
     
     func assignDefaultSkills(){
-        self.skills["spiderWeb"] = SpiderWeb()
+        self.skills["Aramid One"] = AramidOne()
+        self.skills["Aramid Two"] = AramidTwo()
+        self.skills["Aramid Three"] = AramidThree()
     }
     
     func settings() {

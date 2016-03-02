@@ -12,10 +12,12 @@ class SilkDaze: Skill {
     override var damage: Int { return 83 }
     override var attackAttribute: Attribute { return Attribute.Pattern }
     override var skillName: String { return "Silk Daze" }
+    override var upgradeValue: Int { return 35 }
     
     override init() {
         super.init()
         self.gestures = [4,3,2,1,0,7,6,5]
+        upgradedSkill = PieceDeResistance.self
     }
     
     override var textureAtlas: SKTextureAtlas {
@@ -23,6 +25,9 @@ class SilkDaze: Skill {
     }
     
     override func animateAction(scene: SKScene, caster: Character, target: Character, completion: () -> Void ) -> Void {
+        super.animateAction(scene, caster: caster, target: target) { () -> Void
+            in
+        }
         let node = animationNode
         node.zPosition = 0.6
         

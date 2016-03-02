@@ -37,8 +37,8 @@ class PlayerEntity: GKEntity {
         physicsBody.dynamic = true
         physicsBody.allowsRotation = false
         physicsBody.categoryBitMask = ColliderType.Player.rawValue
-        physicsBody.collisionBitMask = ColliderType.Obstacle.rawValue
-//        physicsBody.contactTestBitMask =
+        physicsBody.collisionBitMask = ColliderType.Obstacle.rawValue | ColliderType.Boss.rawValue
+        physicsBody.contactTestBitMask = ColliderType.Boss.rawValue
         spriteComponent.node.physicsBody = physicsBody
     }
     

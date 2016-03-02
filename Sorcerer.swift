@@ -33,7 +33,7 @@ class Sorcerer: Monster {
     }
     
     init(){
-        super.init(imageNamed: displayImageName, maxHP: 50, charName: "Sorcerer", attribute: Attribute.Heat)
+        super.init(imageNamed: displayImageName, maxHP: 50, charName: "Sorcerer", attribute: Attribute.Strength)
         settings()
         animateMonster()
         assignDefaultSkills()
@@ -44,7 +44,7 @@ class Sorcerer: Monster {
     }
     
     func assignDefaultSkills(){
-        self.skills["spiderWeb"] = SpiderWeb()
+        self.skills["Rayon Two"] = RayonTwo()
     }
     
     func settings() {

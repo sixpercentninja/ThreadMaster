@@ -12,10 +12,12 @@ class AramidGuard: Skill {
     override var damage: Int { return 6 }
     override var attackAttribute: Attribute { return Attribute.Resistance }
     override var skillName: String { return "Aramid Guard" }
+    override var upgradeValue: Int { return 35 }
     
     override init() {
         super.init()
         self.gestures = [2, 6]
+        upgradedSkill = AegisLastStand.self
     }
     
     override var textureAtlas: SKTextureAtlas {
@@ -23,6 +25,9 @@ class AramidGuard: Skill {
     }
     
     override func animateAction(scene: SKScene, caster: Character, target: Character, completion: () -> Void ) -> Void {
+        super.animateAction(scene, caster: caster, target: target) { () -> Void
+            in
+        }
         let node = animationNode
         node.zPosition = 0.6
         

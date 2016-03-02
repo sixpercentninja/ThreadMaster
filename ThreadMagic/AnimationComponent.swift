@@ -17,7 +17,7 @@ struct Animation {
 class AnimationComponent: GKComponent {
     static let actionKey = "Action"
     static let timePerFrame = NSTimeInterval(1.0 / 20.0)
-    
+    var something = NSTimeInterval(1.0 / 20.0)
     let node: SKSpriteNode
     
     var animations: [AnimationState: Animation]
@@ -46,10 +46,10 @@ class AnimationComponent: GKComponent {
         if animation.repeatTexturesForever {
                 texturesAction = SKAction.repeatActionForever(
             SKAction.animateWithTextures(animation.textures,
-            timePerFrame: AnimationComponent.timePerFrame))
+            timePerFrame: something))
             } else {
                 texturesAction = SKAction.animateWithTextures(animation.textures,
-            timePerFrame: AnimationComponent.timePerFrame)
+            timePerFrame: something)
         }
         
         node.runAction(texturesAction, withKey: AnimationComponent.actionKey)

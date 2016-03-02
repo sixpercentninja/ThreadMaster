@@ -44,7 +44,7 @@ class Megalith: Monster {
     }
     
     func assignDefaultSkills(){
-        self.skills["spiderWeb"] = SpiderWeb()
+        self.skills["Cotton One"] = CottonOne()
     }
     
     func settings() {

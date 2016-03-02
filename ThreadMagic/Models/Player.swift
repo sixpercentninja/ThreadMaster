@@ -26,6 +26,9 @@ class Player: Character {
     override init(imageNamed: String, maxHP: Int, charName: String, attribute: Attribute){
         totalExperience = 0
         super.init(imageNamed: imageNamed, maxHP: maxHP, charName: charName, attribute: attribute)
+        self.skills["Whip"] = Whip()
+        self.skills["Constrict"] = Constrict()
+        self.skills["Thrash"] = Thrash()
         self.skills["Cotton Flare"] = CottonFlare()
         self.skills["Cotton Blaze"] = CottonBlaze()
         self.skills["Wildfire"] = WildFire()

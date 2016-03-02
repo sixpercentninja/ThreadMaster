@@ -49,7 +49,9 @@ class Edan: Monster {
     }
     
     func assignDefaultSkills(){
-        self.skills["spiderWeb"] = SpiderWeb()
+        self.skills["Cotton One"] = CottonOne()
+        self.skills["Cotton Two"] = CottonTwo()
+        self.skills["Cotton Three"] = CottonThree()
     }
     
     func settings() {

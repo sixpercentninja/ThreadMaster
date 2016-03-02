@@ -71,7 +71,6 @@ public class SKTAudio {
   public func stopBackgroundMusic() {
     if let player = backgroundMusicPlayer {
       if player.playing {
-        print("stopping")
         player.stop()
       }
     }
@@ -93,7 +92,6 @@ public class SKTAudio {
   
   func continueToFade(){
     guard continueFading else { return }
-    print("fading")
     if backgroundMusicPlayer?.volume > 0.1 {
       backgroundMusicPlayer?.volume = backgroundMusicPlayer!.volume - 0.1
       

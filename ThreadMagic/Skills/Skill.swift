@@ -10,7 +10,7 @@ import Foundation
 import SpriteKit
 
 enum Thread: Int, CustomStringConvertible {
-    case Cotton = 0, Silk, Aramid, Rayon
+    case Cotton = 0, Silk, Aramid, Rayon, Physical
     
     var threadName: String {
         switch self {
@@ -22,6 +22,8 @@ enum Thread: Int, CustomStringConvertible {
             return "Aramid"
         case .Rayon:
             return "Rayon"
+        case .Physical:
+            return "Physical"
         }
     }
     
@@ -38,7 +40,9 @@ class Skill {
     var skillName: String { return "Not Implemented" }
     var gestures: [Int]!
     var thread: Thread!
-    var upgradedSkill: Skill?
+    var useCount = 0
+    var upgradeValue: Int { return 20 }
+    var upgradedSkill: Skill.Type?
     
     init() {
     }
@@ -56,7 +60,7 @@ class Skill {
     }
     
     func animateAction(scene: SKScene, caster: Character, target: Character, completion: () -> Void ) -> Void {
-        
+        useCount++
     }
     
     func effectActionSequence() -> SKAction{

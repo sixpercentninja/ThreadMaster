@@ -33,7 +33,7 @@ class UndeadKnight: Monster {
     }
     
     init(){
-        super.init(imageNamed: displayImageName, maxHP: 50, charName: "Undead Knight", attribute: Attribute.Heat)
+        super.init(imageNamed: displayImageName, maxHP: 50, charName: "Undead Knight", attribute: Attribute.Pattern)
         settings()
         animateMonster()
         assignDefaultSkills()
@@ -44,7 +44,7 @@ class UndeadKnight: Monster {
     }
     
     func assignDefaultSkills(){
-        self.skills["spiderWeb"] = SpiderWeb()
+        self.skills["Silk Two"] = SilkTwo()
     }
     
     func settings() {

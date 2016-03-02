@@ -11,6 +11,7 @@ import GameplayKit
 
 enum tileType: Int, CustomStringConvertible {
     case tileStart = 0
+    case tileEnd = 1
     //grass
     case tileGrass = 100
     //rock
@@ -56,6 +57,8 @@ enum tileType: Int, CustomStringConvertible {
     var description: String {
         switch self {
         case tileStart:
+            return "grass"
+        case tileEnd:
             return "grass"
         case tileGrass:
             return "grass"
@@ -136,6 +139,8 @@ enum tileType: Int, CustomStringConvertible {
         switch self {
         case tileStart:
             return ColliderType.None.rawValue
+        case tileEnd:
+            return ColliderType.Boss.rawValue
         case tileGrass:
             return ColliderType.Engage.rawValue
         case tileRock0:
@@ -270,7 +275,7 @@ struct tileMap {
     
     mutating func generateMap(mapLevel: MapLevel) {
         
-        var template = LevelTemplate(rawValue: mapLevel.rawValue)!.template
+        let template = LevelTemplate(rawValue: mapLevel.rawValue)!.template
         //Set tiles based on template
         for (indexr, row) in template.enumerate() {
             for (indexc, cvalue) in row.enumerate() {

@@ -33,7 +33,7 @@ class Kiba: Monster {
     }
     
     init(){
-        super.init(imageNamed: displayImageName, maxHP: 50, charName: "Kiba", attribute: Attribute.Heat)
+        super.init(imageNamed: displayImageName, maxHP: 50, charName: "Kiba", attribute: Attribute.Resistance)
         settings()
         animateMonster()
         assignDefaultSkills()
@@ -44,7 +44,7 @@ class Kiba: Monster {
     }
     
     func assignDefaultSkills(){
-        self.skills["spiderWeb"] = SpiderWeb()
+        self.skills["Aramid One"] = AramidOne()
     }
     
     func settings() {

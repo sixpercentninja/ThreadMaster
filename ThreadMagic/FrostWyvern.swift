@@ -46,7 +46,7 @@ class FrostWyvern: Monster {
     }
     
     func assignDefaultSkills(){
-        self.skills["spiderWeb"] = SpiderWeb()
+        self.skills["Silk One"] = SilkOne()
     }
     
     func settings() {

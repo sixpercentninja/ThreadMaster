@@ -9,7 +9,7 @@
 import Foundation
 import SpriteKit
 
-class DemomTengu: Monster {
+class DemonTengu: Monster {
     
     let displayImageName = "tengu.png"
     
@@ -44,7 +44,7 @@ class DemomTengu: Monster {
     }
     
     func assignDefaultSkills(){
-        self.skills["spiderWeb"] = SpiderWeb()
+        self.skills["Ultimate One"] = UltimateOne()
     }
     
     func settings() {

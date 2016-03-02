@@ -44,7 +44,7 @@ class OgreFiend: Monster {
     }
     
     func assignDefaultSkills(){
-        self.skills["spiderWeb"] = SpiderWeb()
+        self.skills["Cotton Two"] = CottonTwo()
     }
     
     func settings() {

@@ -102,6 +102,18 @@ class Character: SKSpriteNode {
     func lV() -> String{
         return "Lv. ??"
     }
+    
+    func randomSkill() -> Skill?{
+        let skillNames = Array(skills.keys)
+        let randomIndex = arc4random_uniform(UInt32(skillNames.count))
+        let randomSkillName = skillNames[Int(randomIndex)]
+        if let skill = skills[String(randomSkillName)]{
+            return skill
+        }
+        else{
+            return nil
+        }
+    }
 }
 
 

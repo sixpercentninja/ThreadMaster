@@ -45,7 +45,9 @@ class Charon: Monster {
     }
     
     func assignDefaultSkills(){
-        self.skills["spiderWeb"] = SpiderWeb()
+        self.skills["Rayon One"] = RayonOne()
+        self.skills["Rayon Two"] = RayonTwo()
+        self.skills["Rayon Three"] = RayonThree()
     }
     
     func settings() {

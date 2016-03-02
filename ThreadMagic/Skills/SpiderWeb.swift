@@ -12,12 +12,16 @@ import SpriteKit
 class SpiderWeb: Skill {
     override var damage: Int { return 5 }
     override var attackAttribute: Attribute { return Attribute.Pattern }
+    override var upgradeValue: Int { return 20 }
     
     override var textureAtlas: SKTextureAtlas {
         return SKTextureAtlas(named: "spider_web")
     }
     
     override func animateAction(scene: SKScene, caster: Character, target: Character, completion: () -> Void ) -> Void {
+        super.animateAction(scene, caster: caster, target: target) { () -> Void
+            in
+        }
         let node = animationNode
         node.position = target.position
         scene.addChild(node)

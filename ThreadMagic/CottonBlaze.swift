@@ -12,11 +12,13 @@ class CottonBlaze: Skill {
     override var damage: Int { return 60 }
     override var attackAttribute: Attribute { return Attribute.Heat }
     override var skillName: String { return "Cotton Blaze" }
+    override var upgradeValue: Int { return 35 }
     
     override init() {
         super.init()
         self.gestures = [7, 1]
         self.thread = .Cotton
+        upgradedSkill = WildFire.self
     }
     
     override var textureAtlas: SKTextureAtlas {
@@ -24,6 +26,9 @@ class CottonBlaze: Skill {
     }
     
     override func animateAction(scene: SKScene, caster: Character, target: Character, completion: () -> Void ) -> Void {
+        super.animateAction(scene, caster: caster, target: target) { () -> Void
+            in
+        }
         let node = animationNode
         node.zPosition = 0.6
         

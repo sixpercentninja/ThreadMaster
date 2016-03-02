@@ -13,10 +13,12 @@ class CottonFlare: Skill {
     override var damage: Int { return 36 }
     override var attackAttribute: Attribute { return Attribute.Heat }
     override var skillName: String { return "Cotton Flare" }
+    override var upgradeValue: Int { return 20 }
     
     override init() {
         super.init()
         self.gestures = [7]
+        upgradedSkill = CottonBlaze.self
     }
     
     override var textureAtlas: SKTextureAtlas {
@@ -24,6 +26,9 @@ class CottonFlare: Skill {
     }
     
     override func animateAction(scene: SKScene, caster: Character, target: Character, completion: () -> Void ) -> Void {
+        super.animateAction(scene, caster: caster, target: target) { () -> Void
+            in
+        }
         let node = animationNode
         let playSFX = SKAction.playSoundFileNamed("cottonBlaze", waitForCompletion: false)
         let hitSFX = SKAction.playSoundFileNamed("hitNormal", waitForCompletion: false)

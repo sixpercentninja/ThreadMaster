@@ -34,7 +34,7 @@ class Oinari: Monster {
     }
     
     init(){
-        super.init(imageNamed: displayImageName, maxHP: 50, charName: "Oinari", attribute: Attribute.Heat)
+        super.init(imageNamed: displayImageName, maxHP: 50, charName: "Oinari", attribute: Attribute.Pattern)
         settings()
         animateMonster()
         assignDefaultSkills()
@@ -45,7 +45,9 @@ class Oinari: Monster {
     }
     
     func assignDefaultSkills(){
-        self.skills["spiderWeb"] = SpiderWeb()
+        self.skills["Silk One"] = SilkOne()
+        self.skills["Silk Two"] = SilkTwo()
+        self.skills["Silk Three"] = SilkThree()
     }
     
     func settings() {

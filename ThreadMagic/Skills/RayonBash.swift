@@ -12,10 +12,12 @@ class RayonBash: Skill {
     override var damage: Int { return 145 }
     override var attackAttribute: Attribute { return Attribute.Strength }
     override var skillName: String { return "Rayon Bash" }
+    override var upgradeValue: Int { return 35 }
     
     override init() {
         super.init()
         self.gestures = [3, 5]
+        upgradedSkill = KusanagiNoTsurugi.self
     }
     
     override var textureAtlas: SKTextureAtlas {
@@ -23,6 +25,9 @@ class RayonBash: Skill {
     }
     
     override func animateAction(scene: SKScene, caster: Character, target: Character, completion: () -> Void ) -> Void {
+        super.animateAction(scene, caster: caster, target: target) { () -> Void
+            in
+        }
         let node = animationNode
         node.zPosition = 0.6
         
