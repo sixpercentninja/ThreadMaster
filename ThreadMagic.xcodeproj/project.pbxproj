@@ -186,6 +186,7 @@
 		81D939AD1C7E8DA900E3313A /* SilkTrick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D939AC1C7E8DA900E3313A /* SilkTrick.swift */; };
 		973FD5D21C857D1A00B72B23 /* StoryScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 973FD5D11C857D1A00B72B23 /* StoryScene.swift */; };
 		973FD5D41C8590E800B72B23 /* Remember.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 973FD5D31C8590E800B72B23 /* Remember.mp3 */; };
+		973FD5DA1C8762B500B72B23 /* CreditScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 973FD5D91C8762B500B72B23 /* CreditScene.swift */; };
 		97E510071C73E6940034B575 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E510061C73E6940034B575 /* AppDelegate.swift */; };
 		97E5100B1C73E6940034B575 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E5100A1C73E6940034B575 /* GameScene.swift */; };
 		97E5100D1C73E6940034B575 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E5100C1C73E6940034B575 /* GameViewController.swift */; };
@@ -379,6 +380,7 @@
 		81D939AC1C7E8DA900E3313A /* SilkTrick.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SilkTrick.swift; path = Skills/SilkTrick.swift; sourceTree = "<group>"; };
 		973FD5D11C857D1A00B72B23 /* StoryScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StoryScene.swift; path = GameScene/StoryScene.swift; sourceTree = "<group>"; };
 		973FD5D31C8590E800B72B23 /* Remember.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Remember.mp3; sourceTree = "<group>"; };
+		973FD5D91C8762B500B72B23 /* CreditScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditScene.swift; sourceTree = "<group>"; };
 		97E510031C73E6940034B575 /* ThreadMagic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThreadMagic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97E510061C73E6940034B575 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		97E5100A1C73E6940034B575 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GameScene.swift; path = GameScene/GameScene.swift; sourceTree = "<group>"; };
@@ -568,6 +570,7 @@
 			children = (
 				97E5100A1C73E6940034B575 /* GameScene.swift */,
 				97E510311C8149DD0034B575 /* MainMenuScene.swift */,
+				973FD5D91C8762B500B72B23 /* CreditScene.swift */,
 				973FD5D11C857D1A00B72B23 /* StoryScene.swift */,
 				97E5100C1C73E6940034B575 /* GameViewController.swift */,
 				7B108ECD1C779A21003FC7EE /* GameOverScene.swift */,
@@ -970,6 +973,7 @@
 				81AD031C1C7AE25D00B6C5DC /* SpiderWeb.swift in Sources */,
 				817323921C86E921007C2324 /* UltimateThree.swift in Sources */,
 				97E510321C8149DD0034B575 /* MainMenuScene.swift in Sources */,
+				973FD5DA1C8762B500B72B23 /* CreditScene.swift in Sources */,
 				8173238A1C86E721007C2324 /* UltimateOne.swift in Sources */,
 				817323781C86E565007C2324 /* AramidThree.swift in Sources */,
 				7B72CBE21C86B8D8006563B9 /* Moirai.swift in Sources */,
