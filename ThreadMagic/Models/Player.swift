@@ -9,7 +9,7 @@
 import SpriteKit
 
 class Player: Character {
-    static let mainPlayer = Player(imageNamed: SKTextureAtlas(named: "mainCharacter").textureNames.first!, maxHP: 50, charName: "Steven", attribute: Attribute.Neutral)
+    static let mainPlayer = Player(imageNamed: SKTextureAtlas(named: "mainCharacter").textureNames.first!, maxHP: 50, charName: "Kumo", attribute: Attribute.Neutral)
     
     var level: Int = 1
     var totalExperience: Int = 100 {

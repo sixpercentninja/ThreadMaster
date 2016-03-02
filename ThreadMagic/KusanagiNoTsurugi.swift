@@ -13,7 +13,10 @@ class KusanagiNoTsurugi: Skill {
     override var damage: Int { return 210 }
     override var attackAttribute: Attribute { return Attribute.Strength }
     override var skillName: String { return "Kusanagi No Tsurugi" }
-
+    override var skillInformation: String { return "Deals heavy strength damage" }
+    
+    override var gestureInstruction: SKSpriteNode { return SKSpriteNode(imageNamed: "KusanagiNoTsurugiGesture.png")}
+    
     
     required init() {
         super.init()

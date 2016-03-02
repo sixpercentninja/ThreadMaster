@@ -12,6 +12,9 @@ class AegisLastStand: Skill {
     override var damage: Int { return 6 }
     override var attackAttribute: Attribute { return Attribute.Resistance }
     override var skillName: String { return "Aegis' Last Stand" }
+    override var skillInformation: String { return "Greatly reduces damage" }
+    override var skillInformation2: String { return "from attacks taken" }
+    override var gestureInstruction: SKSpriteNode { return SKSpriteNode(imageNamed: "AegisLastStandGesture.png")}
     
     required init() {
         super.init()

@@ -13,6 +13,9 @@ class AramidGuard: Skill {
     override var attackAttribute: Attribute { return Attribute.Resistance }
     override var skillName: String { return "Aramid Guard" }
     override var upgradeValue: Int { return 35 }
+    override var skillInformation: String { return "Reduces damage from" }
+    override var skillInformation2: String { return " attacks taken" }
+    override var gestureInstruction: SKSpriteNode { return SKSpriteNode(imageNamed: "AramidGuardGesture.png")}
     
     required init() {
         super.init()

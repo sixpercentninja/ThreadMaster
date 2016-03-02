@@ -13,6 +13,8 @@ class CottonBlaze: Skill {
     override var attackAttribute: Attribute { return Attribute.Heat }
     override var skillName: String { return "Cotton Blaze" }
     override var upgradeValue: Int { return 35 }
+    override var skillInformation: String { return "Deals moderate heat damage" }
+    override var gestureInstruction: SKSpriteNode { return SKSpriteNode(imageNamed: "CottonBlazeGesture.png")}
     
     required init() {
         super.init()

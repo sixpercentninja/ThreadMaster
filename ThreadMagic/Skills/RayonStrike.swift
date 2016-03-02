@@ -13,6 +13,8 @@ class RayonStrike: Skill {
     override var attackAttribute: Attribute { return Attribute.Strength }
     override var skillName: String { return "Rayon Strike" }
     override var upgradeValue: Int { return 20 }
+    override var skillInformation: String { return "Deals light strength damage" }
+    override var gestureInstruction: SKSpriteNode { return SKSpriteNode(imageNamed: "RayonStrikeGesture.png")}
     
     required init() {
         super.init()
