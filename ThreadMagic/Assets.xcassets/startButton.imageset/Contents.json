@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "StartNewGame.png",
+      "filename" : "startButton.png",
       "scale" : "1x"
     },
     {

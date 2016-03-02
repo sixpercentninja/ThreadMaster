@@ -11,6 +11,8 @@ import SpriteKit
 
 class StoryScene: SKScene {
     
+    var story = SKNode()
+    
     var mc: Player!
     
     override func didMoveToView(view: SKView) {
@@ -24,14 +26,13 @@ class StoryScene: SKScene {
         
         self.addChild(bgImage)
         
+
+        let story = createMultiLineText("Since ancient times long past, it has been said that \nthose three ruled the fates of both men and gods alike.  \nNone may challenge their decrees, woven into that \ntapestry known as life.", color: UIColor.redColor(), fontSize: 40, fontName: "Georgia-Italic", fontPosition: CGPoint(x: size.width/2, y: size.height/1.28), fontLineSpace: 1.0)
+        story.zPosition = 1
         
-        /////
+        addChild(story)
         
-        //code for story text to appear line by line
-        
-        /////
-        
-        let button1 = SKSpriteNode(imageNamed: "Continue")
+        let button1 = SKSpriteNode(imageNamed: "continueButton")
         button1.setScale(0.8)
         button1.position = CGPoint(x: 400, y: -223)
         button1.name = "Continue"
@@ -41,6 +42,27 @@ class StoryScene: SKScene {
         
         bgImage.addChild(button1)
         
+        
+    }
+    
+    func createMultiLineText(textToPrint:String, color:UIColor, fontSize:CGFloat, fontName:String, fontPosition:CGPoint, fontLineSpace:CGFloat)->SKNode{
+        
+        let textBlock = SKNode()
+        
+        let textArr = textToPrint.componentsSeparatedByString("\n")
+        
+        var lineNode: SKLabelNode
+        for line: String in textArr {
+            lineNode = SKLabelNode(fontNamed: fontName)
+            lineNode.text = line
+            lineNode.fontSize = fontSize
+            lineNode.fontColor = color
+            lineNode.fontName = fontName
+            lineNode.position = CGPointMake(fontPosition.x,fontPosition.y - CGFloat(textBlock.children.count ) * fontSize + fontLineSpace)
+            textBlock.addChild(lineNode)
+        }
+        
+        return textBlock
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
