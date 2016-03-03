@@ -80,6 +80,7 @@ class WorldMapScene: SKScene, tileMapDelegate, SKPhysicsContactDelegate, PlayerE
     
     
     override func didMoveToView(view: SKView) {
+        SKTAudio.sharedInstance().playBackgroundMusic("Home Castle Theme.mp3")
         updateCameraScale()
         if(firstLoad){
             firstLoad = false
