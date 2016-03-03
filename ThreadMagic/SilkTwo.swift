@@ -9,7 +9,7 @@
 import SpriteKit
 
 class SilkTwo: Skill {
-    override var damage: Int { return 70 }
+    override var damage: Int { return 110 }
     override var attackAttribute: Attribute { return Attribute.Pattern }
     override var skillName: String { return "Silk Two" }
     

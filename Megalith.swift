@@ -33,7 +33,7 @@ class Megalith: Monster {
     }
     
     init(){
-        super.init(imageNamed: displayImageName, maxHP: 180, charName: "Megalith", attribute: Attribute.Heat)
+        super.init(imageNamed: displayImageName, maxHP: 480, charName: "Megalith", attribute: Attribute.Heat)
         settings()
         animateMonster()
         assignDefaultSkills()

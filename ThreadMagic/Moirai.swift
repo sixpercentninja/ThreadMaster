@@ -38,7 +38,7 @@ class Moirai: Monster {
     }
     
     init(){
-        super.init(imageNamed: displayImageName, maxHP: 2500, charName: "Aisa", attribute: Attribute.Neutral)
+        super.init(imageNamed: displayImageName, maxHP: 12500, charName: "Aisa", attribute: Attribute.Neutral)
         settings()
         animateMonster()
         assignDefaultSkills()

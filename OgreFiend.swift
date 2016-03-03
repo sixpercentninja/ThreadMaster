@@ -33,7 +33,7 @@ class OgreFiend: Monster {
     }
     
     init(){
-        super.init(imageNamed: displayImageName, maxHP: 150, charName: "Ogre Fiend", attribute: Attribute.Heat)
+        super.init(imageNamed: displayImageName, maxHP: 450, charName: "Ogre Fiend", attribute: Attribute.Heat)
         settings()
         animateMonster()
         assignDefaultSkills()

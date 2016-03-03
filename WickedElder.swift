@@ -33,7 +33,7 @@ class WickedElder: Monster {
     }
     
     init(){
-        super.init(imageNamed: displayImageName, maxHP: 350, charName: "Wicked Elder", attribute: Attribute.Strength)
+        super.init(imageNamed: displayImageName, maxHP: 750, charName: "Wicked Elder", attribute: Attribute.Strength)
         settings()
         animateMonster()
         assignDefaultSkills()

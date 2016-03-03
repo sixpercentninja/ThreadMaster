@@ -11,6 +11,9 @@ import AVFoundation
 import GameplayKit
 
 class WorldMapScene: SKScene, tileMapDelegate, SKPhysicsContactDelegate, PlayerEntityDelegate {
+    
+    var mcLevelLabel = SKLabelNode()
+
     var worldGen = tileMap()
     //Layers
     var worldLayer = SKNode()
@@ -81,6 +84,7 @@ class WorldMapScene: SKScene, tileMapDelegate, SKPhysicsContactDelegate, PlayerE
 
         SKTAudio.sharedInstance().playBackgroundMusic("Home Castle Theme.mp3")
         updateCameraScale()
+
         if(firstLoad){
             firstLoad = false
             setupLevel()
@@ -92,6 +96,8 @@ class WorldMapScene: SKScene, tileMapDelegate, SKPhysicsContactDelegate, PlayerE
         deltaTime = deltaTime > maximumUpdateDeltaTime ?
         maximumUpdateDeltaTime : deltaTime
         lastUpdateTimeInterval = currentTime
+        
+        mcLevelLabel.text = "Kumo, Level: \(Player.mainPlayer.level)"
         //Update all components
         for componentSystem in componentSystems {
             componentSystem.updateWithDeltaTime(deltaTime)
@@ -182,6 +188,13 @@ class WorldMapScene: SKScene, tileMapDelegate, SKPhysicsContactDelegate, PlayerE
             playerNode.name = "playerNode"
             playerNode.zPosition = 2
             playerNode.anchorPoint = CGPointMake(0.5, 0.2)
+            
+            mcLevelLabel.text = "Kumo, Level: \(Player.mainPlayer.level)"
+            mcLevelLabel.zPosition = 2.0
+            mcLevelLabel.position = CGPoint(x: playerNode.position.x, y: playerNode.position.y + 20)
+            labelDefaultSettings(mcLevelLabel)
+            playerNode.addChild(mcLevelLabel)
+            
             playerEntity.animationComponent.requestedAnimationState = .Walk_Down
             addEntityToEnemyLayer(playerEntity)
         case .tileEnd:
@@ -286,4 +299,11 @@ class WorldMapScene: SKScene, tileMapDelegate, SKPhysicsContactDelegate, PlayerE
             view?.presentScene(scene, transition: transition)
         }
     }
+    
+    func labelDefaultSettings(label: SKLabelNode){
+        label.fontColor = SKColor.blackColor()
+        label.fontSize = 5.0
+        label.fontName = "AvenirNext-Bold"
+    }
+    
 }

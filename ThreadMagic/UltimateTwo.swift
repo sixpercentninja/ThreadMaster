@@ -9,7 +9,7 @@
 import SpriteKit
 
 class UltimateTwo: Skill {
-    override var damage: Int { return 160 }
+    override var damage: Int { return 250 }
     override var attackAttribute: Attribute { return Attribute.Neutral }
     override var skillName: String { return "Ultimate Two" }
     

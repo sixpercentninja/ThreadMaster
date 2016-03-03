@@ -33,7 +33,7 @@ class Sorcerer: Monster {
     }
     
     init(){
-        super.init(imageNamed: displayImageName, maxHP: 450, charName: "Sorcerer", attribute: Attribute.Strength)
+        super.init(imageNamed: displayImageName, maxHP: 1050, charName: "Sorcerer", attribute: Attribute.Strength)
         settings()
         animateMonster()
         assignDefaultSkills()

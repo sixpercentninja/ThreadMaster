@@ -34,7 +34,7 @@ class Gabino: Monster {
     }
     
     init(){
-        super.init(imageNamed: displayImageName, maxHP: 350, charName: "Gabino", attribute: Attribute.Resistance)
+        super.init(imageNamed: displayImageName, maxHP: 450, charName: "Gabino", attribute: Attribute.Resistance)
         settings()
         animateMonster()
         assignDefaultSkills()

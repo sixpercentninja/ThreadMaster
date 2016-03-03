@@ -33,7 +33,7 @@ class Oinari: Monster {
     }
     
     init(){
-        super.init(imageNamed: displayImageName, maxHP: 1250, charName: "Oinari", attribute: Attribute.Pattern)
+        super.init(imageNamed: displayImageName, maxHP: 4050, charName: "Oinari", attribute: Attribute.Pattern)
         settings()
         animateMonster()
         assignDefaultSkills()

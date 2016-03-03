@@ -33,7 +33,7 @@ class UndeadKnight: Monster {
     }
     
     init(){
-        super.init(imageNamed: displayImageName, maxHP: 250, charName: "Undead Knight", attribute: Attribute.Pattern)
+        super.init(imageNamed: displayImageName, maxHP: 750, charName: "Undead Knight", attribute: Attribute.Pattern)
         settings()
         animateMonster()
         assignDefaultSkills()
