@@ -222,6 +222,7 @@
 		973FD5E81C87D75900B72B23 /* RememberLoudest.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 973FD5E71C87D75900B72B23 /* RememberLoudest.mp3 */; };
 		973FD5EA1C87DB6C00B72B23 /* Home Castle Theme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 973FD5E91C87DB6C00B72B23 /* Home Castle Theme.mp3 */; };
 		973FD5EC1C8805E000B72B23 /* StoryScene2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 973FD5EB1C8805E000B72B23 /* StoryScene2.swift */; };
+		973FD5EE1C88A42300B72B23 /* GameEndScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 973FD5ED1C88A42300B72B23 /* GameEndScene.swift */; };
 		97E510071C73E6940034B575 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E510061C73E6940034B575 /* AppDelegate.swift */; };
 		97E5100B1C73E6940034B575 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E5100A1C73E6940034B575 /* GameScene.swift */; };
 		97E5100D1C73E6940034B575 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E5100C1C73E6940034B575 /* GameViewController.swift */; };
@@ -452,6 +453,7 @@
 		973FD5E71C87D75900B72B23 /* RememberLoudest.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = RememberLoudest.mp3; sourceTree = "<group>"; };
 		973FD5E91C87DB6C00B72B23 /* Home Castle Theme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Home Castle Theme.mp3"; sourceTree = "<group>"; };
 		973FD5EB1C8805E000B72B23 /* StoryScene2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryScene2.swift; sourceTree = "<group>"; };
+		973FD5ED1C88A42300B72B23 /* GameEndScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameEndScene.swift; sourceTree = "<group>"; };
 		97E510031C73E6940034B575 /* ThreadMagic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThreadMagic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97E510061C73E6940034B575 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		97E5100A1C73E6940034B575 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GameScene.swift; path = GameScene/GameScene.swift; sourceTree = "<group>"; };
@@ -676,6 +678,7 @@
 				973FD5EB1C8805E000B72B23 /* StoryScene2.swift */,
 				97E5100C1C73E6940034B575 /* GameViewController.swift */,
 				7B108ECD1C779A21003FC7EE /* GameOverScene.swift */,
+				973FD5ED1C88A42300B72B23 /* GameEndScene.swift */,
 				81C188AB1C84DE5200F05BAB /* WorldMapScene.swift */,
 				81869C811C862D860039DB25 /* NextLevelScene.swift */,
 				7B378D9C1C7E31B600169D94 /* mainCharacter.atlas */,
@@ -1172,6 +1175,7 @@
 				81519AB11C7F923900D6E6E7 /* SKTEffects.swift in Sources */,
 				813C39151C81594D001F9DB8 /* Charon.swift in Sources */,
 				8173238E1C86E8A3007C2324 /* RayonThree.swift in Sources */,
+				973FD5EE1C88A42300B72B23 /* GameEndScene.swift in Sources */,
 				81C188B81C852C9100F05BAB /* AnimationComponent.swift in Sources */,
 				8173237C1C86E5D3007C2324 /* CottonOne.swift in Sources */,
 				817323881C86E6E6007C2324 /* RayonTwo.swift in Sources */,
