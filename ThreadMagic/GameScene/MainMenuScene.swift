@@ -15,26 +15,26 @@ class MainMenuScene: SKScene {
     override func didMoveToView(view: SKView) {
         
     self.addBG("Title.png")
-    self.scaleMode = .Fill
+    self.size = CGSize(width: 1280, height: 800)
 
         
         let button1 = SKSpriteNode(imageNamed: "startButton")
         button1.setScale(0.7)
-        button1.position = CGPoint(x: 1117, y: 320)
+        button1.position = CGPoint(x: 1120, y: 275)
         button1.name = "StartNewGame"
         button1.runAction(SKAction.fadeInWithDuration(1))
         button1.alpha = 0
         
         let button2 = SKSpriteNode(imageNamed: "continueButton")
         button2.setScale(0.7)
-        button2.position = CGPoint(x: 1117, y: 230)
+        button2.position = CGPoint(x: 1120, y: 195)
         button2.name = "Continue"
         button2.runAction(SKAction.fadeInWithDuration(1))
         button2.alpha = 0
         
         let button3 = SKSpriteNode(imageNamed: "creditsButton")
         button3.setScale(0.7)
-        button3.position = CGPoint(x: 1117, y: 140)
+        button3.position = CGPoint(x: 1120, y: 115)
         button3.name = "Credit"
         button3.runAction(SKAction.fadeInWithDuration(1))
         button3.alpha = 0
@@ -43,11 +43,7 @@ class MainMenuScene: SKScene {
         self.addChild(button2)
         self.addChild(button3)
         
-        SKTAudio.sharedInstance().playBackgroundMusic("Good Memories.mp3")
-        
-        print(button1.frame)
-        print(button2.frame)
-        print(button3.frame)
+        SKTAudio.sharedInstance().playBackgroundMusic("Treacherous Slopes.mp3")
         
     }
     
@@ -59,7 +55,6 @@ class MainMenuScene: SKScene {
         bg.position = CGPoint(x: size.width/2, y: size.height/2)
         addChild(bg)
     }
-
     
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {

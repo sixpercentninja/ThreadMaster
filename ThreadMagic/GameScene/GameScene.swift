@@ -329,6 +329,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        guard rawPoints.count > 2 else {
+            return
+        }
         self.userInteractionEnabled = false
         canAttack = false
         var path:Path = Path()
