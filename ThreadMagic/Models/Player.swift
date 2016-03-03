@@ -57,7 +57,7 @@ class Player: Character {
 //        self.skills["Aramid Guard"] = AramidGuard()
 //        self.skills["Aegis' Last Stand"] = AegisLastStand()
 //        self.skills["Rayon Strike"] = RayonStrike()
-//        self.skills["Rayon Bash"] = RayonBash()
+        self.skills["Rayon Bash"] = RayonBash()
 //        self.skills["Kusanagi No Tsurugi"] = KusanagiNoTsurugi()
     }
 

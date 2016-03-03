@@ -12,6 +12,7 @@ import SpriteKit
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var enemy = Monster()
+    var spellBookOpen = false
     var bossBattle: Bool = false
     var canAttack: Bool = true
     var bossThread = SKSpriteNode()
@@ -125,6 +126,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         {
             if name == "spellBookButton"
             {
+                spellBookOpen = true
                 let moveToMiddle = SKAction.moveTo(CGPoint(x: size.width / 2, y: size.height / 2), duration: 0.8)
                 let waitDuration = SKAction.waitForDuration(0.8)
                 let growBigger = SKAction.scaleTo(0.8, duration: 0.8)
@@ -139,6 +141,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 }
             }
             else if name == "cancelButton" {
+                spellBookOpen = false
                 removeAllObjects()
                 addSpellBook()
                 spellBookButton.position = CGPoint(x: size.width / 2, y: size.height / 2)
@@ -359,9 +362,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        guard rawPoints.count > 2 else {
+        
+        if spellBookOpen {
             return
         }
+        
         self.userInteractionEnabled = false
         canAttack = false
         var path:Path = Path()
@@ -578,13 +583,32 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addChild(cancelButton)
         addChild(forwardArrow)
         addChild(physicalLabel)
-        addChild(physicalSpellOne)
-        addChild(physicalSpellTwo)
-        addChild(physicalSpellThree)
+        
+        if(mc.skills.keys.contains("Whip")){
+            addChild(physicalSpellOne)
+        }
+        if(mc.skills.keys.contains("Constrict")){
+            addChild(physicalSpellTwo)
+        }
+        if(mc.skills.keys.contains("Thrash")){
+            addChild(physicalSpellThree)
+        }
+        if(mc.skills.keys.contains("Aramid Ward")){
+            addChild(aramidSpellOne)
+        }
+        if(mc.skills.keys.contains("Aramid Guard")){
+            addChild(aramidSpellTwo)
+        }
+        if(mc.skills.keys.contains("Aegis' Last Stand")){
+            addChild(aramidSpellThree)
+        }
+        
+        
+
         addChild(aramidLabel)
-        addChild(aramidSpellOne)
-        addChild(aramidSpellTwo)
-        addChild(aramidSpellThree)
+
+
+
 
     }
     
@@ -651,13 +675,29 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addChild(forwardArrow)
         addChild(backArrow)
         addChild(cottonLabel)
-        addChild(cottonSpellOne)
-        addChild(cottonSpellTwo)
-        addChild(cottonSpellThree)
+
+
+
         addChild(silkLabel)
-        addChild(silkSpellOne)
-        addChild(silkSpellTwo)
-        addChild(silkSpellThree)
+        
+        if(mc.skills.keys.contains("Cotton Flare")){
+            addChild(cottonSpellOne)
+        }
+        if(mc.skills.keys.contains("Cotton Blaze")){
+            addChild(cottonSpellTwo)
+        }
+        if(mc.skills.keys.contains("Wild Fire")){
+            addChild(aramidSpellOne)
+        }
+        if(mc.skills.keys.contains("Silk Trick")){
+            addChild(silkSpellOne)
+        }
+        if(mc.skills.keys.contains("Silk Daze")){
+            addChild(silkSpellTwo)
+        }
+        if(mc.skills.keys.contains("Pièce de Résistance")){
+            addChild(silkSpellThree)
+        }
     }
     
     func addSpellBookOpenPgThree() {
@@ -699,9 +739,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addChild(cancelButton)
         addChild(backArrow)
         addChild(rayonLabel)
-        addChild(rayonSpellOne)
-        addChild(rayonSpellTwo)
-        addChild(rayonSpellThree)
+
+        if(mc.skills.keys.contains("Rayon Strike")){
+            addChild(rayonSpellOne)
+        }
+        if(mc.skills.keys.contains("Rayon Bash")){
+            addChild(rayonSpellTwo)
+        }
+        if(mc.skills.keys.contains("Kusanogi No Tsurugi")){
+            addChild(rayonSpellThree)
+        }
     }
     
     func addSpellBookDetail(spellClass: Skill) {
