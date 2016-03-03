@@ -19,7 +19,20 @@ class SavePlayer: NSManagedObject {
         let personFetch = NSFetchRequest(entityName: "SavePlayer")
         do{
             let array = try moc.executeFetchRequest(personFetch) as! [SavePlayer]
-            return array[0]
+            if array.count > 0{
+                return array[0]
+            }else{
+                let player = NSEntityDescription.insertNewObjectForEntityForName("SavePlayer", inManagedObjectContext: moc) as! SavePlayer
+                
+                player.totalExperience = 100
+                player.maxHP = 50
+                do {
+                    try moc.save()
+                }catch{
+                    fatalError("failure to save context: \(error)")
+                }
+                return player
+            }
         } catch{
             fatalError()
         }

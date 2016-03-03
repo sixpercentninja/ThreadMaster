@@ -92,19 +92,19 @@ class CreditScene: SKScene {
         label7.fontColor = SKColor.whiteColor()
         label7.position = CGPoint(x: size.width/2, y: size.height/4.9)
 
-        let message8 = "Story written by Christine Liu"
+        let message8 = "Sprite tiles designed by Hyptosis http://hyptosis.newgrounds.com/"
         let label8 = SKLabelNode(fontNamed: "GillSans")
         label8.text = message8
         label8.fontSize = 30
         label8.fontColor = SKColor.whiteColor()
         label8.position = CGPoint(x: size.width/2, y: size.height/6.0)
         
-        let message9 = "Sprite tiles designed by Hyptosis http://hyptosis.newgrounds.com/"
+        let message9 = "Story written by Christine Liu"
         let label9 = SKLabelNode(fontNamed: "GillSans")
         label9.text = message9
         label9.fontSize = 30
         label9.fontColor = SKColor.whiteColor()
-        label9.position = CGPoint(x: size.width/2, y: size.height/6.0)
+        label9.position = CGPoint(x: size.width/2, y: size.height/8.0)
         
         addChild(tyLabel)
         addChild(label)
@@ -135,7 +135,7 @@ class CreditScene: SKScene {
         if (node.name == "previousButton") {
             let scene = MainMenuScene(size: self.size)
             let transition = SKTransition.crossFadeWithDuration(1)
-            scene.scaleMode = SKSceneScaleMode.AspectFill
+            scene.scaleMode = SKSceneScaleMode.Fill
             self.scene!.view?.presentScene(scene, transition: transition)
         }
     }

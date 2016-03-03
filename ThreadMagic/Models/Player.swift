@@ -53,11 +53,11 @@ class Player: Character {
 //        self.skills["Silk Trick"] = SilkTrick()
 //        self.skills["Silk Daze"] = SilkDaze()
 //        self.skills["Pièce de Résistance"] = PieceDeResistance()
-        self.skills["Aramid Ward"] = AramidWard()
+//        self.skills["Aramid Ward"] = AramidWard()
 //        self.skills["Aramid Guard"] = AramidGuard()
 //        self.skills["Aegis' Last Stand"] = AegisLastStand()
 //        self.skills["Rayon Strike"] = RayonStrike()
-        self.skills["Rayon Bash"] = RayonBash()
+//        self.skills["Rayon Bash"] = RayonBash()
 //        self.skills["Kusanagi No Tsurugi"] = KusanagiNoTsurugi()
     }
 
