@@ -29,30 +29,25 @@ class GameOverScene: SKScene {
 //        let message = won ? "\(mc.charName) won!" : "You didn't make it, soorry!"
         
         if won == true {
-        let victoryLabel = SKLabelNode(fontNamed: "Futura-CondensedExtraBold")
-        victoryLabel.text = "VICTORY"
-        victoryLabel.fontSize = 25.0
-        victoryLabel.fontColor = SKColor.blackColor()
-        victoryLabel.position = CGPoint(x: size.width/2, y: size.height/2 + 100)
-        addChild(victoryLabel)
-        
-        let rotate = SKAction.rotateByAngle(6.4, duration: 3)
-        let getBigger = SKAction.scaleTo(10.0, duration: 3)
-        
-        victoryLabel.runAction(rotate)
-        victoryLabel.runAction(getBigger, completion: { () -> Void in
-            let button = UIButton(type: UIButtonType.System) as UIButton
-            button.frame = CGRectMake(self.size.width/2 - 100, self.size.height/2 - 150, 75, 25)
-            button.backgroundColor = UIColor.whiteColor()
-            button.setTitle("Continue", forState: UIControlState.Normal)
-            button.addTarget(self, action: "buttonAction:", forControlEvents: UIControlEvents.TouchUpInside)
-            self.view?.addSubview(button)
+                let bg = SKSpriteNode(imageNamed: "Victory.png")
+                bg.name = "bg"
+                bg.zPosition = -1
+                bg.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+                bg.position = CGPoint(x: size.width/2, y: size.height/2)
+                addChild(bg)
             
-        })
             
+            let duration = SKAction.waitForDuration(2.0)
+            
+            self.runAction(duration, completion: { () -> Void in
+                let button = UIButton(type: UIButtonType.System) as UIButton
+                button.frame = CGRectMake(bg.position.x/2 - 30, bg.position.y/2, 75, 25)
+                button.backgroundColor = UIColor.yellowColor()
+                button.setTitle("Continue", forState: UIControlState.Normal)
+                button.addTarget(self, action: "buttonAction:", forControlEvents: UIControlEvents.TouchUpInside)
+                self.view?.addSubview(button)
+            })
         
-
-    
         } else {
             runAction(SKAction.sequence([
                 SKAction.waitForDuration(8.0), SKAction.runBlock() {

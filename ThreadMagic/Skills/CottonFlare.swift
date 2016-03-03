@@ -32,16 +32,15 @@ class CottonFlare: Skill {
             in
         }
         let node = animationNode
-        let playSFX = SKAction.playSoundFileNamed("cottonBlaze", waitForCompletion: false)
-        let hitSFX = SKAction.playSoundFileNamed("hitNormal", waitForCompletion: false)
+ 
         node.zPosition = 1
         
         node.position = target.position
         node.setScale(2.2)
         scene.addChild(node)
+        let playSFX = SKAction.playSoundFileNamed("cottonBlaze", waitForCompletion: false)
         node.runAction(playSFX)
         node.runAction(SKAction.animateWithTextures(animationTextures, timePerFrame: 0.05)) { () -> Void in
-            node.runAction(hitSFX)
             node.removeFromParent()
             target.runAction(self.effectActionSequence(), completion: { () -> Void in
                 caster.attack(target, skillName: self.skillName)

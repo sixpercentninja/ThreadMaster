@@ -9,9 +9,14 @@
 import SpriteKit
 
 class Whip: Skill {
+
     override var damage: Int { return 60 }
+
     override var attackAttribute: Attribute { return Attribute.Neutral }
     override var skillName: String { return "Whip" }
+    override var skillInformation: String { return "Deals light neutral" }
+    override var skillInformation2: String { return "damage" }
+    override var gestureInstruction: SKSpriteNode { return SKSpriteNode(imageNamed: "WhipGesture.png")}
     override var upgradeValue: Int { return 3 }
     
     required init() {
@@ -33,9 +38,10 @@ class Whip: Skill {
         node.zPosition = 0.6
         
         node.position = target.position
-        node.setScale(5.0)
+        node.setScale(3.0)
         scene.addChild(node)
-        node.runAction(SKAction.sequence([SKAction.playSoundFileNamed("cottonBlaze.wav", waitForCompletion: false),SKAction.animateWithTextures(animationTextures, timePerFrame: 0.08)])) { () -> Void in
+
+        node.runAction(SKAction.sequence([SKAction.playSoundFileNamed("hitNormal.wav", waitForCompletion: false),SKAction.animateWithTextures(animationTextures, timePerFrame: 0.04)])) { () -> Void in
             node.removeFromParent()
             target.runAction(self.effectActionSequence(), completion: { () -> Void in
                 caster.attack(target, skillName: self.skillName)

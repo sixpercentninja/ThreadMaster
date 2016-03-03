@@ -11,6 +11,9 @@ import SpriteKit
 class Thrash: Skill {
     override var damage: Int { return 40 }
     override var attackAttribute: Attribute { return Attribute.Neutral }
+    override var skillInformation: String { return "Deals heavy neutral" }
+    override var skillInformation2: String { return "damage" }
+    override var gestureInstruction: SKSpriteNode { return SKSpriteNode(imageNamed: "ThrashGesture.png")}
     override var skillName: String { return "Thrash" }
     
     required init() {
@@ -33,7 +36,7 @@ class Thrash: Skill {
         node.position = target.position
         node.setScale(5.0)
         scene.addChild(node)
-        node.runAction(SKAction.sequence([SKAction.playSoundFileNamed("cottonBlaze.wav", waitForCompletion: false),SKAction.animateWithTextures(animationTextures, timePerFrame: 0.08)])) { () -> Void in
+        node.runAction(SKAction.sequence([SKAction.playSoundFileNamed("hitCritical.wav", waitForCompletion: false),SKAction.animateWithTextures(animationTextures, timePerFrame: 0.08)])) { () -> Void in
             node.removeFromParent()
             target.runAction(self.effectActionSequence(), completion: { () -> Void in
                 caster.attack(target, skillName: self.skillName)

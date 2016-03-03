@@ -51,6 +51,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var skillInformationLabel2 = SKLabelNode()
     var skillDamageLabel = SKLabelNode()
     var skillAttributeLabel = SKLabelNode()
+    var skillUseTillLevel = SKLabelNode()
+    var skillUseNumberLabel = SKLabelNode()
     var skillHowToUseLabel = SKLabelNode()
     
     let physicalLabel = SKLabelNode()
@@ -187,8 +189,30 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 self.forwardArrow.userInteractionEnabled = false
             }
             
-            else if name == "whip" {
-                print("Hi!")
+            else if name == "Whip" {
+                removeAllObjects()
+                addSpellBookDetail(Whip())
+                self.backArrow.name = "back to pg 1"
+                self.backArrow.userInteractionEnabled = false
+                self.cancelButton.name = "cancelButton"
+                self.cancelButton.userInteractionEnabled = false
+            }
+            else if name == "Constrict" {
+                removeAllObjects()
+                addSpellBookDetail(Constrict())
+                self.backArrow.name = "back to pg 1"
+                self.backArrow.userInteractionEnabled = false
+                self.cancelButton.name = "cancelButton"
+                self.cancelButton.userInteractionEnabled = false
+            }
+                
+            else if name == "Thrash" {
+                removeAllObjects()
+                addSpellBookDetail(Thrash())
+                self.backArrow.name = "back to pg 1"
+                self.backArrow.userInteractionEnabled = false
+                self.cancelButton.name = "cancelButton"
+                self.cancelButton.userInteractionEnabled = false
             }
              
             else if name == "Aramid Ward" {
@@ -298,6 +322,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 self.backArrow.name = "to pg 3"
                 self.backArrow.userInteractionEnabled = false
             }
+//            else {
+//                
+//            }
 
         }
         
@@ -710,52 +737,64 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         skillInformationLabel2.zPosition = spellBookButton.zPosition + 0.1
         
         skillDamageLabel.text = String("Base Damage: \(spellClass.damage)")
-        skillDamageLabel.position = CGPoint(x: spellBookButton.position.x - 225, y: spellBookButton.position.y - 50)
+        skillDamageLabel.position = CGPoint(x: spellBookButton.position.x - 225, y: spellBookButton.position.y - 25)
         skillDamageLabel.zPosition = spellBookButton.zPosition + 0.1
         
+        
         skillAttributeLabel.text = String("Attribute: \(spellClass.attackAttribute)")
-        skillAttributeLabel.position = CGPoint(x: spellBookButton.position.x - 225, y: spellBookButton.position.y - 150)
+        skillAttributeLabel.position = CGPoint(x: spellBookButton.position.x - 225, y: spellBookButton.position.y - 100)
         skillAttributeLabel.zPosition = spellBookButton.zPosition + 0.1
+        
+        skillUseTillLevel.text = "Skill type use till learned: "
+        skillUseTillLevel.position = CGPoint(x: spellBookButton.position.x - 225, y: spellBookButton.position.y - 175)
+        skillUseTillLevel.zPosition = spellBookButton.zPosition + 0.1
+        
+        skillUseNumberLabel.text = String(spellClass.upgradeValue - spellClass.useCount)
+        skillUseNumberLabel.position = CGPoint(x: spellBookButton.position.x - 225, y: spellBookButton.position.y - 225)
+        skillUseNumberLabel.zPosition = spellBookButton.zPosition + 0.1
 
         
         if spellClass.skillName == "Whip" || spellClass.skillName == "Constrict" || spellClass.skillName == "Thrash" {
-            labelDefaultSettingsResizer(45.0, color: SKColor.brownColor(), label: skillNameLabel)
-            labelDefaultSettingsResizer(30.0, color: SKColor.brownColor(), label: skillInformationLabel)
-            labelDefaultSettingsResizer(30.0, color: SKColor.brownColor(), label: skillInformationLabel2)
-            labelDefaultSettingsResizer(35.0, color: SKColor.brownColor(), label: skillDamageLabel)
-            labelDefaultSettingsResizer(35.0, color: SKColor.brownColor(), label: skillAttributeLabel)
+            labelDefaultSettingsResizer(40.0, color: SKColor.blackColor(), label: skillNameLabel)
+            labelDefaultSettingsResizer(25.0, color: SKColor.blackColor(), label: skillInformationLabel)
+            labelDefaultSettingsResizer(25.0, color: SKColor.blackColor(), label: skillInformationLabel2)
+            labelDefaultSettingsResizer(30.0, color: SKColor.blackColor(), label: skillDamageLabel)
+            labelDefaultSettingsResizer(30.0, color: SKColor.blackColor(), label: skillAttributeLabel)
+
 
         } else if spellClass.skillName == "Aramid Ward" || spellClass.skillName == "Aramid Guard" || spellClass.skillName == "Aegis' Last Stand" {
-            labelDefaultSettingsResizer(45.0, color: SKColor.yellowColor(), label: skillNameLabel)
-            labelDefaultSettingsResizer(30.0, color: SKColor.yellowColor(), label: skillInformationLabel)
-            labelDefaultSettingsResizer(30.0, color: SKColor.yellowColor(), label: skillInformationLabel2)
-            labelDefaultSettingsResizer(35.0, color: SKColor.clearColor(), label: skillDamageLabel)
-            labelDefaultSettingsResizer(35.0, color: SKColor.yellowColor(), label: skillAttributeLabel)
+            labelDefaultSettingsResizer(40.0, color: SKColor.yellowColor(), label: skillNameLabel)
+            labelDefaultSettingsResizer(25.0, color: SKColor.yellowColor(), label: skillInformationLabel)
+            labelDefaultSettingsResizer(25.0, color: SKColor.yellowColor(), label: skillInformationLabel2)
+            labelDefaultSettingsResizer(30.0, color: SKColor.clearColor(), label: skillDamageLabel)
+            labelDefaultSettingsResizer(30.0, color: SKColor.yellowColor(), label: skillAttributeLabel)
             
         } else if spellClass.skillName == "Cotton Flare" || spellClass.skillName == "Cotton Blaze" || spellClass.skillName == "Wildfire" {
-            labelDefaultSettingsResizer(45.0, color: SKColor.redColor(), label: skillNameLabel)
-            labelDefaultSettingsResizer(30.0, color: SKColor.redColor(), label: skillInformationLabel)
-            labelDefaultSettingsResizer(35.0, color: SKColor.redColor(), label: skillDamageLabel)
-            labelDefaultSettingsResizer(35.0, color: SKColor.redColor(), label: skillAttributeLabel)
+            labelDefaultSettingsResizer(40.0, color: SKColor.redColor(), label: skillNameLabel)
+            labelDefaultSettingsResizer(25.0, color: SKColor.redColor(), label: skillInformationLabel)
+            labelDefaultSettingsResizer(30.0, color: SKColor.redColor(), label: skillDamageLabel)
+            labelDefaultSettingsResizer(30.0, color: SKColor.redColor(), label: skillAttributeLabel)
             
         } else if spellClass.skillName == "Silk Trick" || spellClass.skillName == "Silk Daze" || spellClass.skillName == "Pièce de Résistance" {
-            labelDefaultSettingsResizer(45.0, color: SKColor.purpleColor(), label: skillNameLabel)
-            labelDefaultSettingsResizer(30.0, color: SKColor.purpleColor(), label: skillInformationLabel)
-            labelDefaultSettingsResizer(30.0, color: SKColor.purpleColor(), label: skillInformationLabel2)
-            labelDefaultSettingsResizer(35.0, color: SKColor.purpleColor(), label: skillDamageLabel)
-            labelDefaultSettingsResizer(35.0, color: SKColor.purpleColor(), label: skillAttributeLabel)
+            labelDefaultSettingsResizer(40.0, color: SKColor.purpleColor(), label: skillNameLabel)
+            labelDefaultSettingsResizer(25.0, color: SKColor.purpleColor(), label: skillInformationLabel)
+            labelDefaultSettingsResizer(25.0, color: SKColor.purpleColor(), label: skillInformationLabel2)
+            labelDefaultSettingsResizer(30.0, color: SKColor.purpleColor(), label: skillDamageLabel)
+            labelDefaultSettingsResizer(30.0, color: SKColor.purpleColor(), label: skillAttributeLabel)
             
         } else if spellClass.skillName == "Rayon Strike" || spellClass.skillName == "Rayon Bash" || spellClass.skillName == "Kusanagi No Tsurugi" {
-            labelDefaultSettingsResizer(45.0, color: SKColor.blueColor(), label:
+            labelDefaultSettingsResizer(40.0, color: SKColor.blueColor(), label:
                 skillNameLabel)
-            labelDefaultSettingsResizer(30.0, color: SKColor.blueColor(), label: skillInformationLabel)
-            labelDefaultSettingsResizer(30.0, color: SKColor.blueColor(), label: skillInformationLabel2)
-            labelDefaultSettingsResizer(35.0, color: SKColor.blueColor(), label: skillDamageLabel)
-            labelDefaultSettingsResizer(35.0, color: SKColor.blueColor(), label: skillAttributeLabel)
+            labelDefaultSettingsResizer(25.0, color: SKColor.blueColor(), label: skillInformationLabel)
+            labelDefaultSettingsResizer(25.0, color: SKColor.blueColor(), label: skillInformationLabel2)
+            labelDefaultSettingsResizer(30.0, color: SKColor.blueColor(), label: skillDamageLabel)
+            labelDefaultSettingsResizer(30.0, color: SKColor.blueColor(), label: skillAttributeLabel)
             
         }
         
         labelDefaultSettingsResizer(40.0, color: SKColor.blackColor(), label: skillHowToUseLabel)
+        labelDefaultSettingsResizer(25.0, color: SKColor.blackColor(), label: skillUseTillLevel)
+        labelDefaultSettingsResizer(25.0, color: SKColor.blackColor(), label: skillUseNumberLabel)
 
         
         addChild(spellBookButton)
@@ -767,7 +806,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addChild(skillInformationLabel2)
         addChild(skillDamageLabel)
         addChild(skillAttributeLabel)
+        addChild(skillUseTillLevel)
+        addChild(skillUseNumberLabel)
         addChild(skillHowToUseLabel)
+        
     }
     
     func addPlayerHealthBarLabel() {
@@ -789,9 +831,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         mcName.zPosition = 0.7
         labelDefaultSettingsHp(mcHpLabel)
         labelDefaultSettings(mcName)
-        mcHpLabel.position = CGPoint(x: mainCharacterHealthBar.position.x + 20, y: mainCharacterHealthBar.position.y + 22)
+        mcHpLabel.position = CGPoint(x: mainCharacterHealthBar.position.x + 30, y: mainCharacterHealthBar.position.y + 22)
         mcName.position = CGPoint(x: mainCharacterHealthBar.position.x - 170, y: mainCharacterHealthBar.position.y + 22)
-        mcLevelLabel.text = "Lv. 99";
+        mcLevelLabel.text = "Lv. \(mc.level)";
         mcLevelLabel.zPosition = 0.7
         labelDefaultSettingsLv(mcLevelLabel)
         mcLevelLabel.position = CGPoint(x: mainCharacterHealthBar.position.x - 80, y: mainCharacterHealthBar.position.y + 22)
@@ -864,6 +906,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         skillInformationLabel2.removeFromParent()
         skillDamageLabel.removeFromParent()
         skillAttributeLabel.removeFromParent()
+        skillUseTillLevel.removeFromParent()
+        skillUseNumberLabel.removeFromParent()
         skillHowToUseLabel.removeFromParent()
         physicalLabel.removeFromParent()
         physicalSpellOne.removeFromParent()
@@ -912,20 +956,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func labelDefaultSettingsSpellNames(color: SKColor,label: SKLabelNode){
         label.fontColor = color
-        label.fontSize = 45.0
-        label.fontName = "Papyrus"
+        label.fontSize = 40.0
+        label.fontName = "Georgia-BoldItalic"
     }
     
     func labelDefaultSettingsSpellList(color: SKColor,label: SKLabelNode){
         label.fontColor = color
-        label.fontSize = 40.0
-        label.fontName = "Papyrus"
+        label.fontSize = 45.0
+        label.fontName = "Georgia-BoldItalic"
     }
     
     func labelDefaultSettingsResizer(fontSize: CGFloat, color: SKColor,label: SKLabelNode){
         label.fontColor = color
         label.fontSize = fontSize
-        label.fontName = "Papyrus"
+        label.fontName = "Georgia-BoldItalic"
     }
     
     func labelDefaultSettingsDamage(fontSize: CGFloat, label: SKLabelNode){
