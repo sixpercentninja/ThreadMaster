@@ -9,12 +9,12 @@
 import SpriteKit
 
 class AramidGuard: Skill {
-    override var damage: Int { return 6 }
+    override var damage: Int { return 42 }
     override var attackAttribute: Attribute { return Attribute.Resistance }
     override var skillName: String { return "Aramid Guard" }
     override var upgradeValue: Int { return 35 }
-    override var skillInformation: String { return "Reduces damage from" }
-    override var skillInformation2: String { return " attacks taken" }
+    override var skillInformation: String { return "Deals moderate resistance" }
+    override var skillInformation2: String { return "damage" }
     override var gestureInstruction: SKSpriteNode { return SKSpriteNode(imageNamed: "AramidGuardGesture.png")}
     
     required init() {

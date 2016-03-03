@@ -33,7 +33,7 @@ class DemonTengu: Monster {
     }
     
     init(){
-        super.init(imageNamed: displayImageName, maxHP: 550, charName: "Demon Tengu", attribute: Attribute.Heat)
+        super.init(imageNamed: displayImageName, maxHP: 1350, charName: "Demon Tengu", attribute: Attribute.Heat)
         settings()
         animateMonster()
         assignDefaultSkills()

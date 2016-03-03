@@ -35,7 +35,7 @@ class FrostWyvern: Monster {
     }
     
     init(){
-        super.init(imageNamed: displayImageName, maxHP: 300, charName: "Frost Wyvern", attribute: Attribute.Heat)
+        super.init(imageNamed: displayImageName, maxHP: 600, charName: "Frost Wyvern", attribute: Attribute.Heat)
         settings()
         animateMonster()
         assignDefaultSkills()
