@@ -31,7 +31,7 @@ class CreditScene: SKScene {
         label.fontColor = SKColor.whiteColor()
         label.position = CGPoint(x: size.width/2, y: size.height/1.5)
         
-        let message1 = "Spell sound effects created by Mark DiAngelo, Sonidor, Mike Koenig, snottyboi"
+        let message1 = "Spell sound effects created by Mark DiAngelo, Sonidor, Mike Koenig, snottyboi, Conor,"
         
         let label1 = SKLabelNode(fontNamed: "GillSans")
         label1.text = message1
@@ -39,13 +39,22 @@ class CreditScene: SKScene {
         label1.fontColor = SKColor.whiteColor()
         label1.position = CGPoint(x: size.width/2, y: size.height/2.0)
         
+        let message1a = "BlastwaveFX.com, HopeinAwe, Sound Explorer, Marianne Gagnon, Grenagen"
+        
+        let label1a = SKLabelNode(fontNamed: "GillSans")
+        label1a.text = message1a
+        label1a.fontSize = 30
+        label1a.fontColor = SKColor.whiteColor()
+        label1a.position = CGPoint(x: size.width/2, y: size.height/2.20)
+        
+        
         let message2 = "Battleground background art created by Luis Zuno (@ansimuz)"
         
         let label2 = SKLabelNode(fontNamed: "GillSans")
         label2.text = message2
         label2.fontSize = 30
         label2.fontColor = SKColor.whiteColor()
-        label2.position = CGPoint(x: size.width/2, y: size.height/2.20)
+        label2.position = CGPoint(x: size.width/2, y: size.height/2.45)
         
         let message3 = "'Remember' by Tanner Helland http://www.tannerhelland.com/"
         
@@ -53,32 +62,33 @@ class CreditScene: SKScene {
         label3.text = message3
         label3.fontSize = 30
         label3.fontColor = SKColor.whiteColor()
-        label3.position = CGPoint(x: size.width/2, y: size.height/2.45)
+        label3.position = CGPoint(x: size.width/2, y: size.height/2.75)
         
         let message4 = "'Desert Battle', 'Treacherous Slope', 'Home Castle Theme'"
         let label4 = SKLabelNode(fontNamed: "GillSans")
         label4.text = message4
         label4.fontSize = 30
         label4.fontColor = SKColor.whiteColor()
-        label4.position = CGPoint(x: size.width/2, y: size.height/2.75)
+        label4.position = CGPoint(x: size.width/2, y: size.height/3.08)
         
         let message5 = "by Aaron Krogh https://soundcloud.com/aaron-anderson-11"
         let label5 = SKLabelNode(fontNamed: "GillSans")
         label5.text = message5
         label5.fontSize = 30
         label5.fontColor = SKColor.whiteColor()
-        label5.position = CGPoint(x: size.width/2, y: size.height/3.08)
+        label5.position = CGPoint(x: size.width/2, y: size.height/3.52)
 
         let message6 = "'Victory Fanfare' by Sakke979 http://sakke979.newgrounds.com/"
         let label6 = SKLabelNode(fontNamed: "GillSans")
         label6.text = message6
         label6.fontSize = 30
         label6.fontColor = SKColor.whiteColor()
-        label6.position = CGPoint(x: size.width/2, y: size.height/3.52)
+        label6.position = CGPoint(x: size.width/2, y: size.height/4.1)
         
         addChild(tyLabel)
         addChild(label)
         addChild(label1)
+        addChild(label1a)
         addChild(label2)
         addChild(label3)
         addChild(label4)
