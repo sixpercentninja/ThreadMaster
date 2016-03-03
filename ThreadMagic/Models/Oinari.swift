@@ -12,7 +12,7 @@ import SpriteKit
 class Oinari: Monster {
     let displayImageName = "boss3.png"
     let bossThread = SKSpriteNode(imageNamed: "boss3Thread.png")
-    override var expGiven: Int { return 1000 }
+    override var expGiven: Int { return 12000 }
     
     override init(texture: SKTexture?, color: UIColor, size: CGSize) {
         super.init(texture: texture, color: color, size: size)
@@ -33,7 +33,7 @@ class Oinari: Monster {
     }
     
     init(){
-        super.init(imageNamed: displayImageName, maxHP: 1550, charName: "Oinari", attribute: Attribute.Pattern)
+        super.init(imageNamed: displayImageName, maxHP: 1250, charName: "Oinari", attribute: Attribute.Pattern)
         settings()
         animateMonster()
         assignDefaultSkills()

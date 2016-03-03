@@ -9,12 +9,14 @@
 import SpriteKit
 
 class Thrash: Skill {
-    override var damage: Int { return 40 }
+    override var damage: Int { return 60 }
     override var attackAttribute: Attribute { return Attribute.Neutral }
     override var skillInformation: String { return "Deals heavy neutral" }
     override var skillInformation2: String { return "damage" }
     override var gestureInstruction: SKSpriteNode { return SKSpriteNode(imageNamed: "ThrashGesture.png")}
     override var skillName: String { return "Thrash" }
+    override var upgradeValue: Int { return 10 }
+
     
     required init() {
         super.init()

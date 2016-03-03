@@ -13,7 +13,7 @@ import SpriteKit
 class Edan: Monster {
     let displayImageName = "boss2.png"
     
-    override var expGiven: Int { return 1000 }
+    override var expGiven: Int { return 8000 }
     
     let bossThread = SKSpriteNode(imageNamed: "boss2Thread.png")
     let bossThread2 = SKSpriteNode(imageNamed: "rightWhip.png")
@@ -39,7 +39,7 @@ class Edan: Monster {
     }
     
     init(){
-        super.init(imageNamed: displayImageName, maxHP: 1050, charName: "Edan", attribute: Attribute.Heat)
+        super.init(imageNamed: displayImageName, maxHP: 850, charName: "Edan", attribute: Attribute.Heat)
         settings()
         animateMonster()
         assignDefaultSkills()

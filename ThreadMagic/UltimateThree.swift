@@ -9,7 +9,7 @@
 import SpriteKit
 
 class UltimateThree: Skill {
-    override var damage: Int { return 260 }
+    override var damage: Int { return 200 }
     override var attackAttribute: Attribute { return Attribute.Neutral }
     override var skillName: String { return "Ultimate Three" }
     
@@ -32,7 +32,7 @@ class UltimateThree: Skill {
         node.position = target.position
         node.setScale(5.0)
         scene.addChild(node)
-        node.runAction(SKAction.sequence([SKAction.playSoundFileNamed("hitNormal.wav", waitForCompletion: false),SKAction.animateWithTextures(animationTextures, timePerFrame: 0.08)])) { () -> Void in
+        node.runAction(SKAction.sequence([SKAction.playSoundFileNamed("kusanagiNoTsurugi.wav", waitForCompletion: false),SKAction.animateWithTextures(animationTextures, timePerFrame: 0.08)])) { () -> Void in
             node.removeFromParent()
             target.runAction(self.effectActionSequence(), completion: { () -> Void in
                 caster.attack(target, skillName: self.skillName)

@@ -13,7 +13,7 @@ class Charon: Monster {
     
     let bossThread = SKSpriteNode(imageNamed: "boss4Thread.png")
     let displayImageName = "boss4.png"
-    override var expGiven: Int { return 1000 }
+    override var expGiven: Int { return 15000 }
     
     override init(texture: SKTexture?, color: UIColor, size: CGSize) {
         super.init(texture: texture, color: color, size: size)
@@ -34,7 +34,7 @@ class Charon: Monster {
     }
     
     init(){
-        super.init(imageNamed: displayImageName, maxHP: 2050, charName: "Charon", attribute: Attribute.Strength)
+        super.init(imageNamed: displayImageName, maxHP: 1550, charName: "Charon", attribute: Attribute.Strength)
         settings()
         animateMonster()
         assignDefaultSkills()

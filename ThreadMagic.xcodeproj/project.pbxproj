@@ -35,6 +35,7 @@
 		7B3C152A1C83D59600BEB2D1 /* SpellBook.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B3C15291C83D59600BEB2D1 /* SpellBook.png */; };
 		7B3C152C1C8408A400BEB2D1 /* cancelButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B3C152B1C8408A400BEB2D1 /* cancelButton.png */; };
 		7B3C152E1C84149C00BEB2D1 /* SpellBookClosed.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B3C152D1C84149C00BEB2D1 /* SpellBookClosed.png */; };
+		7B53BE8D1C88B4A300D440F9 /* tutorial4.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B53BE8C1C88B4A300D440F9 /* tutorial4.png */; };
 		7B72CBA41C84BAEF006563B9 /* dragonBody.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B72CBA31C84BAEF006563B9 /* dragonBody.png */; };
 		7B72CBB11C84E7B3006563B9 /* cobra.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B72CBA91C84E7B3006563B9 /* cobra.png */; };
 		7B72CBB21C84E7B3006563B9 /* demon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B72CBAA1C84E7B3006563B9 /* demon.png */; };
@@ -90,7 +91,6 @@
 		7BFFE2151C8824F400B40175 /* tutorial1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BFFE2101C8824F400B40175 /* tutorial1.png */; };
 		7BFFE2161C8824F400B40175 /* tutorial2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BFFE2111C8824F400B40175 /* tutorial2.png */; };
 		7BFFE2171C8824F400B40175 /* tutorial3.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BFFE2121C8824F400B40175 /* tutorial3.png */; };
-		7BFFE2181C8824F400B40175 /* tutorial4.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BFFE2131C8824F400B40175 /* tutorial4.png */; };
 		7BFFE2191C8824F400B40175 /* tutorial5.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BFFE2141C8824F400B40175 /* tutorial5.png */; };
 		7BFFE21B1C88251100B40175 /* tutorial6.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BFFE21A1C88251100B40175 /* tutorial6.png */; };
 		7BFFE2301C88268200B40175 /* appear.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7BFFE21C1C88268100B40175 /* appear.wav */; };
@@ -265,6 +265,7 @@
 		7B3C15291C83D59600BEB2D1 /* SpellBook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SpellBook.png; sourceTree = "<group>"; };
 		7B3C152B1C8408A400BEB2D1 /* cancelButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cancelButton.png; sourceTree = "<group>"; };
 		7B3C152D1C84149C00BEB2D1 /* SpellBookClosed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SpellBookClosed.png; path = ../SpellBookClosed.png; sourceTree = "<group>"; };
+		7B53BE8C1C88B4A300D440F9 /* tutorial4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tutorial4.png; sourceTree = "<group>"; };
 		7B72CBA31C84BAEF006563B9 /* dragonBody.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dragonBody.png; sourceTree = "<group>"; };
 		7B72CBA91C84E7B3006563B9 /* cobra.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cobra.png; sourceTree = "<group>"; };
 		7B72CBAA1C84E7B3006563B9 /* demon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = demon.png; sourceTree = "<group>"; };
@@ -320,7 +321,6 @@
 		7BFFE2101C8824F400B40175 /* tutorial1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tutorial1.png; sourceTree = "<group>"; };
 		7BFFE2111C8824F400B40175 /* tutorial2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tutorial2.png; sourceTree = "<group>"; };
 		7BFFE2121C8824F400B40175 /* tutorial3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tutorial3.png; sourceTree = "<group>"; };
-		7BFFE2131C8824F400B40175 /* tutorial4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tutorial4.png; sourceTree = "<group>"; };
 		7BFFE2141C8824F400B40175 /* tutorial5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tutorial5.png; sourceTree = "<group>"; };
 		7BFFE21A1C88251100B40175 /* tutorial6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tutorial6.png; sourceTree = "<group>"; };
 		7BFFE21C1C88268100B40175 /* appear.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = appear.wav; sourceTree = "<group>"; };
@@ -531,7 +531,7 @@
 				7BFFE2101C8824F400B40175 /* tutorial1.png */,
 				7BFFE2111C8824F400B40175 /* tutorial2.png */,
 				7BFFE2121C8824F400B40175 /* tutorial3.png */,
-				7BFFE2131C8824F400B40175 /* tutorial4.png */,
+				7B53BE8C1C88B4A300D440F9 /* tutorial4.png */,
 				7BFFE2141C8824F400B40175 /* tutorial5.png */,
 				7BFFE21A1C88251100B40175 /* tutorial6.png */,
 				7BFFE20C1C881BBC00B40175 /* Victory.png */,
@@ -1004,6 +1004,7 @@
 				7BCAA8151C876D7A007DF71C /* MoiraiThread.png in Resources */,
 				813C38FF1C80EDE4001F9DB8 /* thrash.atlas in Resources */,
 				7B108F131C7BC39C003FC7EE /* cottonBlaze.wav in Resources */,
+				7B53BE8D1C88B4A300D440F9 /* tutorial4.png in Resources */,
 				7B72CBB51C84E7B3006563B9 /* ogre.png in Resources */,
 				7B31A7421C8009700071EC35 /* boss1Leg.png in Resources */,
 				7BFFE23B1C88268200B40175 /* jab.wav in Resources */,
@@ -1073,7 +1074,6 @@
 				7BFFE2371C88268200B40175 /* fireArrow.wav in Resources */,
 				7BFFE2331C88268200B40175 /* chant.wav in Resources */,
 				817323711C86E3E6007C2324 /* silkOne.atlas in Resources */,
-				7BFFE2181C8824F400B40175 /* tutorial4.png in Resources */,
 				7B72CBA41C84BAEF006563B9 /* dragonBody.png in Resources */,
 				81869C861C8646110039DB25 /* player.atlas in Resources */,
 				8173236E1C86E3E6007C2324 /* rayonOne.atlas in Resources */,

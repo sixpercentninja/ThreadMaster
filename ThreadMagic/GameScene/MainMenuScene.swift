@@ -119,6 +119,7 @@ class MainMenuScene: SKScene {
             let transition = SKTransition.crossFadeWithDuration(1)
             let scene = StoryScene(size:CGSize(width: 1280, height: 800))
             self.scene!.view?.presentScene(scene, transition: transition)
+            
         }else if name == "Continue"{
             let transition = SKTransition.crossFadeWithDuration(1)
             

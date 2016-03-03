@@ -9,7 +9,7 @@
 import SpriteKit
 
 class Constrict: Skill {
-    override var damage: Int { return 24 }
+    override var damage: Int { return 40 }
     override var attackAttribute: Attribute { return Attribute.Neutral }
     override var skillName: String { return "Constrict" }
     override var skillInformation: String { return "Deals moderate neutral" }

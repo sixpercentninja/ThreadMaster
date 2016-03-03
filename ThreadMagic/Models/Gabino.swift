@@ -13,7 +13,7 @@ class Gabino: Monster {
     
     let bossThread = SKSpriteNode(imageNamed: "boss1Leg.png")
     let displayImageName = "boss1.png"
-    override var expGiven: Int { return 1000 }
+    override var expGiven: Int { return 5000 }
     
     override init(texture: SKTexture?, color: UIColor, size: CGSize) {
         super.init(texture: texture, color: color, size: size)
@@ -34,7 +34,7 @@ class Gabino: Monster {
     }
     
     init(){
-        super.init(imageNamed: displayImageName, maxHP: 650, charName: "Gabino", attribute: Attribute.Resistance)
+        super.init(imageNamed: displayImageName, maxHP: 350, charName: "Gabino", attribute: Attribute.Resistance)
         settings()
         animateMonster()
         assignDefaultSkills()
