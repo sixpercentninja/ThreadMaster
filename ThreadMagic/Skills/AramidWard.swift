@@ -34,7 +34,7 @@ class AramidWard: Skill {
         let node = animationNode
         node.zPosition = 0.6
         
-        node.position = target.position
+        node.position = caster.position
         node.setScale(4.2)
         scene.addChild(node)
         let playSFX = SKAction.playSoundFileNamed("chant.wav", waitForCompletion: false)
@@ -42,7 +42,7 @@ class AramidWard: Skill {
         
         node.runAction(SKAction.animateWithTextures(animationTextures, timePerFrame: 0.10)) { () -> Void in
             node.removeFromParent()
-            target.runAction(self.effectActionSequence(), completion: { () -> Void in
+            caster.runAction(self.effectActionSequence(), completion: { () -> Void in
                 caster.heal(caster, healedHp: Int(Double(caster.maxHP) * 0.25))
                 completion()
             })
@@ -50,7 +50,7 @@ class AramidWard: Skill {
     }
     
     override func effectActionSequence() -> SKAction {
-        let colorize = SKAction.colorizeWithColor(.redColor(), colorBlendFactor: 1, duration: 0.5)
+        let colorize = SKAction.colorizeWithColor(.greenColor(), colorBlendFactor: 1, duration: 0.5)
         let rotateLeft = SKAction.rotateToAngle(0.3, duration: 0.1)
         let rotateRight = SKAction.rotateToAngle(-0.3, duration: 0.1)
         let rotateNormal = SKAction.rotateToAngle(0, duration: 0.1)

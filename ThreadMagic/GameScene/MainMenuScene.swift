@@ -121,7 +121,11 @@ class MainMenuScene: SKScene {
             self.scene!.view?.presentScene(scene, transition: transition)
         }else if name == "Continue"{
             let transition = SKTransition.crossFadeWithDuration(1)
-            let scene = StoryScene(size:CGSize(width: 1280, height: 800))
+            
+            let savePlayer = SavePlayer.currentPlayer
+            let mapLevel = MapLevel(rawValue: Int(savePlayer.mapLevel!))!
+            
+            let scene = WorldMapScene(size:CGSize(width: 1280, height: 800), mapLevel: mapLevel)
             self.scene!.view?.presentScene(scene, transition: transition)
         }
         
