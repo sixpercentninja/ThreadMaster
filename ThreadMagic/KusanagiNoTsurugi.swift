@@ -41,7 +41,8 @@ class KusanagiNoTsurugi: Skill {
             
             background.runAction(SKAction.colorizeWithColor(.blackColor(), colorBlendFactor: 1.0, duration: 3.0), completion: { () -> Void in
                 scene.addChild(node)
-                
+                let playSFX = SKAction.playSoundFileNamed("cottonBlaze", waitForCompletion: false)
+                node.runAction(playSFX)
                 node.runAction(SKAction.sequence([SKAction.playSoundFileNamed("kusanagiNoTsurugi.wav", waitForCompletion: false),SKAction.animateWithTextures(self.animationTextures, timePerFrame: 0.08)])) { () -> Void in
                     
                     node.removeFromParent()

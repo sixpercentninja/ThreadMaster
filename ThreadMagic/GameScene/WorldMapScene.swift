@@ -67,7 +67,7 @@ class WorldMapScene: SKScene, tileMapDelegate, SKPhysicsContactDelegate, PlayerE
     }
     
     override func didMoveToView(view: SKView) {
-        
+        view.ignoresSiblingOrder = true
         updateCameraScale()
     }
     

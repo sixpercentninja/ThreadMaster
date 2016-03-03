@@ -660,7 +660,6 @@
 				7B72CBC01C84F6F0006563B9 /* WickedElder.swift */,
 				7B72CBCA1C84F71D006563B9 /* Sorcerer.swift */,
 				7B72CBCC1C84F724006563B9 /* DemonTengu.swift */,
-				7B72CBD61C85901F006563B9 /* SpellBookClosed.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -817,7 +816,7 @@
 				TargetAttributes = {
 					97E510021C73E6940034B575 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = Y4S292F292;
+						DevelopmentTeam = TP9E7CXU62;
 					};
 				};
 			};
