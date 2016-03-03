@@ -34,6 +34,7 @@ class UltimateThree: Skill {
         scene.addChild(node)
         node.runAction(SKAction.sequence([SKAction.playSoundFileNamed("kusanagiNoTsurugi.wav", waitForCompletion: false),SKAction.animateWithTextures(animationTextures, timePerFrame: 0.08)])) { () -> Void in
             node.removeFromParent()
+            self.valuePopUp(scene, caster: caster, target: target, attack: caster.skillDamage(target, skillName: self.skillName))
             target.runAction(self.effectActionSequence(), completion: { () -> Void in
                 caster.attack(target, skillName: self.skillName)
                 completion()

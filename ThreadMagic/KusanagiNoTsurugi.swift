@@ -46,6 +46,7 @@ class KusanagiNoTsurugi: Skill {
                 node.runAction(SKAction.sequence([SKAction.playSoundFileNamed("sonicBoom.wav", waitForCompletion: false),SKAction.animateWithTextures(self.animationTextures, timePerFrame: 0.08)])) { () -> Void in
                     
                     node.removeFromParent()
+                    self.valuePopUp(scene, caster: caster, target: target, attack: caster.skillDamage(target, skillName: self.skillName))
                     
                     target.runAction(self.effectActionSequence(), completion: { () -> Void in
                         background.runAction(SKAction.colorizeWithColor(.whiteColor(), colorBlendFactor: 0.0, duration: 3.0))

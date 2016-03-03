@@ -42,6 +42,7 @@ class CottonFlare: Skill {
         node.runAction(playSFX)
         node.runAction(SKAction.animateWithTextures(animationTextures, timePerFrame: 0.05)) { () -> Void in
             node.removeFromParent()
+            self.valuePopUp(scene, caster: caster, target: target, attack: caster.skillDamage(target, skillName: self.skillName))
             target.runAction(self.effectActionSequence(), completion: { () -> Void in
                 caster.attack(target, skillName: self.skillName)
                 completion()

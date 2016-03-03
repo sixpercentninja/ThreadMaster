@@ -83,6 +83,15 @@ class Character: SKSpriteNode {
         }
     }
     
+    func skillDamage(enemy: Character, skillName: String) -> Int {
+        if let skill = skills[skillName]{
+            return skill.calculate(enemy.attribute)
+        }else{
+            fatalError()
+        }
+    }
+
+    
     func heal(target: Character, healedHp: Int) {
         target.currentHp += healedHp
         target.currentHp = min(target.currentHp, target.maxHP)
