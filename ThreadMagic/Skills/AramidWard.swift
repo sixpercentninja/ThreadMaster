@@ -40,7 +40,7 @@ class AramidWard: Skill {
         let playSFX = SKAction.playSoundFileNamed("chant.wav", waitForCompletion: false)
         node.runAction(playSFX)
         
-        let hpToHeal = Int(Double(caster.maxHP) * 0.25)
+        let hpToHeal = 70 + Int(Double(caster.maxHP) * 0.07)
         
         node.runAction(SKAction.animateWithTextures(animationTextures, timePerFrame: 0.10)) { () -> Void in
             node.removeFromParent()
