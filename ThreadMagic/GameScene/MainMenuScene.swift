@@ -23,26 +23,34 @@ class MainMenuScene: SKScene {
         button1.setScale(0.7)
         button1.position = CGPoint(x: 1120, y: 275)
         button1.name = "StartNewGame"
-        button1.runAction(SKAction.fadeInWithDuration(1))
+        button1.runAction(SKAction.fadeInWithDuration(3))
         button1.alpha = 0
         
         let button2 = SKSpriteNode(imageNamed: "continueButton")
         button2.setScale(0.7)
         button2.position = CGPoint(x: 1120, y: 195)
         button2.name = "Continue"
-        button2.runAction(SKAction.fadeInWithDuration(1))
+        button2.runAction(SKAction.fadeInWithDuration(3))
         button2.alpha = 0
         
         let button3 = SKSpriteNode(imageNamed: "creditsButton")
         button3.setScale(0.7)
         button3.position = CGPoint(x: 1120, y: 115)
         button3.name = "Credit"
-        button3.runAction(SKAction.fadeInWithDuration(1))
+        button3.runAction(SKAction.fadeInWithDuration(3))
         button3.alpha = 0
+        
+        let titleImage = SKSpriteNode(imageNamed: "TitleName")
+//        titleImage.position = CGPoint(x: 270, y: 655)
+        titleImage.position = CGPoint(x: 1023, y: 416)
+        titleImage.setScale(1.1)
+        titleImage.runAction(SKAction.fadeInWithDuration(3))
+        titleImage.alpha = 0
         
         self.addChild(button1)
         self.addChild(button2)
         self.addChild(button3)
+        self.addChild(titleImage)
         
         SKTAudio.sharedInstance().playBackgroundMusic("Treacherous Slopes.mp3")
         
