@@ -99,6 +99,13 @@ class CreditScene: SKScene {
         label8.fontColor = SKColor.whiteColor()
         label8.position = CGPoint(x: size.width/2, y: size.height/6.0)
         
+        let message9 = "Sprite tiles designed by Hyptosis http://hyptosis.newgrounds.com/"
+        let label9 = SKLabelNode(fontNamed: "GillSans")
+        label9.text = message9
+        label9.fontSize = 30
+        label9.fontColor = SKColor.whiteColor()
+        label9.position = CGPoint(x: size.width/2, y: size.height/6.0)
+        
         addChild(tyLabel)
         addChild(label)
         addChild(label1)
@@ -110,6 +117,7 @@ class CreditScene: SKScene {
         addChild(label6)
         addChild(label7)
         addChild(label8)
+        addChild(label9)
         
         let previousButton = SKSpriteNode(imageNamed: "previousButton")
         previousButton.position = CGPoint(x: 1120, y: 100)
