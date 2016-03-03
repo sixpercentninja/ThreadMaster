@@ -78,7 +78,7 @@ enum MapLevel: Int {
         case .levelFour:
             return Charon.self
         case .levelFive:
-            return Charon.self
+            return Moirai.self
         }
     }
     
@@ -93,7 +93,7 @@ enum MapLevel: Int {
         case .levelFour:
             return "Charon"
         case .levelFive:
-            return "Charon"
+            return "Moirai"
         }
     }
     

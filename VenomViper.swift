@@ -12,7 +12,7 @@ import SpriteKit
 class VenomViper: Monster {
     
     let displayImageName = "cobra.png"
-    override var expGiven: Int { return 200 }
+    override var expGiven: Int { return 250 }
     
     override init(texture: SKTexture?, color: UIColor, size: CGSize) {
         super.init(texture: texture, color: color, size: size)
@@ -33,7 +33,7 @@ class VenomViper: Monster {
     }
     
     init(){
-        super.init(imageNamed: displayImageName, maxHP: 50, charName: "Venom Viper", attribute: Attribute.Resistance)
+        super.init(imageNamed: displayImageName, maxHP: 60, charName: "Venom Viper", attribute: Attribute.Resistance)
         settings()
         animateMonster()
         assignDefaultSkills()

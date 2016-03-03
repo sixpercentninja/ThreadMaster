@@ -36,7 +36,7 @@ class WildFire: Skill {
         node.position = target.position
         node.setScale(3.0)
         scene.addChild(node)
-        let playSFX = SKAction.playSoundFileNamed("mortarSound.wave", waitForCompletion: false)
+        let playSFX = SKAction.playSoundFileNamed("flashBang.wav", waitForCompletion: false)
         node.runAction(playSFX)
         
         node.runAction(SKAction.animateWithTextures(animationTextures, timePerFrame: 0.15)) { () -> Void in

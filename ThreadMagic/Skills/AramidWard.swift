@@ -37,7 +37,7 @@ class AramidWard: Skill {
         node.position = target.position
         node.setScale(4.2)
         scene.addChild(node)
-        let playSFX = SKAction.playSoundFileNamed("cottonBlaze", waitForCompletion: false)
+        let playSFX = SKAction.playSoundFileNamed("chant.wav", waitForCompletion: false)
         node.runAction(playSFX)
         
         node.runAction(SKAction.animateWithTextures(animationTextures, timePerFrame: 0.10)) { () -> Void in

@@ -86,6 +86,33 @@
 		7BCAA8331C877D14007DF71C /* WhipGesture.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BCAA8241C877D14007DF71C /* WhipGesture.png */; };
 		7BCAA8341C877D14007DF71C /* WildfireGesture.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BCAA8251C877D14007DF71C /* WildfireGesture.png */; };
 		7BFFE20D1C881BBC00B40175 /* Victory.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BFFE20C1C881BBC00B40175 /* Victory.png */; };
+		7BFFE20F1C88220200B40175 /* Moirai.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BFFE20E1C88220200B40175 /* Moirai.png */; };
+		7BFFE2151C8824F400B40175 /* tutorial1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BFFE2101C8824F400B40175 /* tutorial1.png */; };
+		7BFFE2161C8824F400B40175 /* tutorial2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BFFE2111C8824F400B40175 /* tutorial2.png */; };
+		7BFFE2171C8824F400B40175 /* tutorial3.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BFFE2121C8824F400B40175 /* tutorial3.png */; };
+		7BFFE2181C8824F400B40175 /* tutorial4.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BFFE2131C8824F400B40175 /* tutorial4.png */; };
+		7BFFE2191C8824F400B40175 /* tutorial5.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BFFE2141C8824F400B40175 /* tutorial5.png */; };
+		7BFFE21B1C88251100B40175 /* tutorial6.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BFFE21A1C88251100B40175 /* tutorial6.png */; };
+		7BFFE2301C88268200B40175 /* appear.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7BFFE21C1C88268100B40175 /* appear.wav */; };
+		7BFFE2311C88268200B40175 /* bomb.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7BFFE21D1C88268100B40175 /* bomb.wav */; };
+		7BFFE2321C88268200B40175 /* chainDrop.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7BFFE21E1C88268100B40175 /* chainDrop.wav */; };
+		7BFFE2331C88268200B40175 /* chant.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7BFFE21F1C88268100B40175 /* chant.wav */; };
+		7BFFE2341C88268200B40175 /* darkLaugh.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7BFFE2201C88268100B40175 /* darkLaugh.wav */; };
+		7BFFE2351C88268200B40175 /* deathRay.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7BFFE2211C88268100B40175 /* deathRay.wav */; };
+		7BFFE2361C88268200B40175 /* DemonGirl.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7BFFE2221C88268100B40175 /* DemonGirl.wav */; };
+		7BFFE2371C88268200B40175 /* fireArrow.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7BFFE2231C88268100B40175 /* fireArrow.wav */; };
+		7BFFE2381C88268200B40175 /* flashBang.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7BFFE2241C88268100B40175 /* flashBang.wav */; };
+		7BFFE2391C88268200B40175 /* flyby.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7BFFE2251C88268200B40175 /* flyby.wav */; };
+		7BFFE23A1C88268200B40175 /* hitMetal.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7BFFE2261C88268200B40175 /* hitMetal.wav */; };
+		7BFFE23B1C88268200B40175 /* jab.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7BFFE2271C88268200B40175 /* jab.wav */; };
+		7BFFE23C1C88268200B40175 /* largeFireball.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7BFFE2281C88268200B40175 /* largeFireball.wav */; };
+		7BFFE23D1C88268200B40175 /* slime.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7BFFE2291C88268200B40175 /* slime.wav */; };
+		7BFFE23E1C88268200B40175 /* smallFireball.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7BFFE22A1C88268200B40175 /* smallFireball.wav */; };
+		7BFFE23F1C88268200B40175 /* sonicBoom.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7BFFE22B1C88268200B40175 /* sonicBoom.wav */; };
+		7BFFE2401C88268200B40175 /* swordCollide.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7BFFE22C1C88268200B40175 /* swordCollide.wav */; };
+		7BFFE2411C88268200B40175 /* tankFire.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7BFFE22D1C88268200B40175 /* tankFire.wav */; };
+		7BFFE2421C88268200B40175 /* toxicGoo.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7BFFE22E1C88268200B40175 /* toxicGoo.wav */; };
+		7BFFE2431C88268200B40175 /* upperCut.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7BFFE22F1C88268200B40175 /* upperCut.wav */; };
 		813C38E31C80ED1C001F9DB8 /* Whip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813C38E21C80ED1C001F9DB8 /* Whip.swift */; };
 		813C38F31C80EDE4001F9DB8 /* aegisLastStand.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 813C38E41C80EDE4001F9DB8 /* aegisLastStand.atlas */; };
 		813C38F41C80EDE4001F9DB8 /* aramidGuard.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 813C38E51C80EDE4001F9DB8 /* aramidGuard.atlas */; };
@@ -287,6 +314,33 @@
 		7BCAA8241C877D14007DF71C /* WhipGesture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WhipGesture.png; sourceTree = "<group>"; };
 		7BCAA8251C877D14007DF71C /* WildfireGesture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WildfireGesture.png; sourceTree = "<group>"; };
 		7BFFE20C1C881BBC00B40175 /* Victory.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Victory.png; sourceTree = "<group>"; };
+		7BFFE20E1C88220200B40175 /* Moirai.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Moirai.png; sourceTree = "<group>"; };
+		7BFFE2101C8824F400B40175 /* tutorial1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tutorial1.png; sourceTree = "<group>"; };
+		7BFFE2111C8824F400B40175 /* tutorial2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tutorial2.png; sourceTree = "<group>"; };
+		7BFFE2121C8824F400B40175 /* tutorial3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tutorial3.png; sourceTree = "<group>"; };
+		7BFFE2131C8824F400B40175 /* tutorial4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tutorial4.png; sourceTree = "<group>"; };
+		7BFFE2141C8824F400B40175 /* tutorial5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tutorial5.png; sourceTree = "<group>"; };
+		7BFFE21A1C88251100B40175 /* tutorial6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tutorial6.png; sourceTree = "<group>"; };
+		7BFFE21C1C88268100B40175 /* appear.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = appear.wav; sourceTree = "<group>"; };
+		7BFFE21D1C88268100B40175 /* bomb.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bomb.wav; sourceTree = "<group>"; };
+		7BFFE21E1C88268100B40175 /* chainDrop.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = chainDrop.wav; sourceTree = "<group>"; };
+		7BFFE21F1C88268100B40175 /* chant.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = chant.wav; sourceTree = "<group>"; };
+		7BFFE2201C88268100B40175 /* darkLaugh.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = darkLaugh.wav; sourceTree = "<group>"; };
+		7BFFE2211C88268100B40175 /* deathRay.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = deathRay.wav; sourceTree = "<group>"; };
+		7BFFE2221C88268100B40175 /* DemonGirl.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = DemonGirl.wav; sourceTree = "<group>"; };
+		7BFFE2231C88268100B40175 /* fireArrow.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = fireArrow.wav; sourceTree = "<group>"; };
+		7BFFE2241C88268100B40175 /* flashBang.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = flashBang.wav; sourceTree = "<group>"; };
+		7BFFE2251C88268200B40175 /* flyby.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = flyby.wav; sourceTree = "<group>"; };
+		7BFFE2261C88268200B40175 /* hitMetal.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = hitMetal.wav; sourceTree = "<group>"; };
+		7BFFE2271C88268200B40175 /* jab.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = jab.wav; sourceTree = "<group>"; };
+		7BFFE2281C88268200B40175 /* largeFireball.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = largeFireball.wav; sourceTree = "<group>"; };
+		7BFFE2291C88268200B40175 /* slime.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = slime.wav; sourceTree = "<group>"; };
+		7BFFE22A1C88268200B40175 /* smallFireball.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = smallFireball.wav; sourceTree = "<group>"; };
+		7BFFE22B1C88268200B40175 /* sonicBoom.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sonicBoom.wav; sourceTree = "<group>"; };
+		7BFFE22C1C88268200B40175 /* swordCollide.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = swordCollide.wav; sourceTree = "<group>"; };
+		7BFFE22D1C88268200B40175 /* tankFire.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = tankFire.wav; sourceTree = "<group>"; };
+		7BFFE22E1C88268200B40175 /* toxicGoo.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = toxicGoo.wav; sourceTree = "<group>"; };
+		7BFFE22F1C88268200B40175 /* upperCut.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = upperCut.wav; sourceTree = "<group>"; };
 		813C38E21C80ED1C001F9DB8 /* Whip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Whip.swift; path = Skills/Whip.swift; sourceTree = "<group>"; };
 		813C38E41C80EDE4001F9DB8 /* aegisLastStand.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = aegisLastStand.atlas; path = skillAnimations/aegisLastStand.atlas; sourceTree = "<group>"; };
 		813C38E51C80EDE4001F9DB8 /* aramidGuard.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = aramidGuard.atlas; path = skillAnimations/aramidGuard.atlas; sourceTree = "<group>"; };
@@ -470,6 +524,12 @@
 		7B108F081C7BC36B003FC7EE /* Battle */ = {
 			isa = PBXGroup;
 			children = (
+				7BFFE2101C8824F400B40175 /* tutorial1.png */,
+				7BFFE2111C8824F400B40175 /* tutorial2.png */,
+				7BFFE2121C8824F400B40175 /* tutorial3.png */,
+				7BFFE2131C8824F400B40175 /* tutorial4.png */,
+				7BFFE2141C8824F400B40175 /* tutorial5.png */,
+				7BFFE21A1C88251100B40175 /* tutorial6.png */,
 				7BFFE20C1C881BBC00B40175 /* Victory.png */,
 				7B72CBD01C85116F006563B9 /* arrow.png */,
 				7B72CBD11C85116F006563B9 /* arrowReverse.png */,
@@ -487,6 +547,26 @@
 		7B108F091C7BC37D003FC7EE /* Sound Effects */ = {
 			isa = PBXGroup;
 			children = (
+				7BFFE21C1C88268100B40175 /* appear.wav */,
+				7BFFE21D1C88268100B40175 /* bomb.wav */,
+				7BFFE21E1C88268100B40175 /* chainDrop.wav */,
+				7BFFE21F1C88268100B40175 /* chant.wav */,
+				7BFFE2201C88268100B40175 /* darkLaugh.wav */,
+				7BFFE2211C88268100B40175 /* deathRay.wav */,
+				7BFFE2221C88268100B40175 /* DemonGirl.wav */,
+				7BFFE2231C88268100B40175 /* fireArrow.wav */,
+				7BFFE2241C88268100B40175 /* flashBang.wav */,
+				7BFFE2251C88268200B40175 /* flyby.wav */,
+				7BFFE2261C88268200B40175 /* hitMetal.wav */,
+				7BFFE2271C88268200B40175 /* jab.wav */,
+				7BFFE2281C88268200B40175 /* largeFireball.wav */,
+				7BFFE2291C88268200B40175 /* slime.wav */,
+				7BFFE22A1C88268200B40175 /* smallFireball.wav */,
+				7BFFE22B1C88268200B40175 /* sonicBoom.wav */,
+				7BFFE22C1C88268200B40175 /* swordCollide.wav */,
+				7BFFE22D1C88268200B40175 /* tankFire.wav */,
+				7BFFE22E1C88268200B40175 /* toxicGoo.wav */,
+				7BFFE22F1C88268200B40175 /* upperCut.wav */,
 				973FD5E91C87DB6C00B72B23 /* Home Castle Theme.mp3 */,
 				973FD5E71C87D75900B72B23 /* RememberLoudest.mp3 */,
 				973FD5DB1C87D1DA00B72B23 /* Treacherous Slopes.mp3 */,
@@ -578,6 +658,7 @@
 		7B72CBE01C86B81F006563B9 /* Moirai */ = {
 			isa = PBXGroup;
 			children = (
+				7BFFE20E1C88220200B40175 /* Moirai.png */,
 				7B72CBDA1C86B815006563B9 /* MoiraiAura.png */,
 				7B72CBDB1C86B815006563B9 /* MoiraiBody.png */,
 				7BCAA8141C876D7A007DF71C /* MoiraiThread.png */,
@@ -879,8 +960,12 @@
 				97E5102E1C80FDF80034B575 /* Desert Battle (Loop).mp3 in Resources */,
 				7B8F06DB1C82695A008E3509 /* boss2Thread.png in Resources */,
 				7B8F06F01C829F90008E3509 /* health2.png in Resources */,
+				7BFFE2321C88268200B40175 /* chainDrop.wav in Resources */,
+				7BFFE2171C8824F400B40175 /* tutorial3.png in Resources */,
 				7B8F06E91C82719A008E3509 /* rightWhip.png in Resources */,
 				7B72CBB11C84E7B3006563B9 /* cobra.png in Resources */,
+				7BFFE23F1C88268200B40175 /* sonicBoom.wav in Resources */,
+				7BFFE2191C8824F400B40175 /* tutorial5.png in Resources */,
 				817323751C86E3E6007C2324 /* ultimateThree.atlas in Resources */,
 				7B378DB21C7E6C5400169D94 /* dragonRightWing.png in Resources */,
 				7BCAA82E1C877D14007DF71C /* RayonBashGesture.png in Resources */,
@@ -892,13 +977,16 @@
 				7B108F211C7BC3E5003FC7EE /* slash.atlas in Resources */,
 				813C38F61C80EDE4001F9DB8 /* constrict.atlas in Resources */,
 				813C38F51C80EDE4001F9DB8 /* aramidWard.atlas in Resources */,
+				7BFFE2351C88268200B40175 /* deathRay.wav in Resources */,
 				7BCAA8281C877D14007DF71C /* AramidWardGesture.png in Resources */,
+				7BFFE23E1C88268200B40175 /* smallFireball.wav in Resources */,
 				7B8F06F11C829F90008E3509 /* healthBar2.png in Resources */,
 				813C38F31C80EDE4001F9DB8 /* aegisLastStand.atlas in Resources */,
 				817323741C86E3E6007C2324 /* ultimateOne.atlas in Resources */,
 				813C38FD1C80EDE4001F9DB8 /* silkDaze.atlas in Resources */,
 				7B108F191C7BC39C003FC7EE /* waterSound.wav in Resources */,
 				8173236F1C86E3E6007C2324 /* rayonThree.atlas in Resources */,
+				7BFFE2301C88268200B40175 /* appear.wav in Resources */,
 				7B31A73A1C8005EB0071EC35 /* boss4.png in Resources */,
 				81C753611C8625330009546B /* boss.atlas in Resources */,
 				7B8F06EB1C8274F8008E3509 /* boss2.png in Resources */,
@@ -912,22 +1000,30 @@
 				7B108F131C7BC39C003FC7EE /* cottonBlaze.wav in Resources */,
 				7B72CBB51C84E7B3006563B9 /* ogre.png in Resources */,
 				7B31A7421C8009700071EC35 /* boss1Leg.png in Resources */,
+				7BFFE23B1C88268200B40175 /* jab.wav in Resources */,
 				7BCAA8311C877D14007DF71C /* SilkDazeGesture.png in Resources */,
 				7B108F151C7BC39C003FC7EE /* hitNormal.wav in Resources */,
+				7BFFE2151C8824F400B40175 /* tutorial1.png in Resources */,
 				7BCAA82C1C877D14007DF71C /* KusanagiNoTsurugiGesture.png in Resources */,
+				7BFFE23D1C88268200B40175 /* slime.wav in Resources */,
 				97E510361C827CB90034B575 /* Victory Fanfare.mp3 in Resources */,
+				7BFFE21B1C88251100B40175 /* tutorial6.png in Resources */,
 				817323701C86E3E6007C2324 /* rayonTwo.atlas in Resources */,
 				7B3C152E1C84149C00BEB2D1 /* SpellBookClosed.png in Resources */,
 				7B72CBB21C84E7B3006563B9 /* demon.png in Resources */,
+				7BFFE2391C88268200B40175 /* flyby.wav in Resources */,
 				813C38F91C80EDE4001F9DB8 /* kusanagiNoTsurugi.atlas in Resources */,
 				813C38FB1C80EDE4001F9DB8 /* rayonBash.atlas in Resources */,
+				7BFFE2431C88268200B40175 /* upperCut.wav in Resources */,
 				817323541C86C766007C2324 /* constrict.atlas in Resources */,
 				7BCAA8321C877D14007DF71C /* ThrashGesture.png in Resources */,
 				7B31A7371C8005DE0071EC35 /* boss3Thread.png in Resources */,
 				81AD03221C7AE5C000B6C5DC /* spider_web.atlas in Resources */,
 				813C39001C80EDE4001F9DB8 /* whip.atlas in Resources */,
 				8173236D1C86E3E6007C2324 /* cottonTwo.atlas in Resources */,
+				7BFFE2421C88268200B40175 /* toxicGoo.wav in Resources */,
 				813C38FE1C80EDE4001F9DB8 /* silkTrick.atlas in Resources */,
+				7BFFE2381C88268200B40175 /* flashBang.wav in Resources */,
 				813C38FC1C80EDE4001F9DB8 /* rayonStrike.atlas in Resources */,
 				813C38F71C80EDE4001F9DB8 /* cottonBlaze.atlas in Resources */,
 				81C188A41C84C7DF00F05BAB /* Tiles.atlas in Resources */,
@@ -935,12 +1031,14 @@
 				7B8BAEEC1C766051001C1834 /* mc.atlas in Resources */,
 				817323761C86E3E6007C2324 /* ultimateTwo.atlas in Resources */,
 				8173236A1C86E3E6007C2324 /* aramidTwo.atlas in Resources */,
+				7BFFE20F1C88220200B40175 /* Moirai.png in Resources */,
 				7B8F06E81C82719A008E3509 /* leftWhip.png in Resources */,
 				973FD5DC1C87D1DA00B72B23 /* Treacherous Slopes.mp3 in Resources */,
 				7BFFE20D1C881BBC00B40175 /* Victory.png in Resources */,
 				813C38FA1C80EDE4001F9DB8 /* pieceDeResistance.atlas in Resources */,
 				7B72CBD21C85116F006563B9 /* arrow.png in Resources */,
 				813C38F41C80EDE4001F9DB8 /* aramidGuard.atlas in Resources */,
+				7BFFE23A1C88268200B40175 /* hitMetal.wav in Resources */,
 				817323681C86E3E6007C2324 /* aramidOne.atlas in Resources */,
 				7B108F1B1C7BC39C003FC7EE /* whipNormal.wav in Resources */,
 				7BCAA8261C877D14007DF71C /* AegisLastStandGesture.png in Resources */,
@@ -958,10 +1056,17 @@
 				813C39011C80EDE4001F9DB8 /* wildFire.atlas in Resources */,
 				8173236C1C86E3E6007C2324 /* cottonThree.atlas in Resources */,
 				7B108F1A1C7BC39C003FC7EE /* whipCritical.wav in Resources */,
+				7BFFE2411C88268200B40175 /* tankFire.wav in Resources */,
 				7B31A74A1C80E6680071EC35 /* bg1.png in Resources */,
+				7BFFE2401C88268200B40175 /* swordCollide.wav in Resources */,
 				7BCAA8271C877D14007DF71C /* AramidGuardGesture.png in Resources */,
 				7B3C152A1C83D59600BEB2D1 /* SpellBook.png in Resources */,
+				7BFFE2341C88268200B40175 /* darkLaugh.wav in Resources */,
+				7BFFE2361C88268200B40175 /* DemonGirl.wav in Resources */,
+				7BFFE2371C88268200B40175 /* fireArrow.wav in Resources */,
+				7BFFE2331C88268200B40175 /* chant.wav in Resources */,
 				817323711C86E3E6007C2324 /* silkOne.atlas in Resources */,
+				7BFFE2181C8824F400B40175 /* tutorial4.png in Resources */,
 				7B72CBA41C84BAEF006563B9 /* dragonBody.png in Resources */,
 				81869C861C8646110039DB25 /* player.atlas in Resources */,
 				8173236E1C86E3E6007C2324 /* rayonOne.atlas in Resources */,
@@ -969,8 +1074,11 @@
 				97E510341C82698D0034B575 /* Good Memories.mp3 in Resources */,
 				7BCAA82B1C877D14007DF71C /* CottonFlareGesture.png in Resources */,
 				7B378DB11C7E6C5400169D94 /* dragonLeftWing.png in Resources */,
+				7BFFE2161C8824F400B40175 /* tutorial2.png in Resources */,
 				973FD5EA1C87DB6C00B72B23 /* Home Castle Theme.mp3 in Resources */,
 				7B31A7361C8005DE0071EC35 /* boss3.png in Resources */,
+				7BFFE2311C88268200B40175 /* bomb.wav in Resources */,
+				7BFFE23C1C88268200B40175 /* largeFireball.wav in Resources */,
 				8173236B1C86E3E6007C2324 /* cottonOne.atlas in Resources */,
 				7BCAA82F1C877D14007DF71C /* RayonStrikeGesture.png in Resources */,
 				97E510101C73E6940034B575 /* Main.storyboard in Resources */,

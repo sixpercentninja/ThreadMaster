@@ -38,7 +38,7 @@ class Moirai: Monster {
     }
     
     init(){
-        super.init(imageNamed: displayImageName, maxHP: 15000, charName: "Aisa", attribute: Attribute.Neutral)
+        super.init(imageNamed: displayImageName, maxHP: 3500, charName: "Aisa", attribute: Attribute.Neutral)
         settings()
         animateMonster()
         assignDefaultSkills()
@@ -49,7 +49,13 @@ class Moirai: Monster {
     }
     
     func assignDefaultSkills(){
-        self.skills["spiderWeb"] = SpiderWeb()
+        self.skills["Aramid Three"] = AramidThree()
+        self.skills["Cotton Three"] = CottonThree()
+        self.skills["Silk Three"] = SilkThree()
+        self.skills["Rayon Three"] = RayonThree()
+        self.skills["Ultimate Two"] = UltimateTwo()
+        self.skills["Ultimate Three"] = UltimateThree()
+        
     }
     
     func settings() {

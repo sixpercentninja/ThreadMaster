@@ -34,7 +34,7 @@ class Charon: Monster {
     }
     
     init(){
-        super.init(imageNamed: displayImageName, maxHP: 50, charName: "Charon", attribute: Attribute.Strength)
+        super.init(imageNamed: displayImageName, maxHP: 2050, charName: "Charon", attribute: Attribute.Strength)
         settings()
         animateMonster()
         assignDefaultSkills()

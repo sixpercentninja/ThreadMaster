@@ -39,7 +39,7 @@ class Edan: Monster {
     }
     
     init(){
-        super.init(imageNamed: displayImageName, maxHP: 50, charName: "Edan", attribute: Attribute.Heat)
+        super.init(imageNamed: displayImageName, maxHP: 1050, charName: "Edan", attribute: Attribute.Heat)
         settings()
         animateMonster()
         assignDefaultSkills()

@@ -9,7 +9,7 @@
 import SpriteKit
 
 class UltimateThree: Skill {
-    override var damage: Int { return 60 }
+    override var damage: Int { return 260 }
     override var attackAttribute: Attribute { return Attribute.Neutral }
     override var skillName: String { return "Ultimate Three" }
     

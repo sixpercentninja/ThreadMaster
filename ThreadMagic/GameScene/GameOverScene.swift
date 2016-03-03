@@ -41,9 +41,11 @@ class GameOverScene: SKScene {
             
             self.runAction(duration, completion: { () -> Void in
                 let button = UIButton(type: UIButtonType.System) as UIButton
-                button.frame = CGRectMake(bg.position.x/2 - 30, bg.position.y/2, 75, 25)
-                button.backgroundColor = UIColor.yellowColor()
+                button.frame = CGRectMake(bg.position.x/2 - 130, bg.position.y/2, 275, 25)
+                button.backgroundColor = UIColor.clearColor()
                 button.setTitle("Continue", forState: UIControlState.Normal)
+                button.setTitleColor(UIColor.purpleColor(), forState: UIControlState.Normal)
+                button.titleLabel?.font = UIFont(name: "Papyrus", size: 25)
                 button.addTarget(self, action: "buttonAction:", forControlEvents: UIControlEvents.TouchUpInside)
                 self.view?.addSubview(button)
             })

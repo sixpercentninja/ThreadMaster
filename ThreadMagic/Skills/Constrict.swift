@@ -39,7 +39,7 @@ class Constrict: Skill {
         node.setScale(5.0)
         scene.addChild(node)
         
-        node.runAction(SKAction.sequence([SKAction.playSoundFileNamed("hitNormal.wav", waitForCompletion: false),SKAction.animateWithTextures(animationTextures, timePerFrame: 0.08)])) { () -> Void in
+        node.runAction(SKAction.sequence([SKAction.playSoundFileNamed("chainDrop.wav", waitForCompletion: false),SKAction.animateWithTextures(animationTextures, timePerFrame: 0.08)])) { () -> Void in
             node.removeFromParent()
             target.runAction(self.effectActionSequence(), completion: { () -> Void in
                 caster.attack(target, skillName: self.skillName)

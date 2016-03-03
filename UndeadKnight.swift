@@ -12,7 +12,7 @@ import SpriteKit
 class UndeadKnight: Monster {
     
     let displayImageName = "knight.png"
-    override var expGiven: Int { return 200 }
+    override var expGiven: Int { return 600 }
     
     override init(texture: SKTexture?, color: UIColor, size: CGSize) {
         super.init(texture: texture, color: color, size: size)
@@ -33,7 +33,7 @@ class UndeadKnight: Monster {
     }
     
     init(){
-        super.init(imageNamed: displayImageName, maxHP: 50, charName: "Undead Knight", attribute: Attribute.Pattern)
+        super.init(imageNamed: displayImageName, maxHP: 250, charName: "Undead Knight", attribute: Attribute.Pattern)
         settings()
         animateMonster()
         assignDefaultSkills()

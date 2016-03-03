@@ -9,7 +9,7 @@
 import SpriteKit
 
 class AramidThree: Skill {
-    override var damage: Int { return 40 }
+    override var damage: Int { return 90 }
     override var attackAttribute: Attribute { return Attribute.Resistance }
     override var skillName: String { return "Aramid Three" }
     

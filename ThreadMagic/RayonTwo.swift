@@ -9,7 +9,7 @@
 import SpriteKit
 
 class RayonTwo: Skill {
-    override var damage: Int { return 40 }
+    override var damage: Int { return 90 }
     override var attackAttribute: Attribute { return Attribute.Strength }
     override var skillName: String { return "Rayon Two" }
     

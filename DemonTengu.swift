@@ -12,7 +12,7 @@ import SpriteKit
 class DemonTengu: Monster {
     
     let displayImageName = "tengu.png"
-    override var expGiven: Int { return 200 }
+    override var expGiven: Int { return 1300 }
     
     override init(texture: SKTexture?, color: UIColor, size: CGSize) {
         super.init(texture: texture, color: color, size: size)
@@ -33,7 +33,7 @@ class DemonTengu: Monster {
     }
     
     init(){
-        super.init(imageNamed: displayImageName, maxHP: 50, charName: "Demom Tengu", attribute: Attribute.Heat)
+        super.init(imageNamed: displayImageName, maxHP: 550, charName: "Demon Tengu", attribute: Attribute.Heat)
         settings()
         animateMonster()
         assignDefaultSkills()

@@ -11,7 +11,7 @@ import SpriteKit
 
 class WickedElder: Monster {
     
-    let displayImageName = "demon.png"
+    let displayImageName = "sister.png"
     override var expGiven: Int { return 1000 }
     
     override init(texture: SKTexture?, color: UIColor, size: CGSize) {
@@ -33,7 +33,7 @@ class WickedElder: Monster {
     }
     
     init(){
-        super.init(imageNamed: displayImageName, maxHP: 50, charName: "Wicked Elder", attribute: Attribute.Strength)
+        super.init(imageNamed: displayImageName, maxHP: 350, charName: "Wicked Elder", attribute: Attribute.Strength)
         settings()
         animateMonster()
         assignDefaultSkills()

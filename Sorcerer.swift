@@ -11,8 +11,8 @@ import SpriteKit
 
 class Sorcerer: Monster {
     
-    let displayImageName = "sister.png"
-    override var expGiven: Int { return 200 }
+    let displayImageName = "demon.png"
+    override var expGiven: Int { return 1100 }
     
     override init(texture: SKTexture?, color: UIColor, size: CGSize) {
         super.init(texture: texture, color: color, size: size)
@@ -33,7 +33,7 @@ class Sorcerer: Monster {
     }
     
     init(){
-        super.init(imageNamed: displayImageName, maxHP: 50, charName: "Sorcerer", attribute: Attribute.Strength)
+        super.init(imageNamed: displayImageName, maxHP: 450, charName: "Sorcerer", attribute: Attribute.Strength)
         settings()
         animateMonster()
         assignDefaultSkills()
@@ -50,7 +50,6 @@ class Sorcerer: Monster {
     func settings() {
         setScale(0.5)
         zPosition = 0.4
-        
     }
     
     func animateMonster() {

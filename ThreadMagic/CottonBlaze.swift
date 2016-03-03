@@ -37,7 +37,7 @@ class CottonBlaze: Skill {
         node.position = target.position
         node.setScale(5.0)
         scene.addChild(node)
-        let playSFX = SKAction.playSoundFileNamed("cottonBlaze", waitForCompletion: false)
+        let playSFX = SKAction.playSoundFileNamed("bomb.wav", waitForCompletion: false)
         node.runAction(playSFX)
         node.runAction(SKAction.sequence([SKAction.playSoundFileNamed("cottonBlaze.wav", waitForCompletion: false),SKAction.animateWithTextures(animationTextures, timePerFrame: 0.08)])) { () -> Void in
             node.removeFromParent()

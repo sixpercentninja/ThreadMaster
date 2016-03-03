@@ -12,7 +12,7 @@ import SpriteKit
 class OgreFiend: Monster {
     
     let displayImageName = "ogre.png"
-    override var expGiven: Int { return 200 }
+    override var expGiven: Int { return 400 }
     
     override init(texture: SKTexture?, color: UIColor, size: CGSize) {
         super.init(texture: texture, color: color, size: size)
@@ -33,7 +33,7 @@ class OgreFiend: Monster {
     }
     
     init(){
-        super.init(imageNamed: displayImageName, maxHP: 50, charName: "Ogre Fiend", attribute: Attribute.Heat)
+        super.init(imageNamed: displayImageName, maxHP: 250, charName: "Ogre Fiend", attribute: Attribute.Heat)
         settings()
         animateMonster()
         assignDefaultSkills()

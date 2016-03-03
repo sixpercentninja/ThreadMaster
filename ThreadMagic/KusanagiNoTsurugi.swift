@@ -43,7 +43,7 @@ class KusanagiNoTsurugi: Skill {
                 scene.addChild(node)
                 let playSFX = SKAction.playSoundFileNamed("cottonBlaze", waitForCompletion: false)
                 node.runAction(playSFX)
-                node.runAction(SKAction.sequence([SKAction.playSoundFileNamed("kusanagiNoTsurugi.wav", waitForCompletion: false),SKAction.animateWithTextures(self.animationTextures, timePerFrame: 0.08)])) { () -> Void in
+                node.runAction(SKAction.sequence([SKAction.playSoundFileNamed("sonicBoom.wav", waitForCompletion: false),SKAction.animateWithTextures(self.animationTextures, timePerFrame: 0.08)])) { () -> Void in
                     
                     node.removeFromParent()
                     

@@ -79,6 +79,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
 
+       
+        
+        
         SKTAudio.sharedInstance().playBackgroundMusic("Desert Battle (Loop).mp3")
 
         let recognizer = DBPathRecognizer(sliceCount: 8, deltaMove: 16.0, costMax: 5)
@@ -962,7 +965,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func labelDefaultSettingsSpellList(color: SKColor,label: SKLabelNode){
         label.fontColor = color
-        label.fontSize = 45.0
+        label.fontSize = 35.0
         label.fontName = "Georgia-BoldItalic"
     }
     
