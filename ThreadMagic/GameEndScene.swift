@@ -6,8 +6,8 @@
 //  Copyright © 2016 Andrew Chen. All rights reserved.
 //
 
-import UIKit
-
-class GameEndScene: SKScene {
-
-}
+//import UIKit
+//
+//class GameEndScene: SKScene {
+//
+//}

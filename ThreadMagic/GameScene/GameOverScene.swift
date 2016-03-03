@@ -23,12 +23,12 @@ class GameOverScene: SKScene {
     
     override func didMoveToView(view: SKView) {
 
-        SKTAudio.sharedInstance().playBackgroundMusic("Victory Fanfare.mp3")
         backgroundColor = SKColor.whiteColor()
         
 //        let message = won ? "\(mc.charName) won!" : "You didn't make it, soorry!"
         
         if won == true {
+                SKTAudio.sharedInstance().playBackgroundMusic("Victory Fanfare.mp3")
                 let bg = SKSpriteNode(imageNamed: "Victory.png")
                 bg.name = "bg"
                 bg.zPosition = -1
@@ -51,8 +51,21 @@ class GameOverScene: SKScene {
             })
         
         } else {
+            
+            backgroundColor = SKColor.blackColor()
+
+            let message = "Game Over..."
+            
+            let label = SKLabelNode(fontNamed: "Papyrus")
+            label.text = message
+            label.fontSize = 40
+            label.fontColor = SKColor.redColor()
+            label.position = CGPoint(x: size.width/2, y: size.height/2)
+            addChild(label)
+            
+            
             runAction(SKAction.sequence([
-                SKAction.waitForDuration(8.0), SKAction.runBlock() {
+                SKAction.waitForDuration(4.0), SKAction.runBlock() {
                     let reveal = SKTransition.flipHorizontalWithDuration(0.5)
                     let scene = self.worldMapScene
                     self.view?.presentScene(scene, transition: reveal)
