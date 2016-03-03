@@ -10,7 +10,7 @@ import SpriteKit
 
 class Whip: Skill {
 
-    override var damage: Int { return 25 }
+    override var damage: Int { return 2 }
 
     override var attackAttribute: Attribute { return Attribute.Neutral }
     override var skillName: String { return "Whip" }

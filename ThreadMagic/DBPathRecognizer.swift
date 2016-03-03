@@ -39,6 +39,10 @@ public class DBPathRecognizer {
         
         let dir = directions()
         
+        if(dir.count < 2){
+            return nil
+        }
+        
         var bestCost = Int.max
         var bestModel:PathModel?
         
@@ -96,6 +100,7 @@ public class DBPathRecognizer {
         
         let dpoints = deltaPoints()
         
+        
         if dpoints.count < 2 {
             return []
         }
@@ -144,7 +149,8 @@ public class DBPathRecognizer {
         let safe_max_value:Int = Int(Int16.max) // Don'n now why Int.max cause a EXEC_BAD error
         //println("\(safe_max_value)")
     
-    
+//        let b = b+1
+//        let a = a+1
         for x in 1...a.count
         {
             for y in 1..<b.count
