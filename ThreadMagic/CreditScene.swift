@@ -91,6 +91,13 @@ class CreditScene: SKScene {
         label7.fontSize = 30
         label7.fontColor = SKColor.whiteColor()
         label7.position = CGPoint(x: size.width/2, y: size.height/4.9)
+
+        let message8 = "Story written by Christine Liu"
+        let label8 = SKLabelNode(fontNamed: "GillSans")
+        label8.text = message8
+        label8.fontSize = 30
+        label8.fontColor = SKColor.whiteColor()
+        label8.position = CGPoint(x: size.width/2, y: size.height/6.0)
         
         addChild(tyLabel)
         addChild(label)
@@ -102,6 +109,7 @@ class CreditScene: SKScene {
         addChild(label5)
         addChild(label6)
         addChild(label7)
+        addChild(label8)
         
         let previousButton = SKSpriteNode(imageNamed: "previousButton")
         previousButton.position = CGPoint(x: 1120, y: 100)
