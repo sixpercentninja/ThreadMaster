@@ -19,14 +19,14 @@ class NextLevelScene: SKScene {
     override func didMoveToView(view: SKView) {
         
         SKTAudio.sharedInstance().playBackgroundMusic("Victory Fanfare.mp3")
-        backgroundColor = SKColor.whiteColor()
+        backgroundColor = SKColor.blackColor()
         
         let message = "Proceeding to the next level!"
         
-        let label = SKLabelNode(fontNamed: "Chalkduster")
+        let label = SKLabelNode(fontNamed: "Papyrus")
         label.text = message
         label.fontSize = 40
-        label.fontColor = SKColor.blackColor()
+        label.fontColor = SKColor.whiteColor()
         label.position = CGPoint(x: size.width/2, y: size.height/2)
         addChild(label)
         
