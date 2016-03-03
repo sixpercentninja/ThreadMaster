@@ -44,7 +44,7 @@ class AramidWard: Skill {
         
         node.runAction(SKAction.animateWithTextures(animationTextures, timePerFrame: 0.10)) { () -> Void in
             node.removeFromParent()
-            self.valuePopUp(scene, caster: caster, target: target, attack: hpToHeal)
+            self.valuePopUp(scene, caster: target, target: caster, attack: hpToHeal)
             caster.runAction(self.effectActionSequence(), completion: { () -> Void in
                 caster.heal(caster, healedHp: hpToHeal)
                 completion()
