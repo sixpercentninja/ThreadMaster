@@ -25,8 +25,6 @@ class WorldMapScene: SKScene, tileMapDelegate, SKPhysicsContactDelegate, PlayerE
     
     let playerEntity = PlayerEntity()
     
-    var engagedEnemy = false
-    
     var mapLevel: MapLevel!
     var firstLoad = true
     
@@ -263,8 +261,7 @@ class WorldMapScene: SKScene, tileMapDelegate, SKPhysicsContactDelegate, PlayerE
         let collision = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
         
         if collision == ColliderType.Boss.rawValue{
-            if !engagedEnemy{
-                engagedEnemy = true
+
                 playerEntity.moveComponent.stopPlayer()
                 paused = true
                 let scene = GameScene(size: CGSize(width: 1280, height: 800))
@@ -273,7 +270,7 @@ class WorldMapScene: SKScene, tileMapDelegate, SKPhysicsContactDelegate, PlayerE
                 scene.worldMapScene = self
                 let transition = SKTransition.crossFadeWithDuration(2)
                 view?.presentScene(scene, transition: transition)
-            }
+
         }
     }
     

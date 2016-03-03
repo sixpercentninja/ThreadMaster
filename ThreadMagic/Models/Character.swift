@@ -85,6 +85,7 @@ class Character: SKSpriteNode {
     
     func heal(target: Character, healedHp: Int) {
         target.currentHp += healedHp
+        target.currentHp = min(target.currentHp, target.maxHP)
     }
     
     func debugDrawPlayableArea() {

@@ -1036,13 +1036,23 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if enemy.currentHp <= 0 && bossBattle {
             mc.calculateReward(enemy, mapLevel: mapLevel)
             
-            let scene = NextLevelScene(size: size)
-            scene.mapLevel = mapLevel
-            mc.removeFromParent()
-            SKTAudio.sharedInstance().fadeVolumeAndPause()
-            let reveal = SKTransition.flipHorizontalWithDuration(0.5)
-            view?.presentScene(scene, transition: reveal)
-            return
+            if(mapLevel == .levelFive){
+                let scene = GameEndScene(size: size)
+
+                mc.removeFromParent()
+                SKTAudio.sharedInstance().fadeVolumeAndPause()
+                let reveal = SKTransition.flipHorizontalWithDuration(0.5)
+                view?.presentScene(scene, transition: reveal)
+                return
+            }else{
+                let scene = NextLevelScene(size: size)
+                scene.mapLevel = mapLevel
+                mc.removeFromParent()
+                SKTAudio.sharedInstance().fadeVolumeAndPause()
+                let reveal = SKTransition.flipHorizontalWithDuration(0.5)
+                view?.presentScene(scene, transition: reveal)
+                return
+            }
         }
         
         var scene: GameOverScene!
