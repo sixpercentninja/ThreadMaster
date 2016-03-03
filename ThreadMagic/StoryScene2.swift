@@ -1,15 +1,15 @@
 //
-//  StoryScene.swift
+//  StoryScene2.swift
 //  ThreadMagic
 //
-//  Created by Andrew Chen on 2/29/16.
+//  Created by Andrew Chen on 3/2/16.
 //  Copyright © 2016 Andrew Chen. All rights reserved.
 //
 
 import UIKit
 import SpriteKit
 
-class StoryScene: SKScene {
+class StoryScene2: SKScene {
     
     var story = SKNode()
     
@@ -17,7 +17,7 @@ class StoryScene: SKScene {
     
     override func didMoveToView(view: SKView) {
         
-        SKTAudio.sharedInstance().playBackgroundMusic("RememberLoudest.mp3")
+        //SKTAudio.sharedInstance().playBackgroundMusic("RememberLoudest.mp3")
         
         let bgImage = SKSpriteNode(imageNamed: "Parchment")
         
@@ -26,13 +26,21 @@ class StoryScene: SKScene {
         
         self.addChild(bgImage)
         
-
-        let story = createMultiLineText("Since ancient times long past, it has been said that \nthose Moirai ruled the fates of both men and gods alike.  \nNone may challenge their decrees, woven into that \ntapestry known as life.  Aisa, that most fearsome of \nthe goddesses, cut down all with her deathly shears \nwhen she sees fit.  No one could fight against their fate, \nand no one dared to challenge the destiny that the \nMoirai wove for them.", color: UIColor.init(red: (170/255), green: (0/255), blue: (2/255), alpha: 1), fontSize: 40, fontName: "Papyrus", fontPosition: CGPoint(x: size.width/2, y: size.height/1.38), fontLineSpace: 20.0)
+        
+        let story = createMultiLineText("No one...that is, until our foolish hero came along.  \nSold as a child into apprenticeship at the local tailor’s shop, \nKumo dreamed of a grander life - of becoming a fearsome \nwarrior that could command the respect of all around him, \ninstead of sitting every day at the shop weaving and sewing \nfinery for richer folk than he.", color: UIColor.init(red: (170/255), green: (0/255), blue: (2/255), alpha: 1), fontSize: 40, fontName: "Papyrus", fontPosition: CGPoint(x: size.width/2, y: size.height/1.35), fontLineSpace: 20.0)
         
         story.zPosition = 1
-        story.runAction(SKAction.fadeInWithDuration(5))
+        
+        //story.runAction(SKAction.fadeInWithDuration(5))
+        
+        let story2 = createMultiLineText("With nothing but his magic threads and the clothes on his \nback, he set out on his journey to defeat the ultimate \nWeavers of fate.", color: UIColor.init(red: (170/255), green: (0/255), blue: (2/255), alpha: 1), fontSize: 40, fontName: "Papyrus", fontPosition: CGPoint(x: size.width/2, y: size.height/2.5), fontLineSpace: 20.0)
+        
+        story2.zPosition = 1
+        
+        //story2.runAction(SKAction.fadeInWithDuration(5))
         
         addChild(story)
+        addChild(story2)
         
         let button1 = SKSpriteNode(imageNamed: "continueButton")
         button1.setScale(0.8)
@@ -69,16 +77,16 @@ class StoryScene: SKScene {
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         
-        //SKTAudio.sharedInstance().fadeVolumeAndPause()
+        SKTAudio.sharedInstance().fadeVolumeAndPause()
         let touch = touches.first
         let location = touch!.locationInNode(self)
         let node = self.nodeAtPoint(location)
         
-        let scene = StoryScene2(size:CGSize(width: 1280, height: 800))
+        let scene = WorldMapScene(size:CGSize(width: 1280, height: 800), mapLevel: MapLevel.levelOne)
         if (node.name == "Continue") {
             let transition = SKTransition.crossFadeWithDuration(2)
             self.scene!.view?.presentScene(scene, transition: transition)
         }
     }
-
+    
 }
