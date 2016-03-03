@@ -85,6 +85,7 @@
 		7BCAA8321C877D14007DF71C /* ThrashGesture.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BCAA8231C877D14007DF71C /* ThrashGesture.png */; };
 		7BCAA8331C877D14007DF71C /* WhipGesture.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BCAA8241C877D14007DF71C /* WhipGesture.png */; };
 		7BCAA8341C877D14007DF71C /* WildfireGesture.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BCAA8251C877D14007DF71C /* WildfireGesture.png */; };
+		7BFFE20D1C881BBC00B40175 /* Victory.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BFFE20C1C881BBC00B40175 /* Victory.png */; };
 		813C38E31C80ED1C001F9DB8 /* Whip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813C38E21C80ED1C001F9DB8 /* Whip.swift */; };
 		813C38F31C80EDE4001F9DB8 /* aegisLastStand.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 813C38E41C80EDE4001F9DB8 /* aegisLastStand.atlas */; };
 		813C38F41C80EDE4001F9DB8 /* aramidGuard.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 813C38E51C80EDE4001F9DB8 /* aramidGuard.atlas */; };
@@ -278,6 +279,7 @@
 		7BCAA8231C877D14007DF71C /* ThrashGesture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ThrashGesture.png; sourceTree = "<group>"; };
 		7BCAA8241C877D14007DF71C /* WhipGesture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WhipGesture.png; sourceTree = "<group>"; };
 		7BCAA8251C877D14007DF71C /* WildfireGesture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WildfireGesture.png; sourceTree = "<group>"; };
+		7BFFE20C1C881BBC00B40175 /* Victory.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Victory.png; sourceTree = "<group>"; };
 		813C38E21C80ED1C001F9DB8 /* Whip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Whip.swift; path = Skills/Whip.swift; sourceTree = "<group>"; };
 		813C38E41C80EDE4001F9DB8 /* aegisLastStand.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = aegisLastStand.atlas; path = skillAnimations/aegisLastStand.atlas; sourceTree = "<group>"; };
 		813C38E51C80EDE4001F9DB8 /* aramidGuard.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = aramidGuard.atlas; path = skillAnimations/aramidGuard.atlas; sourceTree = "<group>"; };
@@ -453,6 +455,7 @@
 		7B108F081C7BC36B003FC7EE /* Battle */ = {
 			isa = PBXGroup;
 			children = (
+				7BFFE20C1C881BBC00B40175 /* Victory.png */,
 				7B72CBD01C85116F006563B9 /* arrow.png */,
 				7B72CBD11C85116F006563B9 /* arrowReverse.png */,
 				7B3C152B1C8408A400BEB2D1 /* cancelButton.png */,
@@ -911,6 +914,7 @@
 				817323761C86E3E6007C2324 /* ultimateTwo.atlas in Resources */,
 				8173236A1C86E3E6007C2324 /* aramidTwo.atlas in Resources */,
 				7B8F06E81C82719A008E3509 /* leftWhip.png in Resources */,
+				7BFFE20D1C881BBC00B40175 /* Victory.png in Resources */,
 				813C38FA1C80EDE4001F9DB8 /* pieceDeResistance.atlas in Resources */,
 				7B72CBD21C85116F006563B9 /* arrow.png in Resources */,
 				813C38F41C80EDE4001F9DB8 /* aramidGuard.atlas in Resources */,
