@@ -10,7 +10,7 @@ import Foundation
 import SpriteKit
 
 class WildFire: Skill {
-    override var damage: Int { return 88 }
+    override var damage: Int { return 90 }
     override var attackAttribute: Attribute { return Attribute.Heat }
     override var skillName: String { return "Wildfire" }
     override var skillInformation: String { return "Deals heavy heat damage" }

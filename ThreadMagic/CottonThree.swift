@@ -9,7 +9,7 @@
 import SpriteKit
 
 class CottonThree: Skill {
-    override var damage: Int { return 160 }
+    override var damage: Int { return 90 }
     override var attackAttribute: Attribute { return Attribute.Heat }
     override var skillName: String { return "Cotton Three" }
     

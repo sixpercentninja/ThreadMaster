@@ -12,7 +12,7 @@ import SpriteKit
 class Sorcerer: Monster {
     
     let displayImageName = "demon.png"
-    override var expGiven: Int { return 1100 }
+    override var expGiven: Int { return 1700 }
     
     override init(texture: SKTexture?, color: UIColor, size: CGSize) {
         super.init(texture: texture, color: color, size: size)

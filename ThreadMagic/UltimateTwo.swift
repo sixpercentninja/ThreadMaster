@@ -9,7 +9,7 @@
 import SpriteKit
 
 class UltimateTwo: Skill {
-    override var damage: Int { return 200 }
+    override var damage: Int { return 160 }
     override var attackAttribute: Attribute { return Attribute.Neutral }
     override var skillName: String { return "Ultimate Two" }
     
@@ -32,7 +32,7 @@ class UltimateTwo: Skill {
         node.position = target.position
         node.setScale(5.0)
         scene.addChild(node)
-        node.runAction(SKAction.sequence([SKAction.playSoundFileNamed("hitNormal.wav", waitForCompletion: false),SKAction.animateWithTextures(animationTextures, timePerFrame: 0.08)])) { () -> Void in
+        node.runAction(SKAction.sequence([SKAction.playSoundFileNamed("flashBang.wav", waitForCompletion: false),SKAction.animateWithTextures(animationTextures, timePerFrame: 0.08)])) { () -> Void in
             node.removeFromParent()
             target.runAction(self.effectActionSequence(), completion: { () -> Void in
                 caster.attack(target, skillName: self.skillName)
