@@ -1,4 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="15C50" minimumToolsVersion="Xcode 7.0">
-    <elements/>
+    <entity name="PlayerSkill" representedClassName=".PlayerSkill" syncable="YES">
+        <attribute name="skillName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="useCount" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <relationship name="savePlayer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SavePlayer" inverseName="playerSkill" inverseEntity="SavePlayer" syncable="YES"/>
+    </entity>
+    <entity name="SavePlayer" representedClassName=".SavePlayer" syncable="YES">
+        <attribute name="mapLevel" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="maxHP" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="skills" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="totalExperience" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <relationship name="playerSkill" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PlayerSkill" inverseName="savePlayer" inverseEntity="PlayerSkill" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="SavePlayer" positionX="-27" positionY="45" width="128" height="120"/>
+        <element name="PlayerSkill" positionX="27" positionY="126" width="128" height="90"/>
+    </elements>
 </model>

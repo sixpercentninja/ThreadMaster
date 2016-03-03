@@ -9,22 +9,22 @@
 import SpriteKit
 
 enum SkillType: String {
-    case spiderWeb  = "SpiderWeb"
+    case spiderWeb  = "Spider Web"
     case whip       = "Whip"
     case constrict  = "Constrict"
     case thrash     = "Thrash"
-    case aramidWard = "AramidWard"
-    case aramidGuard = "AramidGuard"
-    case aegisLastStand = "AegisLastStand"
-    case cottonFlare    = "CottonFlare"
-    case cottonBlaze    = "CottonBlaze"
-    case wildFire       = "WildFire"
-    case silkTrick      = "SilkTrick"
-    case silkDaze       = "SilkDaze"
-    case pieceDeResistance = "PieceDeResistance"
-    case rayonStrike        = "RayonStrike"
-    case rayonBash          = "RayonBash"
-    case kusanagiNoTsurugi  = "KusanogiNoTsurugi"
+    case aramidWard = "Aramid Ward"
+    case aramidGuard = "Aramid Guard"
+    case aegisLastStand = "Aegis' Last Stand"
+    case cottonFlare    = "Cotton Flare"
+    case cottonBlaze    = "Cotton Blaze"
+    case wildFire       = "Wild Fire"
+    case silkTrick      = "Silk Trick"
+    case silkDaze       = "Silk Daze"
+    case pieceDeResistance = "Pièce de Résistance"
+    case rayonStrike        = "Rayon Strike"
+    case rayonBash          = "Rayon Bash"
+    case kusanagiNoTsurugi  = "Kusanogi No Tsurugi"
     
     static let allSkills = [spiderWeb, whip, constrict, thrash, aramidWard, aramidGuard, aegisLastStand, cottonFlare, cottonBlaze, wildFire, silkTrick, silkDaze, pieceDeResistance, rayonStrike, rayonBash, kusanagiNoTsurugi,]
     

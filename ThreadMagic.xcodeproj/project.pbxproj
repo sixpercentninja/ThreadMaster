@@ -159,6 +159,10 @@
 		8173238E1C86E8A3007C2324 /* RayonThree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8173238D1C86E8A3007C2324 /* RayonThree.swift */; };
 		817323901C86E905007C2324 /* UltimateTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8173238F1C86E905007C2324 /* UltimateTwo.swift */; };
 		817323921C86E921007C2324 /* UltimateThree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817323911C86E921007C2324 /* UltimateThree.swift */; };
+		817323D71C880B8D007C2324 /* SavePlayer+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817323D51C880B8D007C2324 /* SavePlayer+CoreDataProperties.swift */; };
+		817323D81C880B8D007C2324 /* SavePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817323D61C880B8D007C2324 /* SavePlayer.swift */; };
+		817323DB1C8810D2007C2324 /* PlayerSkill+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817323D91C8810D2007C2324 /* PlayerSkill+CoreDataProperties.swift */; };
+		817323DC1C8810D2007C2324 /* PlayerSkill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817323DA1C8810D2007C2324 /* PlayerSkill.swift */; };
 		81869C821C862D860039DB25 /* NextLevelScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81869C811C862D860039DB25 /* NextLevelScene.swift */; };
 		81869C861C8646110039DB25 /* player.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 81869C851C8646110039DB25 /* player.atlas */; };
 		81ABA1F21C7E2C02009EA660 /* WildFire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81ABA1F11C7E2C02009EA660 /* WildFire.swift */; };
@@ -354,6 +358,11 @@
 		8173238D1C86E8A3007C2324 /* RayonThree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RayonThree.swift; sourceTree = "<group>"; };
 		8173238F1C86E905007C2324 /* UltimateTwo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UltimateTwo.swift; sourceTree = "<group>"; };
 		817323911C86E921007C2324 /* UltimateThree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UltimateThree.swift; sourceTree = "<group>"; };
+		817323951C87F767007C2324 /* ThreadMagic-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ThreadMagic-Bridging-Header.h"; sourceTree = "<group>"; };
+		817323D51C880B8D007C2324 /* SavePlayer+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "SavePlayer+CoreDataProperties.swift"; path = "../SavePlayer+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		817323D61C880B8D007C2324 /* SavePlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SavePlayer.swift; path = ../SavePlayer.swift; sourceTree = "<group>"; };
+		817323D91C8810D2007C2324 /* PlayerSkill+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "PlayerSkill+CoreDataProperties.swift"; path = "../PlayerSkill+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		817323DA1C8810D2007C2324 /* PlayerSkill.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerSkill.swift; path = ../PlayerSkill.swift; sourceTree = "<group>"; };
 		81869C811C862D860039DB25 /* NextLevelScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NextLevelScene.swift; path = GameScene/NextLevelScene.swift; sourceTree = "<group>"; };
 		81869C851C8646110039DB25 /* player.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = player.atlas; sourceTree = "<group>"; };
 		81ABA1F11C7E2C02009EA660 /* WildFire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WildFire.swift; path = Skills/WildFire.swift; sourceTree = "<group>"; };
@@ -649,6 +658,10 @@
 		81AD02E11C76B91B00B6C5DC /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				817323D51C880B8D007C2324 /* SavePlayer+CoreDataProperties.swift */,
+				817323D61C880B8D007C2324 /* SavePlayer.swift */,
+				817323D91C8810D2007C2324 /* PlayerSkill+CoreDataProperties.swift */,
+				817323DA1C8810D2007C2324 /* PlayerSkill.swift */,
 				81AD02E41C76B92B00B6C5DC /* Player.swift */,
 				814B93F21C820AFD00E72D72 /* Gabino.swift */,
 				7B8F06F41C82A079008E3509 /* Edan.swift */,
@@ -756,6 +769,7 @@
 				81AD02DC1C76930500B6C5DC /* CoreGraphics.framework */,
 				97E510051C73E6940034B575 /* ThreadMagic */,
 				97E510041C73E6940034B575 /* Products */,
+				817323951C87F767007C2324 /* ThreadMagic-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -822,7 +836,7 @@
 				TargetAttributes = {
 					97E510021C73E6940034B575 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = UUKJ3Z33B8;
+						DevelopmentTeam = Y4S292F292;
 					};
 				};
 			};
@@ -985,6 +999,7 @@
 				817323781C86E565007C2324 /* AramidThree.swift in Sources */,
 				7B72CBE21C86B8D8006563B9 /* Moirai.swift in Sources */,
 				814B93F31C820AFD00E72D72 /* Gabino.swift in Sources */,
+				817323DB1C8810D2007C2324 /* PlayerSkill+CoreDataProperties.swift in Sources */,
 				81519AB21C7F923900D6E6E7 /* SKTTimingFunctions.swift in Sources */,
 				7B108F251C7BC450003FC7EE /* CottonBlaze.swift in Sources */,
 				81519AAF1C7F923900D6E6E7 /* SKNode+Extensions.swift in Sources */,
@@ -992,6 +1007,7 @@
 				8173237A1C86E58E007C2324 /* AramidOne.swift in Sources */,
 				7B72CBC91C84F716006563B9 /* OgreFiend.swift in Sources */,
 				81AD02E61C76B92B00B6C5DC /* Monster.swift in Sources */,
+				817323D71C880B8D007C2324 /* SavePlayer+CoreDataProperties.swift in Sources */,
 				81AD02ED1C76B94B00B6C5DC /* CottonFlare.swift in Sources */,
 				813C38E31C80ED1C001F9DB8 /* Whip.swift in Sources */,
 				973FD5D21C857D1A00B72B23 /* StoryScene.swift in Sources */,
@@ -1013,12 +1029,14 @@
 				81C188B61C852B7100F05BAB /* SpriteComponent.swift in Sources */,
 				817323821C86E673007C2324 /* SilkOne.swift in Sources */,
 				81C188A81C84C93200F05BAB /* LevelHelper.swift in Sources */,
+				817323DC1C8810D2007C2324 /* PlayerSkill.swift in Sources */,
 				81C188BA1C852CB000F05BAB /* GameSettings.swift in Sources */,
 				81519AB01C7F923900D6E6E7 /* SKTAudio.swift in Sources */,
 				7B108F271C7BC8C8003FC7EE /* KusanagiNoTsurugi.swift in Sources */,
 				8173237E1C86E5F9007C2324 /* CottonTwo.swift in Sources */,
 				817323581C86E232007C2324 /* AramidTwo.swift in Sources */,
 				81519AAA1C7F923900D6E6E7 /* CGVector+Extensions.swift in Sources */,
+				817323D81C880B8D007C2324 /* SavePlayer.swift in Sources */,
 				81D939AD1C7E8DA900E3313A /* SilkTrick.swift in Sources */,
 				817323861C86E6CA007C2324 /* SilkThree.swift in Sources */,
 				97E5100B1C73E6940034B575 /* GameScene.swift in Sources */,
@@ -1163,14 +1181,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = ThreadMagic/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.nononsense.ThreadMagic.co;
+				PRODUCT_BUNDLE_IDENTIFIER = io.nononsense.ThreadMagic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "ThreadMagic-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -1178,14 +1199,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = ThreadMagic/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.nononsense.ThreadMagic.co;
+				PRODUCT_BUNDLE_IDENTIFIER = io.nononsense.ThreadMagic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "ThreadMagic-Bridging-Header.h";
 			};
 			name = Release;
 		};

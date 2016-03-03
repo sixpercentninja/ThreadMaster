@@ -34,7 +34,7 @@ enum Thread: Int, CustomStringConvertible {
     
 }
 
-class Skill {
+class Skill{
     var damage: Int { return 0 }
     var attackAttribute: Attribute { return Attribute.Heat }
     var skillName: String { return "Not Implemented" }
@@ -49,6 +49,7 @@ class Skill {
     
     required init() {
     }
+    
     
     var textureAtlas: SKTextureAtlas {
         return SKTextureAtlas()

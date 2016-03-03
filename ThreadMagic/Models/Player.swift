@@ -7,15 +7,33 @@
 //
 
 import SpriteKit
+import CoreData
 
 class Player: Character {
-    static let mainPlayer = Player(imageNamed: SKTextureAtlas(named: "mainCharacter").textureNames.first!, maxHP: 50, charName: "Kumo", attribute: Attribute.Neutral)
+    static let mainPlayer = Player.test()
     
     var level: Int = 1
     var totalExperience: Int = 100 {
         didSet {
             calculateLevel()
         }
+    }
+    
+    class func test() -> Player{
+        let savePlayer = SavePlayer.currentPlayer
+        let player = Player(imageNamed: SKTextureAtlas(named: "mainCharacter").textureNames.first!, maxHP: 50, charName: "Kumo", attribute: Attribute.Neutral)
+        player.totalExperience = savePlayer.totalExperience as! Int
+        player.maxHP = savePlayer.maxHP as! Int
+
+        for playerSkill in savePlayer.playerSkill!{
+            let playerSkill = playerSkill as! PlayerSkill
+            let skillName = playerSkill.skillName!
+            let skill = SkillType(rawValue: skillName)!.singleInstance
+            skill.useCount = Int(playerSkill.useCount!)
+            player.skills[skillName] = skill
+        }
+        
+        return player
     }
     
     override init(texture: SKTexture?, color: UIColor, size: CGSize) {
@@ -64,7 +82,7 @@ class Player: Character {
         }
     }
     
-    func calculateReward(enemy: Monster){
+    func calculateReward(enemy: Monster, mapLevel: MapLevel){
         // upgrade skills
         for skill in skills.values {
             // if skill use more than upgrade
@@ -86,6 +104,50 @@ class Player: Character {
             
             let newSkill = newThread.init()
             skills[newSkill.skillName] = newSkill
+        }
+        savePlayer(mapLevel)
+        
+
+    }
+    
+    func savePlayer(mapLevel: MapLevel){
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let moc = appDelegate.managedObjectContext
+
+        let currentPlayer = SavePlayer.currentPlayer
+        currentPlayer.maxHP = self.maxHP
+        currentPlayer.totalExperience = self.totalExperience
+        currentPlayer.mapLevel = mapLevel.rawValue
+        
+        let fetchRequest = NSFetchRequest(entityName: "PlayerSkill")
+        let playerSkills: [PlayerSkill]
+        do{
+            playerSkills = try moc.executeFetchRequest(fetchRequest) as! [PlayerSkill]
+        } catch{
+            fatalError()
+        }
+        
+        for skillName in skills.keys{
+            let filteredArray = playerSkills.filter{ $0.skillName == skillName }
+            
+            let skill = skills[skillName]!
+            let dbSkill: PlayerSkill
+            if filteredArray.count > 0{
+                dbSkill = filteredArray[0]
+                dbSkill.useCount = skill.useCount
+                dbSkill.skillName = skill.skillName
+            }else{
+                let dbSkill = NSEntityDescription.insertNewObjectForEntityForName("PlayerSkill", inManagedObjectContext: moc) as! PlayerSkill
+                dbSkill.savePlayer = currentPlayer
+                dbSkill.useCount = skill.useCount
+                dbSkill.skillName = skill.skillName
+            }
+        }
+
+        do {
+            try moc.save()
+        } catch {
+            fatalError()
         }
     }
 }

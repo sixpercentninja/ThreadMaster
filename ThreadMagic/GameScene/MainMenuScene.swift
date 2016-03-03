@@ -8,6 +8,7 @@
 
 import UIKit
 import SpriteKit
+import CoreData
 
 class MainMenuScene: SKScene {
     
@@ -71,12 +72,53 @@ class MainMenuScene: SKScene {
         if let name = touchedNode.name {
 
         if name == "StartNewGame" {
+            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            let moc = appDelegate.managedObjectContext
+            
+            let fetchRequest = NSFetchRequest(entityName: "SavePlayer")
+            do{
+                let array = try moc.executeFetchRequest(fetchRequest) as! [SavePlayer]
+                for player in array{
+                    moc.deleteObject(player)
+                }
+            } catch{
+                fatalError()
+            }
+            
+            let skillFetchRequest = NSFetchRequest(entityName: "PlayerSkill")
+            do{
+                let array = try moc.executeFetchRequest(skillFetchRequest) as! [PlayerSkill]
+                for skill in array{
+                    moc.deleteObject(skill)
+                }
+            } catch{
+                fatalError()
+            }
+            
+            let player = NSEntityDescription.insertNewObjectForEntityForName("SavePlayer", inManagedObjectContext: moc) as! SavePlayer
+            
+            player.totalExperience = 100
+            player.maxHP = 50
+            do {
+                try moc.save()
+            }catch{
+                fatalError("failure to save context: \(error)")
+            }
+            
+
+            
+            
+            let transition = SKTransition.crossFadeWithDuration(1)
+            let scene = StoryScene(size:CGSize(width: 1280, height: 800))
+            self.scene!.view?.presentScene(scene, transition: transition)
+        }else if name == "Continue"{
             let transition = SKTransition.crossFadeWithDuration(1)
             let scene = StoryScene(size:CGSize(width: 1280, height: 800))
             self.scene!.view?.presentScene(scene, transition: transition)
         }
         
         else if name == "Credit" {
+            
             let transition = SKTransition.crossFadeWithDuration(1)
             let scene2 = CreditScene(size:CGSize(width: 1280, height: 800))
             self.scene!.view?.presentScene(scene2, transition: transition)

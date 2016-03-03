@@ -987,7 +987,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func evaluateGameOver(){
         if enemy.currentHp <= 0 && bossBattle {
-            mc.calculateReward(enemy)
+            mc.calculateReward(enemy, mapLevel: mapLevel)
             
             let scene = NextLevelScene(size: size)
             scene.mapLevel = mapLevel
@@ -1002,7 +1002,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if mc.currentHp <= 0 {
             scene = GameOverScene(size: size, won: false)
         }else if(enemy.currentHp <= 0){
-            mc.calculateReward(enemy)
+            mc.calculateReward(enemy, mapLevel: mapLevel)
             scene = GameOverScene(size: size, won: true)
         }else{
             return
