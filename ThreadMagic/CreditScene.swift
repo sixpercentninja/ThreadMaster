@@ -31,7 +31,7 @@ class CreditScene: SKScene {
         label.fontColor = SKColor.whiteColor()
         label.position = CGPoint(x: size.width/2, y: size.height/1.5)
         
-        let message1 = "Spell sound effects created by Mark DiAngelo, Sonidor, Mike Koenig, snottyboi, Conor,"
+        let message1 = "Character Design & Art by Yoshimi Ota"
         
         let label1 = SKLabelNode(fontNamed: "GillSans")
         label1.text = message1
@@ -39,7 +39,7 @@ class CreditScene: SKScene {
         label1.fontColor = SKColor.whiteColor()
         label1.position = CGPoint(x: size.width/2, y: size.height/2.0)
         
-        let message1a = "BlastwaveFX.com, HopeinAwe, Sound Explorer, Marianne Gagnon, Grenagen"
+        let message1a = "'Victory Fanfare' by Sakke979 http://sakke979.newgrounds.com/"
         
         let label1a = SKLabelNode(fontNamed: "GillSans")
         label1a.text = message1a
@@ -78,14 +78,14 @@ class CreditScene: SKScene {
         label5.fontColor = SKColor.whiteColor()
         label5.position = CGPoint(x: size.width/2, y: size.height/3.52)
 
-        let message6 = "'Victory Fanfare' by Sakke979 http://sakke979.newgrounds.com/"
+        let message6 = "Spell sound effects created by Mark DiAngelo, Sonidor, Mike Koenig, snottyboi, Conor,"
         let label6 = SKLabelNode(fontNamed: "GillSans")
         label6.text = message6
         label6.fontSize = 30
         label6.fontColor = SKColor.whiteColor()
         label6.position = CGPoint(x: size.width/2, y: size.height/4.1)
         
-        let message7 = "Character Art by Yoshimi Ota"
+        let message7 = "BlastwaveFX.com, HopeinAwe, Sound Explorer, Marianne Gagnon, Grenagen"
         let label7 = SKLabelNode(fontNamed: "GillSans")
         label7.text = message7
         label7.fontSize = 30
