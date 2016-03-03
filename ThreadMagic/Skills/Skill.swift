@@ -71,6 +71,33 @@ class Skill{
         return SKAction()
     }
     
+    func valuePopUp(scene: SKScene, caster: Character, target: Character, attack: Int) {
+        let bounceHigh = SKAction.moveTo(CGPoint(x: target.position.x, y: target.position.y + 30), duration: 0.3)
+        let bounceDown = SKAction.moveTo(CGPoint(x: target.position.x, y: target.position.y - 30), duration: 0.6)
+        let bounceHighLite = SKAction.moveTo(CGPoint(x: target.position.x, y: target.position.y - 10), duration: 0.2)
+        let bounceDownLite = SKAction.moveTo(CGPoint(x: target.position.x, y: target.position.y - 40), duration: 0.3)
+        let waitDuration = SKAction.waitForDuration(1.0)
+        let sequence = SKAction.sequence([bounceHigh, bounceDown, bounceHighLite, bounceDownLite, waitDuration])
+        
+        
+        let getDamaged = SKLabelNode()
+        
+        
+        getDamaged.text = "\(attack)"
+        getDamaged.zPosition = 1.1
+        getDamaged.position = CGPoint(x: target.position.x, y: target.position.y)
+        
+        getDamaged.fontColor = SKColor.redColor()
+        getDamaged.fontSize = 45.0
+        getDamaged.fontName = "Optima-ExtraBlack"
+
+        scene.addChild(getDamaged)
+        
+        getDamaged.runAction(sequence) { () -> Void in
+            getDamaged.removeFromParent()
+        }
+    }
+    
     func calculate(enemyAttribute: Attribute) -> Int {
         return calculateDamageWithAttributes(damage, attackAttribute: attackAttribute, enemyAttribute: enemyAttribute)
     }

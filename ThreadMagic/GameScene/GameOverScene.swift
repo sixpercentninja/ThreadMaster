@@ -37,7 +37,7 @@ class GameOverScene: SKScene {
                 addChild(bg)
             
             
-            let duration = SKAction.waitForDuration(2.0)
+            let duration = SKAction.waitForDuration(0.5)
             
             self.runAction(duration, completion: { () -> Void in
                 let button = UIButton(type: UIButtonType.System) as UIButton

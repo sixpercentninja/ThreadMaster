@@ -30,7 +30,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var enemyLifeBar = SKSpriteNode()
     var enemyLife = CGFloat()
     
-    var getDamaged = SKLabelNode()
+
     
     var rawPoints:[Int] = []
     var recognizer: DBPathRecognizer?
@@ -197,7 +197,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             else if name == "Whip" {
                 removeAllObjects()
-                addSpellBookDetail(Whip())
+                if let skill = self.mc.skills["Whip"]{
+                    addSpellBookDetail(skill)
+                }else{
+                    addSpellBookDetail(Whip())
+                }
                 self.backArrow.name = "back to pg 1"
                 self.backArrow.userInteractionEnabled = false
                 self.cancelButton.name = "cancelButton"
@@ -205,7 +209,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
             else if name == "Constrict" {
                 removeAllObjects()
-                addSpellBookDetail(Constrict())
+                if let skill = self.mc.skills["Constrict"]{
+                    addSpellBookDetail(skill)
+                }else{
+                    addSpellBookDetail(Constrict())
+                }
                 self.backArrow.name = "back to pg 1"
                 self.backArrow.userInteractionEnabled = false
                 self.cancelButton.name = "cancelButton"
@@ -214,16 +222,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 
             else if name == "Thrash" {
                 removeAllObjects()
-                addSpellBookDetail(Thrash())
+                if let skill = self.mc.skills["Thrash"]{
+                    addSpellBookDetail(skill)
+                }else{
+                    addSpellBookDetail(Thrash())
+                }
                 self.backArrow.name = "back to pg 1"
                 self.backArrow.userInteractionEnabled = false
                 self.cancelButton.name = "cancelButton"
                 self.cancelButton.userInteractionEnabled = false
             }
-             
+                
             else if name == "Aramid Ward" {
                 removeAllObjects()
-                addSpellBookDetail(AramidWard())
+                if let skill = self.mc.skills["Aramid Ward"]{
+                    addSpellBookDetail(skill)
+                }else{
+                    addSpellBookDetail(AramidWard())
+                }
                 self.backArrow.name = "back to pg 1"
                 self.backArrow.userInteractionEnabled = false
                 self.cancelButton.name = "cancelButton"
@@ -232,7 +248,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 
             else if name == "Aramid Guard" {
                 removeAllObjects()
-                addSpellBookDetail(AramidGuard())
+                if let skill = self.mc.skills["Aramid Guard"]{
+                    addSpellBookDetail(skill)
+                }else{
+                    addSpellBookDetail(AramidGuard())
+                }
                 self.backArrow.name = "back to pg 1"
                 self.backArrow.userInteractionEnabled = false
                 self.cancelButton.name = "cancelButton"
@@ -241,7 +261,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 
             else if name == "Aegis' Last Stand" {
                 removeAllObjects()
-                addSpellBookDetail(AegisLastStand())
+                if let skill = self.mc.skills["Aegis' Last Stand"]{
+                    addSpellBookDetail(skill)
+                }else{
+                    addSpellBookDetail(AegisLastStand())
+                }
                 self.backArrow.name = "back to pg 1"
                 self.backArrow.userInteractionEnabled = false
                 self.cancelButton.name = "cancelButton"
@@ -250,7 +274,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 
             else if name == "Cotton Blaze" {
                 removeAllObjects()
-                addSpellBookDetail(CottonBlaze())
+                if let skill = self.mc.skills["Cotton Blaze"]{
+                    addSpellBookDetail(skill)
+                }else{
+                    addSpellBookDetail(CottonBlaze())
+                }
                 self.backArrow.name = "back to pg 2"
                 self.backArrow.userInteractionEnabled = false
                 self.cancelButton.name = "cancelButton"
@@ -259,25 +287,37 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 
             else if name == "Cotton Flare" {
                 removeAllObjects()
-                addSpellBookDetail(CottonFlare())
+                if let skill = self.mc.skills["Cotton Flare"]{
+                    addSpellBookDetail(skill)
+                }else{
+                    addSpellBookDetail(CottonFlare())
+                }
                 self.backArrow.name = "back to pg 2"
                 self.backArrow.userInteractionEnabled = false
                 self.cancelButton.name = "cancelButton"
                 self.cancelButton.userInteractionEnabled = false
             }
-            
+                
             else if name == "Wildfire" {
                 removeAllObjects()
-                addSpellBookDetail(WildFire())
+                if let skill = self.mc.skills["Wildfire"]{
+                    addSpellBookDetail(skill)
+                }else{
+                    addSpellBookDetail(WildFire())
+                }
                 self.backArrow.name = "back to pg 2"
                 self.backArrow.userInteractionEnabled = false
                 self.cancelButton.name = "cancelButton"
                 self.cancelButton.userInteractionEnabled = false
             }
-            
+                
             else if name == "Silk Trick" {
                 removeAllObjects()
-                addSpellBookDetail(SilkTrick())
+                if let skill = self.mc.skills["Silk Trick"]{
+                    addSpellBookDetail(skill)
+                }else{
+                    addSpellBookDetail(SilkTrick())
+                }
                 self.backArrow.name = "back to pg 2"
                 self.backArrow.userInteractionEnabled = false
                 self.cancelButton.name = "cancelButton"
@@ -286,7 +326,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 
             else if name == "Silk Daze" {
                 removeAllObjects()
-                addSpellBookDetail(SilkDaze())
+                if let skill = self.mc.skills["Silk Daze"]{
+                    addSpellBookDetail(skill)
+                }else{
+                    addSpellBookDetail(SilkDaze())
+                }
                 self.backArrow.name = "back to pg 2"
                 self.backArrow.userInteractionEnabled = false
                 self.cancelButton.name = "cancelButton"
@@ -295,7 +339,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 
             else if name == "Piece De Resistance" {
                 removeAllObjects()
-                addSpellBookDetail(PieceDeResistance())
+                if let skill = self.mc.skills["Piece De Resistance"]{
+                    addSpellBookDetail(skill)
+                }else{
+                    addSpellBookDetail(PieceDeResistance())
+                }
                 self.backArrow.name = "back to pg 2"
                 self.backArrow.userInteractionEnabled = false
                 self.cancelButton.name = "cancelButton"
@@ -304,7 +352,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 
             else if name == "Rayon Strike" {
                 removeAllObjects()
-                addSpellBookDetail(RayonStrike())
+                if let skill = self.mc.skills["Rayon Strike"]{
+                    addSpellBookDetail(skill)
+                }else{
+                    addSpellBookDetail(RayonStrike())
+                }
                 self.cancelButton.name = "cancelButton"
                 self.cancelButton.userInteractionEnabled = false
                 self.backArrow.name = "to pg 3"
@@ -313,7 +365,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 
             else if name == "Rayon Bash" {
                 removeAllObjects()
-                addSpellBookDetail(RayonBash())
+                if let skill = self.mc.skills["Rayon Bash"]{
+                    addSpellBookDetail(skill)
+                }else{
+                    addSpellBookDetail(RayonBash())
+                }
                 self.cancelButton.name = "cancelButton"
                 self.cancelButton.userInteractionEnabled = false
                 self.backArrow.name = "to pg 3"
@@ -322,7 +378,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 
             else if name == "Kusanagi No Tsurugi" {
                 removeAllObjects()
-                addSpellBookDetail(KusanagiNoTsurugi())
+                if let skill = self.mc.skills["Kusanagi No Tsurugi"]{
+                    addSpellBookDetail(skill)
+                }else{
+                    addSpellBookDetail(KusanagiNoTsurugi())
+                }
                 self.cancelButton.name = "cancelButton"
                 self.cancelButton.userInteractionEnabled = false
                 self.backArrow.name = "to pg 3"
@@ -380,26 +440,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             if let skill = mc.skills[castedSpell]{
                 skill.animateAction(self, caster: mc, target: enemy, completion: { () -> Void in
-                    let bounceHigh = SKAction.moveTo(CGPoint(x: self.enemy.position.x, y: self.enemy.position.y + 30), duration: 0.3)
-                    let bounceDown = SKAction.moveTo(CGPoint(x: self.enemy.position.x, y: self.enemy.position.y - 30), duration: 0.6)
-                    let bounceHighLite = SKAction.moveTo(CGPoint(x: self.enemy.position.x, y: self.enemy.position.y - 10), duration: 0.2)
-                    let bounceDownLite = SKAction.moveTo(CGPoint(x: self.enemy.position.x, y: self.enemy.position.y - 40), duration: 0.3)
-                    let waitDuration = SKAction.waitForDuration(1.0)
-                    let sequence = SKAction.sequence([bounceHigh, bounceDown, bounceHighLite, bounceDownLite, waitDuration])
-
-                    self.getDamaged.text = "\(skill.damage)"
-                    self.getDamaged.zPosition = 1.1
-                    self.getDamaged.position = CGPoint(x: self.enemy.position.x, y: self.enemy.position.y)
-                    self.labelDefaultSettingsDamage(45.0, label: self.getDamaged)
-                    self.addChild(self.getDamaged)
-                    
-                    self.getDamaged.runAction(sequence) { () -> Void in
-                        self.getDamaged.removeFromParent()
-                        self.evaluateGameOver()
-                        self.enemyRetaliation()
-                    }
-
-                    
+                    self.evaluateGameOver()
+                    self.enemyRetaliation()
                 })
             }else{
                 self.userInteractionEnabled = true
@@ -799,7 +841,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         skillUseTillLevel.position = CGPoint(x: spellBookButton.position.x - 225, y: spellBookButton.position.y - 175)
         skillUseTillLevel.zPosition = spellBookButton.zPosition + 0.1
         
-        skillUseNumberLabel.text = String(spellClass.upgradeValue - spellClass.useCount)
+        skillUseNumberLabel.text = String("\(spellClass.useCount)/\(spellClass.upgradeValue)")
         skillUseNumberLabel.position = CGPoint(x: spellBookButton.position.x - 225, y: spellBookButton.position.y - 225)
         skillUseNumberLabel.zPosition = spellBookButton.zPosition + 0.1
 
@@ -1053,24 +1095,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             enemy.runAction(waitAttack) { () -> Void in
             skill.animateAction(self, caster: self.enemy, target: self.mc, completion: { () -> Void in
                 
-                let bounceHigh = SKAction.moveTo(CGPoint(x: self.mc.position.x, y: self.mc.position.y + 30), duration: 0.3)
-                let bounceDown = SKAction.moveTo(CGPoint(x: self.mc.position.x, y: self.mc.position.y - 30), duration: 0.6)
-                let bounceHighLite = SKAction.moveTo(CGPoint(x: self.mc.position.x, y: self.mc.position.y - 10), duration: 0.2)
-                let bounceDownLite = SKAction.moveTo(CGPoint(x: self.mc.position.x, y: self.mc.position.y - 40), duration: 0.3)
-                let waitDuration = SKAction.waitForDuration(1.0)
-                let sequence = SKAction.sequence([bounceHigh, bounceDown, bounceHighLite, bounceDownLite, waitDuration])
-                
-                self.getDamaged.text = "\(skill.damage)"
-                self.getDamaged.zPosition = 1.1
-                self.getDamaged.position = CGPoint(x: self.mc.position.x, y: self.mc.position.y)
-                self.labelDefaultSettingsDamage(55.0, label: self.getDamaged)
-                self.addChild(self.getDamaged)
-                
-                self.getDamaged.runAction(sequence) { () -> Void in
-                    self.getDamaged.removeFromParent()
-                    self.evaluateGameOver()
-                    self.userInteractionEnabled = true
-                }
+                self.evaluateGameOver()
+                self.userInteractionEnabled = true
 
             })
          }
