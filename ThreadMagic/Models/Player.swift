@@ -65,6 +65,16 @@ class Player: Character {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func attack(enemy: Character, skillName: String) {
+        if let skill = skills[skillName]{
+            var damage = skill.calculate(enemy.attribute)
+            let levelMultiplier = 1.0 + (0.1 * Double(level))
+            damage = Int(Double(damage) * levelMultiplier)
+            enemy.currentHp -= damage
+            enemy.currentHp = max(0, enemy.currentHp )
+        }
+    }
+    
     func calculateLevel(){
         let oldLevel = level
         let multiplier = Double(totalExperience)/100.0
