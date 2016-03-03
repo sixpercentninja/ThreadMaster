@@ -51,21 +51,22 @@ class GameOverScene: SKScene {
             })
         
         } else {
-            
+            SKTAudio.sharedInstance().playBackgroundMusic("The Haunting.mp3")
+
             backgroundColor = SKColor.blackColor()
 
             let message = "Game Over..."
             
             let label = SKLabelNode(fontNamed: "Papyrus")
             label.text = message
-            label.fontSize = 40
+            label.fontSize = 55
             label.fontColor = SKColor.redColor()
             label.position = CGPoint(x: size.width/2, y: size.height/2)
             addChild(label)
             
             
             runAction(SKAction.sequence([
-                SKAction.waitForDuration(4.0), SKAction.runBlock() {
+                SKAction.waitForDuration(5.0), SKAction.runBlock() {
                     let reveal = SKTransition.flipHorizontalWithDuration(0.5)
                     let scene = self.worldMapScene
                     self.view?.presentScene(scene, transition: reveal)
