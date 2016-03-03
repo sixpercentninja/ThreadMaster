@@ -52,7 +52,12 @@ enum tileType: Int, CustomStringConvertible {
     case tree3 = 132
     case tree4 = 133
     case tree5 = 134
+    //tree
+    case tree0empty = 141
+    case tree1empty = 140
+
     
+    static let allTiles = [tileStart, tileEnd, tileGrass, tileRock0, tileRock1, tileRock2, tileRock3, tileRock4, tileRock5, tileRock6, tileRock7, tileRock8, tileStone0, tileStone1, tileStone2, tileStone3, tileStone4, tileStone5, tileStone6, tileStone7, tileStone8, clifftop0, clifftop1, clifftop2, cliffbody0, cliffbody1, cliffbody2, cliffbody3, cliffbottom0, cliffbottom1, cliffbottom2, tree0, tree1, tree2, tree3, tree4, tree5]
     
     var description: String {
         switch self {
@@ -132,6 +137,10 @@ enum tileType: Int, CustomStringConvertible {
             return "tree4"
         case tree5:
             return "tree5"
+        case .tree0empty:
+            return "tree0"
+        case .tree1empty:
+            return "tree1"
         }
     }
     
@@ -213,12 +222,17 @@ enum tileType: Int, CustomStringConvertible {
             return ColliderType.Obstacle.rawValue
         case tree5:
             return ColliderType.Obstacle.rawValue
+        case .tree0empty:
+            return ColliderType.Obstacle.rawValue
+        case .tree1empty:
+            return ColliderType.Obstacle.rawValue
         }
     }
 }
 
 protocol tileMapDelegate {
     func createNodeOf(type type: tileType, location: CGPoint)
+    func createGrassNode(type type: tileType, location: CGPoint)
 }
 
 struct tileMap {
@@ -266,6 +280,19 @@ struct tileMap {
                     location: CGPoint(
                         x: tileSize.width * CGFloat(indexc),
                         y: tileSize.height * CGFloat(-indexr)))
+                }
+            }
+        }
+    }
+    
+    func createGrassLayers(){
+        for (indexr, row) in tileLayer.enumerate() {
+            for (indexc, cvalue) in row.enumerate() {
+                if (delegate != nil) {
+                    delegate!.createGrassNode(type: tileType(rawValue: cvalue)!,
+                        location: CGPoint(
+                            x: tileSize.width * CGFloat(indexc),
+                            y: tileSize.height * CGFloat(-indexr)))
                 }
             }
         }

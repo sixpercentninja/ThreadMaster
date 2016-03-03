@@ -17,7 +17,6 @@ class WorldMapScene: SKScene, tileMapDelegate, SKPhysicsContactDelegate, PlayerE
     var guiLayer = SKNode()
     var enemyLayer = SKNode()
     var overlayLayer = SKNode()
-    let atlasTiles = SKTextureAtlas(named: "Tiles")
     var entities = Set<GKEntity>()
     
     var lastUpdateTimeInterval: NSTimeInterval = 0
@@ -29,6 +28,9 @@ class WorldMapScene: SKScene, tileMapDelegate, SKPhysicsContactDelegate, PlayerE
     var engagedEnemy = false
     
     var mapLevel: MapLevel!
+    var firstLoad = true
+    
+    var tiles: [String: SKTexture]!
     
     lazy var componentSystems: [GKComponentSystem] = {
         let animationSystem = GKComponentSystem(componentClass:
@@ -39,6 +41,7 @@ class WorldMapScene: SKScene, tileMapDelegate, SKPhysicsContactDelegate, PlayerE
     }()
     
     init(size: CGSize, mapLevel: MapLevel) {
+        
         super.init(size: size)
         self.mapLevel = mapLevel
         //Delegates
@@ -58,17 +61,30 @@ class WorldMapScene: SKScene, tileMapDelegate, SKPhysicsContactDelegate, PlayerE
         camera!.addChild(guiLayer)
         guiLayer.addChild(overlayLayer)
         worldLayer.addChild(enemyLayer)
+        worldLayer.name = "worldLayer"
+    
+        let atlasTiles = SKTextureAtlas(named: "Tiles")
+        tiles = [:]
+        for name in atlasTiles.textureNames{
+            let parsedName = name.stringByReplacingOccurrencesOfString(".png", withString: "")
+            tiles[parsedName] = atlasTiles.textureNamed(parsedName)
+        }
         
-        setupLevel()
+        
+        
     }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
     override func didMoveToView(view: SKView) {
-        
         updateCameraScale()
+        if(firstLoad){
+            firstLoad = false
+            setupLevel()
+        }
     }
     
     override func update(currentTime: NSTimeInterval) {
@@ -81,16 +97,14 @@ class WorldMapScene: SKScene, tileMapDelegate, SKPhysicsContactDelegate, PlayerE
             componentSystem.updateWithDeltaTime(deltaTime)
         }
         
-        if let player = worldLayer.childNodeWithName("playerNode") as? EntityNode
-        {
-            centerCameraOnPoint(player.position)
-        }
+        centerCameraOnPoint(playerEntity.spriteComponent.node.position)
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         let touch = touches.first
         let location = touch!.locationInNode(self)
         sceneTouched(location)
+//        centerCameraOnPoint(location)
     }
     
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -113,15 +127,52 @@ class WorldMapScene: SKScene, tileMapDelegate, SKPhysicsContactDelegate, PlayerE
 
     
     func setupLevel() {
-        worldGen.generateLevel(0)
-        
+        worldGen.generateLevel(100)
+//        createBackground()
         worldGen.generateMap(mapLevel)
         worldGen.presentLayerViaDelegate()
+        
+        worldLayer.enumerateChildNodesWithName("*") {
+            node, stop in
+            if (node is SKSpriteNode) {
+                switch node.name!{
+                case "tree0", "tree1":
+                    node.physicsBody = SKPhysicsBody(edgeLoopFromRect: CGRect(origin:
+                        CGPoint(x: -16, y: -32), size: CGSize(width: 32, height: 32)))
+                    node.physicsBody?.categoryBitMask = ColliderType.Obstacle.rawValue
+                case "cliffbottom1", "clifftop1":
+                    node.physicsBody = SKPhysicsBody(edgeLoopFromRect: CGRect(origin:
+                    CGPoint(x: -16, y: -16), size: CGSize(width: 32, height: 32)))
+                    node.physicsBody?.categoryBitMask = ColliderType.Obstacle.rawValue
+                default:
+                    break
+                }
+            }
+        }
+    }
+    
+    func createBackground() {
+        worldGen.createGrassLayers()
+        let texture = scene!.view?.textureFromNode(worldLayer)
+        let node = SKSpriteNode(texture: texture)
+        
+        worldLayer.removeAllChildren()
+        worldLayer.addChild(node)
+    }
+    
+    func createGrassNode(type type: tileType, location: CGPoint) {
+        switch type {
+        default:
+            loadAndDisplaySingleTile(type, location: location)
+            break
+        }
     }
     
     func createNodeOf(type type: tileType, location: CGPoint) {
         switch type {
-        case .tree0, .tree1, .tree2, .tree3, .tree4, .tree5:
+//        case .tileGrass:
+//            break
+        case .tree0, .tree1, .tree2, .tree3, .tree4, .tree5, .tree0empty, .tree1empty:
             loadAndDisplayDoubleTile(type, location: location)
         case .tileStart:
             loadAndDisplaySingleTile(type, location: location)
@@ -132,7 +183,7 @@ class WorldMapScene: SKScene, tileMapDelegate, SKPhysicsContactDelegate, PlayerE
             playerNode.zPosition = 2
             playerNode.anchorPoint = CGPointMake(0.5, 0.2)
             playerEntity.animationComponent.requestedAnimationState = .Walk_Down
-            addEntity(playerEntity)
+            addEntityToEnemyLayer(playerEntity)
         case .tileEnd:
             
             loadAndDisplaySingleTile(type, location: location)
@@ -142,7 +193,7 @@ class WorldMapScene: SKScene, tileMapDelegate, SKPhysicsContactDelegate, PlayerE
             enemyNode.name = "enemyNode"
             enemyNode.zPosition = 2
             enemyNode.anchorPoint = CGPointMake(0.5, 0.2)
-            addEntity(bossEntity)
+            addEntityToEnemyLayer(bossEntity)
         default:
             loadAndDisplaySingleTile(type, location: location)
             break
@@ -150,26 +201,24 @@ class WorldMapScene: SKScene, tileMapDelegate, SKPhysicsContactDelegate, PlayerE
     }
     
     func loadAndDisplaySingleTile(type: tileType, location: CGPoint){
-        let node = SKSpriteNode(texture: atlasTiles.textureNamed(type.description))
+        
+        let node = SKSpriteNode(texture: tiles[type.description])
         node.size = CGSize(width: 32, height: 32)
         node.position = location
         node.zPosition = 1
         node.name = type.description
-        node.physicsBody = SKPhysicsBody(edgeLoopFromRect: CGRect(origin:
-            CGPoint(x: -16, y: -16), size: CGSize(width: 32, height: 32)))
-        node.physicsBody?.categoryBitMask = type.categoryBitMask
+//        node.physicsBody = SKPhysicsBody(edgeLoopFromRect: CGRect(origin:
+//            CGPoint(x: -16, y: -16), size: CGSize(width: 32, height: 32)))
+//        node.physicsBody?.categoryBitMask = type.categoryBitMask
         worldLayer.addChild(node)
     }
     
     func loadAndDisplayDoubleTile(type: tileType,  location: CGPoint){
-        let node = SKSpriteNode(texture: atlasTiles.textureNamed(type.description))
+        let node = SKSpriteNode(texture: tiles[type.description])
         node.size = CGSize(width: 32, height: 64)
         node.position = CGPoint(x: location.x, y: location.y + 16)
         node.zPosition = 1
         node.name = type.description
-        node.physicsBody = SKPhysicsBody(edgeLoopFromRect: CGRect(origin:
-            CGPoint(x: -16, y: -32), size: CGSize(width: 32, height: 32)))
-        node.physicsBody?.categoryBitMask = type.categoryBitMask
 
         worldLayer.addChild(node)
     }
@@ -195,6 +244,18 @@ class WorldMapScene: SKScene, tileMapDelegate, SKPhysicsContactDelegate, PlayerE
             componentSystem.addComponentWithEntity(entity)
         }
     }
+    
+    func addEntityToEnemyLayer(entity: GKEntity) {
+        entities.insert(entity)
+        if let spriteNode =
+            entity.componentForClass(SpriteComponent.self)?.node {
+                enemyLayer.addChild(spriteNode)
+        }
+        for componentSystem in self.componentSystems {
+            componentSystem.addComponentWithEntity(entity)
+        }
+    }
+    
     
     func didBeginContact(contact: SKPhysicsContact) {
         let collision = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask

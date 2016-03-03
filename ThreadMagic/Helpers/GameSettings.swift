@@ -34,7 +34,7 @@ struct playerSettings {
 }
 
 struct encounterSettings{
-    static let encounterValue: CGFloat = 0.01
+    static let encounterValue: CGFloat = 0.00
 }
 
 enum ColliderType:UInt32 {
