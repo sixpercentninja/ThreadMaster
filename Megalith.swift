@@ -12,7 +12,7 @@ import SpriteKit
 class Megalith: Monster {
     
     let displayImageName = "golem.png"
-    override var expGiven: Int { return 600 }
+    override var expGiven: Int { return 400 }
     
     override init(texture: SKTexture?, color: UIColor, size: CGSize) {
         super.init(texture: texture, color: color, size: size)

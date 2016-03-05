@@ -20,7 +20,7 @@ class SilkTrick: Skill {
     required init() {
         super.init()
         self.gestures = [0,1,2,3,4,5,6,7]
-        upgradedSkill = SilkTrick.self
+        upgradedSkill = SilkDaze.self
     }
     
     override var textureAtlas: SKTextureAtlas {
