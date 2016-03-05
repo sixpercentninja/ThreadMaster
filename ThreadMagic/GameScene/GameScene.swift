@@ -728,8 +728,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if(mc.skills.keys.contains("Cotton Blaze")){
             addChild(cottonSpellTwo)
         }
-        if(mc.skills.keys.contains("Wild Fire")){
-            addChild(aramidSpellOne)
+        if(mc.skills.keys.contains("Wildfire")){
+            addChild(cottonSpellThree)
         }
         if(mc.skills.keys.contains("Silk Trick")){
             addChild(silkSpellOne)
@@ -788,7 +788,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if(mc.skills.keys.contains("Rayon Bash")){
             addChild(rayonSpellTwo)
         }
-        if(mc.skills.keys.contains("Kusanogi No Tsurugi")){
+        if(mc.skills.keys.contains("Kusanagi No Tsurugi")){
             addChild(rayonSpellThree)
         }
     }

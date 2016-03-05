@@ -18,13 +18,13 @@ enum SkillType: String {
     case aegisLastStand = "Aegis' Last Stand"
     case cottonFlare    = "Cotton Flare"
     case cottonBlaze    = "Cotton Blaze"
-    case wildFire       = "Wild Fire"
+    case wildFire       = "Wildfire"
     case silkTrick      = "Silk Trick"
     case silkDaze       = "Silk Daze"
     case pieceDeResistance = "Pièce de Résistance"
     case rayonStrike        = "Rayon Strike"
     case rayonBash          = "Rayon Bash"
-    case kusanagiNoTsurugi  = "Kusanogi No Tsurugi"
+    case kusanagiNoTsurugi  = "Kusanagi No Tsurugi"
     
     static let allSkills = [spiderWeb, whip, constrict, thrash, aramidWard, aramidGuard, aegisLastStand, cottonFlare, cottonBlaze, wildFire, silkTrick, silkDaze, pieceDeResistance, rayonStrike, rayonBash, kusanagiNoTsurugi,]
     

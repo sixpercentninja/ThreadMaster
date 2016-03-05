@@ -45,20 +45,20 @@ class Player: Character {
         totalExperience = 0
         super.init(imageNamed: imageNamed, maxHP: maxHP, charName: charName, attribute: attribute)
         self.skills["Whip"] = Whip()
-//        self.skills["Constrict"] = Constrict()
-//        self.skills["Thrash"] = Thrash()
-//        self.skills["Cotton Flare"] = CottonFlare()
-//        self.skills["Cotton Blaze"] = CottonBlaze()
-//        self.skills["Wildfire"] = WildFire()
-//        self.skills["Silk Trick"] = SilkTrick()
-//        self.skills["Silk Daze"] = SilkDaze()
-//        self.skills["Pièce de Résistance"] = PieceDeResistance()
-//        self.skills["Aramid Ward"] = AramidWard()
-//        self.skills["Aramid Guard"] = AramidGuard()
-//        self.skills["Aegis' Last Stand"] = AegisLastStand()
-//        self.skills["Rayon Strike"] = RayonStrike()
-//        self.skills["Rayon Bash"] = RayonBash()
-//        self.skills["Kusanagi No Tsurugi"] = KusanagiNoTsurugi()
+        self.skills["Constrict"] = Constrict()
+        self.skills["Thrash"] = Thrash()
+        self.skills["Cotton Flare"] = CottonFlare()
+        self.skills["Cotton Blaze"] = CottonBlaze()
+        self.skills["Wildfire"] = WildFire()
+        self.skills["Silk Trick"] = SilkTrick()
+        self.skills["Silk Daze"] = SilkDaze()
+        self.skills["Pièce de Résistance"] = PieceDeResistance()
+        self.skills["Aramid Ward"] = AramidWard()
+        self.skills["Aramid Guard"] = AramidGuard()
+        self.skills["Aegis' Last Stand"] = AegisLastStand()
+        self.skills["Rayon Strike"] = RayonStrike()
+        self.skills["Rayon Bash"] = RayonBash()
+        self.skills["Kusanagi No Tsurugi"] = KusanagiNoTsurugi()
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -94,7 +94,7 @@ class Player: Character {
     func calculateLevel(){
         let oldLevel = level
         let multiplier = Double(totalExperience)/100.0
-        let newLevel = logWithBase(1.7, value: Double(multiplier))
+        let newLevel = logWithBase(1.5, value: Double(multiplier))
         self.level = Int(newLevel) + 1
         // for every level increase
         for _ in (0..<self.level - oldLevel){
